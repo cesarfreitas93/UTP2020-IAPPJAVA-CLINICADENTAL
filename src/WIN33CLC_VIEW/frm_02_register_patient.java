@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.json.JSONException;
 
 /**
@@ -130,14 +131,32 @@ public class frm_02_register_patient extends javax.swing.JFrame {
 
     private void btn_buscar_reniecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reniecActionPerformed
         try {
-            Patient entidad = new Patient();
-            // TODO add your handling code here:
-            CTR_02_Patient ctr = new  CTR_02_Patient();
-            entidad = ctr.SearchReniec(txt_dni.getText());
-            
-            txt_name.setText(entidad.getName());
-            txt_apellidoPAT.setText(entidad.getLastname());
-            txt_apellidoMAT.setText(entidad.getSurename());
+            if(txt_dni.getText().length() >= 8){
+                CTR_02_Patient ctr = new  CTR_02_Patient();
+                Patient entidad = new Patient();
+                //buscar si existe el paciente el la base de datos
+                try {
+                    entidad = ctr.CheckDNI(txt_dni.getText());
+                } catch (Exception e) {
+                    //JOptionPane.showMessageDialog(null, e.getMessage(),
+                    //"Dental SyS", JOptionPane.WARNING_MESSAGE);
+                    
+                    //muestra los datos de la reniec en el fomrulario
+                    entidad = ctr.SearchReniec(txt_dni.getText());
+                    txt_name.setText(entidad.getName());
+                    txt_apellidoPAT.setText(entidad.getLastname());
+                    txt_apellidoMAT.setText(entidad.getSurename());
+                }
+                if(entidad.getId() != 0){
+                    // existe el dni
+                    // despliega un mensaje
+                    JOptionPane.showMessageDialog(null, "El DNI ingresado ya existe!",
+                    "Dental SyS", JOptionPane.WARNING_MESSAGE);
+                }
+            }else{
+                 JOptionPane.showMessageDialog(null, "Ingrese el DNI",
+                    "Dental SyS", JOptionPane.WARNING_MESSAGE);
+            }
             
         } catch (IOException ex) {
             Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);

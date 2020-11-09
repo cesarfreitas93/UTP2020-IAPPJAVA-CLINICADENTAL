@@ -8,9 +8,11 @@ package WIN32CLC_CTR;
 import WIN30CLC_DAO.DaoException;
 import WIN30CLC_DAO.MYSQL.MySqlDaoManager;
 import WIN31CLC_DTO.Patient;
+import WIN32CLC_TABLEMODELS.PatientsTableModel;
 import static WIN_2020_UTILS.JsonReader.readJsonFromUrl;
 import java.io.IOException;
 import java.sql.SQLException;
+import javax.swing.table.AbstractTableModel;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -38,10 +40,25 @@ public class CTR_02_Patient {
         return patient;
     }
     
+    public Patient CheckDNI(String DNI)throws SQLException, DaoException{
+        MySqlDaoManager man = new MySqlDaoManager();
+        return man.getDaoPatient().ChekDNI(DNI);
+    }
+    
     public boolean InsertPatient(Patient entity) throws SQLException, DaoException{
         MySqlDaoManager man = new MySqlDaoManager();
-        //Patient result = new Patient();
         man.getDaoPatient().rlInsert(entity);
         return true;
+    }
+    
+    
+    private PatientsTableModel  model;
+
+    public AbstractTableModel ListPatients() throws DaoException, SQLException{
+        MySqlDaoManager man = new MySqlDaoManager();
+        this.model = new PatientsTableModel(man.getDaoPatient());
+        this.model.updateModel();
+        this.model.fireTableDataChanged();
+        return this.model;
     }
 }

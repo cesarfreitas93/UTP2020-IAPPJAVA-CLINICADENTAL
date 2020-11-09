@@ -5,12 +5,12 @@
  */
 package WIN30CLC_DAO;
 
-import WIN31CLC_DTO.Patient;
+import WIN31CLC_DTO.Specialist;
 
 /**
  *
  * @author Cesar
  */
-public interface Dao_02_Patient extends Dao<Patient, Long>{
-    public Patient ChekDNI(String dni) throws DaoException;
+public interface Dao_04_Specialist extends Dao<Specialist, Long>{
+    
 }

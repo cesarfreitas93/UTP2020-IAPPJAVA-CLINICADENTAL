@@ -9,6 +9,8 @@ import WIN30CLC_DAO.DaoException;
 import WIN30CLC_DAO.DaoManager;
 import WIN30CLC_DAO.Dao_01_Auth;
 import WIN30CLC_DAO.Dao_02_Patient;
+import WIN30CLC_DAO.Dao_03_Services;
+import WIN30CLC_DAO.Dao_04_Specialist;
 import java.sql.DriverManager;
 import java.sql.*;
 
@@ -20,6 +22,8 @@ public class MySqlDaoManager implements DaoManager{
     
     private Dao_01_Auth DaoAuht = null;
     private Dao_02_Patient DaoPatient = null;
+    private Dao_03_Services services = null;
+    private Dao_04_Specialist specialist = null;
     
     protected String db_name, db_url , db_user, db_pass;
     protected java.sql.Connection connection_  = null;
@@ -42,9 +46,25 @@ public class MySqlDaoManager implements DaoManager{
     @Override
     public Dao_02_Patient getDaoPatient() {
         if(DaoPatient == null){
-            DaoPatient = new Mysql_02_DaoPatient(connection_);
+            DaoPatient = new MySql_02_DaoPatient(connection_);
         }
         return DaoPatient;
+    }
+
+    @Override
+    public Dao_03_Services getDaoService() {
+        if(services == null){
+            services = new MySql_03_DaoService(connection_);
+        }
+        return services;
+    }
+
+    @Override
+    public Dao_04_Specialist getDaoSpecialist() {
+        if(specialist == null){
+            specialist = new MySql_04_DaoSpecialist(connection_);
+        }
+        return specialist;
     }
     
     
