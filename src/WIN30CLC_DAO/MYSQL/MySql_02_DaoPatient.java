@@ -25,6 +25,7 @@ import java.util.List;
 public class MySql_02_DaoPatient implements Dao_02_Patient{
 
     private Connection conn;
+    
     public MySql_02_DaoPatient(Connection conn) {
         this.conn = conn;
     }
