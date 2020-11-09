@@ -7,9 +7,13 @@ package WIN33CLC_VIEW;
 
 import WIN30CLC_DAO.DaoException;
 import WIN32CLC_CTR.CTR_02_Patient;
+import java.awt.Component;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -39,6 +43,13 @@ public class frm_02_Patient extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        this.tablePatients.setDefaultRenderer(JButton.class, new TableCellRenderer(){
+            @Override
+            public Component getTableCellRendererComponent(JTable jtable, Object objeto, boolean estaSeleccionado, boolean tieneElFoco, int fila, int columna) {
+                return (Component) objeto;
+            }
+        });
     }
     /**
      * This method is called from within the constructor to initialize the form.
