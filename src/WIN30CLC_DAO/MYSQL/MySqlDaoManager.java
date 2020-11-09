@@ -11,6 +11,7 @@ import WIN30CLC_DAO.Dao_01_Auth;
 import WIN30CLC_DAO.Dao_02_Patient;
 import WIN30CLC_DAO.Dao_03_Services;
 import WIN30CLC_DAO.Dao_04_Specialist;
+import WIN30CLC_DAO.Dao_05_Citas;
 import java.sql.DriverManager;
 import java.sql.*;
 
@@ -24,6 +25,7 @@ public class MySqlDaoManager implements DaoManager{
     private Dao_02_Patient DaoPatient = null;
     private Dao_03_Services services = null;
     private Dao_04_Specialist specialist = null;
+    private Dao_05_Citas citas = null;
     
     protected String db_name, db_url , db_user, db_pass;
     protected java.sql.Connection connection_  = null;
@@ -65,5 +67,13 @@ public class MySqlDaoManager implements DaoManager{
             specialist = new MySql_04_DaoSpecialist(connection_);
         }
         return specialist;
+    }
+
+    @Override
+    public Dao_05_Citas getCitas() {
+        if(citas == null){
+            citas = new MySql_05_DaoCitas(connection_);
+        }
+        return citas;
     }
 }

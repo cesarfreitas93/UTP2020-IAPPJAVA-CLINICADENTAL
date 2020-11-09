@@ -25,6 +25,9 @@ private Date createAt;
 private Date updateAt;
 private long services_id;
 
+    public Specialist() {
+    }
+
     public Specialist(String name, String lastname, String surename, String phone, String address, String dni, boolean enable, long services_id) {
         this.name = name;
         this.lastname = lastname;

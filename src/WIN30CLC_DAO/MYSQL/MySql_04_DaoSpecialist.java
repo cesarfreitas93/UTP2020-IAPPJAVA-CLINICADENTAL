@@ -7,12 +7,14 @@ package WIN30CLC_DAO.MYSQL;
 
 import WIN30CLC_DAO.DaoException;
 import WIN30CLC_DAO.Dao_04_Specialist;
+import WIN31CLC_DTO.Service;
 import WIN31CLC_DTO.Specialist;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -23,8 +25,9 @@ import java.util.List;
 public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
     final String INSERT = "insert into especialista (`dni`, `name`, `lastname`, `surename`, `createAt`, `updateAt`, `enable`, `phone`, `address`) values (?,?, ?,?,?,?,?,?,?)";
     final String UPDATE = "update especialista set `phone` = ?, `address` = ? where id = ?";
-    final String FINDALL = "SELECT id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address` FROM especialista";
-    final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address` FROM especialista where id  = ?";
+    final String FINDALL = "SELECT id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address` FROM especialista where enable = 1";
+    final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address` FROM especialista where id  = ? and enable = 1";
+    final String DELETE = "update enable = 0 from especialista where id = ?";
     private Connection conn;
     
     public MySql_04_DaoSpecialist(Connection conn) {
@@ -116,19 +119,114 @@ public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
         }
     }
 
+    private Specialist Convert_(ResultSet rs) throws SQLException{
+        //`dni`, `name`, `lastname`, `surename`, `createAt`, `updateAt`, `enable`, `phone`, `address`
+        Specialist dto = new Specialist();
+        dto.setId(rs.getLong("id"));
+        dto.setDni(rs.getString("dni"));
+        dto.setName(rs.getString("name"));
+        dto.setLastname(rs.getString("lastname"));
+        dto.setSurename(rs.getString("surename"));
+        dto.setEnable(rs.getBoolean("enable"));
+        dto.setPhone(rs.getString("phone"));
+        dto.setAddress(rs.getString("address"));
+        return dto;
+    }
     @Override
     public void rlDelete(Specialist entity) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement pst = null;
+        try{
+            pst = (PreparedStatement) conn.prepareStatement(DELETE);
+            pst.setLong(1, entity.getId());
+
+            if(pst.executeUpdate() == 0){
+                throw new DaoException("Puede que no se haya borrado.");
+            }
+        }
+        catch (SQLException ex) {
+            throw new DaoException("Error en SQL", ex);
+        }
+        finally{
+            if(pst != null){
+                try{
+                    pst.close();
+                }catch(SQLException ex){
+                    throw new DaoException("Error en SQL", ex);
+                }
+            }
+        }
     }
 
     @Override
     public List<Specialist> findAll(int id) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        List<Specialist> list = new ArrayList<Specialist>();
+        try{
+            pst = (PreparedStatement) conn.prepareStatement(FINDALL);
+            rs = pst.executeQuery();
+            System.out.println(rs);
+            while(rs.next()){
+                list.add(Convert_(rs));
+            }
+        }
+        catch(SQLException ex){
+            throw new DaoException("Error en SQL", ex);
+        }finally{
+           if(rs != null){
+               try{
+                   rs.close();
+               }
+               catch(SQLException ex){
+                   new DaoException("Error en SQL", ex); 
+               }
+           }
+           if(pst != null){
+               try{
+                   pst.close();
+               }catch(SQLException ex){
+                   new DaoException("Error en SQL", ex);
+               }
+           }
+        }
+        return list;
     }
 
     @Override
     public Specialist findById(Specialist entity) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Specialist dto = null;
+        try{
+            pst = (PreparedStatement) conn.prepareStatement(FINDBYID);
+            pst.setLong(1, entity.getId());
+            rs = pst.executeQuery();
+            if(rs.next()){
+                dto = Convert_(rs);
+            }else{
+                throw new DaoException("No se ha encontrado el registro");
+            }
+        }
+        catch(SQLException ex){
+            throw new DaoException("Error en SQL", ex);
+        }finally{
+           if(rs != null){
+               try{
+                   rs.close();
+               }
+               catch(SQLException ex){
+                   new DaoException("Error en SQL", ex); 
+               }
+           }
+           if(pst != null){
+               try{
+                   pst.close();
+               }catch(SQLException ex){
+                   new DaoException("Error en SQL", ex);
+               }
+           }
+        }
+        return dto;
     }
     
 }

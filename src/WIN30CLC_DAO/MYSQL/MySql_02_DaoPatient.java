@@ -31,6 +31,8 @@ public class MySql_02_DaoPatient implements Dao_02_Patient{
     
     final String INSERT = "INSERT INTO `patient` (`dni`, `name`, `lastname`, `surename`, `createAt`, `updateAt`, `enable`, `phone`, `email`, `address`, `ubigeo`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
     final String FINDALL = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where enable = 1";
+    final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where id = ?";
+    final String FINDBY_DNI = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where dni = ?";
     @Override
     public void rlInsert(Patient entity) throws DaoException {
         PreparedStatement pst = null;
@@ -154,12 +156,77 @@ public class MySql_02_DaoPatient implements Dao_02_Patient{
 
     @Override
     public Patient findById(Patient entity) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Patient dto = null;
+        try{
+            pst = (PreparedStatement) conn.prepareStatement(FINDBYID);
+            pst.setLong(1, entity.getId());
+            rs = pst.executeQuery();
+            if(rs.next()){
+                dto = Convert_(rs);
+            }else{
+                throw new DaoException("No se ha encontrado el registro");
+            }
+        }
+        catch(SQLException ex){
+            throw new DaoException("Error en SQL", ex);
+        }finally{
+           if(rs != null){
+               try{
+                   rs.close();
+               }
+               catch(SQLException ex){
+                   new DaoException("Error en SQL", ex); 
+               }
+           }
+           if(pst != null){
+               try{
+                   pst.close();
+               }catch(SQLException ex){
+                   new DaoException("Error en SQL", ex);
+               }
+           }
+        }
+        return dto;
     }
 
     @Override
     public Patient ChekDNI(String dni) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Patient dto = null;
+        try{
+            pst = (PreparedStatement) conn.prepareStatement(FINDBY_DNI);
+            pst.setString(1, dni);
+            rs = pst.executeQuery();
+            if(rs.next()){
+                dto = Convert_(rs);
+            }else{
+                throw new DaoException("No se ha encontrado el registro");
+            }
+        }
+        catch(SQLException ex){
+            throw new DaoException("Error en SQL", ex);
+        }finally{
+           if(rs != null){
+               try{
+                   rs.close();
+               }
+               catch(SQLException ex){
+                   new DaoException("Error en SQL", ex); 
+               }
+           }
+           if(pst != null){
+               try{
+                   pst.close();
+               }catch(SQLException ex){
+                   new DaoException("Error en SQL", ex);
+               }
+           }
+        }
+        return dto;
     }
     
 }
