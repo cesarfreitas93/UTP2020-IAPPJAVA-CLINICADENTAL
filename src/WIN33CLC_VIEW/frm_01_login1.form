@@ -238,7 +238,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/WIN34CLC_RESOURCES/output_83JNaa.gif"/>
+              <Image iconType="3" name="/WIN34CLC_RESOURCES/oie_transparent.png"/>
             </Property>
           </Properties>
         </Component>

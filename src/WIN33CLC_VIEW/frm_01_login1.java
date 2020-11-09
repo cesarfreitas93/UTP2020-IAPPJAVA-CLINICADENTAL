@@ -17,23 +17,24 @@ import javax.swing.JOptionPane;
  *
  * @author Cesar
  */
-public class frm_01_login extends javax.swing.JFrame {
+public class frm_01_login1 extends javax.swing.JFrame {
 
     /**
      * Creates new form frm_01_login
      */
-    public frm_01_login(){
+    public frm_01_login1(){
        
         initComponents();
-         setBackground(new Color (255,255,255,240));
+        setBackground(new Color (255,255,255,210));
         jPanel2.setOpaque(false);
+        
         setLocationRelativeTo(null); 
         Shape forma = new RoundRectangle2D.Double(0, 0, getBounds().width, getBounds().height, 20, 20);
         AWTUtilities.setWindowShape(this, forma);
      
     }
     
-     int xx,xy;
+    int xx,xy;
 
     public void login() {
         try {
@@ -45,11 +46,11 @@ public class frm_01_login extends javax.swing.JFrame {
                 System.out.println("yes");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(frm_01_login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(frm_01_login1.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DaoException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(),
                 "Dental SyS", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(frm_01_login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(frm_01_login1.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
   
@@ -174,7 +175,7 @@ public class frm_01_login extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/output_83JNaa.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/oie_transparent.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(20, 145, 204));
@@ -212,15 +213,18 @@ public class frm_01_login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
-xx=evt.getX();
-  xy=evt.getY();        // TODO add your handling code here:
+
+  xx=evt.getX();
+  xy=evt.getY(); 
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
 int x=evt.getXOnScreen();
        int y=evt.getYOnScreen();
        
-        this.setLocation(x-xx, y-xy);          // TODO add your handling code here:
+        this.setLocation(x-xx, y-xy);    
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2MouseDragged
 
     
@@ -234,18 +238,18 @@ int x=evt.getXOnScreen();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_01_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_01_login1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_01_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_01_login1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_01_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_01_login1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_01_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frm_01_login1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_01_login().setVisible(true);
+                new frm_01_login1().setVisible(true);
             }
         });
     }
