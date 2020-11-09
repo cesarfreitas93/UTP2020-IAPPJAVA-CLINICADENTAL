@@ -21,7 +21,7 @@ public class SplashScreem {
 
             @Override
             public void run() {
-                new frm_01_login().setVisible(true);
+               new frm_01_login().setVisible(true);
             }
         });
     }
