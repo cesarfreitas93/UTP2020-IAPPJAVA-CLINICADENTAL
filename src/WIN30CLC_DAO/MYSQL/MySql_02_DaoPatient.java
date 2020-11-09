@@ -8,11 +8,13 @@ package WIN30CLC_DAO.MYSQL;
 import WIN30CLC_DAO.DaoException;
 import WIN30CLC_DAO.Dao_02_Patient;
 import WIN31CLC_DTO.Patient;
+import WIN31CLC_DTO.Service;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class MySql_02_DaoPatient implements Dao_02_Patient{
     }
     
     final String INSERT = "INSERT INTO `patient` (`dni`, `name`, `lastname`, `surename`, `createAt`, `updateAt`, `enable`, `phone`, `email`, `address`, `ubigeo`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-    
+    final String FINDALL = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where enable = 1";
     @Override
     public void rlInsert(Patient entity) throws DaoException {
         PreparedStatement pst = null;
@@ -100,10 +102,54 @@ public class MySql_02_DaoPatient implements Dao_02_Patient{
     public void rlDelete(Patient entity) throws DaoException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    private Patient Convert_(ResultSet rs) throws SQLException{
+        //`name`, `descript`, `createAt`, `updateAt`, `status`, `company_id`, `user_id`
+        String name = rs.getString("name");
+        Patient dto = new Patient();
+        dto.setName(name);
+        dto.setId(rs.getLong("id"));
+        dto.setLastname(rs.getString("lastname"));
+        dto.setSurename(rs.getString("surename"));
+        dto.setDni(rs.getString("dni"));
+        dto.setEmail(rs.getString("email"));
+        dto.setPhone(rs.getString("phone"));
+        dto.setUbigeo(rs.getString("ubigeo"));
+        dto.setAddress(rs.getString("address"));
+        return dto;
+    }
     @Override
     public List<Patient> findAll(int id) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        List<Patient> list = new ArrayList<Patient>();
+        try{
+            pst = (PreparedStatement) conn.prepareStatement(FINDALL);
+            rs = pst.executeQuery();
+            System.out.println(rs);
+            while(rs.next()){
+                list.add(Convert_(rs));
+            }
+        }
+        catch(SQLException ex){
+            throw new DaoException("Error en SQL", ex);
+        }finally{
+           if(rs != null){
+               try{
+                   rs.close();
+               }
+               catch(SQLException ex){
+                   new DaoException("Error en SQL", ex); 
+               }
+           }
+           if(pst != null){
+               try{
+                   pst.close();
+               }catch(SQLException ex){
+                   new DaoException("Error en SQL", ex);
+               }
+           }
+        }
+        return list;
     }
 
     @Override
