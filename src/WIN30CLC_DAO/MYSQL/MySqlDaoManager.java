@@ -66,6 +66,4 @@ public class MySqlDaoManager implements DaoManager{
         }
         return specialist;
     }
-    
-    
 }
