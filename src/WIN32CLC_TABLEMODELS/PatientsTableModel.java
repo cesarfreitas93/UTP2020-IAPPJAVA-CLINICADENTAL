@@ -8,7 +8,6 @@ package WIN32CLC_TABLEMODELS;
 import WIN30CLC_DAO.DaoException;
 import WIN30CLC_DAO.Dao_02_Patient;
 import WIN31CLC_DTO.Patient;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -80,7 +79,6 @@ public class PatientsTableModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Patient dto = datos.get(rowIndex);
-        //DateFormat df = DateFormat.getDateInstance();
 
         String name =  dto.getName() + " " + dto.getLastname() + " " + dto.getSurename();
         switch(columnIndex){
@@ -90,8 +88,7 @@ public class PatientsTableModel extends AbstractTableModel{
             case 3: return dto.getPhone();
             case 4: return dto.getEmail();
             case 5: return dto.getAddress();
-            case 6:
-                return new JButton("Editar");
+            case 6: return new JButton("Eliminar");
             default: return "";
         }
     }
