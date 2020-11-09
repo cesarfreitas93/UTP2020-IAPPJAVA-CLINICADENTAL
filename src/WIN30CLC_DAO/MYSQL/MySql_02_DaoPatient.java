@@ -33,6 +33,8 @@ public class MySql_02_DaoPatient implements Dao_02_Patient{
     final String FINDALL = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where enable = 1";
     final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where id = ?";
     final String FINDBY_DNI = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where dni = ?";
+    final String UPDATE = "update `updateAt` = ?, `enable`= ?, `phone` = ?, `email`= ?, `address`= ?, `ubigeo`= ? from patient where id = ?";
+    final String DELETE = "update `updateAt` = ? from patient  where id = ?";
     @Override
     public void rlInsert(Patient entity) throws DaoException {
         PreparedStatement pst = null;
@@ -97,12 +99,67 @@ public class MySql_02_DaoPatient implements Dao_02_Patient{
 
     @Override
     public void rlUpdate(Patient entity) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement pst = null;
+        try{
+            Calendar calendar = Calendar.getInstance();
+            java.util.Date currentTime = calendar.getTime();
+            long time = currentTime.getTime();
+            
+            pst = (PreparedStatement) conn.prepareStatement(UPDATE);
+            pst.setTimestamp(1, new Timestamp(time));
+            pst.setBoolean(2, entity.isEnable());
+            pst.setString(3, entity.getPhone());
+            pst.setString(4, entity.getEmail());
+            pst.setString(5, entity.getAddress());
+            pst.setString(6, entity.getUbigeo());
+            pst.setLong(7, entity.getId());
+
+            if(pst.executeUpdate() == 0){
+                throw new DaoException("Puede que no se haya modificado.");
+            }
+        }
+        catch (SQLException ex) {
+            throw new DaoException("Error en SQL", ex);
+        }
+        finally{
+            if(pst != null){
+                try{
+                    pst.close();
+                }catch(SQLException ex){
+                    throw new DaoException("Error en SQL", ex);
+                }
+            }
+        }
     }
 
     @Override
     public void rlDelete(Patient entity) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement pst = null;
+        try{
+            Calendar calendar = Calendar.getInstance();
+            java.util.Date currentTime = calendar.getTime();
+            long time = currentTime.getTime();
+            
+            pst = (PreparedStatement) conn.prepareStatement(DELETE);
+            pst.setTimestamp(1, new Timestamp(time));
+            pst.setLong(2, entity.getId());
+
+            if(pst.executeUpdate() == 0){
+                throw new DaoException("Puede que no se haya modificado.");
+            }
+        }
+        catch (SQLException ex) {
+            throw new DaoException("Error en SQL", ex);
+        }
+        finally{
+            if(pst != null){
+                try{
+                    pst.close();
+                }catch(SQLException ex){
+                    throw new DaoException("Error en SQL", ex);
+                }
+            }
+        }
     }
     private Patient Convert_(ResultSet rs) throws SQLException{
         //`name`, `descript`, `createAt`, `updateAt`, `status`, `company_id`, `user_id`

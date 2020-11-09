@@ -24,10 +24,10 @@ import java.util.List;
  */
 public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
     final String INSERT = "insert into especialista (`dni`, `name`, `lastname`, `surename`, `createAt`, `updateAt`, `enable`, `phone`, `address`) values (?,?, ?,?,?,?,?,?,?)";
-    final String UPDATE = "update especialista set `phone` = ?, `address` = ? where id = ?";
+    final String UPDATE = "update especialista set  `updateAt` = ?,  `phone` = ?, `address` = ? where id = ?";
     final String FINDALL = "SELECT id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address` FROM especialista where enable = 1";
     final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address` FROM especialista where id  = ? and enable = 1";
-    final String DELETE = "update enable = 0 from especialista where id = ?";
+    final String DELETE = "update `updateAt` = ?, enable = 0 from especialista where id = ?";
     private Connection conn;
     
     public MySql_04_DaoSpecialist(Connection conn) {
@@ -96,10 +96,15 @@ public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
     public void rlUpdate(Specialist entity) throws DaoException {
         PreparedStatement pst = null;
         try{
+            Calendar calendar = Calendar.getInstance();
+            java.util.Date currentTime = calendar.getTime();
+            long time = currentTime.getTime();
+            
             pst = (PreparedStatement) conn.prepareStatement(UPDATE);
-            pst.setString(1, entity.getPhone());
-            pst.setString(2, entity.getAddress());
-            pst.setLong(3, entity.getId());
+            pst.setTimestamp(1,new Timestamp(time));
+            pst.setString(2, entity.getPhone());
+            pst.setString(3, entity.getAddress());
+            pst.setLong(4, entity.getId());
 
             if(pst.executeUpdate() == 0){
                 throw new DaoException("Puede que no se haya modificado.");
@@ -136,8 +141,13 @@ public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
     public void rlDelete(Specialist entity) throws DaoException {
         PreparedStatement pst = null;
         try{
+            Calendar calendar = Calendar.getInstance();
+            java.util.Date currentTime = calendar.getTime();
+            long time = currentTime.getTime();
+            
             pst = (PreparedStatement) conn.prepareStatement(DELETE);
-            pst.setLong(1, entity.getId());
+            pst.setTimestamp(1,new Timestamp(time));
+            pst.setLong(2, entity.getId());
 
             if(pst.executeUpdate() == 0){
                 throw new DaoException("Puede que no se haya borrado.");
