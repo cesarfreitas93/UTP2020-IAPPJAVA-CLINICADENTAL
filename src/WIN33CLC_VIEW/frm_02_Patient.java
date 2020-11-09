@@ -1,13 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN33CLC_VIEW;
 
 import WIN30CLC_DAO.DaoException;
 import WIN32CLC_CTR.CTR_02_Patient;
+import com.sun.awt.AWTUtilities;
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,20 +15,25 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
-/**
- *
- * @author Cesar
- */
+
 public class frm_02_Patient extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frm_02_Patient
-     */
+ 
     public frm_02_Patient() {
         initComponents();
+        
+       // setBackground(new Color (255,255,255,100));
+        
+         panelContenedor.setOpaque(false);
+        
+        setLocationRelativeTo(null); 
+        Shape forma = new RoundRectangle2D.Double(0, 0, getBounds().width, getBounds().height, 20, 20);
+        AWTUtilities.setWindowShape(this, forma);
         LoadData();
+        
+        
     }
-
+int xx,xy;
     public void LoadData() {
         try {
             CTR_02_Patient ctr = new CTR_02_Patient();
@@ -66,9 +71,21 @@ public class frm_02_Patient extends javax.swing.JFrame {
         frm_02_Patient_Detail1 = new WIN33CLC_VIEW.frm_02_Patient_Detail();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
+        panelContenedor.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                panelContenedorMouseDragged(evt);
+            }
+        });
+        panelContenedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                panelContenedorMousePressed(evt);
+            }
+        });
         panelContenedor.setLayout(new java.awt.BorderLayout());
 
+        tablePatients.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
         tablePatients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -84,13 +101,29 @@ public class frm_02_Patient extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablePatients);
 
         panelContenedor.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        frm_02_Patient_Detail1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                frm_02_Patient_Detail1MouseDragged(evt);
+            }
+        });
+        frm_02_Patient_Detail1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                frm_02_Patient_Detail1MousePressed(evt);
+            }
+        });
+        frm_02_Patient_Detail1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                frm_02_Patient_Detail1KeyPressed(evt);
+            }
+        });
         panelContenedor.add(frm_02_Patient_Detail1, java.awt.BorderLayout.PAGE_START);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+            .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 912, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,6 +132,30 @@ public class frm_02_Patient extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void frm_02_Patient_Detail1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_frm_02_Patient_Detail1KeyPressed
+
+    }//GEN-LAST:event_frm_02_Patient_Detail1KeyPressed
+
+    private void frm_02_Patient_Detail1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_frm_02_Patient_Detail1MousePressed
+
+    }//GEN-LAST:event_frm_02_Patient_Detail1MousePressed
+
+    private void frm_02_Patient_Detail1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_frm_02_Patient_Detail1MouseDragged
+    
+    }//GEN-LAST:event_frm_02_Patient_Detail1MouseDragged
+
+    private void panelContenedorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelContenedorMousePressed
+      xx=evt.getX();
+  xy=evt.getY();      
+    }//GEN-LAST:event_panelContenedorMousePressed
+
+    private void panelContenedorMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelContenedorMouseDragged
+     int x=evt.getXOnScreen();
+       int y=evt.getYOnScreen();
+       
+        this.setLocation(x-xx, y-xy);   
+    }//GEN-LAST:event_panelContenedorMouseDragged
 
     /**
      * @param args the command line arguments
