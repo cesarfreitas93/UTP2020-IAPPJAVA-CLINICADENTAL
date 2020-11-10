@@ -30,7 +30,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="290" y="60" width="-1" height="-1"/>
+          <AbsoluteConstraints x="340" y="75" width="-1" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -142,7 +142,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="290" y="340" width="-1" height="-1"/>
+          <AbsoluteConstraints x="290" y="350" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -158,7 +158,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="290" y="390" width="-1" height="-1"/>
+          <AbsoluteConstraints x="290" y="400" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -174,7 +174,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="290" y="440" width="-1" height="-1"/>
+          <AbsoluteConstraints x="290" y="450" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -194,7 +194,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="430" y="40" width="120" height="40"/>
+          <AbsoluteConstraints x="430" y="50" width="120" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -377,7 +377,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="RSMaterialComponent.RSButtonMaterialGradientOne" name="rSButtonMaterialGradientOne1">
+        <Component class="RSMaterialComponent.RSButtonMaterialGradientOne" name="btn_cancelar_cambios">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/WIN34CLC_RESOURCES/icons8-cancelar-30.png"/>
@@ -401,11 +401,11 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="390" width="210" height="-1"/>
+              <AbsoluteConstraints x="20" y="390" width="220" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="RSMaterialComponent.RSButtonMaterialGradientOne" name="rSButtonMaterialGradientOne2">
+        <Component class="RSMaterialComponent.RSButtonMaterialGradientOne" name="btn_nuevo_paciente">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/WIN34CLC_RESOURCES/icons8-a&#xf1;adir-usuario-masculino-30.png"/>
@@ -427,13 +427,16 @@
               <Font name="ITC Avant Garde Std Bk" size="15" style="1"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_nuevo_pacienteActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="20" y="210" width="210" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="RSMaterialComponent.RSButtonMaterialGradientOne" name="rSButtonMaterialGradientOne3">
+        <Component class="RSMaterialComponent.RSButtonMaterialGradientOne" name="btn_modificar_paciente">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/WIN34CLC_RESOURCES/icons8-editar-usuario-masculino-30.png"/>
@@ -505,11 +508,11 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="430" y="330" width="-1" height="-1"/>
+          <AbsoluteConstraints x="430" y="340" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="RSMaterialComponent.RSComboBoxMaterial" name="rSComboBoxMaterial1">
+    <Component class="RSMaterialComponent.RSComboBoxMaterial" name="cbx_provincia">
       <Properties>
         <Property name="colorMaterial" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="a7" green="75" red="a" type="rgb"/>
@@ -519,15 +522,15 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSComboBoxMaterial1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbx_provinciaActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="430" y="380" width="-1" height="-1"/>
+          <AbsoluteConstraints x="430" y="390" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="RSMaterialComponent.RSComboBoxMaterial" name="rSComboBoxMaterial2">
+    <Component class="RSMaterialComponent.RSComboBoxMaterial" name="cbx_distrito">
       <Properties>
         <Property name="colorMaterial" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="a7" green="75" red="a" type="rgb"/>
@@ -538,7 +541,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="430" y="430" width="-1" height="-1"/>
+          <AbsoluteConstraints x="430" y="440" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -569,7 +572,21 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="590" y="50" width="210" height="-1"/>
+          <AbsoluteConstraints x="580" y="50" width="210" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator1">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="290" y="110" width="600" height="10"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator2">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="290" y="330" width="600" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
