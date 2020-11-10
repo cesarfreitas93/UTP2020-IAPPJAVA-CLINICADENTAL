@@ -14,6 +14,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.json.JSONException;
+import rojerusan.RSNotifyFade;
+import rojerusan.RSNotifyShadowFade;
 /**
  *
  * @author Cesar
@@ -60,21 +62,23 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         fSGradientPanel2 = new LIB.FSGradientPanel();
         jLabel12 = new javax.swing.JLabel();
-        rSButtonMaterialGradientOne1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
-        rSButtonMaterialGradientOne2 = new RSMaterialComponent.RSButtonMaterialGradientOne();
-        rSButtonMaterialGradientOne3 = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_cancelar_cambios = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_nuevo_paciente = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_modificar_paciente = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_save = new RSMaterialComponent.RSButtonMaterialGradientOne();
         cbx_departamento = new RSMaterialComponent.RSComboBoxMaterial();
-        rSComboBoxMaterial1 = new RSMaterialComponent.RSComboBoxMaterial();
-        rSComboBoxMaterial2 = new RSMaterialComponent.RSComboBoxMaterial();
+        cbx_provincia = new RSMaterialComponent.RSComboBoxMaterial();
+        cbx_distrito = new RSMaterialComponent.RSComboBoxMaterial();
         txt_buscar_reniec = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(10, 117, 167));
         jLabel1.setText("DNI:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 75, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(10, 117, 167));
@@ -109,24 +113,24 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(10, 117, 167));
         jLabel8.setText("Departamento:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(10, 117, 167));
         jLabel9.setText("Provincia:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(10, 117, 167));
         jLabel10.setText("Distrito:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, -1, -1));
 
         txt_dni.setForeground(new java.awt.Color(10, 117, 167));
         txt_dni.setBordeColorFocus(new java.awt.Color(10, 117, 167));
         txt_dni.setColorTransparente(true);
         txt_dni.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 14)); // NOI18N
         txt_dni.setPlaceholder("");
-        add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 120, 40));
+        add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 120, 40));
 
         txt_name.setForeground(new java.awt.Color(0, 0, 0));
         txt_name.setBordeColorFocus(new java.awt.Color(10, 117, 167));
@@ -200,32 +204,37 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-gestión-de-clientes-100.png"))); // NOI18N
         fSGradientPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 110, 90));
 
-        rSButtonMaterialGradientOne1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-cancelar-30.png"))); // NOI18N
-        rSButtonMaterialGradientOne1.setText("Cancelar Cambios");
-        rSButtonMaterialGradientOne1.setColorPrimario(new java.awt.Color(42, 170, 232));
-        rSButtonMaterialGradientOne1.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
-        rSButtonMaterialGradientOne1.setColorSecundario(new java.awt.Color(3, 102, 183));
-        rSButtonMaterialGradientOne1.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        rSButtonMaterialGradientOne1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        fSGradientPanel2.add(rSButtonMaterialGradientOne1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 210, -1));
+        btn_cancelar_cambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-cancelar-30.png"))); // NOI18N
+        btn_cancelar_cambios.setText("Cancelar Cambios");
+        btn_cancelar_cambios.setColorPrimario(new java.awt.Color(42, 170, 232));
+        btn_cancelar_cambios.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
+        btn_cancelar_cambios.setColorSecundario(new java.awt.Color(3, 102, 183));
+        btn_cancelar_cambios.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        btn_cancelar_cambios.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        fSGradientPanel2.add(btn_cancelar_cambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 220, -1));
 
-        rSButtonMaterialGradientOne2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-añadir-usuario-masculino-30.png"))); // NOI18N
-        rSButtonMaterialGradientOne2.setText("Nuevo Paciente");
-        rSButtonMaterialGradientOne2.setColorPrimario(new java.awt.Color(42, 170, 232));
-        rSButtonMaterialGradientOne2.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
-        rSButtonMaterialGradientOne2.setColorSecundario(new java.awt.Color(3, 102, 183));
-        rSButtonMaterialGradientOne2.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        rSButtonMaterialGradientOne2.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        fSGradientPanel2.add(rSButtonMaterialGradientOne2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 210, -1));
+        btn_nuevo_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-añadir-usuario-masculino-30.png"))); // NOI18N
+        btn_nuevo_paciente.setText("Nuevo Paciente");
+        btn_nuevo_paciente.setColorPrimario(new java.awt.Color(42, 170, 232));
+        btn_nuevo_paciente.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
+        btn_nuevo_paciente.setColorSecundario(new java.awt.Color(3, 102, 183));
+        btn_nuevo_paciente.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        btn_nuevo_paciente.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_nuevo_paciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nuevo_pacienteActionPerformed(evt);
+            }
+        });
+        fSGradientPanel2.add(btn_nuevo_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 210, -1));
 
-        rSButtonMaterialGradientOne3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-editar-usuario-masculino-30.png"))); // NOI18N
-        rSButtonMaterialGradientOne3.setText("Modificar Paciente");
-        rSButtonMaterialGradientOne3.setColorPrimario(new java.awt.Color(42, 170, 232));
-        rSButtonMaterialGradientOne3.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
-        rSButtonMaterialGradientOne3.setColorSecundario(new java.awt.Color(3, 102, 183));
-        rSButtonMaterialGradientOne3.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        rSButtonMaterialGradientOne3.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        fSGradientPanel2.add(rSButtonMaterialGradientOne3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 210, -1));
+        btn_modificar_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-editar-usuario-masculino-30.png"))); // NOI18N
+        btn_modificar_paciente.setText("Modificar Paciente");
+        btn_modificar_paciente.setColorPrimario(new java.awt.Color(42, 170, 232));
+        btn_modificar_paciente.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
+        btn_modificar_paciente.setColorSecundario(new java.awt.Color(3, 102, 183));
+        btn_modificar_paciente.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        btn_modificar_paciente.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        fSGradientPanel2.add(btn_modificar_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 210, -1));
 
         btn_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-guardar-como-30.png"))); // NOI18N
         btn_save.setText("Guardar Paciente");
@@ -245,20 +254,20 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
 
         cbx_departamento.setColorMaterial(new java.awt.Color(10, 117, 167));
         cbx_departamento.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 14)); // NOI18N
-        add(cbx_departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, -1, -1));
+        add(cbx_departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, -1, -1));
 
-        rSComboBoxMaterial1.setColorMaterial(new java.awt.Color(10, 117, 167));
-        rSComboBoxMaterial1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 14)); // NOI18N
-        rSComboBoxMaterial1.addActionListener(new java.awt.event.ActionListener() {
+        cbx_provincia.setColorMaterial(new java.awt.Color(10, 117, 167));
+        cbx_provincia.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 14)); // NOI18N
+        cbx_provincia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSComboBoxMaterial1ActionPerformed(evt);
+                cbx_provinciaActionPerformed(evt);
             }
         });
-        add(rSComboBoxMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, -1, -1));
+        add(cbx_provincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, -1));
 
-        rSComboBoxMaterial2.setColorMaterial(new java.awt.Color(10, 117, 167));
-        rSComboBoxMaterial2.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 14)); // NOI18N
-        add(rSComboBoxMaterial2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, -1, -1));
+        cbx_distrito.setColorMaterial(new java.awt.Color(10, 117, 167));
+        cbx_distrito.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 14)); // NOI18N
+        add(cbx_distrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, -1, -1));
 
         txt_buscar_reniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-encuentra-hombre-usuario-30.png"))); // NOI18N
         txt_buscar_reniec.setText("Buscar en Reniec");
@@ -272,7 +281,9 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                 txt_buscar_reniecActionPerformed(evt);
             }
         });
-        add(txt_buscar_reniec, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 210, -1));
+        add(txt_buscar_reniec, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 210, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 600, 10));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 600, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
@@ -287,9 +298,9 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
 
     }//GEN-LAST:event_fSGradientPanel2MouseDragged
 
-    private void rSComboBoxMaterial1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSComboBoxMaterial1ActionPerformed
+    private void cbx_provinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_provinciaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rSComboBoxMaterial1ActionPerformed
+    }//GEN-LAST:event_cbx_provinciaActionPerformed
 
     private void txt_buscar_reniecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscar_reniecActionPerformed
         try {
@@ -353,10 +364,38 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
        
     }//GEN-LAST:event_btn_saveActionPerformed
 
+    private void btn_nuevo_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_pacienteActionPerformed
+
+txt_dni.setText("");
+txt_name.setText("");
+txt_apellidoPAT.setText("");
+txt_apellidoMAT.setText("");
+txt_phone.setText("");
+txt_email.setText("");
+txt_direccion.setText("");
+cbx_departamento.setSelectedIndex(0);
+cbx_provincia.setSelectedIndex(0);
+cbx_distrito.setSelectedIndex(0);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_nuevo_pacienteActionPerformed
+
+    private void btn_modificar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificar_pacienteActionPerformed
+
+       new rojerusan.RSNotifyFade("ACTUALIZACION", "Se cambio los datos del paciente", 7, 
+               RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.SUCCESS).setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_modificar_pacienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_cancelar_cambios;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_modificar_paciente;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_nuevo_paciente;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_save;
     private RSMaterialComponent.RSComboBoxMaterial cbx_departamento;
+    private RSMaterialComponent.RSComboBoxMaterial cbx_distrito;
+    private RSMaterialComponent.RSComboBoxMaterial cbx_provincia;
     private LIB.FSGradientPanel fSGradientPanel2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -370,11 +409,8 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private RSMaterialComponent.RSButtonMaterialGradientOne rSButtonMaterialGradientOne1;
-    private RSMaterialComponent.RSButtonMaterialGradientOne rSButtonMaterialGradientOne2;
-    private RSMaterialComponent.RSButtonMaterialGradientOne rSButtonMaterialGradientOne3;
-    private RSMaterialComponent.RSComboBoxMaterial rSComboBoxMaterial1;
-    private RSMaterialComponent.RSComboBoxMaterial rSComboBoxMaterial2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private LIB.FSTexFieldMD txt_apellidoMAT;
     private LIB.FSTexFieldMD txt_apellidoPAT;
     private RSMaterialComponent.RSButtonMaterialGradientOne txt_buscar_reniec;

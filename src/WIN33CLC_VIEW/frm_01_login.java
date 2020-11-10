@@ -93,7 +93,7 @@ public class frm_01_login extends javax.swing.JFrame {
         });
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/output_83JNaa.gif"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/Logo_animado_100.gif"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 115, -1, 152));
 
         jLabel4.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 18)); // NOI18N
