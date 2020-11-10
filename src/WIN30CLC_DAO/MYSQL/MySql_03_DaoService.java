@@ -27,6 +27,7 @@ public class MySql_03_DaoService implements Dao_03_Services {
     final String UPDATE = "update services set name = ?, price = ? where id = ?";
     final String FINDALL = "SELECT id, name, price FROM services";
     final String FINDBYID = "select id, name, price from service where id  = ?";
+    final String DELETE = "update services set enable = 0 where id=?";
     private Connection conn;
     public MySql_03_DaoService(Connection conn) {
         this.conn = conn;
@@ -108,7 +109,27 @@ public class MySql_03_DaoService implements Dao_03_Services {
 
     @Override
     public void rlDelete(Service entity) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement pst = null;
+        try{
+            pst = (PreparedStatement) conn.prepareStatement(DELETE);
+            pst.setLong(1, entity.getId());
+
+            if(pst.executeUpdate() == 0){
+                throw new DaoException("Puede que no se haya eliminado.");
+            }
+        }
+        catch (SQLException ex) {
+            throw new DaoException("Error en SQL", ex);
+        }
+        finally{
+            if(pst != null){
+                try{
+                    pst.close();
+                }catch(SQLException ex){
+                    throw new DaoException("Error en SQL", ex);
+                }
+            }
+        }
     }
 
     private Service Convert_(ResultSet rs) throws SQLException{

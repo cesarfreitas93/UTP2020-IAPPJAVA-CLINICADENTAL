@@ -23,7 +23,7 @@ import java.util.List;
 public class MySql_05_DaoCitas implements Dao_05_Citas {
     private Connection conn;
     final String INSERT = "insert into citas (createAt, status, patient_id, specialista_id) values(?,?,?,?)";
-    final String CHANGE_STATUS = "update status = 1";
+    final String CHANGE_STATUS = "update status = ? from citas where id = ?";
     
     public MySql_05_DaoCitas(Connection conn) {
         this.conn = conn;
@@ -103,16 +103,17 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
     }
 
     @Override
-    public boolean CambiarStatus(int STATUS) throws DaoException {
+    public boolean CambiarStatus(int STATUS, long ID) throws DaoException {
         boolean RESULT = true;
         PreparedStatement pst = null;
         try{
             
             pst = (PreparedStatement) conn.prepareStatement(CHANGE_STATUS);
             pst.setInt(1, STATUS);
+            pst.setLong(2, ID);
             if(pst.executeUpdate() == 0){
                 RESULT = false;
-                throw new DaoException("Puede que no se haya modificado.");
+                throw new DaoException("Puede que no se haya modificado el estado.");
             }
         }
         catch (SQLException ex) {

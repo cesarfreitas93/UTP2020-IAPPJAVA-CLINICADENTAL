@@ -12,5 +12,5 @@ import WIN31CLC_DTO.Citas;
  * @author Cesar
  */
 public interface Dao_05_Citas extends Dao<Citas, Long>{
-    public boolean CambiarStatus(int STATUS) throws DaoException;
+    public boolean CambiarStatus(int STATUS, long ID) throws DaoException;
 }
