@@ -33,7 +33,7 @@ public class frm_02_Patient extends javax.swing.JFrame {
         Shape forma = new RoundRectangle2D.Double(0, 0, getBounds().width, getBounds().height, 20, 20);
         AWTUtilities.setWindowShape(this, forma);
         LoadData();
-        tablePatients.setBackground(new Color (255,255,255,250));
+       // tablePatients.setBackground(new Color (255,255,255,250));
         
         
     }
@@ -120,9 +120,10 @@ int xx,xy;
         tablePatients.setColorBackgoundHead(new java.awt.Color(3, 111, 198));
         tablePatients.setColorFilasBackgound2(new java.awt.Color(42, 170, 232));
         tablePatients.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
-        tablePatients.setFuenteFilas(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
+        tablePatients.setColorFilasForeground2(new java.awt.Color(255, 255, 255));
+        tablePatients.setFuenteFilas(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         tablePatients.setFuenteFilasSelect(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        tablePatients.setFuenteHead(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        tablePatients.setFuenteHead(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         tablePatients.setGrosorBordeFilas(0);
         tablePatients.setGrosorBordeHead(0);
         tablePatients.setRowHeight(24);
@@ -134,7 +135,7 @@ int xx,xy;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 912, Short.MAX_VALUE)
+            .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

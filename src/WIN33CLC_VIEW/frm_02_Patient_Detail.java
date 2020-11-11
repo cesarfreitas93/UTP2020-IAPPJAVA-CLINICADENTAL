@@ -25,7 +25,9 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
     
     public frm_02_Patient_Detail() {
         initComponents();
-         setBackground(new Color (255,255,255,240));
+         setBackground(new Color (255,255,255,253));
+         
+         
          txt_dni.setBackground(new Color (0,0,0,1));
          txt_name.setBackground(new Color (0,0,0,1));
          txt_apellidoPAT.setBackground(new Color (0,0,0,1));
@@ -52,13 +54,6 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txt_dni = new LIB.FSTexFieldMD();
-        txt_name = new LIB.FSTexFieldMD();
-        txt_apellidoPAT = new LIB.FSTexFieldMD();
-        txt_phone = new LIB.FSTexFieldMD();
-        txt_apellidoMAT = new LIB.FSTexFieldMD();
-        txt_email = new LIB.FSTexFieldMD();
-        txt_direccion = new LIB.FSTexFieldMD();
         jLabel11 = new javax.swing.JLabel();
         fSGradientPanel2 = new LIB.FSGradientPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -70,109 +65,55 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         cbx_provincia = new RSMaterialComponent.RSComboBoxMaterial();
         cbx_distrito = new RSMaterialComponent.RSComboBoxMaterial();
         txt_buscar_reniec = new RSMaterialComponent.RSButtonMaterialGradientOne();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
+        txt_dni = new rojerusan.RSMetroTextPlaceHolder();
+        txt_apellidoMAT = new rojerusan.RSMetroTextPlaceHolder();
+        txt_name = new rojerusan.RSMetroTextPlaceHolder();
+        txt_apellidoPAT = new rojerusan.RSMetroTextPlaceHolder();
+        txt_phone = new rojerusan.RSMetroTextPlaceHolder();
+        txt_email = new rojerusan.RSMetroTextPlaceHolder();
+        txt_direccion = new rojerusan.RSMetroTextPlaceHolder();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(10, 117, 167));
-        jLabel1.setText("DNI:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 75, -1, 20));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("DNI");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, 20));
 
-        jLabel2.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(10, 117, 167));
-        jLabel2.setText("Nombres:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel2.setText("Nombres");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(10, 117, 167));
-        jLabel3.setText("Apellido Paterno:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel3.setText("Apellido Paterno");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(10, 117, 167));
-        jLabel4.setText("Apellido Materno:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 180, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel4.setText("Apellido Materno");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 140, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(10, 117, 167));
-        jLabel5.setText("Teléfono:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel5.setText("Teléfono");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(10, 117, 167));
-        jLabel6.setText("Email:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel6.setText("Email");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(10, 117, 167));
-        jLabel7.setText("Direccion:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel7.setText("Direccion");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(10, 117, 167));
-        jLabel8.setText("Departamento:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel8.setText("Departamento");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(10, 117, 167));
-        jLabel9.setText("Provincia:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel9.setText("Provincia");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(10, 117, 167));
-        jLabel10.setText("Distrito:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, -1, -1));
-
-        txt_dni.setForeground(new java.awt.Color(10, 117, 167));
-        txt_dni.setBordeColorFocus(new java.awt.Color(10, 117, 167));
-        txt_dni.setColorTransparente(true);
-        txt_dni.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 14)); // NOI18N
-        txt_dni.setPlaceholder("");
-        add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 120, 40));
-
-        txt_name.setForeground(new java.awt.Color(0, 0, 0));
-        txt_name.setBordeColorFocus(new java.awt.Color(10, 117, 167));
-        txt_name.setColorTransparente(true);
-        txt_name.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 14)); // NOI18N
-        txt_name.setPlaceholder("");
-        add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 180, -1));
-
-        txt_apellidoPAT.setForeground(new java.awt.Color(0, 0, 0));
-        txt_apellidoPAT.setBordeColorFocus(new java.awt.Color(10, 117, 167));
-        txt_apellidoPAT.setColorTransparente(true);
-        txt_apellidoPAT.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
-        txt_apellidoPAT.setPlaceholder("");
-        add(txt_apellidoPAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 130, -1));
-
-        txt_phone.setForeground(new java.awt.Color(0, 0, 0));
-        txt_phone.setBordeColorFocus(new java.awt.Color(10, 117, 167));
-        txt_phone.setColorTransparente(true);
-        txt_phone.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
-        txt_phone.setPlaceholder("");
-        add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 130, -1));
-
-        txt_apellidoMAT.setForeground(new java.awt.Color(0, 0, 0));
-        txt_apellidoMAT.setBordeColorFocus(new java.awt.Color(10, 117, 167));
-        txt_apellidoMAT.setColorTransparente(true);
-        txt_apellidoMAT.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
-        txt_apellidoMAT.setPlaceholder("");
-        add(txt_apellidoMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 160, 150, 40));
-
-        txt_email.setForeground(new java.awt.Color(0, 0, 0));
-        txt_email.setBordeColorFocus(new java.awt.Color(10, 117, 167));
-        txt_email.setColorTransparente(true);
-        txt_email.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
-        txt_email.setPlaceholder("");
-        add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 210, 240, -1));
-
-        txt_direccion.setForeground(new java.awt.Color(0, 0, 0));
-        txt_direccion.setBordeColorFocus(new java.awt.Color(10, 117, 167));
-        txt_direccion.setColorTransparente(true);
-        txt_direccion.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
-        txt_direccion.setPlaceholder("");
-        add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 460, -1));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel10.setText("Distrito");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 390, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Gotham Thin", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(10, 86, 145));
@@ -185,7 +126,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                 jLabel11MouseClicked(evt);
             }
         });
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 10, -1, -1));
 
         fSGradientPanel2.setFSEndColor(new java.awt.Color(101, 208, 250));
         fSGradientPanel2.setFSStartColor(new java.awt.Color(3, 111, 198));
@@ -252,22 +193,26 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
 
         add(fSGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
 
+        cbx_departamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_departamento.setColorMaterial(new java.awt.Color(10, 117, 167));
-        cbx_departamento.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 14)); // NOI18N
-        add(cbx_departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, -1, -1));
+        cbx_departamento.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        cbx_departamento.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        add(cbx_departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 220, -1));
 
+        cbx_provincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_provincia.setColorMaterial(new java.awt.Color(10, 117, 167));
-        cbx_provincia.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 14)); // NOI18N
+        cbx_provincia.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         cbx_provincia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbx_provinciaActionPerformed(evt);
             }
         });
-        add(cbx_provincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, -1));
+        add(cbx_provincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 220, -1));
 
+        cbx_distrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_distrito.setColorMaterial(new java.awt.Color(10, 117, 167));
-        cbx_distrito.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 14)); // NOI18N
-        add(cbx_distrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, -1, -1));
+        cbx_distrito.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        add(cbx_distrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 420, 210, -1));
 
         txt_buscar_reniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-encuentra-hombre-usuario-30.png"))); // NOI18N
         txt_buscar_reniec.setText("Buscar en Reniec");
@@ -281,9 +226,43 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                 txt_buscar_reniecActionPerformed(evt);
             }
         });
-        add(txt_buscar_reniec, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 210, -1));
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 600, 10));
-        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 600, -1));
+        add(txt_buscar_reniec, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 210, -1));
+
+        txt_dni.setForeground(new java.awt.Color(0, 0, 0));
+        txt_dni.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_dni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 150, -1));
+
+        txt_apellidoMAT.setForeground(new java.awt.Color(0, 0, 0));
+        txt_apellidoMAT.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_apellidoMAT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        add(txt_apellidoMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, 220, -1));
+
+        txt_name.setForeground(new java.awt.Color(0, 0, 0));
+        txt_name.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_name.setBotonColor(new java.awt.Color(3, 111, 198));
+        txt_name.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 220, -1));
+
+        txt_apellidoPAT.setForeground(new java.awt.Color(0, 0, 0));
+        txt_apellidoPAT.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_apellidoPAT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        add(txt_apellidoPAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 220, -1));
+
+        txt_phone.setForeground(new java.awt.Color(0, 0, 0));
+        txt_phone.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_phone.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 220, -1));
+
+        txt_email.setForeground(new java.awt.Color(0, 0, 0));
+        txt_email.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_email.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 300, 220, -1));
+
+        txt_direccion.setForeground(new java.awt.Color(0, 0, 0));
+        txt_direccion.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_direccion.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 220, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
@@ -409,15 +388,13 @@ cbx_distrito.setSelectedIndex(0);
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private LIB.FSTexFieldMD txt_apellidoMAT;
-    private LIB.FSTexFieldMD txt_apellidoPAT;
+    private rojerusan.RSMetroTextPlaceHolder txt_apellidoMAT;
+    private rojerusan.RSMetroTextPlaceHolder txt_apellidoPAT;
     private RSMaterialComponent.RSButtonMaterialGradientOne txt_buscar_reniec;
-    private LIB.FSTexFieldMD txt_direccion;
-    private LIB.FSTexFieldMD txt_dni;
-    private LIB.FSTexFieldMD txt_email;
-    private LIB.FSTexFieldMD txt_name;
-    private LIB.FSTexFieldMD txt_phone;
+    private rojerusan.RSMetroTextPlaceHolder txt_direccion;
+    private rojerusan.RSMetroTextPlaceHolder txt_dni;
+    private rojerusan.RSMetroTextPlaceHolder txt_email;
+    private rojerusan.RSMetroTextPlaceHolder txt_name;
+    private rojerusan.RSMetroTextPlaceHolder txt_phone;
     // End of variables declaration//GEN-END:variables
 }
