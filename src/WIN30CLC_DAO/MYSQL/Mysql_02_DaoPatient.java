@@ -22,11 +22,11 @@ import java.util.List;
  *
  * @author Cesar
  */
-public class MySql_02_DaoPatient implements Dao_02_Patient {
+public class Mysql_02_DaoPatient implements Dao_02_Patient {
 //
     private Connection conn;
 //
-    public MySql_02_DaoPatient(Connection conn) {
+    public Mysql_02_DaoPatient(Connection conn) {
         this.conn = conn;
     }
 //
