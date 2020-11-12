@@ -45,9 +45,16 @@ public class CTR_02_Patient {
         return man.getDaoPatient().ChekDNI(DNI);
     }
     
-    public boolean InsertPatient(Patient entity) throws SQLException, DaoException{
+    public Patient InsertPatient(Patient entity) throws SQLException, DaoException{
         MySqlDaoManager man = new MySqlDaoManager();
-        man.getDaoPatient().rlInsert(entity);
+        return man.getDaoPatient().Insert(entity);
+    }
+    
+    public boolean DeletePatien(long id) throws SQLException, DaoException{
+        MySqlDaoManager man = new MySqlDaoManager();
+        Patient p = new Patient();
+        p.setId(id);
+        man.getDaoPatient().rlDelete(p);
         return true;
     }
     
@@ -60,5 +67,18 @@ public class CTR_02_Patient {
         this.model.updateModel();
         this.model.fireTableDataChanged();
         return this.model;
+    }
+
+    public Patient SelectPatient(long id) throws SQLException, DaoException {
+        MySqlDaoManager man = new MySqlDaoManager();
+        Patient p = new Patient();
+        p.setId(id);
+        p =  man.getDaoPatient().findById(p);
+        return p;
+    }
+
+    public void UpdatePatient(Patient patient) throws SQLException, DaoException {
+        MySqlDaoManager man = new MySqlDaoManager();
+        man.getDaoPatient().rlUpdate(patient);
     }
 }
