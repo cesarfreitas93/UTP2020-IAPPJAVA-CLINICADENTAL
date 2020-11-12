@@ -7,11 +7,14 @@ package WIN33CLC_VIEW;
 import WIN30CLC_DAO.DaoException;
 import WIN31CLC_DTO.Patient;
 import WIN32CLC_CTR.CTR_02_Patient;
+import static WIN_2020_UTILS.Validators.esEmail;
+import static WIN_2020_UTILS.Validators.inputStringIngresado;
 import java.awt.Color;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.JSONException;
 import rojerusan.RSNotifyFade;
@@ -22,11 +25,11 @@ import rojerusan.RSNotifyShadowFade;
  */
 public class frm_02_Patient_Detail extends javax.swing.JPanel {
 
-    
+    private CTR_02_Patient cTR_02_Patient;
     public frm_02_Patient_Detail() {
         initComponents();
          setBackground(new Color (255,255,255,253));
-         
+         cTR_02_Patient = new CTR_02_Patient();
          
          txt_dni.setBackground(new Color (0,0,0,1));
          txt_name.setBackground(new Color (0,0,0,1));
@@ -36,8 +39,18 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
          txt_direccion.setBackground(new Color (0,0,0,1));
          txt_email.setBackground(new Color (0,0,0,1));
          
-                
-         
+        txt_dni.setEnabled(false);   
+        txt_buscar_reniec.setEnabled(false);
+        txt_name.setEnabled(false);
+        txt_apellidoPAT.setEnabled(false);
+        txt_apellidoMAT.setEnabled(false);
+        txt_phone.setEnabled(false);
+        txt_email.setEnabled(false);
+        txt_direccion.setEnabled(false);
+        
+        btn_cancelar_cambios.setEnabled(false);
+        btn_modificar_paciente.setEnabled(false);
+        btn_save.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -152,6 +165,11 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         btn_cancelar_cambios.setColorSecundario(new java.awt.Color(3, 102, 183));
         btn_cancelar_cambios.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_cancelar_cambios.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_cancelar_cambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelar_cambiosActionPerformed(evt);
+            }
+        });
         fSGradientPanel2.add(btn_cancelar_cambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 220, -1));
 
         btn_nuevo_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-añadir-usuario-masculino-30.png"))); // NOI18N
@@ -175,6 +193,11 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         btn_modificar_paciente.setColorSecundario(new java.awt.Color(3, 102, 183));
         btn_modificar_paciente.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_modificar_paciente.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_modificar_paciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificar_pacienteActionPerformed(evt);
+            }
+        });
         fSGradientPanel2.add(btn_modificar_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 210, -1));
 
         btn_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-guardar-como-30.png"))); // NOI18N
@@ -316,25 +339,125 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
             Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
         }     
     }//GEN-LAST:event_txt_buscar_reniecActionPerformed
+    private boolean editable;
+    private Patient dto;
+    public Patient getDto() {
+        return dto;
+    }
 
+    public void setDto(Patient dto) {
+        this.dto = dto;
+    }
+
+    private long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    
+    public boolean isEditable() {
+        return editable;
+    }
+
+    public void setEditable(boolean editable) {
+        btn_modificar_paciente.setEnabled(editable);
+    }
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
 
- try {
-            Patient patient = new Patient();
+        String msg = "";
+        int focus = 0;
+        if(txt_dni.getText().length()<8 ||txt_dni.getText().length()>8 )
+        {msg = msg + "Ingrese un DNI válido\n"; focus = 0;}
+        else if(!inputStringIngresado(txt_name.getText()))
+        {msg = msg + "Ingrese su nombre\n"; focus = 1;} else
+        if(!inputStringIngresado(txt_apellidoPAT.getText()))
+        {msg = msg + "Ingrese el apellido paterno\n"; focus = 2;} else
+        if(!inputStringIngresado(txt_apellidoMAT.getText()))
+        {msg = msg + "Ingrese el apellido materno\n";focus = 3;} else
+        if(!inputStringIngresado(txt_phone.getText()))
+        {msg = msg + "ingrese un numero de celular\n";focus = 4;} else
+        if(!inputStringIngresado(txt_direccion.getText()))
+        {                msg = msg + "Ingrese su dirección\n";focus = 6;} else
+        if(!esEmail(txt_email.getText()) || txt_email.getText().length()<=0)
+        {msg = msg + "El correo electrónico no es válido\n";focus = 5;} 
+        
+        try {
+            if(msg.length()>0){
+                JOptionPane.showMessageDialog(null, msg,
+                    "Dental SyS", JOptionPane.ERROR_MESSAGE);
+                switch (focus){
+                    case 0:
+                        txt_dni.requestFocus(); break;
+                    case 1:
+                        txt_name.requestFocus(); break;
+                    case 2:
+                        txt_apellidoPAT.requestFocus(); break;
+                    case 3:
+                        txt_apellidoMAT.requestFocus(); break;
+                    case 4:
+                        txt_phone.requestFocus(); break;
+                    case 5:
+                        txt_email.requestFocus(); break;
+                    case 6:
+                        txt_direccion.requestFocus(); break;
+                    default: txt_dni.requestFocus();  break;
+                }
+            }else{
+                Patient patient = new Patient();
+                patient.setDni(txt_dni.getText());
+                patient.setName(txt_name.getText());
+                patient.setLastname(txt_apellidoPAT.getText());
+                patient.setSurename(txt_apellidoMAT.getText());
+                patient.setPhone(txt_phone.getText());
+                patient.setEmail(txt_email.getText());
+                patient.setAddress(txt_direccion.getText());
+                patient.setUbigeo("150602");
+                patient.setEnable(true);
 
-            patient.setDni(txt_dni.getText());
-            patient.setName(txt_name.getText());
-            patient.setLastname(txt_apellidoPAT.getText());
-            patient.setSurename(txt_apellidoMAT.getText());
-            patient.setPhone(txt_phone.getText());
-            patient.setEmail(txt_email.getText());
-            patient.setAddress(txt_direccion.getText());
-            patient.setUbigeo("150602");
-            patient.setEnable(true);
+                CTR_02_Patient ctrp = new CTR_02_Patient();
+                
+                if(id > 0){
+                    //modificar
+                    patient.setId(id);
+                    ctrp.UpdatePatient(patient);
+                    btn_cancelar_cambios.setEnabled(false);
+                    btn_save.setEnabled(false);
+                    txt_buscar_reniec.setEnabled(false);
+                    btn_nuevo_paciente.setEnabled(true);
+                    Limpiar();
+                    dto = new Patient();
+                    id = 0;
+                    frm_02_Patient frame = (frm_02_Patient) this.getTopLevelAncestor();
+                    frame.mensaje();
+                }
+                else
+                {
+                    // insertar
+                    if(patient.getId() != 0){
+                        patient = ctrp.InsertPatient(patient);
+                        btn_cancelar_cambios.setEnabled(false);
+                        btn_save.setEnabled(false);
+                        txt_buscar_reniec.setEnabled(false);
+                        Limpiar();
+                        frm_02_Patient frame = (frm_02_Patient) this.getTopLevelAncestor();
+                        frame.mensaje();
+                        new rojerusan.RSNotifyFade("DentalSys", "Se guardaron los cambios correctamente.", 7,
+                            RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.SUCCESS).setVisible(true);
+                    }else{
 
-            CTR_02_Patient ctrp = new CTR_02_Patient();
-            ctrp.InsertPatient(patient);
+                        new rojerusan.RSNotifyFade("DentalSys", "No se guardaron los datos! \n Intente nuevamente", 7,
+                            RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.WARNING).setVisible(true);
+                    }
+                }
 
+
+            }
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DaoException ex) {
@@ -343,28 +466,94 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
        
     }//GEN-LAST:event_btn_saveActionPerformed
 
+    public void Limpiar(){
+        txt_dni.setText("");
+        txt_name.setText("");
+        txt_apellidoPAT.setText("");
+        txt_apellidoMAT.setText("");
+        txt_phone.setText("");
+        txt_email.setText("");
+        txt_direccion.setText("");
+        cbx_departamento.setSelectedIndex(0);
+        cbx_provincia.setSelectedIndex(0);
+        cbx_distrito.setSelectedIndex(0);
+        txt_dni.requestFocus();
+        
+        txt_dni.setEnabled(false);
+        txt_name.setEnabled(false);
+        txt_apellidoPAT.setEnabled(false);
+        txt_apellidoMAT.setEnabled(false);
+        txt_phone.setEnabled(false);
+        txt_email.setEnabled(false);
+        txt_direccion.setEnabled(false);
+        
+    }
     private void btn_nuevo_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_pacienteActionPerformed
-
-txt_dni.setText("");
-txt_name.setText("");
-txt_apellidoPAT.setText("");
-txt_apellidoMAT.setText("");
-txt_phone.setText("");
-txt_email.setText("");
-txt_direccion.setText("");
-cbx_departamento.setSelectedIndex(0);
-cbx_provincia.setSelectedIndex(0);
-cbx_distrito.setSelectedIndex(0);
-
-        // TODO add your handling code here:
+        Limpiar();
+        txt_dni.setEnabled(true);
+        txt_name.setEnabled(true);
+        txt_apellidoPAT.setEnabled(true);
+        txt_apellidoMAT.setEnabled(true);
+        txt_phone.setEnabled(true);
+        txt_email.setEnabled(true);
+        txt_direccion.setEnabled(true);
+        btn_cancelar_cambios.setEnabled(true);
+        btn_save.setEnabled(true);
+        txt_buscar_reniec.setEnabled(true);
     }//GEN-LAST:event_btn_nuevo_pacienteActionPerformed
 
     private void btn_modificar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificar_pacienteActionPerformed
 
-       new rojerusan.RSNotifyFade("ACTUALIZACION", "Se cambio los datos del paciente", 7, 
-               RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.SUCCESS).setVisible(true);
-        // TODO add your handling code here:
+        try {
+            Patient dto = new Patient();
+            dto = cTR_02_Patient.SelectPatient(this.id);
+            
+            btn_modificar_paciente.setEnabled(false);
+            btn_nuevo_paciente.setEnabled(false);
+            btn_cancelar_cambios.setEnabled(true);
+            btn_save.setEnabled(true);
+            txt_dni.setText(dto.getDni());
+            txt_dni.setEnabled(false);
+            txt_name.setEnabled(true);
+            txt_apellidoPAT.setEnabled(true);
+            txt_apellidoMAT.setEnabled(true);
+            txt_phone.setEnabled(true);
+            txt_email.setEnabled(true);
+            txt_direccion.setEnabled(true);
+            
+            txt_name.setText(dto.getName());
+            txt_apellidoPAT.setText(dto.getLastname());
+            txt_apellidoMAT.setText(dto.getSurename());
+            txt_phone.setText(dto.getPhone());
+            txt_email.setText(dto.getEmail());
+            txt_direccion.setText(dto.getAddress());
+            txt_buscar_reniec.setEnabled(false);
+            // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_02_Patient_Detail.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_02_Patient_Detail.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_modificar_pacienteActionPerformed
+
+    private void btn_cancelar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambiosActionPerformed
+        // TODO add your handling code here:
+        Limpiar();
+        txt_dni.setEnabled(false);
+        txt_buscar_reniec.setEnabled(false);
+        txt_name.setEnabled(false);
+        txt_apellidoPAT.setEnabled(false);
+        txt_apellidoMAT.setEnabled(false);
+        txt_phone.setEnabled(false);
+        txt_email.setEnabled(false);
+        txt_direccion.setEnabled(false);
+        btn_cancelar_cambios.setEnabled(false);
+        btn_save.setEnabled(false);
+        btn_modificar_paciente.setEnabled(false);
+        btn_nuevo_paciente.setEnabled(true);
+        dto = new Patient();
+        id = 0;
+    }//GEN-LAST:event_btn_cancelar_cambiosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
