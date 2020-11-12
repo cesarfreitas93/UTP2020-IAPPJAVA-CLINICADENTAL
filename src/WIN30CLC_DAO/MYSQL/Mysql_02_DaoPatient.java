@@ -34,64 +34,8 @@ public class Mysql_02_DaoPatient implements Dao_02_Patient {
     final String FINDALL = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where enable = 1";
     final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where id = ?";
     final String FINDBY_DNI = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where dni = ?";
-    final String UPDATE = "update `updateAt` = ?, `enable`= ?, `phone` = ?, `email`= ?, `address`= ?, `ubigeo`= ? from patient where id = ?";
-    final String DELETE = "update `updateAt` = ? from patient  where id = ?";
-
-    @Override
-    public void rlInsert(Patient entity) throws DaoException {
-        PreparedStatement pst = null;
-        ResultSet rs = null;
-        try {
-            Calendar calendar = Calendar.getInstance();
-            java.util.Date currentTime = calendar.getTime();
-            long time = currentTime.getTime();
-            //pstmt.setTimestamp(2, new Timestamp(time));
-
-            pst = (PreparedStatement) conn.prepareStatement(INSERT, new String[]{"id"});
-            pst.setString(1, entity.getDni());
-            pst.setString(2, entity.getName());
-            pst.setString(3, entity.getLastname());
-            pst.setString(4, entity.getSurename());
-            pst.setTimestamp(5, new Timestamp(time));//java.sql.Date.valueOf(java.time.LocalDate.now())); //(java.sql.Date) new Date(entity.getCreateAt().getTime()));
-            pst.setTimestamp(6, new Timestamp(time));
-            pst.setBoolean(7, entity.isEnable());
-            pst.setString(8, entity.getPhone());
-            pst.setString(9, entity.getEmail());
-            pst.setString(10, entity.getAddress());
-            pst.setString(11, entity.getUbigeo());
-
-            if (pst.executeUpdate() == 0) {
-                throw new DaoException("Puede que no se haya guardado.");
-            }
-
-            try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    entity.setId((int) generatedKeys.getLong(1));
-                } else {
-                    throw new SQLException("Creating user failed, no ID obtained.");
-                }
-            }
-
-        } catch (SQLException ex) {
-            throw new DaoException("Error en SQL", ex);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException ex) {
-                    new DaoException("Error en SQL", ex);
-                }
-            }
-            if (pst != null) {
-                try {
-                    pst.close();
-                } catch (SQLException ex) {
-                    throw new DaoException("Error en SQL", ex);
-                }
-            }
-        }
-
-    }
+    final String UPDATE = "update patient set `updateAt` = ?, `phone` = ?, `email`= ?, `address`= ?, `ubigeo`= ?  where id = ?";
+    final String DELETE = "update patient set updateAt = ?, enable = 0 where id = ?";
 
     @Override
     public void rlUpdate(Patient entity) throws DaoException {
@@ -103,12 +47,11 @@ public class Mysql_02_DaoPatient implements Dao_02_Patient {
 
             pst = (PreparedStatement) conn.prepareStatement(UPDATE);
             pst.setTimestamp(1, new Timestamp(time));
-            pst.setBoolean(2, entity.isEnable());
-            pst.setString(3, entity.getPhone());
-            pst.setString(4, entity.getEmail());
-            pst.setString(5, entity.getAddress());
-            pst.setString(6, entity.getUbigeo());
-            pst.setLong(7, entity.getId());
+            pst.setString(2, entity.getPhone());
+            pst.setString(3, entity.getEmail());
+            pst.setString(4, entity.getAddress());
+            pst.setString(5, entity.getUbigeo());
+            pst.setLong(6, entity.getId());
 
             if (pst.executeUpdate() == 0) {
                 throw new DaoException("Puede que no se haya modificado.");
@@ -139,7 +82,7 @@ public class Mysql_02_DaoPatient implements Dao_02_Patient {
             pst.setLong(2, entity.getId());
 
             if (pst.executeUpdate() == 0) {
-                throw new DaoException("Puede que no se haya modificado.");
+                throw new DaoException("Puede que no se haya eliminado.");
             }
         } catch (SQLException ex) {
             throw new DaoException("Error en SQL", ex);
@@ -272,5 +215,64 @@ public class Mysql_02_DaoPatient implements Dao_02_Patient {
             }
         }
         return dto;
+    }
+
+    @Override
+    public Patient Insert(Patient entity) throws DaoException {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        try {
+            Calendar calendar = Calendar.getInstance();
+            java.util.Date currentTime = calendar.getTime();
+            long time = currentTime.getTime();
+            pst = (PreparedStatement) conn.prepareStatement(INSERT, new String[]{"id"});
+            pst.setString(1, entity.getDni());
+            pst.setString(2, entity.getName());
+            pst.setString(3, entity.getLastname());
+            pst.setString(4, entity.getSurename());
+            pst.setTimestamp(5, new Timestamp(time));
+            pst.setTimestamp(6, new Timestamp(time));
+            pst.setBoolean(7, entity.isEnable());
+            pst.setString(8, entity.getPhone());
+            pst.setString(9, entity.getEmail());
+            pst.setString(10, entity.getAddress());
+            pst.setString(11, entity.getUbigeo());
+
+            if (pst.executeUpdate() == 0) {
+                throw new DaoException("Puede que no se haya guardado.");
+            }
+
+            try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    entity.setId((int) generatedKeys.getLong(1));
+                } else {
+                    throw new SQLException("Creating user failed, no ID obtained.");
+                }
+            }
+
+        } catch (SQLException ex) {
+            throw new DaoException("Error en SQL", ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    new DaoException("Error en SQL", ex);
+                }
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException ex) {
+                    throw new DaoException("Error en SQL", ex);
+                }
+            }
+        }
+        return entity;
+    }
+
+    @Override
+    public void rlInsert(Patient entity) throws DaoException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
