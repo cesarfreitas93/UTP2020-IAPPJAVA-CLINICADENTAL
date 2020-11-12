@@ -48,7 +48,7 @@ public class MySqlDaoManager implements DaoManager{
     @Override
     public Dao_02_Patient getDaoPatient() {
         if(DaoPatient == null){
-            DaoPatient = new MySql_02_DaoPatient(connection_);
+            DaoPatient = new Mysql_02_DaoPatient(connection_);
         }
         return DaoPatient;
     }
