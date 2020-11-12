@@ -27,7 +27,7 @@ public class frm_01_login extends javax.swing.JFrame {
         initComponents();
         
       
-         setBackground(new Color (255,255,255,250));
+         setBackground(new Color (255,255,255,245));
         jPanel2.setOpaque(false);
         txt_username.setBackground(new Color (0,0,0,1));
         txt_password.setBackground(new Color (0,0,0,1));
@@ -105,6 +105,7 @@ public class frm_01_login extends javax.swing.JFrame {
 
         fSGradientPanel1.setFSEndColor(new java.awt.Color(3, 111, 198));
         fSGradientPanel1.setFSStartColor(new java.awt.Color(101, 208, 250));
+        fSGradientPanel1.setOpaque(false);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-usuario-30 (1).png"))); // NOI18N
 
