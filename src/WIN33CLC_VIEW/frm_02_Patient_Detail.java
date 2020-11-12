@@ -141,8 +141,8 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         });
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 10, -1, -1));
 
-        fSGradientPanel2.setFSEndColor(new java.awt.Color(101, 208, 250));
-        fSGradientPanel2.setFSStartColor(new java.awt.Color(3, 111, 198));
+        fSGradientPanel2.setFSEndColor(new java.awt.Color(3, 111, 198));
+        fSGradientPanel2.setFSStartColor(new java.awt.Color(101, 208, 250));
         fSGradientPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 fSGradientPanel2MouseDragged(evt);
@@ -325,8 +325,11 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                 if(entidad.getId() != 0){
                     // existe el dni
                     // despliega un mensaje
-                    JOptionPane.showMessageDialog(null, "El DNI ingresado ya existe!",
-                        "Dental SyS", JOptionPane.WARNING_MESSAGE);
+                    
+                    
+                    
+                   /* JOptionPane.showMessageDialog(null, "El DNI ingresado ya existe!",
+                        "Dental SyS", JOptionPane.WARNING_MESSAGE);*/
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "Ingrese el DNI",
@@ -334,9 +337,9 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
             }
 
         } catch (IOException ex) {
-            Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
         } catch (JSONException ex) {
-            Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+           // Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
         }     
     }//GEN-LAST:event_txt_buscar_reniecActionPerformed
     private boolean editable;
@@ -459,9 +462,9 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+           // Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DaoException ex) {
-            Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
         }      
        
     }//GEN-LAST:event_btn_saveActionPerformed
