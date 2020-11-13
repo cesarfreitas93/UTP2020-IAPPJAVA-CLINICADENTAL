@@ -27,6 +27,15 @@ public class Patient {
   private String ubigeo; 
 
     public Patient() {
+        this.dni = "";
+        this.name =  "";
+        this.lastname =  "";
+        this.surename =  "";
+        this.enable = false;
+        this.phone =  "";
+        this.email =  "";
+        this.address =  "";
+        this.ubigeo =  "";
     }
 
     public Patient(String dni, String name, String lastname, String surename) {
