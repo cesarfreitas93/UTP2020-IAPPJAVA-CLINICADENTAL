@@ -76,13 +76,15 @@ import java.util.List;
     }
 
     @Override
-    public List<Ubigeo> getprovincia(Ubigeo entity) throws DaoException {
+//    public List<Ubigeo> getprovincia(Ubigeo entity) throws DaoException {
+            public List<Ubigeo> getprovincia(String  departamento) throws DaoException {
+
         PreparedStatement pst = null;
         ResultSet rs = null;
         List<Ubigeo> list = new ArrayList<Ubigeo>();
         try {
             pst = (PreparedStatement) conn.prepareStatement(FINDBYID_DEP_PRO);
-            pst.setString(1, entity.getCodigo_departamento());
+            pst.setString(1, departamento);
             rs = pst.executeQuery();
 
             System.out.println(rs);
@@ -119,14 +121,16 @@ import java.util.List;
     }
 
     @Override
-    public List<Ubigeo> getdistrito(Ubigeo entity) throws DaoException {
+//    public List<Ubigeo> getdistrito(Ubigeo entity) throws DaoException {
+            public List<Ubigeo> getdistrito(String departamento, String provincia) throws DaoException {
+
         PreparedStatement pst = null;
         ResultSet rs = null;
         List<Ubigeo> list = new ArrayList<Ubigeo>();
         try {
             pst = (PreparedStatement) conn.prepareStatement(FINDBYID_PRO_DIS);
-            pst.setString(1, entity.getCodigo_departamento());
-            pst.setString(2, entity.getCodigo_provincia());
+            pst.setString(1, departamento);
+            pst.setString(2, provincia);
 
             rs = pst.executeQuery();
             System.out.println(rs);
