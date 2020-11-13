@@ -30,7 +30,7 @@ public class MySqlDaoManager implements DaoManager{
     protected String db_name, db_url , db_user, db_pass;
     protected java.sql.Connection connection_  = null;
     public MySqlDaoManager() throws SQLException{
-        this.db_name = "UTP2020-DENTAL-SYSTEM-DEV"; 
+        this.db_name = "utp2020-dental-system-dev"; 
         this.db_url = "jdbc:mysql://localhost:3306/"+ this.db_name; 
         this.db_user = "root"; 
         this.db_pass = "";

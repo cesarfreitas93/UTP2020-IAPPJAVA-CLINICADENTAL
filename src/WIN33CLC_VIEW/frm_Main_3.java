@@ -5,15 +5,17 @@ import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import rojerusan.RSPanelsSlider;
 
-public class frm_Main extends javax.swing.JFrame {
+public class frm_Main_3 extends javax.swing.JFrame {
 
   
-    public frm_Main() {
+    public frm_Main_3() {
         initComponents();
         //setBackground(new Color (3,11,198,220));
          setBackground(new Color (255,255,255,253));
@@ -26,9 +28,12 @@ public class frm_Main extends javax.swing.JFrame {
        //------------------
        paneles();
        
-       
-       
-       
+           }
+    
+    
+    public void changeimage(JLabel button, String resourcheimg){
+        ImageIcon aimg = new ImageIcon(getClass().getResource(resourcheimg));
+        button.setIcon(aimg);
     }
     
     private void paneles ()
@@ -186,6 +191,7 @@ public class frm_Main extends javax.swing.JFrame {
         rSButtonMaterialGradientOne7.setRippleColor(new java.awt.Color(204, 204, 204));
         jPanel1.add(rSButtonMaterialGradientOne7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 50, -1));
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/Menu.png"))); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -295,7 +301,7 @@ public class frm_Main extends javax.swing.JFrame {
         });
         jPanel3.add(btn_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 740));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-330, 0, -1, 740));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 1220, 740));
 
@@ -307,21 +313,28 @@ public class frm_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_rSButtonMaterialGradientOne4ActionPerformed
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-      int posicion = this.jPanel3.getX();
+      
+        
+        int posicion = this.jPanel3.getX();
         
        if (posicion< -1)
             
        {
-        
-        Animacion.Animacion.mover_derecha(-330, 0  , 2, 2, jPanel3);
+           changeimage(jLabel2, "/WIN34CLC_RESOURCES/Calendario.png");
        
-            
+        Animacion.Animacion.mover_derecha(-330, 0  , 2, 2, jPanel3);
+        
+            SwingUtilities.updateComponentTreeUI(this);
        }
        
        else
            
        {
+            changeimage(jLabel2, "/WIN34CLC_RESOURCES/Menu.png");
+           
            Animacion.Animacion.mover_izquierda(0 ,-330, 2, 2, jPanel3);
+           
+           SwingUtilities.updateComponentTreeUI(this);
        }
     }//GEN-LAST:event_jLabel2MouseClicked
 
@@ -362,7 +375,7 @@ public class frm_Main extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_Main().setVisible(true);
+                new frm_Main_3().setVisible(true);
             }
         });
     }

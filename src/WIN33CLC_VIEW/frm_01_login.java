@@ -19,9 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class frm_01_login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frm_01_login
-     */
+
     public frm_01_login(){
        
         initComponents();
