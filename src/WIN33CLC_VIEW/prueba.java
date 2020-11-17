@@ -28,10 +28,13 @@ public class prueba extends javax.swing.JFrame {
        if(panel_bar.isVisible()== true)
        {
            panel_bar.setVisible(false);
+         
+            jPanel3.setVisible(true);
        }
        if(panel_mad.isVisible()== true)
        {
            panel_mad.setVisible(false);
+           jPanel3.setVisible(true);
        }
     }
     
@@ -284,7 +287,7 @@ public class prueba extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(40, 20, 0, 60);
         jPanel3.add(btn_bar, gridBagConstraints);
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 280, 530));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

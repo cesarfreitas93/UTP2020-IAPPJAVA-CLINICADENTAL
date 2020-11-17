@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN30CLC_DAO.MYSQL;
 
 import WIN30CLC_DAO.DaoException;
@@ -17,10 +13,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- *
- * @author Carlos Jimenez Gomez
- */
 public class MySql_07_DaoEmpresa implements Dao_07_Empresa {
 
     private Connection conn;
@@ -29,10 +21,14 @@ public class MySql_07_DaoEmpresa implements Dao_07_Empresa {
         this.conn = conn;
     }
 
-    final String INSERT = "insert into empresa (name , address, ruc, ubigeo, phone, email, logo)values(?,?, ?, ?,?,?,?);";
-    final String FINDALL = "select id, name , address, ruc, ubigeo, phone, email, logo  from empresa";
-    final String FINDBYID = "select id, name , address, ruc, ubigeo, phone, email, logo  from empresa where id = ?";
-    final String UPDATE = "update  name= ? , address= ?, ruc= ?, ubigeo= ?, phone= ?, email= ?, logo  = ? from empresa where id = ?";
+    final String INSERT = "insert into empresa (name , address, ruc, "
+            + "ubigeo, phone, email, logo)values(?,?, ?, ?,?,?,?);";
+    final String FINDALL = "select id, name , address, ruc, ubigeo, phone,"
+            + " email, logo  from empresa";
+    final String FINDBYID = "select id, name , address, ruc, ubigeo, phone, email, "
+            + "logo  from empresa where id = ?";
+    final String UPDATE = "update  name= ? , address= ?, ruc= ?, ubigeo= ?, phone= ?,"
+            + " email= ?, logo  = ? from empresa where id = ?";
 
     @Override
     public void rlInsert(Empresa entity) throws DaoException {

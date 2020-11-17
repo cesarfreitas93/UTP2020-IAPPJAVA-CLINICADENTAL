@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN30CLC_DAO.MYSQL;
 
 import WIN30CLC_DAO.DaoException;
@@ -15,13 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- *
- * @author Carlos Jimenez Gomez
- */
 public class MySql_06_DaoPermisos implements Dao_06_Permisos{
 
-    final String FINDBYID = "select per.* from user as usr inner join permisos as per on per.user_id = usr.id where per.user_id = ?";
+    final String FINDBYID = "select per.* from user as usr inner join permisos "
+            + "as per on per.user_id = usr.id where per.user_id = ?";
     private Connection conn;
     @Override
     public void rlInsert(Permisos entity) throws DaoException {

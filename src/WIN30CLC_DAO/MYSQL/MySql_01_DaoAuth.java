@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN30CLC_DAO.MYSQL;
 
 import WIN30CLC_DAO.DaoException;
@@ -15,13 +11,10 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- * @author Cesar
- */
 public class MySql_01_DaoAuth implements Dao_01_Auth{
 
-    final String CHECKAUTH = "select username, role from user where username = ? and password = ?";
+    final String CHECKAUTH = "select username, role from user where "
+            + "username = ? and password = ?";
     
     private Connection conn;
     
@@ -33,27 +26,27 @@ public class MySql_01_DaoAuth implements Dao_01_Auth{
 
     @Override
     public void rlInsert(User entity) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
     public void rlUpdate(User entity) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
     public void rlDelete(User entity) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
     public List<User> findAll(int id) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
     public User findById(User entity) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     

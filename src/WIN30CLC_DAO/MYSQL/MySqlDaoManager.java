@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN30CLC_DAO.MYSQL;
 
 import WIN30CLC_DAO.DaoException;
@@ -15,10 +11,6 @@ import WIN30CLC_DAO.Dao_05_Citas;
 import java.sql.DriverManager;
 import java.sql.*;
 
-/**
- *
- * @author Cesar
- */
 public class MySqlDaoManager implements DaoManager{
     
     private Dao_01_Auth DaoAuht = null;

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN30CLC_DAO.MYSQL;
 
 import WIN30CLC_DAO.DaoException;
@@ -16,13 +12,10 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- *
- * @author Cesar
- */
 public class MySql_05_DaoCitas implements Dao_05_Citas {
     private Connection conn;
-    final String INSERT = "insert into citas (createAt, status, patient_id, specialista_id) values(?,?,?,?)";
+    final String INSERT = "insert into citas (createAt, status, patient_id,"
+            + " specialista_id) values(?,?,?,?)";
     final String CHANGE_STATUS = "update status = ? from citas where id = ?";
     
     public MySql_05_DaoCitas(Connection conn) {

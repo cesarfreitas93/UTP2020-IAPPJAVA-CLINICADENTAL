@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN31CLC_DTO;
 
 import java.util.Objects;
 
-/**
- *
- * @author Carlos Jimenez Gomez
- */
 public class Ubigeo {
 private String codigo_ubigeo;
 private String codigo_departamento;
@@ -27,7 +19,10 @@ private String descripcion_distrito_macro;
     public Ubigeo() {
     }
 
-    public Ubigeo(String codigo_ubigeo, String codigo_departamento, String codigo_provincia, String codigo_distrito, String descripcion_departamento, String descripcion_provincia, String descripcion_distrito, boolean habilitado, String descripcion_departamento_macro, String descripcion_provincia_macro, String descripcion_distrito_macro) {
+    public Ubigeo(String codigo_ubigeo, String codigo_departamento, String codigo_provincia,
+            String codigo_distrito, String descripcion_departamento, String descripcion_provincia,
+            String descripcion_distrito, boolean habilitado, String descripcion_departamento_macro, 
+            String descripcion_provincia_macro, String descripcion_distrito_macro) {
         this.codigo_ubigeo = codigo_ubigeo;
         this.codigo_departamento = codigo_departamento;
         this.codigo_provincia = codigo_provincia;
@@ -131,7 +126,14 @@ private String descripcion_distrito_macro;
 
     @Override
     public String toString() {
-        return "Ubigeo{" + "codigo_ubigeo=" + codigo_ubigeo + ", codigo_departamento=" + codigo_departamento + ", codigo_provincia=" + codigo_provincia + ", codigo_distrito=" + codigo_distrito + ", descripcion_departamento=" + descripcion_departamento + ", descripcion_provincia=" + descripcion_provincia + ", descripcion_distrito=" + descripcion_distrito + ", habilitado=" + habilitado + ", descripcion_departamento_macro=" + descripcion_departamento_macro + ", descripcion_provincia_macro=" + descripcion_provincia_macro + ", descripcion_distrito_macro=" + descripcion_distrito_macro + '}';
+        return "Ubigeo{" + "codigo_ubigeo=" + codigo_ubigeo + ", codigo_departamento=" + 
+                codigo_departamento + ", codigo_provincia=" + codigo_provincia + ", "
+                + "codigo_distrito=" + codigo_distrito + ", descripcion_departamento=" +
+                descripcion_departamento + ", descripcion_provincia=" + descripcion_provincia + 
+                ", descripcion_distrito=" + descripcion_distrito + ", habilitado=" + habilitado
+                + ", descripcion_departamento_macro=" + descripcion_departamento_macro + ", "
+                + "descripcion_provincia_macro=" + descripcion_provincia_macro + ", "
+                + "descripcion_distrito_macro=" + descripcion_distrito_macro + '}';
     }
 
     @Override

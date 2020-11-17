@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN31CLC_DTO;
 
 import java.util.Date;
 import java.util.Objects;
 
-/**
- *
- * @author Cesar
- */
 public class Citas {
  private long id;
  private Date createAt;
@@ -22,7 +14,8 @@ public class Citas {
     public Citas() {
     }
 
-    public Citas(long id, Date createAt, boolean status, long patient_id, long especialista_id) {
+    public Citas(long id, Date createAt, boolean status, long patient_id, 
+            long especialista_id) {
         this.id = id;
         this.createAt = createAt;
         this.status = status;
@@ -113,7 +106,8 @@ public class Citas {
 
     @Override
     public String toString() {
-        return "Citas{" + "id=" + id + ", createAt=" + createAt + ", status=" + status + ", patient_id=" + patient_id + ", especialista_id=" + especialista_id + '}';
+        return "Citas{" + "id=" + id + ", createAt=" + createAt + ", status=" + status + ","
+                + " patient_id=" + patient_id + ", especialista_id=" + especialista_id + '}';
     }
 
     @Override

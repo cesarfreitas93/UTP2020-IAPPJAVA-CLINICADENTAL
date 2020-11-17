@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN31CLC_DTO;
 
 import java.util.Objects;
 
-/**
- *
- * @author Carlos Jimenez Gomez
- */
 public class Comprobante_Detalle {
 
     private long id;
@@ -23,7 +15,8 @@ public class Comprobante_Detalle {
     public Comprobante_Detalle() {
     }
 
-    public Comprobante_Detalle(long id, String descripcion, double precio, double igv, double total, long comprantes_id) {
+    public Comprobante_Detalle(long id, String descripcion, double precio, 
+            double igv, double total, long comprantes_id) {
         this.id = id;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -82,7 +75,9 @@ public class Comprobante_Detalle {
 
     @Override
     public String toString() {
-        return "Comprobante_Detalle{" + "id=" + id + ", descripcion=" + descripcion + ", precio=" + precio + ", igv=" + igv + ", total=" + total + ", comprantes_id=" + comprantes_id + '}';
+        return "Comprobante_Detalle{" + "id=" + id + ", descripcion=" + descripcion + ", "
+                + "precio=" + precio + ", igv=" + igv + ", total=" + total + ", comprantes_id=" +
+                comprantes_id + '}';
     }
 
     @Override
@@ -90,9 +85,12 @@ public class Comprobante_Detalle {
         int hash = 7;
         hash = 83 * hash + (int) (this.id ^ (this.id >>> 32));
         hash = 83 * hash + Objects.hashCode(this.descripcion);
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.precio) ^ (Double.doubleToLongBits(this.precio) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.igv) ^ (Double.doubleToLongBits(this.igv) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.total) ^ (Double.doubleToLongBits(this.total) >>> 32));
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.precio) ^ 
+                (Double.doubleToLongBits(this.precio) >>> 32));
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.igv) ^ 
+                (Double.doubleToLongBits(this.igv) >>> 32));
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.total) ^ 
+                (Double.doubleToLongBits(this.total) >>> 32));
         hash = 83 * hash + (int) (this.comprantes_id ^ (this.comprantes_id >>> 32));
         return hash;
     }

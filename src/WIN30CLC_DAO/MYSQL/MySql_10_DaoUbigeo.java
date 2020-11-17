@@ -10,10 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Carlos Jimenez Gomez
- */
     public class MySql_10_DaoUbigeo implements Dao_10_Ubigeo {
 
     private Connection conn;
@@ -22,9 +18,14 @@ import java.util.List;
         this.conn = conn;
     }
 
-    final String FINDBY_DEP = "SELECT DISTINCT codigo_departamento,descripcion_departamento from UBIGEO WHERE habilitado = 1 order BY descripcion_departamento";
-    final String FINDBYID_DEP_PRO = "SELECT DISTINCT codigo_provincia,descripcion_provincia from UBIGEO where codigo_departamento = ? and habilitado = 1 order BY descripcion_provincia";
-    final String FINDBYID_PRO_DIS = "SELECT distinct codigo_departamento,descripcion_departamento,codigo_provincia,descripcion_provincia,codigo_distrito,descripcion_distrito from UBIGEO  WHERE codigo_departamento = ? and codigo_provincia = ?  AND habilitado = 1 order BY descripcion_distrito ";
+    final String FINDBY_DEP = "SELECT DISTINCT codigo_departamento,descripcion_departamento"
+            + " from UBIGEO WHERE habilitado = 1 order BY descripcion_departamento";
+    final String FINDBYID_DEP_PRO = "SELECT DISTINCT codigo_provincia,descripcion_provincia"
+            + " from UBIGEO where codigo_departamento = ? and habilitado = 1 order BY descripcion_provincia";
+    final String FINDBYID_PRO_DIS = "SELECT distinct codigo_departamento,descripcion_departamento,"
+            + "codigo_provincia,descripcion_provincia,codigo_distrito,descripcion_distrito from UBIGEO "
+            + " WHERE codigo_departamento = ? and codigo_provincia = ?  AND habilitado = 1 order BY "
+            + "descripcion_distrito ";
 
     private Ubigeo Convert_Depa(ResultSet rs) throws SQLException {
         Ubigeo dto = new Ubigeo();

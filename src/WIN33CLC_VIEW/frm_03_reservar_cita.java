@@ -9,12 +9,12 @@ package WIN33CLC_VIEW;
  *
  * @author lufra
  */
-public class vista1 extends javax.swing.JPanel {
+public class frm_03_reservar_cita extends javax.swing.JPanel {
 
     /**
      * Creates new form vista1
      */
-    public vista1() {
+    public frm_03_reservar_cita() {
         initComponents();
     }
 
@@ -27,6 +27,7 @@ public class vista1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel_contenedor = new javax.swing.JPanel();
         fSGradientPanel1 = new LIB.FSGradientPanel();
         jLabel13 = new javax.swing.JLabel();
         btn_guardar_cita = new RSMaterialComponent.RSButtonMaterialGradientOne();
@@ -61,9 +62,12 @@ public class vista1 extends javax.swing.JPanel {
         rbx_12 = new RSMaterialComponent.RSRadioButtonMaterial();
         rbx_13 = new RSMaterialComponent.RSRadioButtonMaterial();
         rbx_14 = new RSMaterialComponent.RSRadioButtonMaterial();
-        jLabel14 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panel_contenedor.setBackground(new java.awt.Color(255, 255, 255));
+        panel_contenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fSGradientPanel1.setFSEndColor(new java.awt.Color(3, 111, 198));
         fSGradientPanel1.setFSStartColor(new java.awt.Color(101, 208, 250));
@@ -74,12 +78,14 @@ public class vista1 extends javax.swing.JPanel {
 
         btn_guardar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-hoy-30.png"))); // NOI18N
         btn_guardar_cita.setText("Guardar Cita");
+        btn_guardar_cita.setBorderPainted(false);
         btn_guardar_cita.setColorPrimario(new java.awt.Color(42, 170, 232));
         btn_guardar_cita.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         btn_guardar_cita.setColorSecundario(new java.awt.Color(3, 102, 183));
         btn_guardar_cita.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        btn_guardar_cita.setFocusPainted(false);
         btn_guardar_cita.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        fSGradientPanel1.add(btn_guardar_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 210, -1));
+        fSGradientPanel1.add(btn_guardar_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 210, -1));
 
         btn_cancelar_cambios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-cancelar-30.png"))); // NOI18N
         btn_cancelar_cambios1.setText("Cancelar Cambios");
@@ -87,10 +93,11 @@ public class vista1 extends javax.swing.JPanel {
         btn_cancelar_cambios1.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         btn_cancelar_cambios1.setColorSecundario(new java.awt.Color(3, 102, 183));
         btn_cancelar_cambios1.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        btn_cancelar_cambios1.setFocusPainted(false);
         btn_cancelar_cambios1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        fSGradientPanel1.add(btn_cancelar_cambios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 220, -1));
+        fSGradientPanel1.add(btn_cancelar_cambios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 210, -1));
 
-        add(fSGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 740));
+        panel_contenedor.add(fSGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 740));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del Paciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
@@ -135,7 +142,7 @@ public class vista1 extends javax.swing.JPanel {
             }
         ));
         rSTableMetro1.setColorBackgoundHead(new java.awt.Color(3, 111, 198));
-        rSTableMetro1.setColorFilasBackgound2(new java.awt.Color(42, 170, 232));
+        rSTableMetro1.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
         rSTableMetro1.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         rSTableMetro1.setColorFilasForeground2(new java.awt.Color(255, 255, 255));
         rSTableMetro1.setFuenteFilas(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
@@ -148,7 +155,7 @@ public class vista1 extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 750, 120));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 770, 230));
+        panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 770, 230));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Reserva de Servicios y Especialista", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
@@ -172,7 +179,7 @@ public class vista1 extends javax.swing.JPanel {
         rSComboBoxMaterial2.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
         jPanel4.add(rSComboBoxMaterial2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, -1, -1));
 
-        add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 770, 100));
+        panel_contenedor.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 770, 100));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Reserva de cita", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
@@ -225,7 +232,7 @@ public class vista1 extends javax.swing.JPanel {
         rbx_3.setText("9:00 - 9:30");
         rbx_3.setColorCheck(new java.awt.Color(3, 111, 198));
         rbx_3.setColorUnCheck(new java.awt.Color(3, 111, 198));
-        rbx_3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rbx_3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         rbx_3.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 14)); // NOI18N
         rbx_3.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_3);
@@ -321,19 +328,16 @@ public class vista1 extends javax.swing.JPanel {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 740, 210));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 770, 330));
+        panel_contenedor.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 770, 330));
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(3, 102, 183));
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-cerrar-ventana-30 (1).png"))); // NOI18N
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
-            }
-        });
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 10, -1, -1));
+        add(panel_contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 740));
     }// </editor-fold>//GEN-END:initComponents
-
+ public void deshabilitar_panel_citas(  boolean b)
+  {
+    panel_contenedor.setVisible(b);
+      
+      
+  }
     private void txt_buscar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscar_pacienteActionPerformed
 
     }//GEN-LAST:event_txt_buscar_pacienteActionPerformed
@@ -346,12 +350,6 @@ public class vista1 extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_buscar_horariosActionPerformed
 
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-
-        System.exit(0);
-
-    }//GEN-LAST:event_jLabel14MouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_cancelar_cambios1;
@@ -360,7 +358,6 @@ public class vista1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
@@ -368,6 +365,7 @@ public class vista1 extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panel_contenedor;
     private RSMaterialComponent.RSComboBoxMaterial rSComboBoxMaterial1;
     private RSMaterialComponent.RSComboBoxMaterial rSComboBoxMaterial2;
     private rojeru_san.componentes.RSDateChooser rSDateChooser2;

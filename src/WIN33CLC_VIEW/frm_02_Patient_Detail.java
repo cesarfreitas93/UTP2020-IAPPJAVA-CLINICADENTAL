@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 import org.json.JSONException;
@@ -59,6 +60,10 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         btn_modificar_paciente.setEnabled(false);
         btn_save.setEnabled(false);
     }
+    public void deshabilitar_form_paciente(boolean b)
+  {
+      panel_contenedor.setVisible(b);
+  }
     
      public void LoadData() {
         try {
@@ -70,9 +75,9 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                 //btnDelete.setEnabled(seleccionValid);
             });
         } catch (DaoException ex) {
-            Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+           // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+         //   Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         this.tablePatients.setDefaultRenderer(JButton.class, new TableCellRenderer(){
@@ -100,9 +105,9 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                         tablePatients.setModel(cTR_02_Patient.ListPatients());
                        setEditable(false);
                     } catch (SQLException ex) {
-                        Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+                       // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (DaoException ex) {
-                        Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+                        //Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 
@@ -132,6 +137,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel_contenedor = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -142,7 +148,6 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         fSGradientPanel2 = new LIB.FSGradientPanel();
         jLabel12 = new javax.swing.JLabel();
         btn_cancelar_cambios = new RSMaterialComponent.RSButtonMaterialGradientOne();
@@ -164,60 +169,51 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePatients = new rojerusan.RSTableMetro();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panel_contenedor.setBackground(new java.awt.Color(255, 255, 255));
+        panel_contenedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("DNI");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, 20));
+        panel_contenedor.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel2.setText("Nombres");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
+        panel_contenedor.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel3.setText("Apellido Paterno");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, -1, -1));
+        panel_contenedor.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel4.setText("Apellido Materno");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 140, -1, -1));
+        panel_contenedor.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 140, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel5.setText("Teléfono");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
+        panel_contenedor.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel6.setText("Email");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, -1, -1));
+        panel_contenedor.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel7.setText("Direccion");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, -1, -1));
+        panel_contenedor.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel8.setText("Departamento");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
+        panel_contenedor.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel9.setText("Provincia");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, -1, -1));
+        panel_contenedor.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel10.setText("Distrito");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 390, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Gotham Thin", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(10, 86, 145));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("x");
-        jLabel11.setToolTipText("Cerrar la Aplicacion");
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
-            }
-        });
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 10, -1, -1));
+        panel_contenedor.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 390, -1, -1));
 
         fSGradientPanel2.setFSEndColor(new java.awt.Color(3, 111, 198));
         fSGradientPanel2.setFSStartColor(new java.awt.Color(101, 208, 250));
@@ -238,17 +234,19 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
 
         btn_cancelar_cambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-cancelar-30.png"))); // NOI18N
         btn_cancelar_cambios.setText("Cancelar Cambios");
+        btn_cancelar_cambios.setBorderPainted(false);
         btn_cancelar_cambios.setColorPrimario(new java.awt.Color(42, 170, 232));
         btn_cancelar_cambios.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         btn_cancelar_cambios.setColorSecundario(new java.awt.Color(3, 102, 183));
         btn_cancelar_cambios.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        btn_cancelar_cambios.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_cancelar_cambios.setFocusPainted(false);
+        btn_cancelar_cambios.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         btn_cancelar_cambios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelar_cambiosActionPerformed(evt);
             }
         });
-        fSGradientPanel2.add(btn_cancelar_cambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 220, -1));
+        fSGradientPanel2.add(btn_cancelar_cambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 210, -1));
 
         btn_nuevo_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-añadir-usuario-masculino-30.png"))); // NOI18N
         btn_nuevo_paciente.setText("Nuevo Paciente");
@@ -256,7 +254,8 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         btn_nuevo_paciente.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         btn_nuevo_paciente.setColorSecundario(new java.awt.Color(3, 102, 183));
         btn_nuevo_paciente.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        btn_nuevo_paciente.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_nuevo_paciente.setFocusPainted(false);
+        btn_nuevo_paciente.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         btn_nuevo_paciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_nuevo_pacienteActionPerformed(evt);
@@ -266,11 +265,13 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
 
         btn_modificar_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-editar-usuario-masculino-30.png"))); // NOI18N
         btn_modificar_paciente.setText("Modificar Paciente");
+        btn_modificar_paciente.setBorderPainted(false);
         btn_modificar_paciente.setColorPrimario(new java.awt.Color(42, 170, 232));
         btn_modificar_paciente.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         btn_modificar_paciente.setColorSecundario(new java.awt.Color(3, 102, 183));
         btn_modificar_paciente.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        btn_modificar_paciente.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_modificar_paciente.setFocusPainted(false);
+        btn_modificar_paciente.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         btn_modificar_paciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_modificar_pacienteActionPerformed(evt);
@@ -280,11 +281,13 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
 
         btn_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-guardar-como-30.png"))); // NOI18N
         btn_save.setText("Guardar Paciente");
+        btn_save.setBorderPainted(false);
         btn_save.setColorPrimario(new java.awt.Color(42, 170, 232));
         btn_save.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         btn_save.setColorSecundario(new java.awt.Color(3, 102, 183));
         btn_save.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        btn_save.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_save.setFocusPainted(false);
+        btn_save.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         btn_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_saveActionPerformed(evt);
@@ -292,13 +295,13 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         });
         fSGradientPanel2.add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 210, -1));
 
-        add(fSGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
+        panel_contenedor.add(fSGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
 
         cbx_departamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_departamento.setColorMaterial(new java.awt.Color(10, 117, 167));
         cbx_departamento.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         cbx_departamento.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
-        add(cbx_departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 220, -1));
+        panel_contenedor.add(cbx_departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 220, -1));
 
         cbx_provincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_provincia.setColorMaterial(new java.awt.Color(10, 117, 167));
@@ -308,62 +311,64 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                 cbx_provinciaActionPerformed(evt);
             }
         });
-        add(cbx_provincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 220, -1));
+        panel_contenedor.add(cbx_provincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 220, -1));
 
         cbx_distrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_distrito.setColorMaterial(new java.awt.Color(10, 117, 167));
         cbx_distrito.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        add(cbx_distrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 420, 210, -1));
+        panel_contenedor.add(cbx_distrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 420, 210, -1));
 
         txt_buscar_reniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-encuentra-hombre-usuario-30.png"))); // NOI18N
         txt_buscar_reniec.setText("Buscar en Reniec");
+        txt_buscar_reniec.setBorderPainted(false);
         txt_buscar_reniec.setColorPrimario(new java.awt.Color(42, 170, 232));
         txt_buscar_reniec.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         txt_buscar_reniec.setColorSecundario(new java.awt.Color(3, 102, 183));
         txt_buscar_reniec.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        txt_buscar_reniec.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 16)); // NOI18N
+        txt_buscar_reniec.setFocusPainted(false);
+        txt_buscar_reniec.setFont(new java.awt.Font("Segoe UI Black", 0, 16)); // NOI18N
         txt_buscar_reniec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_buscar_reniecActionPerformed(evt);
             }
         });
-        add(txt_buscar_reniec, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 210, -1));
+        panel_contenedor.add(txt_buscar_reniec, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 210, -1));
 
         txt_dni.setForeground(new java.awt.Color(0, 0, 0));
         txt_dni.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_dni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 150, -1));
+        panel_contenedor.add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 150, -1));
 
         txt_apellidoMAT.setForeground(new java.awt.Color(0, 0, 0));
         txt_apellidoMAT.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_apellidoMAT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        add(txt_apellidoMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, 220, -1));
+        panel_contenedor.add(txt_apellidoMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, 220, -1));
 
         txt_name.setForeground(new java.awt.Color(0, 0, 0));
         txt_name.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_name.setBotonColor(new java.awt.Color(3, 111, 198));
         txt_name.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 220, -1));
+        panel_contenedor.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 220, -1));
 
         txt_apellidoPAT.setForeground(new java.awt.Color(0, 0, 0));
         txt_apellidoPAT.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_apellidoPAT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        add(txt_apellidoPAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 220, -1));
+        panel_contenedor.add(txt_apellidoPAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 220, -1));
 
         txt_phone.setForeground(new java.awt.Color(0, 0, 0));
         txt_phone.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_phone.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 220, -1));
+        panel_contenedor.add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 220, -1));
 
         txt_email.setForeground(new java.awt.Color(0, 0, 0));
         txt_email.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_email.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 300, 220, -1));
+        panel_contenedor.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 300, 220, -1));
 
         txt_direccion.setForeground(new java.awt.Color(0, 0, 0));
         txt_direccion.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_direccion.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 220, -1));
+        panel_contenedor.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 220, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -379,7 +384,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
             }
         ));
         tablePatients.setColorBackgoundHead(new java.awt.Color(3, 111, 198));
-        tablePatients.setColorFilasBackgound2(new java.awt.Color(42, 170, 232));
+        tablePatients.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
         tablePatients.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
         tablePatients.setColorFilasForeground2(new java.awt.Color(255, 255, 255));
         tablePatients.setFuenteFilas(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
@@ -392,12 +397,10 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 220));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 1090, 220));
-    }// </editor-fold>//GEN-END:initComponents
+        panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 1090, 220));
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_jLabel11MouseClicked
+        add(panel_contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 720));
+    }// </editor-fold>//GEN-END:initComponents
 
     private void fSGradientPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fSGradientPanel2MousePressed
 
@@ -679,7 +682,6 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
     private LIB.FSGradientPanel fSGradientPanel2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -691,6 +693,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel panel_contenedor;
     private rojerusan.RSTableMetro tablePatients;
     private rojerusan.RSMetroTextPlaceHolder txt_apellidoMAT;
     private rojerusan.RSMetroTextPlaceHolder txt_apellidoPAT;

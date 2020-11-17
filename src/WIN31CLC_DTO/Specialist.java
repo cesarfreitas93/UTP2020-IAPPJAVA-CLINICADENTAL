@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN31CLC_DTO;
 
 import java.util.Date;
 import java.util.Objects;
 
-/**
- *
- * @author Cesar
- */
 public class Specialist {
 private long id;
 private String name;
@@ -28,7 +20,8 @@ private long services_id;
     public Specialist() {
     }
 
-    public Specialist(String name, String lastname, String surename, String phone, String address, String dni, boolean enable, long services_id) {
+    public Specialist(String name, String lastname, String surename, String phone, 
+            String address, String dni, boolean enable, long services_id) {
         this.name = name;
         this.lastname = lastname;
         this.surename = surename;
@@ -194,7 +187,10 @@ private long services_id;
 
     @Override
     public String toString() {
-        return "Specialist{" + "id=" + id + ", name=" + name + ", lastname=" + lastname + ", surename=" + surename + ", phone=" + phone + ", address=" + address + ", dni=" + dni + ", enable=" + enable + ", createAt=" + createAt + ", updateAt=" + updateAt + ", services_id=" + services_id + '}';
+        return "Specialist{" + "id=" + id + ", name=" + name + ", lastname=" + lastname + 
+                ", surename=" + surename + ", phone=" + phone + ", address=" + address + ","
+                + " dni=" + dni + ", enable=" + enable + ", createAt=" + createAt + ", updateAt="
+                + updateAt + ", services_id=" + services_id + '}';
     }
 
     @Override
