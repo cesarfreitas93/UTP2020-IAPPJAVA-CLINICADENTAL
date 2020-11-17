@@ -26,7 +26,7 @@ public class MySql_03_DaoService implements Dao_03_Services {
     final String INSERT = "insert into services (name, price) values (?,?)";
     final String UPDATE = "update services set name = ?, price = ? where id = ?";
     final String FINDALL = "SELECT id, name, price FROM services";
-    final String FINDBYID = "select id, name, price from service where id  = ?";
+    final String FINDBYID = "SELECT `id`,`name`,`price` FROM `services` WHERE `id` = ?";
     final String DELETE = "update services set enable = 0 where id=?";
     private Connection conn;
     public MySql_03_DaoService(Connection conn) {

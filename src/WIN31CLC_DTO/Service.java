@@ -22,6 +22,10 @@ public class Service {
         this.price = price;
     }
 
+    public Service() {
+        
+    }
+
     public long getId() {
         return id;
     }

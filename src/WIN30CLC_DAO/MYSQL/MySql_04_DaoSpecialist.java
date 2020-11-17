@@ -27,7 +27,7 @@ public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
     final String UPDATE = "update especialista set  `updateAt` = ?,  `phone` = ?, `address` = ? where id = ?";
     final String FINDALL = "SELECT id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address` FROM especialista where enable = 1";
     final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address` FROM especialista where id  = ? and enable = 1";
-    final String DELETE = "update `updateAt` = ?, enable = 0 from especialista where id = ?";
+    final String DELETE = "update especialista set `updateAt` = ?, enable = 0 where id = ?";
     private Connection conn;
     
     public MySql_04_DaoSpecialist(Connection conn) {
