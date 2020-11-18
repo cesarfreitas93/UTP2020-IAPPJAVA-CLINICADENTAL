@@ -168,6 +168,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePatients = new rojerusan.RSTableMetro();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -398,6 +399,9 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 220));
 
         panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 1090, 220));
+
+        jButton1.setText("jButton1");
+        panel_contenedor.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 20, -1, -1));
 
         add(panel_contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 720));
     }// </editor-fold>//GEN-END:initComponents
@@ -680,6 +684,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
     private RSMaterialComponent.RSComboBoxMaterial cbx_distrito;
     private RSMaterialComponent.RSComboBoxMaterial cbx_provincia;
     private LIB.FSGradientPanel fSGradientPanel2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -704,4 +709,8 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
     private rojerusan.RSMetroTextPlaceHolder txt_name;
     private rojerusan.RSMetroTextPlaceHolder txt_phone;
     // End of variables declaration//GEN-END:variables
+
+    private void setExtendedState(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

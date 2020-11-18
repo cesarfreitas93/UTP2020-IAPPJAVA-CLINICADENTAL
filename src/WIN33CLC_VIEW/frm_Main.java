@@ -26,8 +26,7 @@ public class frm_Main extends javax.swing.JFrame {
         //btn_mad.setBackground(new Color(255,255,255,100));
          setLocationRelativeTo(null); 
        //------------------
-       paneles();
-       paneles_iniciales();
+    
        panel_cerrar.setVisible(true);
        panel_cerrar.setEnabled(true);
            }
@@ -41,45 +40,7 @@ public class frm_Main extends javax.swing.JFrame {
         button.setIcon(aimg);
     }
     
-    private void paneles ()
-    {
-        
-       // panel_bar.setVisible(false);
-        //panel_mad.setVisible(false);
-    }
     
-    private void ocultar_paneles ()
-    {
-        
-      /* if(panel_bar.isVisible()== true)
-       {
-           panel_bar.setVisible(false);
-           jPanel3.setVisible(true);
-       }
-       if(panel_mad.isVisible()== true)
-       {
-           panel_mad.setVisible(false);
-           jPanel3.setVisible(true);
-       }*/
-    }
-    
-    private void show_submenu (JPanel submenu )
-    {
-        
-       if(submenu.isVisible()==false)
-       {
-           ocultar_paneles ();
-           submenu.setVisible(true);
-       }
-       else
-           submenu.setVisible(false);
-    }
-
-  private void paneles_iniciales()
-  {
-       
-      
-  }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
