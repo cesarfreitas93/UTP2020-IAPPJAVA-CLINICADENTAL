@@ -4,17 +4,18 @@ package WIN31CLC_DTO;
 import java.util.Objects;
 
 public class Ubigeo {
-private String codigo_ubigeo;
-private String codigo_departamento;
-private String codigo_provincia;
-private String codigo_distrito;
-private String descripcion_departamento;
-private String descripcion_provincia;
-private String descripcion_distrito;
-private boolean habilitado;
-private String descripcion_departamento_macro;
-private String descripcion_provincia_macro;
-private String descripcion_distrito_macro;
+
+    private String codigo_ubigeo;
+    private String codigo_departamento;
+    private String codigo_provincia;
+    private String codigo_distrito;
+    private String descripcion_departamento;
+    private String descripcion_provincia;
+    private String descripcion_distrito;
+    private boolean habilitado;
+    private String descripcion_departamento_macro;
+    private String descripcion_provincia_macro;
+    private String descripcion_distrito_macro;
 
     public Ubigeo() {
     }

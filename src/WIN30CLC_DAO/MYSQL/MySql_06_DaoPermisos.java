@@ -12,10 +12,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class MySql_06_DaoPermisos implements Dao_06_Permisos{
+     private Connection conn;
 
-    final String FINDBYID = "select per.* from user as usr inner join permisos "
-            + "as per on per.user_id = usr.id where per.user_id = ?";
-    private Connection conn;
+    public MySql_06_DaoPermisos(Connection conn) {
+        this.conn = conn;
+    }
+    final String FINDBYID = "select per.* from user as usr inner join permisos as per on per.user_id = usr.id where per.user_id = ?";
+
+    
     @Override
     public void rlInsert(Permisos entity) throws DaoException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

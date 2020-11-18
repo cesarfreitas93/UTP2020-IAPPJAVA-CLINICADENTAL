@@ -4,10 +4,16 @@ package WIN30CLC_DAO.MYSQL;
 import WIN30CLC_DAO.DaoException;
 import WIN30CLC_DAO.Dao_08_Comprobante;
 import WIN31CLC_DTO.Comprobante;
+import java.sql.Connection;
 import java.util.List;
 
 public class MySql_08_DaoComprobate implements Dao_08_Comprobante{
 
+  private Connection conn;
+
+    public MySql_08_DaoComprobate(Connection conn) {
+        this.conn = conn;
+    }
     @Override
     public void rlInsert(Comprobante entity) throws DaoException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
