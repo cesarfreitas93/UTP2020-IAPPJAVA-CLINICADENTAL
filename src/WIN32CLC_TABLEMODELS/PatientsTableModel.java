@@ -29,7 +29,7 @@ public class PatientsTableModel extends AbstractTableModel{
         java.lang.String.class,
         java.lang.String.class,
         java.lang.String.class,
-
+        java.lang.String.class,
         JButton.class // <- noten que aquí se especifica que la última columna es un botón
     };
     @Override
@@ -41,7 +41,8 @@ public class PatientsTableModel extends AbstractTableModel{
             case 3: return "Telefono";
             case 4: return "E-Mail";
             case 5: return "Dirección";
-            case 6: return "Option";
+            case 6: return "Ubigeo";
+            case 7: return "Option";
             default: return "[no*]";
         }
     }
@@ -65,7 +66,7 @@ public class PatientsTableModel extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 7; // retuna la cantidad de columnas que tendra la tabla
+        return 8; // retuna la cantidad de columnas que tendra la tabla
     }
 
     @Override
@@ -80,7 +81,8 @@ public class PatientsTableModel extends AbstractTableModel{
             case 3: return dto.getPhone();
             case 4: return dto.getEmail();
             case 5: return dto.getAddress();
-            case 6: return new JButton("Eliminar");
+            case 6: return dto.getUbigeo();
+            case 7: return new JButton("Eliminar");
             default: return "";
         }
     }

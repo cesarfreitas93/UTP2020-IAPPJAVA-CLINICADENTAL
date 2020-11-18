@@ -205,5 +205,10 @@ public class MySql_03_DaoService implements Dao_03_Services {
         }
         return dto;
     }
+
+    @Override
+    public void traedatos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

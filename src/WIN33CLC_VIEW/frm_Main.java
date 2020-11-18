@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import rojerusan.RSPanelsSlider;
 
-public class frm_Main extends javax.swing.JFrame {
+public class frm_Main extends javax.swing.JFrame  {
 
   
     public frm_Main() {

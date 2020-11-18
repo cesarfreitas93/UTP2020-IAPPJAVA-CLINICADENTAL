@@ -424,26 +424,16 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         cbx_departamento.setColorMaterial(new java.awt.Color(10, 117, 167));
         cbx_departamento.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         cbx_departamento.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
-        cbx_departamento.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbx_departamentoItemStateChanged(evt);
-            }
-        });
         cbx_departamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbx_departamentoActionPerformed(evt);
             }
         });
-        add(cbx_departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 220, -1));
+        panel_contenedor.add(cbx_departamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 220, -1));
 
         cbx_provincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_provincia.setColorMaterial(new java.awt.Color(10, 117, 167));
         cbx_provincia.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        cbx_provincia.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbx_provinciaItemStateChanged(evt);
-            }
-        });
         cbx_provincia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbx_provinciaActionPerformed(evt);
@@ -475,37 +465,44 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         txt_dni.setForeground(new java.awt.Color(0, 0, 0));
         txt_dni.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_dni.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txt_dni.setOpaque(false);
         panel_contenedor.add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 150, -1));
 
         txt_apellidoMAT.setForeground(new java.awt.Color(0, 0, 0));
         txt_apellidoMAT.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_apellidoMAT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_apellidoMAT.setOpaque(false);
         panel_contenedor.add(txt_apellidoMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, 220, -1));
 
         txt_name.setForeground(new java.awt.Color(0, 0, 0));
         txt_name.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_name.setBotonColor(new java.awt.Color(3, 111, 198));
         txt_name.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_name.setOpaque(false);
         panel_contenedor.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 220, -1));
 
         txt_apellidoPAT.setForeground(new java.awt.Color(0, 0, 0));
         txt_apellidoPAT.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_apellidoPAT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_apellidoPAT.setOpaque(false);
         panel_contenedor.add(txt_apellidoPAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 220, -1));
 
         txt_phone.setForeground(new java.awt.Color(0, 0, 0));
         txt_phone.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_phone.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_phone.setOpaque(false);
         panel_contenedor.add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 220, -1));
 
         txt_email.setForeground(new java.awt.Color(0, 0, 0));
         txt_email.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_email.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_email.setOpaque(false);
         panel_contenedor.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 300, 220, -1));
 
         txt_direccion.setForeground(new java.awt.Color(0, 0, 0));
         txt_direccion.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_direccion.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_direccion.setOpaque(false);
         panel_contenedor.add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 220, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -681,7 +678,13 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                 patient.setPhone(txt_phone.getText());
                 patient.setEmail(txt_email.getText());
                 patient.setAddress(txt_direccion.getText());
-                patient.setUbigeo("150602");
+                
+                String Ubigeo_Code = ubigeo_lista_dep.get(cbx_departamento.getSelectedIndex()).getCodigo_departamento() +
+                                     ubigeo_lista_dep_pro.get(cbx_provincia.getSelectedIndex()).getCodigo_provincia() + 
+                                     ubigeo_lista_dep_pro_dis.get(cbx_distrito.getSelectedIndex()).getCodigo_distrito();
+
+                patient.setUbigeo(Ubigeo_Code);
+                
                 patient.setEnable(true);
                 
                 CTR_02_Patient ctrp = new CTR_02_Patient();
@@ -702,7 +705,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                     mensaje();
                 } else {
                     // insertar
-                    if (patient.getId() != 0) {
+                    if (patient.getId() == 0) {
                         patient = ctrp.InsertPatient(patient);
                         btn_cancelar_cambios.setEnabled(false);
                         btn_save.setEnabled(false);
@@ -792,6 +795,35 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
             txt_email.setText(dto.getEmail());
             txt_direccion.setText(dto.getAddress());
             txt_buscar_reniec.setEnabled(false);
+            
+            // substring en el string
+            String cod_dep = dto.getUbigeo().substring(0, 2);
+            String cod_prov = dto.getUbigeo().substring(2, 4);
+            String cod_dist = dto.getUbigeo().substring(4, 6);
+            
+            for(int a = 0; a < ubigeo_lista_dep.size(); a++){
+                if(ubigeo_lista_dep.get(a).getCodigo_departamento().equals(cod_dep)){
+                    cbx_departamento.setSelectedIndex(a);
+                    break;
+                }
+            }
+            
+            for(int a = 0; a < ubigeo_lista_dep_pro.size(); a++){
+                if(ubigeo_lista_dep_pro.get(a).getCodigo_provincia().equals(cod_prov)){
+                    cbx_provincia.setSelectedIndex(a);
+                    break;
+                }
+            }
+
+            for(int a = 0; a < ubigeo_lista_dep_pro_dis.size(); a++){
+                if(ubigeo_lista_dep_pro_dis.get(a).getCodigo_distrito().equals(cod_dist)){
+                    cbx_distrito.setSelectedIndex(a);
+                    break;
+                }
+            }
+            
+            int a = 0;            
+            
             // TODO add your handling code here:
         } catch (SQLException ex) {
             Logger.getLogger(frm_02_Patient_Detail.class.getName()).log(Level.SEVERE, null, ex);
