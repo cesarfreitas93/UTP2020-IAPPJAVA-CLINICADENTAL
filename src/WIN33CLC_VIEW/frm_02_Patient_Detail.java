@@ -675,7 +675,13 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                 patient.setPhone(txt_phone.getText());
                 patient.setEmail(txt_email.getText());
                 patient.setAddress(txt_direccion.getText());
-                patient.setUbigeo("150602");
+                
+                String Ubigeo_Code = ubigeo_lista_dep.get(cbx_departamento.getSelectedIndex()).getCodigo_departamento() +
+                                     ubigeo_lista_dep_pro.get(cbx_provincia.getSelectedIndex()).getCodigo_provincia() + 
+                                     ubigeo_lista_dep_pro_dis.get(cbx_distrito.getSelectedIndex()).getCodigo_distrito();
+
+                patient.setUbigeo(Ubigeo_Code);
+                
                 patient.setEnable(true);
                 
                 CTR_02_Patient ctrp = new CTR_02_Patient();
@@ -786,6 +792,35 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
             txt_email.setText(dto.getEmail());
             txt_direccion.setText(dto.getAddress());
             txt_buscar_reniec.setEnabled(false);
+            
+            // substring en el string
+            String cod_dep = dto.getUbigeo().substring(0, 2);
+            String cod_prov = dto.getUbigeo().substring(2, 4);
+            String cod_dist = dto.getUbigeo().substring(4, 6);
+            
+            for(int a = 0; a < ubigeo_lista_dep.size(); a++){
+                if(ubigeo_lista_dep.get(a).getCodigo_departamento().equals(cod_dep)){
+                    cbx_departamento.setSelectedIndex(a);
+                    break;
+                }
+            }
+            
+            for(int a = 0; a < ubigeo_lista_dep_pro.size(); a++){
+                if(ubigeo_lista_dep_pro.get(a).getCodigo_provincia().equals(cod_prov)){
+                    cbx_provincia.setSelectedIndex(a);
+                    break;
+                }
+            }
+
+            for(int a = 0; a < ubigeo_lista_dep_pro_dis.size(); a++){
+                if(ubigeo_lista_dep_pro_dis.get(a).getCodigo_distrito().equals(cod_dist)){
+                    cbx_distrito.setSelectedIndex(a);
+                    break;
+                }
+            }
+            
+            int a = 0;            
+            
             // TODO add your handling code here:
         } catch (SQLException ex) {
             Logger.getLogger(frm_02_Patient_Detail.class.getName()).log(Level.SEVERE, null, ex);

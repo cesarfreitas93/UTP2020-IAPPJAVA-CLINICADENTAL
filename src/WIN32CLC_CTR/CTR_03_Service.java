@@ -28,4 +28,8 @@ public class CTR_03_Service {
         }
         return false;
     }
+    
+    public boolean update(Service entity) throws SQLException{
+        return true;
+    }
 }
