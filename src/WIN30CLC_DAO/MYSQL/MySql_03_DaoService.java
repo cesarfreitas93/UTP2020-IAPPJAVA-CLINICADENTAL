@@ -23,11 +23,11 @@ import java.util.List;
  * @author Cesar
  */
 public class MySql_03_DaoService implements Dao_03_Services {
-    final String INSERT = "insert into services (name, price) values (?,?)";
-    final String UPDATE = "update services set name = ?, price = ? where id = ?";
-    final String FINDALL = "SELECT id, name, price FROM services";
+    final String INSERT = "INSERT INTO services (`name`, `price`) VALUES (?,?)";
+    final String UPDATE = "UPDATE services set `name` = ?, `price` = ? WHERE `id` = ?";
+    final String FINDALL = "SELECT `id`,`name`,`price` FROM `services`";
     final String FINDBYID = "SELECT `id`,`name`,`price` FROM `services` WHERE `id` = ?";
-    final String DELETE = "update services set enable = 0 where id=?";
+    final String DELETE = "UPDATE services set `enable` = 0 WHERE id=?";
     private Connection conn;
     public MySql_03_DaoService(Connection conn) {
         this.conn = conn;
