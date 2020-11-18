@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN30CLC_DAO.MYSQL;
 
 import WIN30CLC_DAO.DaoException;
@@ -18,10 +14,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- * @author Cesar
- */
 public class MySql_03_DaoService implements Dao_03_Services {
     final String INSERT = "INSERT INTO services (`name`, `price`) VALUES (?,?)";
     final String UPDATE = "UPDATE services set `name` = ?, `price` = ? WHERE `id` = ?";

@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN31CLC_DTO;
 
 import java.util.Objects;
 
-/**
- *
- * @author Cesar
- */
 public class User {
  
     private long id;
@@ -98,17 +90,20 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + '}';
+        return "User{" + "id=" + id + ", username=" + username + ", password=" + 
+                password + ", role=" + role + '}';
     }
 
     @Override
     protected void finalize() throws Throwable {
-        super.finalize(); //To change body of generated methods, choose Tools | Templates.
+        super.finalize(); 
+        
     }
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return super.clone(); //To change body of generated methods, choose Tools | Templates.
+        return super.clone(); 
+        
     }
 
     

@@ -6,6 +6,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import AppPackage.AnimationClass;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 public class prueba extends javax.swing.JFrame {
 
@@ -14,6 +18,39 @@ public class prueba extends javax.swing.JFrame {
         initComponents();
         paneles ();
         setBackground(new Color (0,0,0,100));
+        setLocationRelativeTo(null); 
+        execute();
+    }
+    
+    
+    private void execute() {
+        ImageIcon iconCita = new ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-chebrón-hacia-la-derecha-28.png"));
+        ImageIcon iconSubMenu = new ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-hoy-28.png"));
+        
+        //  create submenu staff
+        MenuItem gestionarcita = new MenuItem(iconSubMenu, "Gestionar Citas", new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+               // panelBody.add(new Panel1());
+                panelBody.repaint();
+                panelBody.revalidate();
+            }
+        });
+
+        MenuItem menucitas = new MenuItem(iconCita, "Citas", null, gestionarcita);
+
+        addMenu(menucitas);
+    }
+    
+    private void addMenu(MenuItem... menu) {
+        for (int i = 0; i < menu.length; i++) {
+            panel_menu.add(menu[i]);
+            ArrayList<MenuItem> subMenu = menu[i].getSubMenu();
+            for (MenuItem m : subMenu) {
+                addMenu(m);
+            }
+        }
+        panel_menu.revalidate();
     }
   private void paneles ()
     {
@@ -28,10 +65,13 @@ public class prueba extends javax.swing.JFrame {
        if(panel_bar.isVisible()== true)
        {
            panel_bar.setVisible(false);
+         
+            jPanel3.setVisible(true);
        }
        if(panel_mad.isVisible()== true)
        {
            panel_mad.setVisible(false);
+           jPanel3.setVisible(true);
        }
     }
     
@@ -52,7 +92,6 @@ public class prueba extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
         p1 = new javax.swing.JPanel();
         rSButtonMaterialGradientOne1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
         rSButtonMaterialGradientOne2 = new RSMaterialComponent.RSButtonMaterialGradientOne();
@@ -71,24 +110,12 @@ public class prueba extends javax.swing.JFrame {
         rSButtonFlat_new6 = new newscomponents.RSButtonFlat_new();
         rSButtonFlat_new7 = new newscomponents.RSButtonFlat_new();
         btn_bar = new newscomponents.RSButtonFlat_new();
+        panel_menu = new javax.swing.JPanel();
+        panelBody = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/Menu.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
-            }
-        });
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, -1, -1));
 
         p1.setBackground(new java.awt.Color(255, 255, 255));
         p1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -284,7 +311,13 @@ public class prueba extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(40, 20, 0, 60);
         jPanel3.add(btn_bar, gridBagConstraints);
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 280, 530));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 530));
+
+        panel_menu.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(panel_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 240, 550));
+
+        panelBody.setBackground(new java.awt.Color(204, 255, 204));
+        getContentPane().add(panelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 290, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -295,43 +328,6 @@ public class prueba extends javax.swing.JFrame {
 
  
     
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-       
-        
-   
-        
-        
-     
-        int posicion = this.p1.getX();
-        
-       if (posicion< -1)
-            
-       {
-        
-        Animacion.Animacion.mover_derecha(-300, 100  , 2, 2, p1);
-       
-            
-       }
-       
-       else
-           
-       {
-           Animacion.Animacion.mover_izquierda(100 ,-300, 2, 2, p1);
-       }
-        
-        
-        
-        
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-       // labelcolor(jLabel1);        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel1MouseEntered
-
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        //resetlabelcolor(jLabel1);        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel1MouseExited
-
     private void btn_madActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_madActionPerformed
         show_submenu(panel_mad);
     }//GEN-LAST:event_btn_madActionPerformed
@@ -390,11 +386,12 @@ public class prueba extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private newscomponents.RSButtonFlat_new btn_bar;
     private RSMaterialComponent.RSButtonMaterialOne btn_mad;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel p1;
+    private javax.swing.JPanel panelBody;
     private javax.swing.JPanel panel_bar;
     private javax.swing.JPanel panel_mad;
+    private javax.swing.JPanel panel_menu;
     private newscomponents.RSButtonFlat_new rSButtonFlat_new1;
     private newscomponents.RSButtonFlat_new rSButtonFlat_new3;
     private newscomponents.RSButtonFlat_new rSButtonFlat_new4;

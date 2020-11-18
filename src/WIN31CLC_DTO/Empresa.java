@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN31CLC_DTO;
 
 import java.util.Objects;
 
-/**
- *
- * @author Carlos Jimenez Gomez
- */
 public class Empresa {
 
     private long id;
@@ -25,7 +17,8 @@ public class Empresa {
     public Empresa() {
     }
 
-    public Empresa(long id, String name, String address, String ruc, String ubigeo, String phone, String email, String logo) {
+    public Empresa(long id, String name, String address, String ruc, String ubigeo,
+            String phone, String email, String logo) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -102,7 +95,9 @@ public class Empresa {
 
     @Override
     public String toString() {
-        return "Empresa{" + "id=" + id + ", name=" + name + ", address=" + address + ", ruc=" + ruc + ", ubigeo=" + ubigeo + ", phone=" + phone + ", email=" + email + ", logo=" + logo + '}';
+        return "Empresa{" + "id=" + id + ", name=" + name + ", address=" + address 
+                + ", ruc=" + ruc + ", ubigeo=" + ubigeo + ", phone=" + phone + ", email=" +
+                email + ", logo=" + logo + '}';
     }
 
     @Override

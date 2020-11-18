@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN31CLC_DTO;
 
 import java.util.Objects;
 
-/**
- *
- * @author Carlos Jimenez Gomez
- */
 public class Comprobante {
 
     private long id;
@@ -22,7 +14,8 @@ public class Comprobante {
     public Comprobante() {
     }
 
-    public Comprobante(long id, String numero, String serie, String fechaEmision, long citas_id) {
+    public Comprobante(long id, String numero, String serie, String fechaEmision, 
+            long citas_id) {
         this.id = id;
         this.numero = numero;
         this.serie = serie;
@@ -72,7 +65,8 @@ public class Comprobante {
 
     @Override
     public String toString() {
-        return "Comprobante{" + "id=" + id + ", numero=" + numero + ", serie=" + serie + ", fechaEmision=" + fechaEmision + ", citas_id=" + citas_id + '}';
+        return "Comprobante{" + "id=" + id + ", numero=" + numero + ", serie=" + serie + ","
+                + " fechaEmision=" + fechaEmision + ", citas_id=" + citas_id + '}';
     }
 
     @Override

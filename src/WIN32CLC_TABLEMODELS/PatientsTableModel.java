@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN32CLC_TABLEMODELS;
 
 import WIN30CLC_DAO.DaoException;
@@ -13,10 +9,6 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author Cesar
- */
 public class PatientsTableModel extends AbstractTableModel{
     private Dao_02_Patient patient;
     

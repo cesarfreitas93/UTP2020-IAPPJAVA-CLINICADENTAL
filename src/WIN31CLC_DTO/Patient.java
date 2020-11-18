@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN31CLC_DTO;
 
 import java.util.Date;
 import java.util.Objects;
 
-/**
- *
- * @author Cesar
- */
 public class Patient {
   private long id;
   private String dni;
@@ -46,7 +38,9 @@ public class Patient {
     }
     
   
-    public Patient(String dni, String name, String lastname, String surename, Date createAt, Date updateAt, boolean enable, String phone, String email, String address, String ubigeo) {
+    public Patient(String dni, String name, String lastname, String surename, 
+            Date createAt, Date updateAt, boolean enable, String phone, String 
+                    email, String address, String ubigeo) {
         this.dni = dni;
         this.name = name;
         this.lastname = lastname;
@@ -158,7 +152,11 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" + "id=" + id + ", dni=" + dni + ", name=" + name + ", lastname=" + lastname + ", surename=" + surename + ", createAt=" + createAt + ", updateAt=" + updateAt + ", enable=" + enable + ", phone=" + phone + ", email=" + email + ", address=" + address + ", ubigeo=" + ubigeo + '}';
+        return "Patient{" + "id=" + id + ", dni=" + dni + ", name=" + name + ", "
+                + "lastname=" + lastname + ", surename=" + surename + ", createAt=" + 
+                createAt + ", updateAt=" + updateAt + ", enable=" + enable + ", phone=" 
+                + phone + ", email=" + email + ", address=" + address + ", ubigeo=" +
+                ubigeo + '}';
     }
 
     @Override

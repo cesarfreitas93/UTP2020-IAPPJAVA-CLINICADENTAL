@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN30CLC_DAO.MYSQL;
 
 import WIN30CLC_DAO.DaoException;
@@ -18,10 +14,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- *
- * @author Cesar
- */
 public class Mysql_02_DaoPatient implements Dao_02_Patient {
 //
     private Connection conn;
@@ -30,11 +22,17 @@ public class Mysql_02_DaoPatient implements Dao_02_Patient {
         this.conn = conn;
     }
 //
-    final String INSERT = "INSERT INTO `patient` (`dni`, `name`, `lastname`, `surename`, `createAt`, `updateAt`, `enable`, `phone`, `email`, `address`, `ubigeo`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-    final String FINDALL = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where enable = 1";
-    final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where id = ?";
-    final String FINDBY_DNI = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `email`, `address`, `ubigeo` from patient where dni = ?";
-    final String UPDATE = "update patient set `updateAt` = ?, `phone` = ?, `email`= ?, `address`= ?, `ubigeo`= ?  where id = ?";
+    final String INSERT = "INSERT INTO `patient` (`dni`, `name`, `lastname`, `surename`,"
+            + " `createAt`, `updateAt`, `enable`, `phone`, `email`, `address`, `ubigeo`) "
+            + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    final String FINDALL = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, "
+            + "`phone`, `email`, `address`, `ubigeo` from patient where enable = 1";
+    final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, "
+            + "`phone`, `email`, `address`, `ubigeo` from patient where id = ?";
+    final String FINDBY_DNI = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, "
+            + "`phone`, `email`, `address`, `ubigeo` from patient where dni = ?";
+    final String UPDATE = "update patient set `updateAt` = ?, `phone` = ?, `email`= ?, `"
+            + "address`= ?, `ubigeo`= ?  where id = ?";
     final String DELETE = "update patient set updateAt = ?, enable = 0 where id = ?";
 
     @Override

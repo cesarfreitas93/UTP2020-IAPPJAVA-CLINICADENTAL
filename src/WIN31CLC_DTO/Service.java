@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN31CLC_DTO;
 
 import java.util.Objects;
 
-/**
- *
- * @author Cesar
- */
 public class Service {
     private long id;
     private String name;
@@ -60,7 +52,8 @@ public class Service {
         int hash = 3;
         hash = 37 * hash + (int) (this.id ^ (this.id >>> 32));
         hash = 37 * hash + Objects.hashCode(this.name);
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.price) ^ (Double.doubleToLongBits(this.price) >>> 32));
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.price) ^ 
+                (Double.doubleToLongBits(this.price) >>> 32));
         return hash;
     }
 
@@ -79,7 +72,8 @@ public class Service {
         if (this.id != other.id) {
             return false;
         }
-        if (Double.doubleToLongBits(this.price) != Double.doubleToLongBits(other.price)) {
+        if (Double.doubleToLongBits(this.price) != 
+                Double.doubleToLongBits(other.price)) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {

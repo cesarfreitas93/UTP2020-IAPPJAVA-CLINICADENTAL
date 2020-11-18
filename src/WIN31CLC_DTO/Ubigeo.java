@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN31CLC_DTO;
 
 import java.util.Objects;
 
-/**
- *
- * @author Carlos Jimenez Gomez
- */
 public class Ubigeo {
 
     private String codigo_ubigeo;
@@ -28,7 +20,10 @@ public class Ubigeo {
     public Ubigeo() {
     }
 
-    public Ubigeo(String codigo_ubigeo, String codigo_departamento, String codigo_provincia, String codigo_distrito, String descripcion_departamento, String descripcion_provincia, String descripcion_distrito, boolean habilitado, String descripcion_departamento_macro, String descripcion_provincia_macro, String descripcion_distrito_macro) {
+    public Ubigeo(String codigo_ubigeo, String codigo_departamento, String codigo_provincia,
+            String codigo_distrito, String descripcion_departamento, String descripcion_provincia,
+            String descripcion_distrito, boolean habilitado, String descripcion_departamento_macro, 
+            String descripcion_provincia_macro, String descripcion_distrito_macro) {
         this.codigo_ubigeo = codigo_ubigeo;
         this.codigo_departamento = codigo_departamento;
         this.codigo_provincia = codigo_provincia;
@@ -129,4 +124,85 @@ public class Ubigeo {
     public void setDescripcion_distrito_macro(String descripcion_distrito_macro) {
         this.descripcion_distrito_macro = descripcion_distrito_macro;
     }
-}
+
+    @Override
+    public String toString() {
+        return "Ubigeo{" + "codigo_ubigeo=" + codigo_ubigeo + ", codigo_departamento=" + 
+                codigo_departamento + ", codigo_provincia=" + codigo_provincia + ", "
+                + "codigo_distrito=" + codigo_distrito + ", descripcion_departamento=" +
+                descripcion_departamento + ", descripcion_provincia=" + descripcion_provincia + 
+                ", descripcion_distrito=" + descripcion_distrito + ", habilitado=" + habilitado
+                + ", descripcion_departamento_macro=" + descripcion_departamento_macro + ", "
+                + "descripcion_provincia_macro=" + descripcion_provincia_macro + ", "
+                + "descripcion_distrito_macro=" + descripcion_distrito_macro + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 31 * hash + Objects.hashCode(this.codigo_ubigeo);
+        hash = 31 * hash + Objects.hashCode(this.codigo_departamento);
+        hash = 31 * hash + Objects.hashCode(this.codigo_provincia);
+        hash = 31 * hash + Objects.hashCode(this.codigo_distrito);
+        hash = 31 * hash + Objects.hashCode(this.descripcion_departamento);
+        hash = 31 * hash + Objects.hashCode(this.descripcion_provincia);
+        hash = 31 * hash + Objects.hashCode(this.descripcion_distrito);
+        hash = 31 * hash + (this.habilitado ? 1 : 0);
+        hash = 31 * hash + Objects.hashCode(this.descripcion_departamento_macro);
+        hash = 31 * hash + Objects.hashCode(this.descripcion_provincia_macro);
+        hash = 31 * hash + Objects.hashCode(this.descripcion_distrito_macro);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Ubigeo other = (Ubigeo) obj;
+        if (this.habilitado != other.habilitado) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo_ubigeo, other.codigo_ubigeo)) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo_departamento, other.codigo_departamento)) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo_provincia, other.codigo_provincia)) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo_distrito, other.codigo_distrito)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion_departamento, other.descripcion_departamento)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion_provincia, other.descripcion_provincia)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion_distrito, other.descripcion_distrito)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion_departamento_macro, other.descripcion_departamento_macro)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion_provincia_macro, other.descripcion_provincia_macro)) {
+            return false;
+        }
+        if (!Objects.equals(this.descripcion_distrito_macro, other.descripcion_distrito_macro)) {
+            return false;
+        }
+        return true;
+    }
+
+
+    
+    
+   }
