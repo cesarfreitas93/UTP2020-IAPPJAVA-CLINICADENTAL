@@ -10,3 +10,5 @@
 ALTER TABLE `citas` ADD `updateAt` DATETIME NOT NULL AFTER `especialista_id`;
 ALTER TABLE `citas` ADD `service_id` INT NOT NULL AFTER `updateAt`;
 ALTER TABLE `citas` ADD `fechaDeCita` INT NOT NULL AFTER `service_id`;
+
+ALTER TABLE `services` ADD `enable` TINYINT(1) NOT NULL AFTER `price`;
