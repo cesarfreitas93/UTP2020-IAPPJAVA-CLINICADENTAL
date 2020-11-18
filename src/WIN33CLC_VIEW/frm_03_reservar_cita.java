@@ -27,11 +27,13 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         panel_contenedor = new javax.swing.JPanel();
         fSGradientPanel1 = new LIB.FSGradientPanel();
         jLabel13 = new javax.swing.JLabel();
-        btn_guardar_cita = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_nueva_cita = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_cancelar_cambios1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_guardar_cita1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
         jPanel1 = new javax.swing.JPanel();
         txt_buscar_paciente = new RSMaterialComponent.RSButtonMaterialGradientOne();
         jLabel1 = new javax.swing.JLabel();
@@ -76,16 +78,16 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-calendario-100.png"))); // NOI18N
         fSGradientPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 110, 90));
 
-        btn_guardar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-hoy-30.png"))); // NOI18N
-        btn_guardar_cita.setText("Guardar Cita");
-        btn_guardar_cita.setBorderPainted(false);
-        btn_guardar_cita.setColorPrimario(new java.awt.Color(42, 170, 232));
-        btn_guardar_cita.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
-        btn_guardar_cita.setColorSecundario(new java.awt.Color(3, 102, 183));
-        btn_guardar_cita.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        btn_guardar_cita.setFocusPainted(false);
-        btn_guardar_cita.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        fSGradientPanel1.add(btn_guardar_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 210, -1));
+        btn_nueva_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-hoy-30.png"))); // NOI18N
+        btn_nueva_cita.setText("Nueva Cita");
+        btn_nueva_cita.setBorderPainted(false);
+        btn_nueva_cita.setColorPrimario(new java.awt.Color(42, 170, 232));
+        btn_nueva_cita.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
+        btn_nueva_cita.setColorSecundario(new java.awt.Color(3, 102, 183));
+        btn_nueva_cita.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        btn_nueva_cita.setFocusPainted(false);
+        btn_nueva_cita.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        fSGradientPanel1.add(btn_nueva_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 210, -1));
 
         btn_cancelar_cambios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-cancelar-30.png"))); // NOI18N
         btn_cancelar_cambios1.setText("Cancelar Cambios");
@@ -95,7 +97,18 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         btn_cancelar_cambios1.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_cancelar_cambios1.setFocusPainted(false);
         btn_cancelar_cambios1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        fSGradientPanel1.add(btn_cancelar_cambios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 210, -1));
+        fSGradientPanel1.add(btn_cancelar_cambios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 210, -1));
+
+        btn_guardar_cita1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-hoy-30.png"))); // NOI18N
+        btn_guardar_cita1.setText("Guardar Cita");
+        btn_guardar_cita1.setBorderPainted(false);
+        btn_guardar_cita1.setColorPrimario(new java.awt.Color(42, 170, 232));
+        btn_guardar_cita1.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
+        btn_guardar_cita1.setColorSecundario(new java.awt.Color(3, 102, 183));
+        btn_guardar_cita1.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        btn_guardar_cita1.setFocusPainted(false);
+        btn_guardar_cita1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        fSGradientPanel1.add(btn_guardar_cita1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 210, -1));
 
         panel_contenedor.add(fSGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 740));
 
@@ -105,10 +118,12 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
         txt_buscar_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-encuentra-hombre-usuario-30.png"))); // NOI18N
         txt_buscar_paciente.setText("Buscar Paciente");
+        txt_buscar_paciente.setBorderPainted(false);
         txt_buscar_paciente.setColorPrimario(new java.awt.Color(42, 170, 232));
         txt_buscar_paciente.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         txt_buscar_paciente.setColorSecundario(new java.awt.Color(3, 102, 183));
         txt_buscar_paciente.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        txt_buscar_paciente.setFocusPainted(false);
         txt_buscar_paciente.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 16)); // NOI18N
         txt_buscar_paciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,10 +213,12 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
         txt_buscar_horarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-horas-extras-30.png"))); // NOI18N
         txt_buscar_horarios.setText("Ver Horario Disponible");
+        txt_buscar_horarios.setBorderPainted(false);
         txt_buscar_horarios.setColorPrimario(new java.awt.Color(42, 170, 232));
         txt_buscar_horarios.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         txt_buscar_horarios.setColorSecundario(new java.awt.Color(3, 102, 183));
         txt_buscar_horarios.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        txt_buscar_horarios.setFocusPainted(false);
         txt_buscar_horarios.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 16)); // NOI18N
         txt_buscar_horarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,6 +229,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        buttonGroup1.add(rbx_1);
         rbx_1.setForeground(new java.awt.Color(0, 0, 0));
         rbx_1.setText("8:00 - 8:30");
         rbx_1.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -220,6 +238,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_1.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_1);
 
+        buttonGroup1.add(rbx_2);
         rbx_2.setForeground(new java.awt.Color(0, 0, 0));
         rbx_2.setText("8:30 - 9:00");
         rbx_2.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -228,6 +247,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_2.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_2);
 
+        buttonGroup1.add(rbx_3);
         rbx_3.setForeground(new java.awt.Color(0, 0, 0));
         rbx_3.setText("9:00 - 9:30");
         rbx_3.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -237,6 +257,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_3.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_3);
 
+        buttonGroup1.add(rbx_4);
         rbx_4.setForeground(new java.awt.Color(0, 0, 0));
         rbx_4.setText("9:30 - 10:00");
         rbx_4.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -245,6 +266,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_4.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_4);
 
+        buttonGroup1.add(rbx_5);
         rbx_5.setForeground(new java.awt.Color(0, 0, 0));
         rbx_5.setText("10:00 - 10:30");
         rbx_5.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -253,6 +275,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_5.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_5);
 
+        buttonGroup1.add(rbx_6);
         rbx_6.setForeground(new java.awt.Color(0, 0, 0));
         rbx_6.setText("10:30 - 11:00");
         rbx_6.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -261,6 +284,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_6.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_6);
 
+        buttonGroup1.add(rbx_7);
         rbx_7.setForeground(new java.awt.Color(0, 0, 0));
         rbx_7.setText("11:00 - 11:30");
         rbx_7.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -269,6 +293,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_7.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_7);
 
+        buttonGroup1.add(rbx_8);
         rbx_8.setForeground(new java.awt.Color(0, 0, 0));
         rbx_8.setText("11:30 - 12:00");
         rbx_8.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -278,6 +303,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         jPanel3.add(rbx_8);
 
         rbx_9.setBackground(new java.awt.Color(204, 204, 204));
+        buttonGroup1.add(rbx_9);
         rbx_9.setForeground(new java.awt.Color(0, 0, 0));
         rbx_9.setText("12:00 - 12:30");
         rbx_9.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -286,6 +312,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_9.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_9);
 
+        buttonGroup1.add(rbx_10);
         rbx_10.setForeground(new java.awt.Color(0, 0, 0));
         rbx_10.setText("12:30 - 13:00");
         rbx_10.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -294,6 +321,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_10.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_10);
 
+        buttonGroup1.add(rbx_11);
         rbx_11.setForeground(new java.awt.Color(0, 0, 0));
         rbx_11.setText("13:00 - 13:30");
         rbx_11.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -302,6 +330,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_11.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_11);
 
+        buttonGroup1.add(rbx_12);
         rbx_12.setForeground(new java.awt.Color(0, 0, 0));
         rbx_12.setText("13:30 - 14:00");
         rbx_12.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -310,6 +339,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_12.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_12);
 
+        buttonGroup1.add(rbx_13);
         rbx_13.setForeground(new java.awt.Color(0, 0, 0));
         rbx_13.setText("14:00 - 14:00");
         rbx_13.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -318,6 +348,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         rbx_13.setRippleColor(new java.awt.Color(3, 111, 198));
         jPanel3.add(rbx_13);
 
+        buttonGroup1.add(rbx_14);
         rbx_14.setForeground(new java.awt.Color(0, 0, 0));
         rbx_14.setText("14:30 - 15:00");
         rbx_14.setColorCheck(new java.awt.Color(3, 111, 198));
@@ -353,7 +384,9 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_cancelar_cambios1;
-    private RSMaterialComponent.RSButtonMaterialGradientOne btn_guardar_cita;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_guardar_cita1;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_nueva_cita;
+    private javax.swing.ButtonGroup buttonGroup1;
     private LIB.FSGradientPanel fSGradientPanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
