@@ -9,6 +9,7 @@ import WIN30CLC_DAO.DaoException;
 import WIN30CLC_DAO.MYSQL.MySqlDaoManager;
 import WIN31CLC_DTO.Service;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,5 +32,10 @@ public class CTR_03_Service {
     
     public boolean update(Service entity) throws SQLException{
         return true;
+    }
+    
+    public List<Service> listService() throws SQLException, DaoException{
+        MySqlDaoManager man = new MySqlDaoManager();
+        return man.getDaoService().findAll(0);
     }
 }

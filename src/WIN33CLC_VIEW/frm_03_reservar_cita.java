@@ -5,19 +5,100 @@
  */
 package WIN33CLC_VIEW;
 
+import WIN30CLC_DAO.DaoException;
+import WIN31CLC_DTO.Patient;
+import WIN31CLC_DTO.Service;
+import WIN31CLC_DTO.Specialist;
+import WIN32CLC_CTR.CTR_02_Patient;
+import WIN32CLC_CTR.CTR_03_Service;
+import WIN32CLC_CTR.CTR_04_Specialist;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author lufra
  */
 public class frm_03_reservar_cita extends javax.swing.JPanel {
 
+     CTR_02_Patient cTR_02_Patient = new CTR_02_Patient();
+     ArrayList<Service> service_list = null;
+     ArrayList<Specialist> specialist_list = null;
     /**
      * Creates new form vista1
      */
     public frm_03_reservar_cita() {
         initComponents();
+        LoadData();
     }
 
+    public void LoadData() {
+        try {
+            // traer los servicios
+            CTR_03_Service ctr_Service = new CTR_03_Service();
+            service_list = new ArrayList<Service>();
+            Service service = new Service();
+            service.setId(0);
+            service.setName("--Seleccionar--");
+            service.setPrice(0);
+            
+            service_list.add(service);
+            service_list.addAll(ctr_Service.listService());
+            cbx_service.removeAllItems();
+            if (service_list != null) {
+                for (int i = 0; i < service_list.size(); i++) {
+                    cbx_service.addItem(service_list.get(i).getName());
+                }
+            }
+            
+            // traer los especialistar por servicio
+            reset_cbx_specialist();
+            
+            CTR_04_Specialist cTR_04_Specialist = new CTR_04_Specialist();
+                    
+            ActionListener actionListener = new ActionListener() {
+                  public void actionPerformed(ActionEvent actionEvent) {
+                    //System.out.println("Selected: " + cbx_service.getSelectedItem());
+                    //System.out.println(", Position: " + cbx_service.getSelectedIndex());
+                    if(cbx_service.getSelectedIndex() > 0){
+                        try {
+                            specialist_list.addAll(cTR_04_Specialist.listSpecialist());
+                            cbx_especialista.setEnabled(true);
+                            cbx_especialista.removeAllItems();
+                            for (int i = 0; i < specialist_list.size(); i++) {
+                                cbx_especialista.addItem(specialist_list.get(i).getFullname());
+                            }
+                        } catch (SQLException ex) {
+                            Logger.getLogger(frm_03_reservar_cita.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }else{
+                        reset_cbx_specialist();
+                    }
+                  }
+            };
+            // add event al cbs_Service
+            
+            cbx_service.addActionListener(actionListener);
+
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_03_reservar_cita.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_03_reservar_cita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+     private void reset_cbx_specialist() {
+        specialist_list = new ArrayList<Specialist>();
+        cbx_especialista.removeAllItems();
+        cbx_especialista.addItem("--No Listado--");
+        cbx_especialista.setEnabled(false);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,16 +114,15 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         btn_guardar_cita = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_cancelar_cambios1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
         jPanel1 = new javax.swing.JPanel();
-        txt_buscar_paciente = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_buscar_paciente = new RSMaterialComponent.RSButtonMaterialGradientOne();
         jLabel1 = new javax.swing.JLabel();
-        txt_fname1 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetro1 = new rojerusan.RSTableMetro();
+        txt_dni = new javax.swing.JTextField();
+        lbl_patient = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        rSComboBoxMaterial1 = new RSMaterialComponent.RSComboBoxMaterial();
-        rSComboBoxMaterial2 = new RSMaterialComponent.RSComboBoxMaterial();
+        cbx_service = new RSMaterialComponent.RSComboBoxMaterial();
+        cbx_especialista = new RSMaterialComponent.RSComboBoxMaterial();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         rSDateChooser2 = new rojeru_san.componentes.RSDateChooser();
@@ -100,65 +180,44 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         panel_contenedor.add(fSGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 740));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos del Paciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Datos del Paciente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_buscar_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-encuentra-hombre-usuario-30.png"))); // NOI18N
-        txt_buscar_paciente.setText("Buscar Paciente");
-        txt_buscar_paciente.setColorPrimario(new java.awt.Color(42, 170, 232));
-        txt_buscar_paciente.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
-        txt_buscar_paciente.setColorSecundario(new java.awt.Color(3, 102, 183));
-        txt_buscar_paciente.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        txt_buscar_paciente.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 16)); // NOI18N
-        txt_buscar_paciente.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-encuentra-hombre-usuario-30.png"))); // NOI18N
+        btn_buscar_paciente.setText("Buscar Paciente");
+        btn_buscar_paciente.setColorPrimario(new java.awt.Color(42, 170, 232));
+        btn_buscar_paciente.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
+        btn_buscar_paciente.setColorSecundario(new java.awt.Color(3, 102, 183));
+        btn_buscar_paciente.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        btn_buscar_paciente.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 16)); // NOI18N
+        btn_buscar_paciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_buscar_pacienteActionPerformed(evt);
+                btn_buscar_pacienteActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_buscar_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+        jPanel1.add(btn_buscar_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("DNI");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, 20));
 
-        txt_fname1.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        txt_fname1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, null));
-        txt_fname1.addActionListener(new java.awt.event.ActionListener() {
+        txt_dni.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        txt_dni.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, null));
+        txt_dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_fname1ActionPerformed(evt);
+                txt_dniActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_fname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 120, 30));
+        jPanel1.add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 120, 40));
 
-        rSTableMetro1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        rSTableMetro1.setColorBackgoundHead(new java.awt.Color(3, 111, 198));
-        rSTableMetro1.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
-        rSTableMetro1.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
-        rSTableMetro1.setColorFilasForeground2(new java.awt.Color(255, 255, 255));
-        rSTableMetro1.setFuenteFilas(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        rSTableMetro1.setFuenteFilasSelect(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        rSTableMetro1.setFuenteHead(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        rSTableMetro1.setGrosorBordeFilas(0);
-        rSTableMetro1.setGrosorBordeHead(0);
-        rSTableMetro1.setInheritsPopupMenu(true);
-        jScrollPane1.setViewportView(rSTableMetro1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 750, 120));
+        lbl_patient.setForeground(new java.awt.Color(0, 0, 0));
+        lbl_patient.setText("full name");
+        jPanel1.add(lbl_patient, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 650, 30));
 
         panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 770, 230));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Reserva de Servicios y Especialista", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Reserva de Servicios y Especialista", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -169,15 +228,15 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         jLabel3.setText("Servicios");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
-        rSComboBoxMaterial1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija un servicio", "RSItem 2", "RSItem 3", "RSItem 4" }));
-        rSComboBoxMaterial1.setColorMaterial(new java.awt.Color(3, 111, 198));
-        rSComboBoxMaterial1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
-        jPanel4.add(rSComboBoxMaterial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
+        cbx_service.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija un servicio", "RSItem 2", "RSItem 3", "RSItem 4" }));
+        cbx_service.setColorMaterial(new java.awt.Color(3, 111, 198));
+        cbx_service.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
+        jPanel4.add(cbx_service, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
 
-        rSComboBoxMaterial2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija un Especialista", "RSItem 2", "RSItem 3", "RSItem 4" }));
-        rSComboBoxMaterial2.setColorMaterial(new java.awt.Color(3, 111, 198));
-        rSComboBoxMaterial2.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
-        jPanel4.add(rSComboBoxMaterial2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, -1, -1));
+        cbx_especialista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija un Especialista", "RSItem 2", "RSItem 3", "RSItem 4" }));
+        cbx_especialista.setColorMaterial(new java.awt.Color(3, 111, 198));
+        cbx_especialista.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 0, 15)); // NOI18N
+        jPanel4.add(cbx_especialista, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, -1, -1));
 
         panel_contenedor.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 770, 100));
 
@@ -338,13 +397,20 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
       
       
   }
-    private void txt_buscar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscar_pacienteActionPerformed
+    private void btn_buscar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_pacienteActionPerformed
+         try {
+             Patient pat = cTR_02_Patient.SelectPatient(txt_dni.getText());
+             lbl_patient.setText(pat.getName()+", "+ pat.getLastname()+ " " + pat.getSurename());
+         } catch (SQLException ex) {
+             lbl_patient.setText(ex.getMessage());
+         } catch (DaoException ex) {
+             lbl_patient.setText(ex.getMessage());
+         }
+    }//GEN-LAST:event_btn_buscar_pacienteActionPerformed
 
-    }//GEN-LAST:event_txt_buscar_pacienteActionPerformed
-
-    private void txt_fname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_fname1ActionPerformed
+    private void txt_dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_fname1ActionPerformed
+    }//GEN-LAST:event_txt_dniActionPerformed
 
     private void txt_buscar_horariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscar_horariosActionPerformed
         // TODO add your handling code here:
@@ -352,8 +418,11 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_buscar_paciente;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_cancelar_cambios1;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_guardar_cita;
+    private RSMaterialComponent.RSComboBoxMaterial cbx_especialista;
+    private RSMaterialComponent.RSComboBoxMaterial cbx_service;
     private LIB.FSGradientPanel fSGradientPanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -364,12 +433,9 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_patient;
     private javax.swing.JPanel panel_contenedor;
-    private RSMaterialComponent.RSComboBoxMaterial rSComboBoxMaterial1;
-    private RSMaterialComponent.RSComboBoxMaterial rSComboBoxMaterial2;
     private rojeru_san.componentes.RSDateChooser rSDateChooser2;
-    private rojerusan.RSTableMetro rSTableMetro1;
     private RSMaterialComponent.RSRadioButtonMaterial rbx_1;
     private RSMaterialComponent.RSRadioButtonMaterial rbx_10;
     private RSMaterialComponent.RSRadioButtonMaterial rbx_11;
@@ -385,7 +451,8 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     private RSMaterialComponent.RSRadioButtonMaterial rbx_8;
     private RSMaterialComponent.RSRadioButtonMaterial rbx_9;
     private RSMaterialComponent.RSButtonMaterialGradientOne txt_buscar_horarios;
-    private RSMaterialComponent.RSButtonMaterialGradientOne txt_buscar_paciente;
-    private javax.swing.JTextField txt_fname1;
+    private javax.swing.JTextField txt_dni;
     // End of variables declaration//GEN-END:variables
+
+
 }

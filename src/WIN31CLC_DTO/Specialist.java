@@ -16,6 +16,7 @@ private boolean enable;
 private Date createAt;
 private Date updateAt;
 private long services_id;
+private String fullname;
 
     public Specialist() {
     }
@@ -118,6 +119,14 @@ private long services_id;
 
     public void setServices_id(long services_id) {
         this.services_id = services_id;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     @Override

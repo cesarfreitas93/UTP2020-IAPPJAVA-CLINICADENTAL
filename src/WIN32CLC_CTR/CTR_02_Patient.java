@@ -72,6 +72,14 @@ public class CTR_02_Patient {
         return p;
     }
 
+    public Patient SelectPatient(String dni) throws SQLException, DaoException {
+        MySqlDaoManager man = new MySqlDaoManager();
+        Patient p = new Patient();
+        p.setDni(dni);
+        p =  man.getDaoPatient().findByDNI(p);
+        return p;
+    }
+        
     public void UpdatePatient(Patient patient) throws SQLException, DaoException {
         MySqlDaoManager man = new MySqlDaoManager();
         man.getDaoPatient().rlUpdate(patient);

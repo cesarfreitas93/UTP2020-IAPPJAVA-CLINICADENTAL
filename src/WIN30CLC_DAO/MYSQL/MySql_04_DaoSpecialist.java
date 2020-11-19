@@ -131,6 +131,7 @@ public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
         dto.setEnable(rs.getBoolean("enable"));
         dto.setPhone(rs.getString("phone"));
         dto.setAddress(rs.getString("address"));
+        dto.setFullname(rs.getString("name") + ", "+rs.getString("lastname") + " " + rs.getString("surename"));
         return dto;
     }
     @Override

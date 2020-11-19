@@ -17,7 +17,7 @@ import java.util.List;
 public class MySql_03_DaoService implements Dao_03_Services {
     final String INSERT = "INSERT INTO services (`name`, `price`) VALUES (?,?)";
     final String UPDATE = "UPDATE services set `name` = ?, `price` = ? WHERE `id` = ?";
-    final String FINDALL = "SELECT `id`,`name`,`price` FROM `services`";
+    final String FINDALL = "SELECT `id`,`name`,`price` FROM `services` WHERE enable = 1";
     final String FINDBYID = "SELECT `id`,`name`,`price` FROM `services` WHERE `id` = ?";
     final String DELETE = "UPDATE services set `enable` = 0 WHERE id=?";
     private Connection conn;
@@ -139,7 +139,7 @@ public class MySql_03_DaoService implements Dao_03_Services {
         List<Service> list = new ArrayList<Service>();
         try{
             pst = (PreparedStatement) conn.prepareStatement(FINDALL);
-            pst.setLong(1, id);
+            //pst.setLong(1, id);
             rs = pst.executeQuery();
             System.out.println(rs);
             while(rs.next()){
