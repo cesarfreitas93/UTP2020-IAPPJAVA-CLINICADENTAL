@@ -667,6 +667,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
                         break;
                 }
             } else {
+                
                 Patient patient = new Patient();
                 patient.setDni(txt_dni.getText());
                 patient.setName(txt_name.getText());
