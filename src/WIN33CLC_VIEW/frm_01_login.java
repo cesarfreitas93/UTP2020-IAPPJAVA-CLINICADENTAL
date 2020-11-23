@@ -122,7 +122,7 @@ public class frm_01_login extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("x");
         jLabel9.setToolTipText("Cerrar la Aplicacion");
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
@@ -138,10 +138,12 @@ public class frm_01_login extends javax.swing.JFrame {
         txt_username.setPlaceholder("Usuario");
 
         rSButtonMaterialGradientOne1.setText("Iniciar");
+        rSButtonMaterialGradientOne1.setBorderPainted(false);
         rSButtonMaterialGradientOne1.setColorPrimario(new java.awt.Color(42, 170, 232));
         rSButtonMaterialGradientOne1.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         rSButtonMaterialGradientOne1.setColorSecundario(new java.awt.Color(3, 102, 183));
         rSButtonMaterialGradientOne1.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        rSButtonMaterialGradientOne1.setFocusPainted(false);
         rSButtonMaterialGradientOne1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 18)); // NOI18N
         rSButtonMaterialGradientOne1.setRippleColor(new java.awt.Color(204, 255, 255));
         rSButtonMaterialGradientOne1.setRound(3);

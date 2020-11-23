@@ -18,10 +18,10 @@ import java.util.logging.Logger;
  * @author Cesar
  */
 public class CTR_04_Specialist {
-    public List<Specialist> listSpecialist() throws SQLException{
+    public List<Specialist> listSpecialist(Long id) throws SQLException{
         try {
             MySqlDaoManager man = new MySqlDaoManager();
-            return man.getDaoSpecialist().findAll(0);
+            return man.getDaoSpecialist().buscarPorEspecialidad(id);
         } catch (DaoException ex) {
             Logger.getLogger(CTR_04_Specialist.class.getName()).log(Level.SEVERE, null, ex);
         }

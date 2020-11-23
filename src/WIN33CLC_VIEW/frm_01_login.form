@@ -241,6 +241,7 @@
         <Component class="RSMaterialComponent.RSButtonMaterialGradientOne" name="rSButtonMaterialGradientOne1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Iniciar"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="colorPrimario" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e8" green="aa" red="2a" type="rgb"/>
             </Property>
@@ -253,6 +254,7 @@
             <Property name="colorSecundarioHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b7" green="66" red="3" type="rgb"/>
             </Property>
+            <Property name="focusPainted" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="ITC Avant Garde Std Bk" size="18" style="1"/>
             </Property>

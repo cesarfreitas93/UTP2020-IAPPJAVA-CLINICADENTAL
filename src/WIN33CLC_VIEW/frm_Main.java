@@ -27,8 +27,6 @@ public class frm_Main extends javax.swing.JFrame  {
          setLocationRelativeTo(null); 
        //------------------
     
-       panel_cerrar.setVisible(true);
-       panel_cerrar.setEnabled(true);
            }
     
     
@@ -45,19 +43,20 @@ public class frm_Main extends javax.swing.JFrame  {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_cerrar = new javax.swing.JPanel();
-        btn_salir_sistema = new RSMaterialComponent.RSButtonMaterialGradientOne();
-        btn_salir_sistema2 = new RSMaterialComponent.RSButtonMaterialGradientOne();
-        btn_salir_sistema1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
         Panel_menu = new javax.swing.JPanel();
         btn_paciente = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_factura = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_inicio = new RSMaterialComponent.RSButtonMaterialGradientOne();
-        btn_user = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_citas = new RSMaterialComponent.RSButtonMaterialGradientOne();
         lb_menu_despegable = new javax.swing.JLabel();
-        btn_base_datos = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_salir1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_gestionar_cita = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        Panel_menu_opcion2 = new javax.swing.JPanel();
+        btn_especialista = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        lb_menu_despegable1 = new javax.swing.JLabel();
+        btn_servicios = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_user1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_base_datos1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
         Panel_Menu_despegable = new javax.swing.JPanel();
         fm_barra_lateral1 = new WIN33CLC_VIEW.fm_barra_lateral();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
@@ -69,71 +68,15 @@ public class frm_Main extends javax.swing.JFrame  {
         frm_03_reservar_cita1 = new WIN33CLC_VIEW.frm_03_reservar_cita();
         panel_factura = new javax.swing.JPanel();
         frm_04_comprobantes1 = new WIN33CLC_VIEW.frm_04_comprobantes();
+        panel_servicios = new javax.swing.JPanel();
+        frm_05_servicios1 = new WIN33CLC_VIEW.frm_05_servicios();
+        panel_especialista = new javax.swing.JPanel();
+        frm_06_especialistas1 = new WIN33CLC_VIEW.frm_06_especialistas();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setExtendedState(6);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panel_cerrar.setBackground(new java.awt.Color(255, 255, 255));
-        panel_cerrar.setLayout(new javax.swing.BoxLayout(panel_cerrar, javax.swing.BoxLayout.LINE_AXIS));
-
-        btn_salir_sistema.setBackground(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema.setBorder(null);
-        btn_salir_sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-menos-22.png"))); // NOI18N
-        btn_salir_sistema.setBorderPainted(false);
-        btn_salir_sistema.setColorPrimario(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema.setColorSecundario(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema.setColorSecundarioHover(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema.setFocusPainted(false);
-        btn_salir_sistema.setIconTextGap(0);
-        btn_salir_sistema.setRippleColor(new java.awt.Color(204, 204, 204));
-        btn_salir_sistema.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_salir_sistemaActionPerformed(evt);
-            }
-        });
-        panel_cerrar.add(btn_salir_sistema);
-
-        btn_salir_sistema2.setBackground(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema2.setBorder(null);
-        btn_salir_sistema2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-pantalla-completa-22.png"))); // NOI18N
-        btn_salir_sistema2.setBorderPainted(false);
-        btn_salir_sistema2.setColorPrimario(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema2.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema2.setColorSecundario(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema2.setColorSecundarioHover(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema2.setFocusPainted(false);
-        btn_salir_sistema2.setIconTextGap(0);
-        btn_salir_sistema2.setRippleColor(new java.awt.Color(204, 204, 204));
-        btn_salir_sistema2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_salir_sistema2ActionPerformed(evt);
-            }
-        });
-        panel_cerrar.add(btn_salir_sistema2);
-
-        btn_salir_sistema1.setBackground(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema1.setBorder(null);
-        btn_salir_sistema1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-multiplicar-22.png"))); // NOI18N
-        btn_salir_sistema1.setBorderPainted(false);
-        btn_salir_sistema1.setColorPrimario(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema1.setColorPrimarioHover(new java.awt.Color(255, 0, 51));
-        btn_salir_sistema1.setColorSecundario(new java.awt.Color(255, 255, 255));
-        btn_salir_sistema1.setColorSecundarioHover(new java.awt.Color(255, 0, 51));
-        btn_salir_sistema1.setFocusPainted(false);
-        btn_salir_sistema1.setIconTextGap(0);
-        btn_salir_sistema1.setRippleColor(new java.awt.Color(204, 204, 204));
-        btn_salir_sistema1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_salir_sistema1ActionPerformed(evt);
-            }
-        });
-        panel_cerrar.add(btn_salir_sistema1);
-
-        getContentPane().add(panel_cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, 130, 30));
 
         Panel_menu.setBackground(new java.awt.Color(255, 255, 255));
         Panel_menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -155,7 +98,7 @@ public class frm_Main extends javax.swing.JFrame  {
                 btn_pacienteActionPerformed(evt);
             }
         });
-        Panel_menu.add(btn_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 50, -1));
+        Panel_menu.add(btn_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 50, -1));
 
         btn_factura.setBackground(new java.awt.Color(255, 255, 255));
         btn_factura.setBorder(null);
@@ -173,7 +116,7 @@ public class frm_Main extends javax.swing.JFrame  {
                 btn_facturaActionPerformed(evt);
             }
         });
-        Panel_menu.add(btn_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 50, -1));
+        Panel_menu.add(btn_factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 50, -1));
 
         btn_inicio.setBackground(new java.awt.Color(255, 255, 255));
         btn_inicio.setBorder(null);
@@ -193,24 +136,6 @@ public class frm_Main extends javax.swing.JFrame  {
         });
         Panel_menu.add(btn_inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 50, -1));
 
-        btn_user.setBackground(new java.awt.Color(255, 255, 255));
-        btn_user.setBorder(null);
-        btn_user.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-usuario-masculino-en-círculo-30.png"))); // NOI18N
-        btn_user.setBorderPainted(false);
-        btn_user.setColorPrimario(new java.awt.Color(255, 255, 255));
-        btn_user.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
-        btn_user.setColorSecundario(new java.awt.Color(255, 255, 255));
-        btn_user.setColorSecundarioHover(new java.awt.Color(255, 255, 255));
-        btn_user.setFocusPainted(false);
-        btn_user.setIconTextGap(0);
-        btn_user.setRippleColor(new java.awt.Color(204, 204, 204));
-        btn_user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_userActionPerformed(evt);
-            }
-        });
-        Panel_menu.add(btn_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 50, -1));
-
         btn_citas.setBackground(new java.awt.Color(255, 255, 255));
         btn_citas.setBorder(null);
         btn_citas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/calendario icono.png"))); // NOI18N
@@ -227,7 +152,7 @@ public class frm_Main extends javax.swing.JFrame  {
                 btn_citasActionPerformed(evt);
             }
         });
-        Panel_menu.add(btn_citas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 50, -1));
+        Panel_menu.add(btn_citas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 50, -1));
 
         lb_menu_despegable.setBackground(new java.awt.Color(0, 0, 0));
         lb_menu_despegable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/Menu.png"))); // NOI18N
@@ -244,24 +169,6 @@ public class frm_Main extends javax.swing.JFrame  {
         });
         Panel_menu.add(lb_menu_despegable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        btn_base_datos.setBackground(new java.awt.Color(255, 255, 255));
-        btn_base_datos.setBorder(null);
-        btn_base_datos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-base-de-datos-30.png"))); // NOI18N
-        btn_base_datos.setBorderPainted(false);
-        btn_base_datos.setColorPrimario(new java.awt.Color(255, 255, 255));
-        btn_base_datos.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
-        btn_base_datos.setColorSecundario(new java.awt.Color(255, 255, 255));
-        btn_base_datos.setColorSecundarioHover(new java.awt.Color(255, 255, 255));
-        btn_base_datos.setFocusPainted(false);
-        btn_base_datos.setIconTextGap(0);
-        btn_base_datos.setRippleColor(new java.awt.Color(204, 204, 204));
-        btn_base_datos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_base_datosActionPerformed(evt);
-            }
-        });
-        Panel_menu.add(btn_base_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 50, -1));
-
         btn_salir1.setBackground(new java.awt.Color(255, 255, 255));
         btn_salir1.setBorder(null);
         btn_salir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-salida-30.png"))); // NOI18N
@@ -273,9 +180,119 @@ public class frm_Main extends javax.swing.JFrame  {
         btn_salir1.setFocusPainted(false);
         btn_salir1.setIconTextGap(0);
         btn_salir1.setRippleColor(new java.awt.Color(204, 204, 204));
-        Panel_menu.add(btn_salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 680, 50, -1));
+        Panel_menu.add(btn_salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 670, 50, -1));
+
+        btn_gestionar_cita.setBackground(new java.awt.Color(255, 255, 255));
+        btn_gestionar_cita.setBorder(null);
+        btn_gestionar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-horas-extras-30.png"))); // NOI18N
+        btn_gestionar_cita.setBorderPainted(false);
+        btn_gestionar_cita.setColorPrimario(new java.awt.Color(255, 255, 255));
+        btn_gestionar_cita.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
+        btn_gestionar_cita.setColorSecundario(new java.awt.Color(255, 255, 255));
+        btn_gestionar_cita.setColorSecundarioHover(new java.awt.Color(255, 255, 255));
+        btn_gestionar_cita.setFocusPainted(false);
+        btn_gestionar_cita.setIconTextGap(0);
+        btn_gestionar_cita.setRippleColor(new java.awt.Color(204, 204, 204));
+        btn_gestionar_cita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_gestionar_citaActionPerformed(evt);
+            }
+        });
+        Panel_menu.add(btn_gestionar_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 50, -1));
 
         getContentPane().add(Panel_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 70, 740));
+
+        Panel_menu_opcion2.setBackground(new java.awt.Color(255, 255, 255));
+        Panel_menu_opcion2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_especialista.setBackground(new java.awt.Color(255, 255, 255));
+        btn_especialista.setBorder(null);
+        btn_especialista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-doctor-en-medicina-30.png"))); // NOI18N
+        btn_especialista.setBorderPainted(false);
+        btn_especialista.setColorPrimario(new java.awt.Color(255, 255, 255));
+        btn_especialista.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
+        btn_especialista.setColorSecundario(new java.awt.Color(255, 255, 255));
+        btn_especialista.setColorSecundarioHover(new java.awt.Color(255, 255, 255));
+        btn_especialista.setFocusPainted(false);
+        btn_especialista.setIconTextGap(0);
+        btn_especialista.setRippleColor(new java.awt.Color(204, 204, 204));
+        btn_especialista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_especialistaActionPerformed(evt);
+            }
+        });
+        Panel_menu_opcion2.add(btn_especialista, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 50, -1));
+
+        lb_menu_despegable1.setBackground(new java.awt.Color(0, 0, 0));
+        lb_menu_despegable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/Menu.png"))); // NOI18N
+        lb_menu_despegable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_menu_despegable1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_menu_despegable1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_menu_despegable1MouseExited(evt);
+            }
+        });
+        Panel_menu_opcion2.add(lb_menu_despegable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        btn_servicios.setBackground(new java.awt.Color(255, 255, 255));
+        btn_servicios.setBorder(null);
+        btn_servicios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-maletín-médico-30.png"))); // NOI18N
+        btn_servicios.setBorderPainted(false);
+        btn_servicios.setColorPrimario(new java.awt.Color(255, 255, 255));
+        btn_servicios.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
+        btn_servicios.setColorSecundario(new java.awt.Color(255, 255, 255));
+        btn_servicios.setColorSecundarioHover(new java.awt.Color(255, 255, 255));
+        btn_servicios.setFocusPainted(false);
+        btn_servicios.setIconTextGap(0);
+        btn_servicios.setRippleColor(new java.awt.Color(204, 204, 204));
+        btn_servicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_serviciosActionPerformed(evt);
+            }
+        });
+        Panel_menu_opcion2.add(btn_servicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 50, -1));
+
+        btn_user1.setBackground(new java.awt.Color(255, 255, 255));
+        btn_user1.setBorder(null);
+        btn_user1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-usuario-masculino-en-círculo-30.png"))); // NOI18N
+        btn_user1.setBorderPainted(false);
+        btn_user1.setColorPrimario(new java.awt.Color(255, 255, 255));
+        btn_user1.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
+        btn_user1.setColorSecundario(new java.awt.Color(255, 255, 255));
+        btn_user1.setColorSecundarioHover(new java.awt.Color(255, 255, 255));
+        btn_user1.setFocusPainted(false);
+        btn_user1.setIconTextGap(0);
+        btn_user1.setRippleColor(new java.awt.Color(204, 204, 204));
+        btn_user1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_user1ActionPerformed(evt);
+            }
+        });
+        Panel_menu_opcion2.add(btn_user1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 50, -1));
+
+        btn_base_datos1.setBackground(new java.awt.Color(255, 255, 255));
+        btn_base_datos1.setBorder(null);
+        btn_base_datos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-base-de-datos-30.png"))); // NOI18N
+        btn_base_datos1.setBorderPainted(false);
+        btn_base_datos1.setColorPrimario(new java.awt.Color(255, 255, 255));
+        btn_base_datos1.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
+        btn_base_datos1.setColorSecundario(new java.awt.Color(255, 255, 255));
+        btn_base_datos1.setColorSecundarioHover(new java.awt.Color(255, 255, 255));
+        btn_base_datos1.setFocusPainted(false);
+        btn_base_datos1.setIconTextGap(0);
+        btn_base_datos1.setRippleColor(new java.awt.Color(204, 204, 204));
+        btn_base_datos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_base_datos1ActionPerformed(evt);
+            }
+        });
+        Panel_menu_opcion2.add(btn_base_datos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 50, -1));
+
+        getContentPane().add(Panel_menu_opcion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 0, 70, 740));
 
         Panel_Menu_despegable.setBackground(new java.awt.Color(255, 255, 255));
         Panel_Menu_despegable.setLayout(new java.awt.CardLayout());
@@ -309,6 +326,18 @@ public class frm_Main extends javax.swing.JFrame  {
 
         rSPanelsSlider1.add(panel_factura, "card5");
 
+        panel_servicios.setName("panel_servicios"); // NOI18N
+        panel_servicios.setLayout(new java.awt.CardLayout());
+        panel_servicios.add(frm_05_servicios1, "card2");
+
+        rSPanelsSlider1.add(panel_servicios, "card6");
+
+        panel_especialista.setName("panel_especialista"); // NOI18N
+        panel_especialista.setLayout(new java.awt.CardLayout());
+        panel_especialista.add(frm_06_especialistas1, "card2");
+
+        rSPanelsSlider1.add(panel_especialista, "card3");
+
         getContentPane().add(rSPanelsSlider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 1100, 740));
 
         pack();
@@ -321,6 +350,8 @@ if(!this.btn_factura.isSelected()){
             this.btn_paciente.setSelected(false);
             this.btn_citas.setSelected(false);
             this.btn_factura.setSelected(true);
+            this.btn_servicios.setSelected(false);
+            this.btn_especialista.setSelected(false);
             
         rSPanelsSlider1.slidPanel(20, panel_factura, RSPanelsSlider.direct.Right);
         
@@ -373,6 +404,8 @@ if(!this.btn_paciente.isSelected()){
             this.btn_paciente.setSelected(true);
             this.btn_citas.setSelected(false);
             this.btn_factura.setSelected(false);
+            this.btn_servicios.setSelected(false);
+            this.btn_especialista.setSelected(false);
             
         rSPanelsSlider1.slidPanel(20, panel_paciente, RSPanelsSlider.direct.Right);
         
@@ -393,6 +426,8 @@ if(!this.btn_citas.isSelected()){
             this.btn_paciente.setSelected(false);
             this.btn_citas.setSelected(true);
             this.btn_factura.setSelected(false);
+            this.btn_servicios.setSelected(false);
+            this.btn_especialista.setSelected(false);
             
         rSPanelsSlider1.slidPanel(20, panel_cita, RSPanelsSlider.direct.Right);
         
@@ -406,6 +441,8 @@ if(!this.btn_inicio.isSelected()){
             this.btn_paciente.setSelected(false);
             this.btn_citas.setSelected(false);
             this.btn_factura.setSelected(false);
+            this.btn_servicios.setSelected(false);
+            this.btn_especialista.setSelected(false);
             
         rSPanelsSlider1.slidPanel(20, panel_inicio, RSPanelsSlider.direct.Right);
         
@@ -413,25 +450,61 @@ if(!this.btn_inicio.isSelected()){
        
     }//GEN-LAST:event_btn_inicioActionPerformed
 
-    private void btn_base_datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_base_datosActionPerformed
-       
-    }//GEN-LAST:event_btn_base_datosActionPerformed
+    private void btn_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_especialistaActionPerformed
+     if(!this.btn_especialista.isSelected()){
+            this.btn_especialista.setSelected(true);
+            this.btn_inicio.setSelected(false);
+            this.btn_paciente.setSelected(false);
+            this.btn_citas.setSelected(false);
+            this.btn_factura.setSelected(false);
+            this.btn_servicios.setSelected(false);
+            
+        rSPanelsSlider1.slidPanel(20,panel_especialista, RSPanelsSlider.direct.Left);
+        
+       }        
+        
+        
+        
+        
+    }//GEN-LAST:event_btn_especialistaActionPerformed
 
-    private void btn_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_userActionPerformed
-       
-    }//GEN-LAST:event_btn_userActionPerformed
+    private void lb_menu_despegable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_menu_despegable1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_menu_despegable1MouseClicked
 
-    private void btn_salir_sistema1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salir_sistema1ActionPerformed
-        System.exit(0);        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_salir_sistema1ActionPerformed
+    private void lb_menu_despegable1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_menu_despegable1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_menu_despegable1MouseEntered
 
-    private void btn_salir_sistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salir_sistemaActionPerformed
-        this.setExtendedState(1);
-    }//GEN-LAST:event_btn_salir_sistemaActionPerformed
+    private void lb_menu_despegable1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_menu_despegable1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_menu_despegable1MouseExited
 
-    private void btn_salir_sistema2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salir_sistema2ActionPerformed
-  // panel_cerrar.setExtendedState(JFrame.MAXIMIZED_BOTH);   
-    }//GEN-LAST:event_btn_salir_sistema2ActionPerformed
+    private void btn_serviciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_serviciosActionPerformed
+if(!this.btn_servicios.isSelected()){
+            this.btn_servicios.setSelected(true);
+            this.btn_inicio.setSelected(false);
+            this.btn_paciente.setSelected(false);
+            this.btn_citas.setSelected(false);
+            this.btn_factura.setSelected(false);
+            this.btn_especialista.setSelected(false);
+            
+        rSPanelsSlider1.slidPanel(20,panel_servicios, RSPanelsSlider.direct.Left);
+        
+       }        
+    }//GEN-LAST:event_btn_serviciosActionPerformed
+
+    private void btn_user1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_user1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_user1ActionPerformed
+
+    private void btn_base_datos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_base_datos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_base_datos1ActionPerformed
+
+    private void btn_gestionar_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gestionar_citaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_gestionar_citaActionPerformed
 
  
     public static void main(String args[]) {
@@ -446,27 +519,32 @@ if(!this.btn_inicio.isSelected()){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_Menu_despegable;
     private javax.swing.JPanel Panel_menu;
-    private RSMaterialComponent.RSButtonMaterialGradientOne btn_base_datos;
+    private javax.swing.JPanel Panel_menu_opcion2;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_base_datos1;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_citas;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_especialista;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_factura;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_gestionar_cita;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_inicio;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_paciente;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_salir1;
-    private RSMaterialComponent.RSButtonMaterialGradientOne btn_salir_sistema;
-    private RSMaterialComponent.RSButtonMaterialGradientOne btn_salir_sistema1;
-    private RSMaterialComponent.RSButtonMaterialGradientOne btn_salir_sistema2;
-    private RSMaterialComponent.RSButtonMaterialGradientOne btn_user;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_servicios;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_user1;
     private WIN33CLC_VIEW.fm_barra_lateral fm_barra_lateral1;
     private WIN33CLC_VIEW.frm_02_Patient_Detail frm_02_Patient_Detail1;
     private WIN33CLC_VIEW.frm_03_reservar_cita frm_03_reservar_cita1;
     private WIN33CLC_VIEW.frm_04_comprobantes frm_04_comprobantes1;
+    private WIN33CLC_VIEW.frm_05_servicios frm_05_servicios1;
+    private WIN33CLC_VIEW.frm_06_especialistas frm_06_especialistas1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lb_menu_despegable;
-    private javax.swing.JPanel panel_cerrar;
+    private javax.swing.JLabel lb_menu_despegable1;
     private javax.swing.JPanel panel_cita;
+    private javax.swing.JPanel panel_especialista;
     private javax.swing.JPanel panel_factura;
     private javax.swing.JPanel panel_inicio;
     private javax.swing.JPanel panel_paciente;
+    private javax.swing.JPanel panel_servicios;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
     // End of variables declaration//GEN-END:variables
 private void labelcolor(JLabel label){

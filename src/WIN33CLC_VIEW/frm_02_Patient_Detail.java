@@ -290,7 +290,6 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePatients = new rojerusan.RSTableMetro();
-        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -418,7 +417,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         });
         fSGradientPanel2.add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 210, -1));
 
-        panel_contenedor.add(fSGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
+        panel_contenedor.add(fSGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 720));
 
         cbx_departamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_departamento.setColorMaterial(new java.awt.Color(10, 117, 167));
@@ -434,6 +433,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         cbx_provincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_provincia.setColorMaterial(new java.awt.Color(10, 117, 167));
         cbx_provincia.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        cbx_provincia.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
         cbx_provincia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbx_provinciaActionPerformed(evt);
@@ -530,14 +530,11 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         tablePatients.setRowHeight(24);
         jScrollPane2.setViewportView(tablePatients);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 220));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 220));
 
-        panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 1090, 220));
+        panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 500, 810, 220));
 
-        jButton1.setText("jButton1");
-        panel_contenedor.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 20, -1, -1));
-
-        add(panel_contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 720));
+        add(panel_contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 720));
     }// </editor-fold>//GEN-END:initComponents
 
     private void fSGradientPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fSGradientPanel2MousePressed
@@ -885,7 +882,6 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
     private RSMaterialComponent.RSComboBoxMaterial cbx_distrito;
     private RSMaterialComponent.RSComboBoxMaterial cbx_provincia;
     private LIB.FSGradientPanel fSGradientPanel2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
