@@ -17,13 +17,9 @@ public class frm_Main extends javax.swing.JFrame  {
   
     public frm_Main() {
         initComponents();
-        //setBackground(new Color (3,11,198,220));
+
          setBackground(new Color (255,255,255,253));
-      // jPanel3.setBackground(new Color (255,255,255,200));
-       // jPanel1.setOpaque(false);
-        //------------------
-        
-        //btn_mad.setBackground(new Color(255,255,255,100));
+
          setLocationRelativeTo(null); 
        //------------------
     
@@ -53,12 +49,14 @@ public class frm_Main extends javax.swing.JFrame  {
         btn_gestionar_cita = new RSMaterialComponent.RSButtonMaterialGradientOne();
         Panel_menu_opcion2 = new javax.swing.JPanel();
         btn_especialista = new RSMaterialComponent.RSButtonMaterialGradientOne();
-        lb_menu_despegable1 = new javax.swing.JLabel();
+        lb_menu_despegable_2 = new javax.swing.JLabel();
         btn_servicios = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_user1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_base_datos1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
         Panel_Menu_despegable = new javax.swing.JPanel();
         fm_barra_lateral1 = new WIN33CLC_VIEW.fm_barra_lateral();
+        panel_menu_despegable_2 = new javax.swing.JPanel();
+        frm_barra_lateral_21 = new WIN33CLC_VIEW.frm_barra_lateral_2();
         rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         panel_inicio = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -76,6 +74,7 @@ public class frm_Main extends javax.swing.JFrame  {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1240, 741));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panel_menu.setBackground(new java.awt.Color(255, 255, 255));
@@ -155,7 +154,7 @@ public class frm_Main extends javax.swing.JFrame  {
         Panel_menu.add(btn_citas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 50, -1));
 
         lb_menu_despegable.setBackground(new java.awt.Color(0, 0, 0));
-        lb_menu_despegable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/Menu.png"))); // NOI18N
+        lb_menu_despegable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-menú-30.png"))); // NOI18N
         lb_menu_despegable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lb_menu_despegableMouseClicked(evt);
@@ -221,22 +220,22 @@ public class frm_Main extends javax.swing.JFrame  {
                 btn_especialistaActionPerformed(evt);
             }
         });
-        Panel_menu_opcion2.add(btn_especialista, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 50, -1));
+        Panel_menu_opcion2.add(btn_especialista, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 50, -1));
 
-        lb_menu_despegable1.setBackground(new java.awt.Color(0, 0, 0));
-        lb_menu_despegable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/Menu.png"))); // NOI18N
-        lb_menu_despegable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lb_menu_despegable_2.setBackground(new java.awt.Color(0, 0, 0));
+        lb_menu_despegable_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-menú-30.png"))); // NOI18N
+        lb_menu_despegable_2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lb_menu_despegable1MouseClicked(evt);
+                lb_menu_despegable_2MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lb_menu_despegable1MouseEntered(evt);
+                lb_menu_despegable_2MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lb_menu_despegable1MouseExited(evt);
+                lb_menu_despegable_2MouseExited(evt);
             }
         });
-        Panel_menu_opcion2.add(lb_menu_despegable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        Panel_menu_opcion2.add(lb_menu_despegable_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         btn_servicios.setBackground(new java.awt.Color(255, 255, 255));
         btn_servicios.setBorder(null);
@@ -254,7 +253,7 @@ public class frm_Main extends javax.swing.JFrame  {
                 btn_serviciosActionPerformed(evt);
             }
         });
-        Panel_menu_opcion2.add(btn_servicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 50, -1));
+        Panel_menu_opcion2.add(btn_servicios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 50, -1));
 
         btn_user1.setBackground(new java.awt.Color(255, 255, 255));
         btn_user1.setBorder(null);
@@ -290,7 +289,7 @@ public class frm_Main extends javax.swing.JFrame  {
                 btn_base_datos1ActionPerformed(evt);
             }
         });
-        Panel_menu_opcion2.add(btn_base_datos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 50, -1));
+        Panel_menu_opcion2.add(btn_base_datos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 50, -1));
 
         getContentPane().add(Panel_menu_opcion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 0, 70, 740));
 
@@ -299,6 +298,11 @@ public class frm_Main extends javax.swing.JFrame  {
         Panel_Menu_despegable.add(fm_barra_lateral1, "card2");
 
         getContentPane().add(Panel_Menu_despegable, new org.netbeans.lib.awtextra.AbsoluteConstraints(-340, 0, 340, 740));
+
+        panel_menu_despegable_2.setLayout(new java.awt.CardLayout());
+        panel_menu_despegable_2.add(frm_barra_lateral_21, "card2");
+
+        getContentPane().add(panel_menu_despegable_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 340, 740));
 
         panel_inicio.setName("panel_inicio"); // NOI18N
         panel_inicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -468,17 +472,45 @@ if(!this.btn_inicio.isSelected()){
         
     }//GEN-LAST:event_btn_especialistaActionPerformed
 
-    private void lb_menu_despegable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_menu_despegable1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lb_menu_despegable1MouseClicked
+    private void lb_menu_despegable_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_menu_despegable_2MouseClicked
+        int posicion = this.panel_menu_despegable_2.getX();
+        
+       if (posicion> 900)
+            
+       {
+           changeimage(lb_menu_despegable_2, "/WIN34CLC_RESOURCES/icons8-adelante-30.png");
+       
+        Animacion.Animacion.mover_izquierda(1240, 900 , 1, 4, panel_menu_despegable_2);
+        
+            SwingUtilities.updateComponentTreeUI(this);
+          //  frm_03_reservar_cita2.deshabilitar_panel_citas(false);
+            //frm_02_Patient_Detail2.deshabilitar_form_paciente(false);
+            panel_menu_despegable_2.setVisible(true);
+            panel_menu_despegable_2.setEnabled(true);
+            
+           frm_03_reservar_cita1.deshabilitar_rbx(false);
+       }
+       
+       else
+           
+       {
+            changeimage(lb_menu_despegable_2, "/WIN34CLC_RESOURCES/icons8-menú-30.png");
+           
+           Animacion.Animacion.mover_derecha(900 ,1240, 2, 4, panel_menu_despegable_2);
+         //  frm_03_reservar_cita2.deshabilitar_panel_citas(false);
+           // frm_02_Patient_Detail2.deshabilitar_form_paciente(false);
+           SwingUtilities.updateComponentTreeUI(this);
+           frm_03_reservar_cita1.deshabilitar_rbx(true);
+       }
+    }//GEN-LAST:event_lb_menu_despegable_2MouseClicked
 
-    private void lb_menu_despegable1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_menu_despegable1MouseEntered
+    private void lb_menu_despegable_2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_menu_despegable_2MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_lb_menu_despegable1MouseEntered
+    }//GEN-LAST:event_lb_menu_despegable_2MouseEntered
 
-    private void lb_menu_despegable1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_menu_despegable1MouseExited
+    private void lb_menu_despegable_2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_menu_despegable_2MouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_lb_menu_despegable1MouseExited
+    }//GEN-LAST:event_lb_menu_despegable_2MouseExited
 
     private void btn_serviciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_serviciosActionPerformed
 if(!this.btn_servicios.isSelected()){
@@ -536,13 +568,15 @@ if(!this.btn_servicios.isSelected()){
     private WIN33CLC_VIEW.frm_04_comprobantes frm_04_comprobantes1;
     private WIN33CLC_VIEW.frm_05_servicios frm_05_servicios1;
     private WIN33CLC_VIEW.frm_06_especialistas frm_06_especialistas1;
+    private WIN33CLC_VIEW.frm_barra_lateral_2 frm_barra_lateral_21;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lb_menu_despegable;
-    private javax.swing.JLabel lb_menu_despegable1;
+    private javax.swing.JLabel lb_menu_despegable_2;
     private javax.swing.JPanel panel_cita;
     private javax.swing.JPanel panel_especialista;
     private javax.swing.JPanel panel_factura;
     private javax.swing.JPanel panel_inicio;
+    private javax.swing.JPanel panel_menu_despegable_2;
     private javax.swing.JPanel panel_paciente;
     private javax.swing.JPanel panel_servicios;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;

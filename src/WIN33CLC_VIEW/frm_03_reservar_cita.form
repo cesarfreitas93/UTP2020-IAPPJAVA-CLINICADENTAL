@@ -136,7 +136,7 @@
             <Component class="RSMaterialComponent.RSButtonMaterialGradientOne" name="btn_guardar_cita1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/WIN34CLC_RESOURCES/icons8-hoy-30.png"/>
+                  <Image iconType="3" name="/WIN34CLC_RESOURCES/icons8-guardar-como-30.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Guardar Cita"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -261,9 +261,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_patient">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="full name"/>
               </Properties>
               <Constraints>
@@ -407,7 +404,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="rojeru_san.componentes.RSDateChooser" name="cal_fecha_cita">
+            <Component class="rojeru_san.componentes.RSDateChooser" name="rSDateChooser2">
               <Properties>
                 <Property name="colorBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c6" green="6f" red="3" type="rgb"/>
@@ -416,7 +413,7 @@
                   <Color blue="c6" green="6f" red="3" type="rgb"/>
                 </Property>
                 <Property name="colorDiaActual" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="c6" green="6f" red="3" type="rgb"/>
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
                 <Property name="colorForeground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c6" green="6f" red="3" type="rgb"/>
@@ -476,7 +473,9 @@
                 </Constraint>
               </Constraints>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                <Property name="useNullLayout" type="boolean" value="false"/>
+              </Layout>
               <SubComponents>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_1">
                   <Properties>
@@ -500,6 +499,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="3" y="5" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_2">
                   <Properties>
@@ -523,6 +527,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="188" y="5" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_3">
                   <Properties>
@@ -549,6 +558,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="373" y="5" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_4">
                   <Properties>
@@ -572,6 +586,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="558" y="5" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_5">
                   <Properties>
@@ -595,6 +614,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="3" y="50" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_6">
                   <Properties>
@@ -618,6 +642,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="188" y="50" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_7">
                   <Properties>
@@ -641,6 +670,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="373" y="50" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_8">
                   <Properties>
@@ -664,6 +698,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="558" y="50" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_9">
                   <Properties>
@@ -690,6 +729,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="3" y="95" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_10">
                   <Properties>
@@ -713,6 +757,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="188" y="95" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_11">
                   <Properties>
@@ -736,6 +785,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="373" y="95" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_12">
                   <Properties>
@@ -759,6 +813,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="558" y="95" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_13">
                   <Properties>
@@ -782,6 +841,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="187" y="140" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="RSMaterialComponent.RSRadioButtonMaterial" name="rbx_14">
                   <Properties>
@@ -805,6 +869,11 @@
                       <Color blue="c6" green="6f" red="3" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="372" y="140" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
               </SubComponents>
             </Container>

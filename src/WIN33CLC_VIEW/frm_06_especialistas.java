@@ -109,7 +109,7 @@ public class frm_06_especialistas extends javax.swing.JPanel {
         fSGradientPanel1.add(btn_modificar_especialista, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 220, -1));
 
         btn_nuevo_especialista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-documentos-30.png"))); // NOI18N
-        btn_nuevo_especialista.setText("Nuev8 Especialista");
+        btn_nuevo_especialista.setText("Nuevo Especialista");
         btn_nuevo_especialista.setBorderPainted(false);
         btn_nuevo_especialista.setColorPrimario(new java.awt.Color(42, 170, 232));
         btn_nuevo_especialista.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
