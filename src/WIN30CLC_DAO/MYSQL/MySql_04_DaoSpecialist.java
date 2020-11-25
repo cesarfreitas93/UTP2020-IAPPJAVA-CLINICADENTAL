@@ -19,10 +19,12 @@ import java.util.List;
  * @author Cesar
  */
 public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
-    final String INSERT = "insert into especialista (`dni`, `name`, `lastname`, `surename`, `createAt`, `updateAt`, `enable`, `phone`, `address`) values (?,?, ?,?,?,?,?,?,?)";
-    final String UPDATE = "update especialista set  `updateAt` = ?,  `phone` = ?, `address` = ? where id = ?";
-    final String FINDALL = "SELECT id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address` FROM especialista where enable = 1";
-    final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address` FROM especialista where id  = ? and enable = 1";
+    final String INSERT = "insert into especialista (`dni`, `name`, `lastname`, `surename`, `createAt`, `updateAt`, `enable`, `phone`, `address`, `services_id`) values (?,?,?, ?,?,?,?,?,?,?)";
+    final String UPDATE = "update especialista set  `updateAt` = ?,  `phone` = ?, `address` = ?, services_id = ? where id = ?";
+    final String FINDALL = "SELECT id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address`, services_id FROM especialista where enable = 1";
+    final String FINDALLSPECIALIDAD = "SELECT id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address`, services_id FROM especialista where enable = 1 AND services_id = ?";
+    final String FINDBYID = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address`, `enable`, services_id  FROM especialista where id  = ? and enable = 1";
+    final String FINDBY_DNI = "select id, `dni`, `name`, `lastname`, `surename`, `enable`, `phone`, `address`, `services_id` FROM especialista where dni  = ? and enable = 1";
     final String DELETE = "update especialista set `updateAt` = ?, enable = 0 where id = ?";
     private Connection conn;
     
@@ -48,6 +50,7 @@ public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
             pst.setBoolean(7, entity.isEnable());
             pst.setString(8, entity.getPhone());
             pst.setString(9, entity.getAddress());
+            pst.setLong(10, entity.getServices_id());
 
             if(pst.executeUpdate() == 0){
                 throw new DaoException("Puede que no se haya guardado.");
@@ -100,7 +103,8 @@ public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
             pst.setTimestamp(1,new Timestamp(time));
             pst.setString(2, entity.getPhone());
             pst.setString(3, entity.getAddress());
-            pst.setLong(4, entity.getId());
+            pst.setLong(4, entity.getServices_id());
+            pst.setLong(5, entity.getId());
 
             if(pst.executeUpdate() == 0){
                 throw new DaoException("Puede que no se haya modificado.");
@@ -131,6 +135,8 @@ public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
         dto.setEnable(rs.getBoolean("enable"));
         dto.setPhone(rs.getString("phone"));
         dto.setAddress(rs.getString("address"));
+        dto.setServices_id(rs.getLong("services_id"));
+        dto.setFullname(rs.getString("name") + ", "+rs.getString("lastname") + " " + rs.getString("surename"));
         return dto;
     }
     @Override
@@ -231,6 +237,77 @@ public class MySql_04_DaoSpecialist implements Dao_04_Specialist{
                    new DaoException("Error en SQL", ex);
                }
            }
+        }
+        return dto;
+    }
+
+    @Override
+    public List<Specialist> buscarPorEspecialidad(Long id) throws DaoException {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        List<Specialist> list = new ArrayList<Specialist>();
+        try{
+            pst = (PreparedStatement) conn.prepareStatement(FINDALLSPECIALIDAD);
+            pst.setLong(1, id);
+            rs = pst.executeQuery();
+            System.out.println(rs);
+            while(rs.next()){
+                list.add(Convert_(rs));
+            }
+        }
+        catch(SQLException ex){
+            throw new DaoException("Error en SQL", ex);
+        }finally{
+           if(rs != null){
+               try{
+                   rs.close();
+               }
+               catch(SQLException ex){
+                   new DaoException("Error en SQL", ex); 
+               }
+           }
+           if(pst != null){
+               try{
+                   pst.close();
+               }catch(SQLException ex){
+                   new DaoException("Error en SQL", ex);
+               }
+           }
+        }
+        return list;
+    }
+    
+    @Override
+    public Specialist ChekDNI(String dni) throws DaoException {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Specialist dto = null;
+        try {
+            pst = (PreparedStatement) conn.prepareStatement(FINDBY_DNI);
+            pst.setString(1, dni);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                dto = Convert_(rs);
+            } else {
+                throw new DaoException("No se ha encontrado el registro");
+            }
+        } catch (SQLException ex) {
+            throw new DaoException("Error en SQL", ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    new DaoException("Error en SQL", ex);
+                }
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException ex) {
+                    new DaoException("Error en SQL", ex);
+                }
+            }
         }
         return dto;
     }

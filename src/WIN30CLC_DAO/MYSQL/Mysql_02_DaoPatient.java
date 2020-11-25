@@ -273,4 +273,39 @@ public class Mysql_02_DaoPatient implements Dao_02_Patient {
     public void rlInsert(Patient entity) throws DaoException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Patient findByDNI(Patient entity) throws DaoException {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Patient dto = null;
+        try {
+            pst = (PreparedStatement) conn.prepareStatement(FINDBY_DNI);
+            pst.setString(1, entity.getDni());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                dto = Convert_(rs);
+            } else {
+                throw new DaoException("El DNI ingresado no se encuentra en el registro");
+            }
+        } catch (SQLException ex) {
+            throw new DaoException("Error en SQL", ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    new DaoException("Error en SQL", ex);
+                }
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException ex) {
+                    new DaoException("Error en SQL", ex);
+                }
+            }
+        }
+        return dto;
+    }
 }
