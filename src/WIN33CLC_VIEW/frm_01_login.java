@@ -4,13 +4,16 @@ package WIN33CLC_VIEW;
 import com.sun.awt.AWTUtilities;
 import WIN30CLC_DAO.DaoException;
 import WIN32CLC_CTR.CTR_01_Auth;
+import static WIN33CLC_VIEW.frm_Main.maximized;
 import java.awt.Color;
+import java.awt.GraphicsEnvironment;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
 
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -153,11 +156,12 @@ public class frm_01_login extends javax.swing.JFrame {
         fSGradientPanel1Layout.setHorizontalGroup(
             fSGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fSGradientPanel1Layout.createSequentialGroup()
-                .addGroup(fSGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(31, 31, 31)
+                .addGroup(fSGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(fSGradientPanel1Layout.createSequentialGroup()
                         .addGroup(fSGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(fSGradientPanel1Layout.createSequentialGroup()
-                                .addGap(117, 117, 117)
+                                .addGap(86, 86, 86)
                                 .addComponent(jLabel3))
                             .addGroup(fSGradientPanel1Layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
@@ -173,8 +177,7 @@ public class frm_01_login extends javax.swing.JFrame {
                                             .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(rSButtonMaterialGradientOne1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(42, 42, 42))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fSGradientPanel1Layout.createSequentialGroup()
-                        .addGap(0, 300, Short.MAX_VALUE)
+                    .addGroup(fSGradientPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );

@@ -78,6 +78,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
         btn_cancelar_cambios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-cancelar-30.png"))); // NOI18N
         btn_cancelar_cambios1.setText("Cancelar Cambios");
+        btn_cancelar_cambios1.setBorderPainted(false);
         btn_cancelar_cambios1.setColorPrimario(new java.awt.Color(42, 170, 232));
         btn_cancelar_cambios1.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         btn_cancelar_cambios1.setColorSecundario(new java.awt.Color(3, 102, 183));

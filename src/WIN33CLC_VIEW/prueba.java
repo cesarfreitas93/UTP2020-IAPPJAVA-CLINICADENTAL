@@ -6,13 +6,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import AppPackage.AnimationClass;
 import java.awt.Color;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class prueba extends javax.swing.JFrame {
-
+static boolean maximized = true;
 
     public prueba() {
         initComponents();
@@ -112,10 +114,10 @@ public class prueba extends javax.swing.JFrame {
         btn_bar = new newscomponents.RSButtonFlat_new();
         panel_menu = new javax.swing.JPanel();
         panelBody = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         p1.setBackground(new java.awt.Color(255, 255, 255));
         p1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -202,8 +204,6 @@ public class prueba extends javax.swing.JFrame {
         rSButtonMaterialGradientOne6.setIconTextGap(0);
         rSButtonMaterialGradientOne6.setRippleColor(new java.awt.Color(204, 204, 204));
         p1.add(rSButtonMaterialGradientOne6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, 30, -1));
-
-        getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-300, 0, 290, 740));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setOpaque(false);
@@ -311,13 +311,56 @@ public class prueba extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(40, 20, 0, 60);
         jPanel3.add(btn_bar, gridBagConstraints);
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 530));
-
         panel_menu.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(panel_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 240, 550));
 
         panelBody.setBackground(new java.awt.Color(204, 255, 204));
-        getContentPane().add(panelBody, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 290, 550));
+
+        jToggleButton1.setText("jToggleButton1");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelBodyLayout = new javax.swing.GroupLayout(panelBody);
+        panelBody.setLayout(panelBodyLayout);
+        panelBodyLayout.setHorizontalGroup(
+            panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBodyLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(jToggleButton1)
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+        panelBodyLayout.setVerticalGroup(
+            panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBodyLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jToggleButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panel_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -347,6 +390,19 @@ public class prueba extends javax.swing.JFrame {
     private void btn_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_barActionPerformed
         show_submenu(panel_bar);
     }//GEN-LAST:event_btn_barActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        if(maximized){
+            //handle fullscreen - taskbar
+            prueba.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            prueba.this.setMaximizedBounds(env.getMaximumWindowBounds());
+            maximized = false;
+        }else{
+            setExtendedState(JFrame.NORMAL);
+            maximized = true;
+        }               // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -387,6 +443,7 @@ public class prueba extends javax.swing.JFrame {
     private newscomponents.RSButtonFlat_new btn_bar;
     private RSMaterialComponent.RSButtonMaterialOne btn_mad;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPanel p1;
     private javax.swing.JPanel panelBody;
     private javax.swing.JPanel panel_bar;

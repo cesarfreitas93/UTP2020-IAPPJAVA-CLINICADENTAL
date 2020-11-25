@@ -372,6 +372,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
 
         btn_nuevo_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-añadir-usuario-masculino-30.png"))); // NOI18N
         btn_nuevo_paciente.setText("Nuevo Paciente");
+        btn_nuevo_paciente.setBorderPainted(false);
         btn_nuevo_paciente.setColorPrimario(new java.awt.Color(42, 170, 232));
         btn_nuevo_paciente.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
         btn_nuevo_paciente.setColorSecundario(new java.awt.Color(3, 102, 183));

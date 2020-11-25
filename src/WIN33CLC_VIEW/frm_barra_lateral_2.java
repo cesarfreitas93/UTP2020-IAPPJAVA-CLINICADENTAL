@@ -13,6 +13,7 @@ public class frm_barra_lateral_2 extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        fSGradientPanel1 = new LIB.FSGradientPanel();
         btn_servicios_02 = new newscomponents.RSButtonFlat_new();
         btn_especialista_02 = new newscomponents.RSButtonFlat_new();
         btn_base_datos_3 = new newscomponents.RSButtonFlat_new();
@@ -25,11 +26,16 @@ public class frm_barra_lateral_2 extends javax.swing.JPanel {
         jLabel1.setText("DentalSys ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
+        fSGradientPanel1.setFSEndColor(new java.awt.Color(3, 111, 198));
+        fSGradientPanel1.setFSStartColor(new java.awt.Color(101, 208, 250));
+        add(fSGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 160));
+
         btn_servicios_02.setBackground(new java.awt.Color(255, 255, 255));
         btn_servicios_02.setForeground(new java.awt.Color(0, 0, 0));
         btn_servicios_02.setText("Servicios");
         btn_servicios_02.setBorderPainted(false);
         btn_servicios_02.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_servicios_02.setIconTextGap(2);
         btn_servicios_02.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_servicios_02ActionPerformed(evt);
@@ -96,6 +102,7 @@ public class frm_barra_lateral_2 extends javax.swing.JPanel {
     private newscomponents.RSButtonFlat_new btn_especialista_02;
     private newscomponents.RSButtonFlat_new btn_servicios_02;
     private newscomponents.RSButtonFlat_new btn_usuarios_02;
+    private LIB.FSGradientPanel fSGradientPanel1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
