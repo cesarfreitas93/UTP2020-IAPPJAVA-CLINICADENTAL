@@ -7,11 +7,13 @@ public class Service {
     private long id;
     private String name;
     private double price;
+    private boolean enable;
 
-    public Service(long id, String name, double price) {
+    public Service(long id, String name, double price, boolean enable) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.enable = enable;
     }
 
     public Service() {
@@ -30,6 +32,10 @@ public class Service {
         return price;
     }
 
+    public boolean isEnable() {
+        return enable;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -42,18 +48,22 @@ public class Service {
         this.price = price;
     }
 
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
     @Override
     public String toString() {
-        return "Service{" + "id=" + id + ", name=" + name + ", price=" + price + '}';
+        return "Service{" + "id=" + id + ", name=" + name + ", price=" + price + ", enable=" + enable + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 37 * hash + Objects.hashCode(this.name);
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.price) ^ 
-                (Double.doubleToLongBits(this.price) >>> 32));
+        int hash = 7;
+        hash = 19 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 19 * hash + Objects.hashCode(this.name);
+        hash = 19 * hash + (int) (Double.doubleToLongBits(this.price) ^ (Double.doubleToLongBits(this.price) >>> 32));
+        hash = 19 * hash + (this.enable ? 1 : 0);
         return hash;
     }
 
@@ -72,8 +82,10 @@ public class Service {
         if (this.id != other.id) {
             return false;
         }
-        if (Double.doubleToLongBits(this.price) != 
-                Double.doubleToLongBits(other.price)) {
+        if (Double.doubleToLongBits(this.price) != Double.doubleToLongBits(other.price)) {
+            return false;
+        }
+        if (this.enable != other.enable) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -91,6 +103,11 @@ public class Service {
     protected Object clone() throws CloneNotSupportedException {
         return super.clone(); //To change body of generated methods, choose Tools | Templates.
     }
+
+
+
     
+    
+
     
 }

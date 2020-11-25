@@ -15,10 +15,10 @@ import java.util.Date;
 import java.util.List;
 
 public class MySql_03_DaoService implements Dao_03_Services {
-    final String INSERT = "INSERT INTO services (`name`, `price`) VALUES (?,?)";
-    final String UPDATE = "UPDATE services set `name` = ?, `price` = ? WHERE `id` = ?";
-    final String FINDALL = "SELECT `id`,`name`,`price` FROM `services` WHERE enable = 1";
-    final String FINDBYID = "SELECT `id`,`name`,`price` FROM `services` WHERE `id` = ?";
+    final String INSERT = "INSERT INTO services (`name`, `price`,`enable` ) VALUES (?,?,?)";
+    final String UPDATE = "UPDATE services set `name` = ?, `price` = ?, `enable` = ? WHERE `id` = ?";
+    final String FINDALL = "SELECT `id`,`name`,`price`,`enable` FROM `services` WHERE enable = 1";
+    final String FINDBYID = "SELECT `id`,`name`,`price`,`enable` FROM `services` WHERE `id` = ?";
     final String DELETE = "UPDATE services set `enable` = 0 WHERE id=?";
     private Connection conn;
     public MySql_03_DaoService(Connection conn) {
@@ -34,6 +34,7 @@ public class MySql_03_DaoService implements Dao_03_Services {
             pst = (PreparedStatement) conn.prepareStatement(INSERT, new String[]{"id"});
             pst.setString(1, entity.getName());
             pst.setDouble(2, entity.getPrice());
+            pst.setBoolean(3, entity.isEnable());
 
             if(pst.executeUpdate() == 0){
                 throw new DaoException("Puede que no se haya guardado.");
@@ -78,8 +79,9 @@ public class MySql_03_DaoService implements Dao_03_Services {
         try{
             pst = (PreparedStatement) conn.prepareStatement(UPDATE);
             pst.setString(1, entity.getName());
-            pst.setDouble(2, entity.getPrice());
-            pst.setLong(3, entity.getId());
+            pst.setDouble(2, entity.getPrice());            
+            pst.setBoolean(3, entity.isEnable());
+            pst.setLong(4, entity.getId());
 
             if(pst.executeUpdate() == 0){
                 throw new DaoException("Puede que no se haya modificado.");
@@ -129,7 +131,7 @@ public class MySql_03_DaoService implements Dao_03_Services {
         int id = rs.getInt("id");
         String name = rs.getString("name");
         double price = rs.getDouble("price");
-        Service dto = new Service(id, name, price);
+        Service dto = new Service(id, name, price, rs.getBoolean("enable"));
         return dto;
     }
     @Override
@@ -139,7 +141,6 @@ public class MySql_03_DaoService implements Dao_03_Services {
         List<Service> list = new ArrayList<Service>();
         try{
             pst = (PreparedStatement) conn.prepareStatement(FINDALL);
-            //pst.setLong(1, id);
             rs = pst.executeQuery();
             System.out.println(rs);
             while(rs.next()){

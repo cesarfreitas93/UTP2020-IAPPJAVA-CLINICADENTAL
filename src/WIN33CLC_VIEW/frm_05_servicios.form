@@ -127,6 +127,9 @@
                   <Font name="ITC Avant Garde Std Bk" size="15" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cancelar_cambios1ActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="20" y="440" width="210" height="-1"/>
@@ -157,6 +160,9 @@
                   <Font name="ITC Avant Garde Std Bk" size="15" style="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modificar_servicioActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="20" y="380" width="210" height="-1"/>
@@ -366,6 +372,7 @@
                     </Property>
                     <Property name="grosorBordeFilas" type="int" value="0"/>
                     <Property name="grosorBordeHead" type="int" value="0"/>
+                    <Property name="rowHeight" type="int" value="32"/>
                   </Properties>
                 </Component>
               </SubComponents>

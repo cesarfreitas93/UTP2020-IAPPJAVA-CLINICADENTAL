@@ -5,6 +5,29 @@
  */
 package WIN33CLC_VIEW;
 
+import WIN30CLC_DAO.DaoException;
+import WIN31CLC_DTO.Patient;
+import WIN31CLC_DTO.Service;
+import WIN31CLC_DTO.Specialist;
+import WIN32CLC_CTR.CTR_02_Patient;
+import WIN32CLC_CTR.CTR_03_Service;
+import WIN32CLC_CTR.CTR_04_Specialist;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
+import org.json.JSONException;
+
 /**
  *
  * @author LuFraVaPe
@@ -14,10 +37,125 @@ public class frm_06_especialistas extends javax.swing.JPanel {
     /**
      * Creates new form frm_06_especialistas
      */
+    ArrayList<Service> service_list = null;
+    CTR_04_Specialist cTR_04_Specialist;
     public frm_06_especialistas() {
         initComponents();
+        
+        btn_nuevo_especialista.setEnabled(true);
+        btn_guardar_especialista.setEnabled(false);
+        btn_cancelar_cambios.setEnabled(false);
+        btn_modificar_especialista.setEnabled(false);
+        
+        txt_apellidoMAT.setEnabled(false);
+        txt_apellidoPAT.setEnabled(false);
+        txt_direccion.setEnabled(false);
+        txt_direccion.setEnabled(false);
+        txt_dni.setEnabled(false);
+        txt_name.setEnabled(false);
+        txt_phone.setEnabled(false);
+        btn_buscar_reniec_especialista.setEnabled(false);
+        
+        
+        LoadData();
     }
 
+    private long id;
+    
+    public long getId() {
+        return id;
+    }
+    
+    public void setId(long id) {
+        this.id = id;
+    }
+    
+    public void LoadData() {
+        try {
+            // traer los servicios
+            CTR_03_Service ctr_Service = new CTR_03_Service();
+            cTR_04_Specialist = new CTR_04_Specialist();
+            service_list = new ArrayList<Service>();
+            Service service = new Service();
+            service.setId(0);
+            service.setName("--Seleccionar--");
+            service.setPrice(0);
+            
+            service_list.add(service);
+            service_list.addAll(ctr_Service.listService());
+            cbx_servicio.removeAllItems();
+            if (service_list != null) {
+                for (int i = 0; i < service_list.size(); i++) {
+                    cbx_servicio.addItem(service_list.get(i).getName());
+                }
+            }
+
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_03_reservar_cita.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_03_reservar_cita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        try {
+          
+            this.table_especialista.setModel(cTR_04_Specialist.List());
+            this.table_especialista.getSelectionModel().addListSelectionListener(e -> {
+                boolean seleccionValid = (table_especialista.getSelectedRow() != -1);
+                //btnEdit.setEnabled(seleccionValid);
+                //btnDelete.setEnabled(seleccionValid);
+            });
+        } catch (DaoException ex) {
+           // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+         //   Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        this.table_especialista.setDefaultRenderer(JButton.class, new TableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable jtable, Object objeto, boolean estaSeleccionado, boolean tieneElFoco, int fila, int columna) {
+                return (Component) objeto;
+            }
+        });
+        
+        this.table_especialista.addMouseListener(new MouseAdapter() {
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila = table_especialista.rowAtPoint(e.getPoint());
+                int columna = table_especialista.columnAtPoint(e.getPoint());
+                
+                System.out.println("click");
+                //setEditable(true);
+                
+                if (table_especialista.getModel().getColumnClass(columna).equals(JButton.class)) {
+     
+                    try {
+                        cTR_04_Specialist.Delete((long) table_especialista.getModel().getValueAt(fila, 0));
+                        btn_modificar_especialista.setEnabled(false);
+                        btn_cancelar_cambios.setEnabled(false);
+                        btn_guardar_especialista.setEnabled(false);
+                        table_especialista.setModel(cTR_04_Specialist.List());
+
+                    } catch (DaoException ex) {
+                        Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }else
+                {
+                //if (!table_services.getModel().getColumnClass(0).equals(JButton.class)) {
+                    setId((long) table_especialista.getModel().getValueAt(fila, 0));
+                    btn_modificar_especialista.setEnabled(true);
+                }
+                
+            }
+            
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,6 +233,11 @@ public class frm_06_especialistas extends javax.swing.JPanel {
         btn_cancelar_cambios.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_cancelar_cambios.setFocusPainted(false);
         btn_cancelar_cambios.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_cancelar_cambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelar_cambiosActionPerformed(evt);
+            }
+        });
         fSGradientPanel1.add(btn_cancelar_cambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 220, -1));
 
         btn_modificar_especialista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-editar-archivo-30.png"))); // NOI18N
@@ -106,6 +249,11 @@ public class frm_06_especialistas extends javax.swing.JPanel {
         btn_modificar_especialista.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_modificar_especialista.setFocusPainted(false);
         btn_modificar_especialista.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_modificar_especialista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificar_especialistaActionPerformed(evt);
+            }
+        });
         fSGradientPanel1.add(btn_modificar_especialista, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 220, -1));
 
         btn_nuevo_especialista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-documentos-30.png"))); // NOI18N
@@ -136,11 +284,11 @@ public class frm_06_especialistas extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("DNI");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 20));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, 20));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel3.setText("Apellido Paterno");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel7.setText("Direccion");
@@ -148,7 +296,7 @@ public class frm_06_especialistas extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel4.setText("Apellido Materno");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, -1, -1));
 
         btn_buscar_reniec_especialista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-encuentra-hombre-usuario-30.png"))); // NOI18N
         btn_buscar_reniec_especialista.setText("Buscar en Reniec");
@@ -164,21 +312,21 @@ public class frm_06_especialistas extends javax.swing.JPanel {
                 btn_buscar_reniec_especialistaActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_buscar_reniec_especialista, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 220, -1));
+        jPanel1.add(btn_buscar_reniec_especialista, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 220, -1));
 
         txt_dni.setForeground(new java.awt.Color(0, 0, 0));
         txt_dni.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_dni.setBotonColor(new java.awt.Color(3, 111, 198));
         txt_dni.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         txt_dni.setPlaceholder("");
-        jPanel1.add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 150, -1));
+        jPanel1.add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 170, -1));
 
         txt_apellidoMAT.setForeground(new java.awt.Color(0, 0, 0));
         txt_apellidoMAT.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_apellidoMAT.setBotonColor(new java.awt.Color(3, 111, 198));
         txt_apellidoMAT.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         txt_apellidoMAT.setPlaceholder("");
-        jPanel1.add(txt_apellidoMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, 170, -1));
+        jPanel1.add(txt_apellidoMAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 170, -1));
 
         txt_phone.setForeground(new java.awt.Color(0, 0, 0));
         txt_phone.setBorderColor(new java.awt.Color(153, 153, 153));
@@ -199,18 +347,18 @@ public class frm_06_especialistas extends javax.swing.JPanel {
         txt_name.setBotonColor(new java.awt.Color(3, 111, 198));
         txt_name.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         txt_name.setPlaceholder("");
-        jPanel1.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 170, -1));
+        jPanel1.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 170, -1));
 
         txt_apellidoPAT.setForeground(new java.awt.Color(0, 0, 0));
         txt_apellidoPAT.setBorderColor(new java.awt.Color(153, 153, 153));
         txt_apellidoPAT.setBotonColor(new java.awt.Color(3, 111, 198));
         txt_apellidoPAT.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         txt_apellidoPAT.setPlaceholder("");
-        jPanel1.add(txt_apellidoPAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 170, -1));
+        jPanel1.add(txt_apellidoPAT, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 170, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel6.setText("Nombres");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 720, 370));
 
@@ -239,14 +387,14 @@ public class frm_06_especialistas extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(chx_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel8)
-                .addGap(27, 27, 27)
-                .addComponent(cbx_servicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbx_servicio, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -284,6 +432,7 @@ public class frm_06_especialistas extends javax.swing.JPanel {
         table_especialista.setFuenteHead(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         table_especialista.setGrosorBordeFilas(0);
         table_especialista.setGrosorBordeHead(0);
+        table_especialista.setRowHeight(32);
         jScrollPane1.setViewportView(table_especialista);
 
         jPanel3.add(jScrollPane1, "card2");
@@ -295,15 +444,144 @@ public class frm_06_especialistas extends javax.swing.JPanel {
 
     private void btn_guardar_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_especialistaActionPerformed
 
+        try {
+            Specialist entity = new Specialist();
+            entity.setDni(txt_dni.getText());
+            entity.setName(txt_name.getText());
+            entity.setLastname(txt_apellidoPAT.getText());
+            entity.setSurename(txt_apellidoMAT.getText());
+            entity.setEnable(chx_estado.isSelected());
+            entity.setPhone(txt_phone.getText());
+            entity.setAddress(txt_direccion.getText());
+            Service parametro = service_list.get(cbx_servicio.getSelectedIndex());
+            entity.setServices_id(parametro.getId());
+            if(modificar){
+                entity.setId(getId());
+                cTR_04_Specialist.update(entity);
+                limpiar();
+            }else{
+
+                cTR_04_Specialist.insert(entity);
+                table_especialista.setModel(cTR_04_Specialist.List());
+                btn_guardar_especialista.setEnabled(false);
+                setId(0);
+                btn_cancelar_cambios.setEnabled(false);
+                btn_modificar_especialista.setEnabled(false);
+                btn_nuevo_especialista.setEnabled(true);
+                limpiar();
+            }
+            
+            table_especialista.setModel(cTR_04_Specialist.List());
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_06_especialistas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_06_especialistas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_guardar_especialistaActionPerformed
 
     private void btn_buscar_reniec_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reniec_especialistaActionPerformed
-        // TODO add your handling code here:
+        // buscar en reniec 
+        
+        try {
+            if (txt_dni.getText().length() >= 8) {
+                CTR_04_Specialist ctr = new CTR_04_Specialist();
+                Specialist entidad = new Specialist();
+                //buscar si existe el paciente el la base de datos
+                try {
+                    entidad = ctr.CheckDNI(txt_dni.getText());
+                } catch (Exception e) {
+                    //JOptionPane.showMessageDialog(null, e.getMessage(),
+                    //"Dental SyS", JOptionPane.WARNING_MESSAGE);
+
+                    //muestra los datos de la reniec en el fomrulario
+                    entidad = ctr.SearchReniec(txt_dni.getText());
+                    txt_name.setText(entidad.getName());
+                    txt_apellidoPAT.setText(entidad.getLastname());
+                    txt_apellidoMAT.setText(entidad.getSurename());
+                }
+                if (entidad.getId() != 0) {
+                    // existe el dni
+                    // despliega un mensaje
+
+                    /* JOptionPane.showMessageDialog(null, "El DNI ingresado ya existe!",
+                        "Dental SyS", JOptionPane.WARNING_MESSAGE);*/
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Ingrese el DNI",
+                        "Dental SyS", JOptionPane.WARNING_MESSAGE);
+            }
+            
+        } catch (IOException ex) {
+            //Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JSONException ex) {
+            // Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_buscar_reniec_especialistaActionPerformed
 
+    boolean modificar = true;
     private void btn_nuevo_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_especialistaActionPerformed
-        // TODO add your handling code here:
+        btn_nuevo_especialista.setEnabled(false);
+        btn_guardar_especialista.setEnabled(true);
+        btn_cancelar_cambios.setEnabled(true);
+        btn_modificar_especialista.setEnabled(false);
+        modificar = false;
+        
+        txt_apellidoMAT.setEnabled(true);
+        txt_apellidoPAT.setEnabled(true);
+        txt_direccion.setEnabled(true);
+        txt_direccion.setEnabled(true);
+        txt_dni.setEnabled(true);
+        txt_name.setEnabled(true);
+        txt_phone.setEnabled(true);
+        btn_buscar_reniec_especialista.setEnabled(true);
+        
+        txt_dni.requestFocus();
     }//GEN-LAST:event_btn_nuevo_especialistaActionPerformed
+
+    private void btn_cancelar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambiosActionPerformed
+        limpiar();
+    }//GEN-LAST:event_btn_cancelar_cambiosActionPerformed
+
+    private void btn_modificar_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificar_especialistaActionPerformed
+        try {
+            // TODO add your handling code here:
+            Specialist dto = new Specialist();
+            dto = cTR_04_Specialist.Select(getId());
+            
+            txt_apellidoPAT.setText(dto.getLastname());
+            txt_apellidoMAT.setText(dto.getSurename());
+            txt_direccion.setText(dto.getAddress());
+            txt_dni.setText(dto.getDni());
+            txt_name.setText(dto.getName());
+            txt_phone.setText(dto.getPhone());
+            chx_estado.setSelected(dto.isEnable());
+            
+            for(int a = 0; a < service_list.size(); a++){
+                if(service_list.get(a).getId() == (dto.getServices_id())){
+                    cbx_servicio.setSelectedIndex(a);
+                    break;
+                }
+            }
+            
+            btn_modificar_especialista.setEnabled(false);
+            btn_guardar_especialista.setEnabled(true);
+            btn_cancelar_cambios.setEnabled(true);
+            btn_nuevo_especialista.setEnabled(false);
+            modificar = true;
+            
+        txt_apellidoMAT.setEnabled(true);
+        txt_apellidoPAT.setEnabled(true);
+        txt_direccion.setEnabled(true);
+        txt_dni.setEnabled(false);
+        txt_name.setEnabled(true);
+        txt_phone.setEnabled(true);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_modificar_especialistaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -337,4 +615,35 @@ public class frm_06_especialistas extends javax.swing.JPanel {
     private rojerusan.RSMetroTextFullPlaceHolder txt_name;
     private rojerusan.RSMetroTextFullPlaceHolder txt_phone;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiar() {
+        txt_apellidoMAT.setEnabled(false);
+        txt_apellidoPAT.setEnabled(false);
+        txt_direccion.setEnabled(false);
+        txt_direccion.setEnabled(false);
+        txt_dni.setEnabled(false);
+        txt_name.setEnabled(false);
+        txt_phone.setEnabled(false);
+        btn_buscar_reniec_especialista.setEnabled(false);
+        
+        // TODO add your handling code here:
+        btn_guardar_especialista.setEnabled(false);
+        btn_cancelar_cambios.setEnabled(false);
+        btn_modificar_especialista.setEnabled(false);
+        btn_nuevo_especialista.setEnabled(true);
+        setId(0);
+        modificar = false;
+        
+        
+        txt_apellidoMAT.setText("");
+        txt_apellidoPAT.setText("");
+        txt_direccion.setText("");
+        txt_direccion.setText("");
+        txt_dni.setText("");
+        txt_name.setText("");
+        txt_phone.setText("");
+        chx_estado.setSelected(false);
+        
+        cbx_servicio.setSelectedIndex(0);
+    }
 }

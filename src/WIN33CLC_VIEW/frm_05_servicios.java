@@ -1,13 +1,103 @@
 
 package WIN33CLC_VIEW;
 
+import WIN30CLC_DAO.DaoException;
+import WIN31CLC_DTO.Service;
+import WIN32CLC_CTR.CTR_02_Patient;
+import WIN32CLC_CTR.CTR_03_Service;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
+
 
 public class frm_05_servicios extends javax.swing.JPanel {
 
+    CTR_03_Service cTR_03_Service;
+    boolean modificar = false;
     public frm_05_servicios() {
         initComponents();
+        cTR_03_Service = new CTR_03_Service();
+        btn_nuevo_servicio.setEnabled(true);
+        btn_guardar_servicio.setEnabled(false);
+        btn_cancelar_cambios1.setEnabled(false);
+        btn_modificar_servicio.setEnabled(false);
+        LoadData();
     }
 
+    private long id;
+    
+    public long getId() {
+        return id;
+    }
+    
+    public void setId(long id) {
+        this.id = id;
+    }
+    
+    public void LoadData() {
+        try {
+          
+            this.table_services.setModel(cTR_03_Service.ListService());
+            this.table_services.getSelectionModel().addListSelectionListener(e -> {
+                boolean seleccionValid = (table_services.getSelectedRow() != -1);
+                //btnEdit.setEnabled(seleccionValid);
+                //btnDelete.setEnabled(seleccionValid);
+            });
+        } catch (DaoException ex) {
+           // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+         //   Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        this.table_services.setDefaultRenderer(JButton.class, new TableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable jtable, Object objeto, boolean estaSeleccionado, boolean tieneElFoco, int fila, int columna) {
+                return (Component) objeto;
+            }
+        });
+        
+        this.table_services.addMouseListener(new MouseAdapter() {
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila = table_services.rowAtPoint(e.getPoint());
+                int columna = table_services.columnAtPoint(e.getPoint());
+                
+                System.out.println("click");
+                //setEditable(true);
+                
+                if (table_services.getModel().getColumnClass(columna).equals(JButton.class)) {
+     
+                    try {
+                        cTR_03_Service.DeleteService((long) table_services.getModel().getValueAt(fila, 0));
+                        btn_modificar_servicio.setEnabled(false);
+                        btn_cancelar_cambios1.setEnabled(false);
+                        btn_guardar_servicio.setEnabled(false);
+                        table_services.setModel(cTR_03_Service.ListService());
+
+                    } catch (DaoException ex) {
+                        Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }else
+                {
+                //if (!table_services.getModel().getColumnClass(0).equals(JButton.class)) {
+                    setId((long) table_services.getModel().getValueAt(fila, 0));
+                    btn_modificar_servicio.setEnabled(true);
+                }
+                
+            }
+            
+        });
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,6 +157,11 @@ public class frm_05_servicios extends javax.swing.JPanel {
         btn_cancelar_cambios1.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_cancelar_cambios1.setFocusPainted(false);
         btn_cancelar_cambios1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_cancelar_cambios1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelar_cambios1ActionPerformed(evt);
+            }
+        });
         fSGradientPanel1.add(btn_cancelar_cambios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 210, -1));
 
         btn_modificar_servicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-editar-archivo-30.png"))); // NOI18N
@@ -78,6 +173,11 @@ public class frm_05_servicios extends javax.swing.JPanel {
         btn_modificar_servicio.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_modificar_servicio.setFocusPainted(false);
         btn_modificar_servicio.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_modificar_servicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificar_servicioActionPerformed(evt);
+            }
+        });
         fSGradientPanel1.add(btn_modificar_servicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 210, -1));
 
         btn_nuevo_servicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-agregar-archivo-30.png"))); // NOI18N
@@ -154,6 +254,7 @@ public class frm_05_servicios extends javax.swing.JPanel {
         table_services.setFuenteHead(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         table_services.setGrosorBordeFilas(0);
         table_services.setGrosorBordeHead(0);
+        table_services.setRowHeight(32);
         jScrollPane1.setViewportView(table_services);
 
         jPanel2.add(jScrollPane1, "card2");
@@ -164,12 +265,104 @@ public class frm_05_servicios extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_guardar_servicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_servicioActionPerformed
-      
+        
+        try {
+            Service servicio_dto = new Service();
+            servicio_dto.setName(txt_nombre_servicio.getText().trim());
+            double precio = (double) Double.parseDouble(txt_precio_servicio.getText());
+            servicio_dto.setPrice(precio);
+            boolean es_activo = chk_estado.isSelected();
+            servicio_dto.setEnable(es_activo);
+            
+            if(modificar)
+            {
+                try {
+                    //modificar
+                    servicio_dto.setId(getId());
+                    cTR_03_Service.update(servicio_dto);
+                    txt_nombre_servicio.setText("");
+                    txt_precio_servicio.setText("");
+                    chk_estado.setSelected(false);
+                } catch (SQLException ex) {
+                    Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }else
+            {
+                try {
+                    
+                    cTR_03_Service.insert(servicio_dto);
+                    txt_nombre_servicio.setText("");
+                    txt_precio_servicio.setText("");
+                    chk_estado.setSelected(false);
+                    //
+                    //actualizar la tabla de abajito
+                    
+                } catch (SQLException ex) {
+                    Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            table_services.setModel(cTR_03_Service.ListService());
+            btn_guardar_servicio.setEnabled(false);
+            setId(0);
+            btn_cancelar_cambios1.setEnabled(false);
+            btn_modificar_servicio.setEnabled(false);
+            btn_nuevo_servicio.setEnabled(true);
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+                
     }//GEN-LAST:event_btn_guardar_servicioActionPerformed
 
     private void btn_nuevo_servicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_servicioActionPerformed
         // TODO add your handling code here:
+        btn_nuevo_servicio.setEnabled(false);
+        btn_guardar_servicio.setEnabled(true);
+        btn_cancelar_cambios1.setEnabled(true);
+        btn_modificar_servicio.setEnabled(false);
+        modificar = false;
+        
     }//GEN-LAST:event_btn_nuevo_servicioActionPerformed
+
+    private void btn_modificar_servicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificar_servicioActionPerformed
+        try {
+            // TODO add your handling code here:
+            Service dto = new Service();
+            dto = cTR_03_Service.SelectService(getId());
+            
+            txt_nombre_servicio.setText(dto.getName());
+            txt_precio_servicio.setText(Double.toString(dto.getPrice())); // convertir
+            chk_estado.setSelected(dto.isEnable());
+            
+            btn_modificar_servicio.setEnabled(false);
+            btn_guardar_servicio.setEnabled(true);
+            btn_cancelar_cambios1.setEnabled(true);
+            btn_nuevo_servicio.setEnabled(false);
+            modificar = true;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_modificar_servicioActionPerformed
+
+    private void btn_cancelar_cambios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambios1ActionPerformed
+        // TODO add your handling code here:
+        btn_guardar_servicio.setEnabled(false);
+        btn_cancelar_cambios1.setEnabled(false);
+        btn_modificar_servicio.setEnabled(false);
+        btn_nuevo_servicio.setEnabled(true);
+        setId(0);
+        modificar = false;
+        
+        txt_nombre_servicio.setText("");
+        txt_precio_servicio.setText("");
+        chk_estado.setSelected(false);
+    }//GEN-LAST:event_btn_cancelar_cambios1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

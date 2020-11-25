@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface Dao_04_Specialist extends Dao<Specialist, Long>{
     public List<Specialist> buscarPorEspecialidad(Long id)throws DaoException;
+    public Specialist ChekDNI(String dni) throws DaoException;
 }
