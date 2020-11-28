@@ -685,6 +685,8 @@ if(!this.btn_citas.isSelected()){
             
         rSPanelsSlider1.slidPanel(10, panel_cita, RSPanelsSlider.direct.Right);
         
+        frm_03_reservar_cita1.LoadData();
+        
        }       
        
     }//GEN-LAST:event_btn_citasActionPerformed
@@ -724,7 +726,7 @@ if(!this.btn_inicio.isSelected()){
        }        
         
         
-        
+        frm_06_especialistas1.LoadData();
         
     }//GEN-LAST:event_btn_especialistaActionPerformed
 
