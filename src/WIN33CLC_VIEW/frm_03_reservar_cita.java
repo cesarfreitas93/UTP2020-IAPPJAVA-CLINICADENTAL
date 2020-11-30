@@ -123,6 +123,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         btn_buscar_paciente = new RSMaterialComponent.RSButtonMaterialGradientOne();
         jLabel1 = new javax.swing.JLabel();
         txt_dni = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         lbl_patient = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -220,7 +221,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
                 btn_buscar_pacienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_buscar_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+        jPanel1.add(btn_buscar_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("DNI");
@@ -233,12 +234,17 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
                 txt_dniActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 120, 40));
+        jPanel1.add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 120, 40));
 
-        lbl_patient.setText("full name");
-        jPanel1.add(lbl_patient, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 650, 30));
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
+        jLabel4.setText("PACIENTE: ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
-        panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 770, 230));
+        lbl_patient.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lbl_patient.setText("Nombres y apellidos");
+        jPanel1.add(lbl_patient, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 520, -1));
+
+        panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 770, 210));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Reserva de Servicios y Especialista", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
@@ -434,9 +440,9 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
  public void deshabilitar_rbx(  boolean b)
   {
-    //jPanel3.setVisible(b);
+
      rbx_4.setVisible(b);rbx_8.setVisible(b);rbx_12.setVisible(b);
-      
+     rbx_3.setVisible(b);rbx_7.setVisible(b);rbx_11.setVisible(b); rbx_14.setVisible(b);
   }
     private void btn_buscar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_pacienteActionPerformed
          try {
@@ -493,6 +499,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

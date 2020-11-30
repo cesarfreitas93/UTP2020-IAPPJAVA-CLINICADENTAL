@@ -522,9 +522,9 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         tablePatients.setColorBackgoundHead(new java.awt.Color(3, 111, 198));
         tablePatients.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
         tablePatients.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
-        tablePatients.setColorFilasForeground2(new java.awt.Color(255, 255, 255));
+        tablePatients.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
         tablePatients.setFuenteFilas(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        tablePatients.setFuenteFilasSelect(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        tablePatients.setFuenteFilasSelect(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         tablePatients.setFuenteHead(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         tablePatients.setGrosorBordeFilas(0);
         tablePatients.setGrosorBordeHead(0);

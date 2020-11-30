@@ -427,6 +427,9 @@ public class frm_06_especialistas extends javax.swing.JPanel {
             }
         ));
         table_especialista.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        table_especialista.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        table_especialista.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        table_especialista.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         table_especialista.setFuenteFilas(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         table_especialista.setFuenteFilasSelect(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         table_especialista.setFuenteHead(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
