@@ -7,9 +7,19 @@ package WIN33CLC_VIEW;
 
 import WIN30CLC_DAO.DaoException;
 import WIN32CLC_CTR.CTR_05_Citas;
+import WIN32CLC_CTR.CTR_11_DataBaseConfiguration;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,20 +33,9 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
     public test_para_lanzar_metodos() {
         initComponents();
         
-        loadData();
     }
 
-    public void loadData(){
-        try {
-            CTR_05_Citas citas = new CTR_05_Citas();
-            long id = 1;
-            citas.getCita(id);
-        } catch (SQLException ex) {
-            Logger.getLogger(test_para_lanzar_metodos.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DaoException ex) {
-            Logger.getLogger(test_para_lanzar_metodos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,22 +45,85 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("crear backup");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("restorebackup");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("clear databse");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addComponent(jButton2)
+                .addContainerGap(189, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(32, 32, 32)
+                .addComponent(jButton3)
+                .addContainerGap(378, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    String path = null, filename;
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        generateBackUpMysql();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        restoreBackUpMysql();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+            CTR_11_DataBaseConfiguration baseConfiguration = new CTR_11_DataBaseConfiguration();
+            if(baseConfiguration.RESETDATABASE())
+                System.out.println("reset success");
+            else
+                System.out.println("fail restore");
+        } catch (SQLException ex) {
+            Logger.getLogger(test_para_lanzar_metodos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -98,5 +160,98 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
+
+    private void generateBackUpMysql() {
+         Calendar c = Calendar.getInstance();//creamos una instancia de la clase calendar de java
+        //java.util.Date fecha = new Date();
+        String DiaHoy = Integer.toString(c.get(Calendar.DATE));
+        String MesHoy = Integer.toString(c.get(Calendar.MONTH)+1);
+        String AnioHoy = Integer.toString(c.get(Calendar.YEAR));        
+                
+        
+        JFileChooser RealizarBackupMySQL = new JFileChooser();
+        int resp;
+        resp=RealizarBackupMySQL.showSaveDialog(this);//JFileChooser de nombre RealizarBackupMySQL
+        if (resp==JFileChooser.APPROVE_OPTION) {//Si el usuario presiona aceptar; se genera el Backup
+            try{
+                Runtime runtime = Runtime.getRuntime();
+                File backupFile = new File(String.valueOf(RealizarBackupMySQL.getSelectedFile().toString())+" "+DiaHoy +"-"+MesHoy+"-"+AnioHoy+".sql");
+                FileWriter fw = new FileWriter(backupFile);
+                Process child = runtime.exec("C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysqldump --routines --opt --password= --user=root --databases utp2020-dental-system-dev"); 
+                InputStreamReader irs = new InputStreamReader(child.getInputStream());
+                BufferedReader br = new BufferedReader(irs);
+                String line;
+                while( (line=br.readLine()) != null ) {
+                    fw.write(line + "\n");
+                }
+                fw.close();
+                irs.close();
+                br.close();
+                JOptionPane.showMessageDialog(null, "Archivo generado","Verificar",JOptionPane. INFORMATION_MESSAGE);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error no se genero el archivo por el siguiente motivo:"+e.getMessage(), "Verificar",JOptionPane.ERROR_MESSAGE);
+            }            
+        } else if (resp==JFileChooser.CANCEL_OPTION) {
+            JOptionPane.showMessageDialog(null,"Ha sido cancelada la generacion del Backup");
+        }
+    }
+    
+    private void restoreBackUpMysql(){
+        
+        String dbName="utp2020-dental-system-dev"; 
+        String dbUserName="root";
+        String dbPassword= "";
+        
+        int resp;
+        JFileChooser RealizarBackupMySQL = new JFileChooser();
+        resp=RealizarBackupMySQL.showOpenDialog(this);//Muestra el cuadro con la opcion abrir
+        if (resp==JFileChooser.APPROVE_OPTION) 
+        {//Si el usuario presiona aceptar(Abrir); Backup
+            try
+            {
+                String ubicacion= String.valueOf(RealizarBackupMySQL.getSelectedFile().toString().trim());                
+        
+                //en nombre almacenamos la ruta del fichero con extension sql que se desea restaurar...
+                String nombre = ubicacion.toString().substring(ubicacion.lastIndexOf('/')+1);
+                File fichero=new File(nombre);
+//                System.out.println("Path: " + ubicacion + " -- File: " + nombre);
+                String dd=fichero.getName();//aqui obtenermos el nombre del fichero con extension sql.
+                
+                String[] executeCmd = new String[]{"C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysql", "--password=" + dbPassword, "--user=" + dbUserName,  dbName,"-e", "source "+nombre};
+                Process runtimeProcess;
+
+                try {
+
+                    runtimeProcess = Runtime.getRuntime().exec(executeCmd);
+
+                    int processComplete = runtimeProcess.waitFor();
+
+                    if (processComplete == 0) 
+                    {
+                        JOptionPane.showMessageDialog(null,"Backup realizado satisfactoriamente");
+                        JOptionPane.showMessageDialog(null,dd);
+                    } 
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"No se pudo realizar el Backup");
+                        JOptionPane.showMessageDialog(null,dd);
+                    }
+                } catch (Exception ex) {
+                }
+            }
+            catch (Exception ex) 
+            {
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Ha sido cancelada la actualizacion del Backup");            
+        }
+        
+    
+    }
 }

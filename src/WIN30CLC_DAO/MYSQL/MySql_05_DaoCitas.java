@@ -22,8 +22,7 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
     public MySql_05_DaoCitas(Connection conn) {
         this.conn = conn;
     }
-    @Override
-    public void rlInsert(Citas entity) throws DaoException {
+    public Citas rlInsert(Citas entity) throws DaoException {
         PreparedStatement pst = null;
         ResultSet rs = null;
         try{
@@ -76,9 +75,10 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
                 }
             }
         } 
+        
+        return entity;
     }
 
-    @Override
     public void rlUpdate(Citas entity) throws DaoException {
         PreparedStatement pst = null;
         try{
@@ -113,12 +113,10 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
         }
     }
 
-    @Override
     public void rlDelete(Citas entity) throws DaoException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public List<Citas> findAll(int id) throws DaoException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -132,7 +130,6 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
         Citas dto = new Citas(id, status, paciente, servicio, especialista, fechadecita);
         return dto;
     }
-    @Override
     public Citas findById(Citas entity) throws DaoException {
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -168,7 +165,6 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
         }
         return dto;
     }
-
     /*
     El siguiente metodo es llevado a evaluacion para su futuro borrado en esta clase
     */

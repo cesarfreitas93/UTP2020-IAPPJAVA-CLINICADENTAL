@@ -47,4 +47,9 @@ public class CTR_05_Citas {
         return cita;
     }
     
+    public Citas insert(Citas entity) throws SQLException, DaoException{
+        MySqlDaoManager man = new MySqlDaoManager();
+        return man.getCitas().rlInsert(entity);
+    }
+    
 }

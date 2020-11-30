@@ -31,8 +31,16 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     public frm_03_reservar_cita() {
         initComponents();
         LoadData();
+        
+        btn_nueva_cita.setEnabled(true);
+        btn_cancelar_cambios1.setEnabled(false);
+        btn_guardar_cita1.setEnabled(false);
     }
 
+    void loadmam(){
+        
+    }
+    
     public void LoadData() {
         try {
             // traer los servicios
@@ -172,6 +180,11 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         btn_nueva_cita.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_nueva_cita.setFocusPainted(false);
         btn_nueva_cita.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_nueva_cita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nueva_citaActionPerformed(evt);
+            }
+        });
         fSGradientPanel1.add(btn_nueva_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 210, -1));
 
         btn_cancelar_cambios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-cancelar-30.png"))); // NOI18N
@@ -464,6 +477,8 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_buscar_horariosActionPerformed
 
     private void btn_guardar_cita1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_cita1ActionPerformed
+        
+        
         //El paciente 
         if(patient != null){
             // el servicio
@@ -482,7 +497,18 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
             // mensaje de error
         }
         
+        btn_cancelar_cambios1.setEnabled(false);
+        btn_guardar_cita1.setEnabled(false);
+        btn_nueva_cita.setEnabled(true);
+        
     }//GEN-LAST:event_btn_guardar_cita1ActionPerformed
+
+    private void btn_nueva_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueva_citaActionPerformed
+        // TODO add your handling code here:
+        
+        btn_guardar_cita1.setEnabled(true);
+        btn_cancelar_cambios1.setEnabled(false);
+    }//GEN-LAST:event_btn_nueva_citaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

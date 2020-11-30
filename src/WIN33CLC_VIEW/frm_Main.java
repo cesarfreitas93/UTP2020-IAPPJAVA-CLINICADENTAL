@@ -1224,8 +1224,10 @@ icono_menu ();
     private void btn_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_especialistaActionPerformed
 boton_especialistas();
         
-     icono_menu ();   
+              
         
+        
+        frm_06_especialistas1.LoadData();
         
     }//GEN-LAST:event_btn_especialistaActionPerformed
 
