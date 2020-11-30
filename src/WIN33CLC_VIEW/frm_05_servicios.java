@@ -249,6 +249,9 @@ public class frm_05_servicios extends javax.swing.JPanel {
             }
         ));
         table_services.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        table_services.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        table_services.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        table_services.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         table_services.setFuenteFilas(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         table_services.setFuenteFilasSelect(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         table_services.setFuenteHead(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N

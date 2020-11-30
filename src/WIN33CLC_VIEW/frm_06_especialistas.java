@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN33CLC_VIEW;
 
 import WIN30CLC_DAO.DaoException;
@@ -34,9 +30,6 @@ import org.json.JSONException;
  */
 public class frm_06_especialistas extends javax.swing.JPanel {
 
-    /**
-     * Creates new form frm_06_especialistas
-     */
     ArrayList<Service> service_list = null;
     CTR_04_Specialist cTR_04_Specialist;
     public frm_06_especialistas() {
@@ -427,6 +420,9 @@ public class frm_06_especialistas extends javax.swing.JPanel {
             }
         ));
         table_especialista.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        table_especialista.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
+        table_especialista.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        table_especialista.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         table_especialista.setFuenteFilas(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         table_especialista.setFuenteFilasSelect(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         table_especialista.setFuenteHead(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N

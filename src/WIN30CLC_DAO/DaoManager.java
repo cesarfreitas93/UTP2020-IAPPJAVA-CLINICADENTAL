@@ -23,4 +23,5 @@ public interface DaoManager {
 
     Dao_10_Ubigeo getUbigeo();
 
+    Dao_11_DataBaseConfiguration getDaoDataBaseConfiguration();
 }

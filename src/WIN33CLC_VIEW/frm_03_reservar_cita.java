@@ -39,8 +39,16 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     public frm_03_reservar_cita() {
         initComponents();
         LoadData();
+        
+        btn_nueva_cita.setEnabled(true);
+        btn_cancelar_cambios1.setEnabled(false);
+        btn_guardar_cita1.setEnabled(false);
     }
 
+    void loadmam(){
+        
+    }
+    
     public void LoadData() {
         try {
             checkbox_horario(false);
@@ -143,6 +151,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         btn_buscar_paciente = new RSMaterialComponent.RSButtonMaterialGradientOne();
         jLabel1 = new javax.swing.JLabel();
         txt_dni = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         lbl_patient = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -207,11 +216,6 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         btn_cancelar_cambios1.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_cancelar_cambios1.setFocusPainted(false);
         btn_cancelar_cambios1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
-        btn_cancelar_cambios1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelar_cambios1ActionPerformed(evt);
-            }
-        });
         fSGradientPanel1.add(btn_cancelar_cambios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 210, -1));
 
         btn_guardar_cita1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-guardar-como-30.png"))); // NOI18N
@@ -250,7 +254,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
                 btn_buscar_pacienteActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_buscar_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+        jPanel1.add(btn_buscar_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("DNI");
@@ -263,12 +267,17 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
                 txt_dniActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 120, 40));
+        jPanel1.add(txt_dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 120, 40));
 
-        lbl_patient.setText("full name");
-        jPanel1.add(lbl_patient, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 650, 30));
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
+        jLabel4.setText("PACIENTE: ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
-        panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 770, 230));
+        lbl_patient.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lbl_patient.setText("Nombres y apellidos");
+        jPanel1.add(lbl_patient, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 520, -1));
+
+        panel_contenedor.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 770, 210));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Reserva de Servicios y Especialista", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
@@ -462,13 +471,12 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
         add(panel_contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 740));
     }// </editor-fold>//GEN-END:initComponents
- public void deshabilitar_rbx(boolean b) {
-        //jPanel3.setVisible(b);
-        rbx_4.setVisible(b);
-        rbx_8.setVisible(b);
-        rbx_12.setVisible(b);
+ public void deshabilitar_rbx(  boolean b)
+  {
 
-    }
+     rbx_4.setVisible(b);rbx_8.setVisible(b);rbx_12.setVisible(b);
+     rbx_3.setVisible(b);rbx_7.setVisible(b);rbx_11.setVisible(b); rbx_14.setVisible(b);
+  }
     private void btn_buscar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_pacienteActionPerformed
         try {
             patient = cTR_02_Patient.SelectPatient(txt_dni.getText());
@@ -769,6 +777,8 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     }
 
     private void btn_guardar_cita1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_cita1ActionPerformed
+        
+        
         //El paciente 
         if (patient != null) {
             // el servicio
@@ -786,18 +796,19 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         } else {
             // mensaje de error
         }
-
+        
+        btn_cancelar_cambios1.setEnabled(false);
+        btn_guardar_cita1.setEnabled(false);
+        btn_nueva_cita.setEnabled(true);
+        
     }//GEN-LAST:event_btn_guardar_cita1ActionPerformed
 
     private void btn_nueva_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueva_citaActionPerformed
-      
+        // TODO add your handling code here:
         
-        
+        btn_guardar_cita1.setEnabled(true);
+        btn_cancelar_cambios1.setEnabled(false);
     }//GEN-LAST:event_btn_nueva_citaActionPerformed
-
-    private void btn_cancelar_cambios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambios1ActionPerformed
-
-    }//GEN-LAST:event_btn_cancelar_cambios1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -814,6 +825,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

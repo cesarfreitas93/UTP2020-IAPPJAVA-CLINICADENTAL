@@ -13,6 +13,7 @@ import WIN30CLC_DAO.Dao_07_Empresa;
 import WIN30CLC_DAO.Dao_08_Comprobante;
 import WIN30CLC_DAO.Dao_09_Comprobante_Detalle;
 import WIN30CLC_DAO.Dao_10_Ubigeo;
+import WIN30CLC_DAO.Dao_11_DataBaseConfiguration;
 import java.sql.DriverManager;
 import java.sql.*;
 
@@ -32,6 +33,7 @@ public class MySqlDaoManager implements DaoManager {
     private Dao_08_Comprobante comprobante = null;
     private Dao_09_Comprobante_Detalle comprobante_detalle = null;
     private Dao_10_Ubigeo ubigeo = null;
+    private Dao_11_DataBaseConfiguration baseConfiguration = null;
 
     protected String db_name, db_url , db_user, db_pass;
     protected java.sql.Connection connection_  = null;
@@ -122,6 +124,14 @@ public class MySqlDaoManager implements DaoManager {
             ubigeo = new MySql_10_DaoUbigeo(connection_);
         }
         return ubigeo;
+    }
+
+    @Override
+    public Dao_11_DataBaseConfiguration getDaoDataBaseConfiguration() {
+       if (baseConfiguration == null) {
+            baseConfiguration = new MySql_11_DaoDataBaseConfiguration(connection_);
+        }
+        return baseConfiguration;
     }
 
 }
