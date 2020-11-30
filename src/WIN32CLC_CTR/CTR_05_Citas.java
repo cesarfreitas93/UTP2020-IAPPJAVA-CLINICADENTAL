@@ -11,6 +11,7 @@ import WIN31CLC_DTO.Citas;
 import WIN31CLC_DTO.Patient;
 import WIN31CLC_DTO.Service;
 import WIN31CLC_DTO.Specialist;
+import WIN31CLC_DTO.horario_citas;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -39,12 +40,32 @@ public class CTR_05_Citas {
         Specialist especialista = new Specialist();
         especialista.setId(cita.getEspecialista_id());
         especialista = man.getDaoSpecialist().findById(especialista);
-        
+
         cita.setSpecialist(especialista);
         cita.setPatient(paciente);
         cita.setService(servicio);
-        
+
         return cita;
     }
-    
+
+    public int capturar_cantidad_fechas(String fecha) throws SQLException, DaoException {
+        int registros = 0;
+
+        MySqlDaoManager man = new MySqlDaoManager();
+        registros = man.getCitas().capturar_cantidad_fechas(fecha);
+        return registros;
+
+    }
+
+    public List<horario_citas> capturar_cantidad_fechas_v1(String fecha, long id_especialista, long id_servicio) throws SQLException, DaoException {
+        MySqlDaoManager man = new MySqlDaoManager();
+        return man.getCitas().capturar_cantidad_fechas_v1(fecha, id_especialista, id_servicio);
+
+    }
+
+    public List<horario_citas> listando_horario_disponible() throws SQLException, DaoException {
+        MySqlDaoManager man = new MySqlDaoManager();
+        return man.getCitas().listando_horario_disponible();
+
+    }
 }

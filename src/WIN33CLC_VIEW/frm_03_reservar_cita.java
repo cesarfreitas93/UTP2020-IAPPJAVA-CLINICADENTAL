@@ -1,19 +1,24 @@
-
 package WIN33CLC_VIEW;
 
 import WIN30CLC_DAO.DaoException;
 import WIN31CLC_DTO.Patient;
 import WIN31CLC_DTO.Service;
 import WIN31CLC_DTO.Specialist;
+import WIN31CLC_DTO.horario_citas;
 import WIN32CLC_CTR.CTR_02_Patient;
 import WIN32CLC_CTR.CTR_03_Service;
 import WIN32CLC_CTR.CTR_04_Specialist;
+import WIN32CLC_CTR.CTR_05_Citas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,10 +26,13 @@ import java.util.logging.Logger;
  */
 public class frm_03_reservar_cita extends javax.swing.JPanel {
 
-     CTR_02_Patient cTR_02_Patient = new CTR_02_Patient();
-     ArrayList<Service> service_list = null;
-     ArrayList<Specialist> specialist_list = null;
-     Patient patient = null;
+    CTR_02_Patient cTR_02_Patient = new CTR_02_Patient();
+    CTR_05_Citas cTR_05_Citas = new CTR_05_Citas();
+
+    ArrayList<Service> service_list = null;
+    ArrayList<Specialist> specialist_list = null;
+    Patient patient = null;
+
     /**
      * Creates new form vista1
      */
@@ -35,74 +43,86 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
     public void LoadData() {
         try {
+            checkbox_horario(false);
             // traer los servicios
             CTR_03_Service ctr_Service = new CTR_03_Service();
             service_list = new ArrayList<Service>();
             Service service = new Service();
+            cbx_service.removeAllItems();
             service.setId(0);
             service.setName("--Seleccionar--");
             service.setPrice(0);
-            
             service_list.add(service);
             service_list.addAll(ctr_Service.listService());
-            cbx_service.removeAllItems();
             if (service_list != null) {
                 for (int i = 0; i < service_list.size(); i++) {
                     cbx_service.addItem(service_list.get(i).getName());
                 }
             }
-            
+
             // traer los especialistar por servicio
             reset_cbx_specialist();
-            
+
             CTR_04_Specialist cTR_04_Specialist = new CTR_04_Specialist();
-                    
+
             ActionListener actionListener = new ActionListener() {
-                  public void actionPerformed(ActionEvent actionEvent) {
+                public void actionPerformed(ActionEvent actionEvent) {
                     //System.out.println("Selected: " + cbx_service.getSelectedItem());
                     //System.out.println(", Position: " + cbx_service.getSelectedIndex());
-                    if(cbx_service.getSelectedIndex() > 0){
+                    if (cbx_service.getSelectedIndex() > 0) {
                         try {
                             specialist_list = new ArrayList<Specialist>();
+                            Specialist Specialist_e = new Specialist();
                             cbx_especialista.removeAllItems();
+                            Specialist_e.setId(0);
+                            Specialist_e.setName("--Seleccionar--");
+                            Specialist_e.setFullname("--Seleccionar--");
+
+                            specialist_list.add(Specialist_e);
                             Service parametro = service_list.get(cbx_service.getSelectedIndex());
                             specialist_list.addAll(cTR_04_Specialist.listSpecialist(parametro.getId()));
                             cbx_especialista.setEnabled(true);
-                            if(specialist_list.size()>0){
+                            if (specialist_list.size() > 0) {
                                 for (int i = 0; i < specialist_list.size(); i++) {
                                     cbx_especialista.addItem(specialist_list.get(i).getFullname());
                                 }
-                            }else{
-                                 reset_cbx_specialist();
+                            } else {
+                                reset_cbx_specialist();
                             }
 
                         } catch (SQLException ex) {
                             Logger.getLogger(frm_03_reservar_cita.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                    }else{
+                    } else {
                         reset_cbx_specialist();
                     }
-                  }
+                }
             };
             // add event al cbs_Service
-            
+
             cbx_service.addActionListener(actionListener);
 
-            
         } catch (SQLException ex) {
             Logger.getLogger(frm_03_reservar_cita.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DaoException ex) {
             Logger.getLogger(frm_03_reservar_cita.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-     private void reset_cbx_specialist() {
+
+    private void reset_cbx_specialist() {
+
         specialist_list = new ArrayList<Specialist>();
+        Specialist Specialist_e = new Specialist();
         cbx_especialista.removeAllItems();
-        cbx_especialista.addItem("--No Listado--");
+        Specialist_e.setId(0);
+        Specialist_e.setName("--Seleccionar--");
+        Specialist_e.setFullname("--Seleccionar--");
+        specialist_list.add(Specialist_e);
+        cbx_especialista.addItem(Specialist_e.getFullname());
         cbx_especialista.setEnabled(false);
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -171,6 +191,11 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         btn_nueva_cita.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_nueva_cita.setFocusPainted(false);
         btn_nueva_cita.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_nueva_cita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nueva_citaActionPerformed(evt);
+            }
+        });
         fSGradientPanel1.add(btn_nueva_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 210, -1));
 
         btn_cancelar_cambios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-cancelar-30.png"))); // NOI18N
@@ -182,6 +207,11 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         btn_cancelar_cambios1.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_cancelar_cambios1.setFocusPainted(false);
         btn_cancelar_cambios1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_cancelar_cambios1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelar_cambios1ActionPerformed(evt);
+            }
+        });
         fSGradientPanel1.add(btn_cancelar_cambios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 210, -1));
 
         btn_guardar_cita1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-guardar-como-30.png"))); // NOI18N
@@ -432,21 +462,22 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
         add(panel_contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 740));
     }// </editor-fold>//GEN-END:initComponents
- public void deshabilitar_rbx(  boolean b)
-  {
-    //jPanel3.setVisible(b);
-     rbx_4.setVisible(b);rbx_8.setVisible(b);rbx_12.setVisible(b);
-      
-  }
+ public void deshabilitar_rbx(boolean b) {
+        //jPanel3.setVisible(b);
+        rbx_4.setVisible(b);
+        rbx_8.setVisible(b);
+        rbx_12.setVisible(b);
+
+    }
     private void btn_buscar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_pacienteActionPerformed
-         try {
-             patient = cTR_02_Patient.SelectPatient(txt_dni.getText());
-             lbl_patient.setText(patient.getName()+", "+ patient.getLastname()+ " " + patient.getSurename());
-         } catch (SQLException ex) {
-             lbl_patient.setText(ex.getMessage());
-         } catch (DaoException ex) {
-             lbl_patient.setText(ex.getMessage());
-         }
+        try {
+            patient = cTR_02_Patient.SelectPatient(txt_dni.getText());
+            lbl_patient.setText(patient.getName() + ", " + patient.getLastname() + " " + patient.getSurename());
+        } catch (SQLException ex) {
+            lbl_patient.setText(ex.getMessage());
+        } catch (DaoException ex) {
+            lbl_patient.setText(ex.getMessage());
+        }
     }//GEN-LAST:event_btn_buscar_pacienteActionPerformed
 
     private void txt_dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dniActionPerformed
@@ -454,29 +485,319 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_dniActionPerformed
 
     private void txt_buscar_horariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscar_horariosActionPerformed
-        // TODO add your handling code here:
+        if (rSDateChooser2.getDatoFecha() == null) {
+            JOptionPane.showMessageDialog(null, "Elija la fecha de la cita primero");
+        } else {
+
+            if (cbx_service.getSelectedIndex() == 0) {
+                JOptionPane.showMessageDialog(null, "Seleccione Servicio");
+
+            } else if (cbx_especialista.getSelectedIndex() == 0) {
+                JOptionPane.showMessageDialog(null, "Seleccione Especialista");
+
+            } else {
+                validarFechaCita();//procedimiento para mostrar las horas disponibles segun la fecha elegida
+            }
+        }
     }//GEN-LAST:event_txt_buscar_horariosActionPerformed
+    private void validarFechaCita() {
+        java.util.Date capturar_fecha_sistema = new java.util.Date();
+
+        DateFormat dateFormat_fecha = new SimpleDateFormat("yyyyMMdd");
+        String fecha_sistema = dateFormat_fecha.format(capturar_fecha_sistema);
+
+        DateFormat dateFormat_hora = new SimpleDateFormat("HH:mm");
+        String hora_sistema = dateFormat_hora.format(capturar_fecha_sistema);
+
+        String feSeleccionada;
+        int fec;
+
+        //para obtener la fecha
+        String formato = "yyyyMMdd";
+        java.util.Date date = rSDateChooser2.getDatoFecha();
+        feSeleccionada = String.valueOf(date);
+        SimpleDateFormat sdf = new SimpleDateFormat(formato);
+        feSeleccionada = (sdf.format(date));
+
+        if (feSeleccionada.compareTo(fecha_sistema) < 0) {
+            JOptionPane.showMessageDialog(null, "Error, Verifique la fecha de la nueva cita");
+            JOptionPane.showMessageDialog(null, "Fecha Actual " + fecha_sistema + " Fecha Elejida " + feSeleccionada);
+        } else if (feSeleccionada.compareTo(fecha_sistema) > 0) {
+            Service e_service = service_list.get(cbx_service.getSelectedIndex());
+            Specialist e_especialista = specialist_list.get(cbx_especialista.getSelectedIndex());
+            validar_hora_cita_posterior_al_dia(feSeleccionada, fecha_sistema, hora_sistema, e_especialista.getId(), e_service.getId());
+        } else {
+            Service e_service = service_list.get(cbx_service.getSelectedIndex());
+            Specialist e_especialista = specialist_list.get(cbx_especialista.getSelectedIndex());
+            validarHoraCita_Del_Dia(feSeleccionada, fecha_sistema, hora_sistema, e_especialista.getId(), e_service.getId());
+        }
+    }
+
+    public void validarHoraCita_Del_Dia(String feSeleccionada, String fecha_sistema, String hora_sistema, long id_especialista, long id_servicio) {
+        rbx_1.setEnabled(false);
+
+        try {
+            horario_citas ehorarios_citas = new horario_citas();
+            horario_citas ehorarios_citas_disponible = new horario_citas();
+            horario_citas ehorarios_citas_reservadas = new horario_citas();
+            int registros = cTR_05_Citas.capturar_cantidad_fechas(feSeleccionada);
+
+            if (registros > 0) {
+
+                List horarios_citas_reservadas = cTR_05_Citas.capturar_cantidad_fechas_v1(feSeleccionada, id_especialista, id_servicio);
+                List horarios_citas_disponible = cTR_05_Citas.listando_horario_disponible();
+
+                if (horarios_citas_disponible != null && horarios_citas_disponible.size() != 0) {
+                    if (horarios_citas_reservadas != null && horarios_citas_reservadas.size() != 0) {
+
+                        for (int z = 0; z < horarios_citas_reservadas.size(); z++) {
+                            ehorarios_citas_reservadas = (horario_citas) horarios_citas_reservadas.get(z);
+
+                            for (int i = 0; i < horarios_citas_disponible.size(); i++) {
+                                ehorarios_citas_disponible = (horario_citas) horarios_citas_disponible.get(i);
+
+//                                if (ehorarios_citas_disponible.getCita_horario_inicio().equals(ehorarios_citas_reservadas.getCita_horario_inicio()) && ehorarios_citas_disponible.getCita_horario_fin().equals(ehorarios_citas_reservadas.getCita_horario_fin())) {
+//                                    check_horario_validacion(ehorarios_citas_disponible.getId_horario(), false);
+//
+//                                } else {
+                                // check_horario_validacion(ehorarios_citas_disponible.getId_horario(), true);
+                                if (hora_sistema.compareTo(ehorarios_citas_disponible.getCita_horario_inicio()) >= 0 && hora_sistema.compareTo(ehorarios_citas_disponible.getCita_horario_fin()) >= 0) {
+
+                                    check_horario_validacion(ehorarios_citas_disponible.getId_horario(), false);
+
+                                } else {
+                                    if (ehorarios_citas_disponible.getCita_horario_inicio().equals(ehorarios_citas_reservadas.getCita_horario_inicio()) && ehorarios_citas_disponible.getCita_horario_fin().equals(ehorarios_citas_reservadas.getCita_horario_fin())) {
+                                        check_horario_validacion(ehorarios_citas_disponible.getId_horario(), false);
+                                    } else {
+                                        check_horario_validacion(ehorarios_citas_disponible.getId_horario(), true);
+
+                                    }
+                                }
+
+                            }
+
+                        }
+                    } else {
+                        if (horarios_citas_disponible != null) {
+                            for (int i = 0; i < horarios_citas_disponible.size(); i++) {
+                                ehorarios_citas = (horario_citas) horarios_citas_disponible.get(i);
+
+                                if (hora_sistema.compareTo(ehorarios_citas.getCita_horario_inicio()) >= 0 && hora_sistema.compareTo(ehorarios_citas.getCita_horario_fin()) >= 0) {
+
+                                    check_horario_validacion(ehorarios_citas.getId_horario(), false);
+
+                                } else {
+                                    check_horario_validacion(ehorarios_citas.getId_horario(), true);
+
+                                }
+
+                            }
+
+                        } else {
+                            checkbox_horario(false);
+                        }
+                    }
+                } else {
+                    checkbox_horario(false);
+                }
+
+            } else {
+
+                List horarios_citas = cTR_05_Citas.listando_horario_disponible();
+                if (horarios_citas != null) {
+                    for (int i = 0; i < horarios_citas.size(); i++) {
+                        ehorarios_citas = (horario_citas) horarios_citas.get(i);
+
+                        if (hora_sistema.compareTo(ehorarios_citas.getCita_horario_inicio()) >= 0 && hora_sistema.compareTo(ehorarios_citas.getCita_horario_fin()) >= 0) {
+
+                            check_horario_validacion(ehorarios_citas.getId_horario(), false);
+
+                        } else {
+                            check_horario_validacion(ehorarios_citas.getId_horario(), true);
+
+                        }
+
+                    }
+                } else {
+                    checkbox_horario(false);
+                }
+
+            }
+
+        } catch (DaoException ex) {
+        } catch (SQLException ex) {
+        }
+    }
+
+    public void validar_hora_cita_posterior_al_dia(String feSeleccionada, String fecha_sistema, String hora_sistema, long id_especialista, long id_servicio) {
+        try {
+            horario_citas ehorarios_citas = new horario_citas();
+            horario_citas ehorarios_citas_disponible = new horario_citas();
+            horario_citas ehorarios_citas_reservadas = new horario_citas();
+            int registros = cTR_05_Citas.capturar_cantidad_fechas(feSeleccionada);
+
+            // if (registros > 0) {
+            List horarios_citas_reservadas = cTR_05_Citas.capturar_cantidad_fechas_v1(feSeleccionada, id_especialista, id_servicio);
+            List horarios_citas_disponible = cTR_05_Citas.listando_horario_disponible();
+
+            if (horarios_citas_disponible != null && horarios_citas_disponible.size() != 0) {
+                if (horarios_citas_reservadas != null && horarios_citas_reservadas.size() != 0) {
+                    checkbox_horario(true);
+                    for (int z = 0; z < horarios_citas_reservadas.size(); z++) {
+                        ehorarios_citas_reservadas = (horario_citas) horarios_citas_reservadas.get(z);
+
+                        for (int i = 0; i < horarios_citas_disponible.size(); i++) {
+                            ehorarios_citas_disponible = (horario_citas) horarios_citas_disponible.get(i);
+
+//                                if (ehorarios_citas_disponible.getCita_horario_inicio().equals(ehorarios_citas_reservadas.getCita_horario_inicio()) && ehorarios_citas_disponible.getCita_horario_fin().equals(ehorarios_citas_reservadas.getCita_horario_fin())) {
+//                                    check_horario_validacion(ehorarios_citas_disponible.getId_horario(), false);
+//
+//                                } else {
+                            // check_horario_validacion(ehorarios_citas_disponible.getId_horario(), true);
+                            //   if (hora_sistema.compareTo(ehorarios_citas_disponible.getCita_horario_inicio()) >= 0 && hora_sistema.compareTo(ehorarios_citas_disponible.getCita_horario_fin()) >= 0) {
+                       //     check_horario_validacion(ehorarios_citas_disponible.getId_horario(), false);
+
+                            //  } else {
+                            if (ehorarios_citas_disponible.getCita_horario_inicio().equals(ehorarios_citas_reservadas.getCita_horario_inicio()) && ehorarios_citas_disponible.getCita_horario_fin().equals(ehorarios_citas_reservadas.getCita_horario_fin())) {
+                                check_horario_validacion(ehorarios_citas_disponible.getId_horario(), false);
+                            } 
+//else {
+//                                check_horario_validacion(ehorarios_citas_disponible.getId_horario(), true);
+//
+//                            }
+                        }
+
+                    }
+
+                } else {
+
+                    checkbox_horario(true);
+                }
+            } else {
+                checkbox_horario(false);
+
+            }
+//            } else {
+//
+//                List horarios_citas = cTR_05_Citas.listando_horario_disponible();
+//                if (horarios_citas != null) {
+//                    for (int i = 0; i < horarios_citas.size(); i++) {
+//                        ehorarios_citas = (horario_citas) horarios_citas.get(i);
+//
+//                        if (hora_sistema.compareTo(ehorarios_citas.getCita_horario_inicio()) >= 0 && hora_sistema.compareTo(ehorarios_citas.getCita_horario_fin()) >= 0) {
+//
+//                            check_horario_validacion(ehorarios_citas.getId_horario(), false);
+//
+//                        } else {
+//                            check_horario_validacion(ehorarios_citas.getId_horario(), true);
+//
+//                        }
+//
+//                    }
+//                } else {
+//                    checkbox_horario(false);
+//                }
+//
+//            }
+
+        } catch (DaoException ex) {
+        } catch (SQLException ex) {
+        }
+    }
+
+    public void checkbox_horario(boolean bloqueo) {
+        rbx_1.setEnabled(bloqueo);
+        rbx_2.setEnabled(bloqueo);
+        rbx_3.setEnabled(bloqueo);
+        rbx_4.setEnabled(bloqueo);
+        rbx_5.setEnabled(bloqueo);
+        rbx_6.setEnabled(bloqueo);
+        rbx_7.setEnabled(bloqueo);
+        rbx_8.setEnabled(bloqueo);
+        rbx_9.setEnabled(bloqueo);
+        rbx_10.setEnabled(bloqueo);
+        rbx_11.setEnabled(bloqueo);
+        rbx_12.setEnabled(bloqueo);
+        rbx_13.setEnabled(bloqueo);
+        rbx_14.setEnabled(bloqueo);
+    }
+
+    public void check_horario_validacion(int tipo, boolean bloqueo) {
+        if (tipo == 1) {
+            rbx_1.setEnabled(bloqueo);
+        }
+        if (tipo == 2) {
+            rbx_2.setEnabled(bloqueo);
+        }
+        if (tipo == 3) {
+            rbx_3.setEnabled(bloqueo);
+        }
+        if (tipo == 4) {
+            rbx_4.setEnabled(bloqueo);
+        }
+        if (tipo == 5) {
+            rbx_5.setEnabled(bloqueo);
+        }
+        if (tipo == 6) {
+            rbx_6.setEnabled(bloqueo);
+        }
+        if (tipo == 7) {
+            rbx_7.setEnabled(bloqueo);
+        }
+        if (tipo == 8) {
+            rbx_8.setEnabled(bloqueo);
+        }
+        if (tipo == 9) {
+            rbx_9.setEnabled(bloqueo);
+        }
+        if (tipo == 10) {
+            rbx_10.setEnabled(bloqueo);
+        }
+        if (tipo == 11) {
+            rbx_11.setEnabled(bloqueo);
+        }
+        if (tipo == 12) {
+            rbx_12.setEnabled(bloqueo);
+        }
+        if (tipo == 13) {
+            rbx_13.setEnabled(bloqueo);
+        }
+        if (tipo == 14) {
+            rbx_14.setEnabled(bloqueo);
+        }
+
+    }
 
     private void btn_guardar_cita1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_cita1ActionPerformed
         //El paciente 
-        if(patient != null){
+        if (patient != null) {
             // el servicio
-            Service e_service =  service_list.get(cbx_service.getSelectedIndex());
-            if(e_service.getId()>0){
+            Service e_service = service_list.get(cbx_service.getSelectedIndex());
+            if (e_service.getId() > 0) {
                 // el especialista
                 Specialist e_especialista = specialist_list.get(cbx_especialista.getSelectedIndex());
-                if(e_especialista.getId()>0){
+                if (e_especialista.getId() > 0) {
                     // select fecha
                     //cal_fecha_cita.g
                     // seleccionamos la hora
-                    
+
                 }
             }
-        }else{
+        } else {
             // mensaje de error
         }
-        
+
     }//GEN-LAST:event_btn_guardar_cita1ActionPerformed
+
+    private void btn_nueva_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueva_citaActionPerformed
+      
+        
+        
+    }//GEN-LAST:event_btn_nueva_citaActionPerformed
+
+    private void btn_cancelar_cambios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambios1ActionPerformed
+
+    }//GEN-LAST:event_btn_cancelar_cambios1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -517,6 +838,5 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     private RSMaterialComponent.RSButtonMaterialGradientOne txt_buscar_horarios;
     private javax.swing.JTextField txt_dni;
     // End of variables declaration//GEN-END:variables
-
 
 }
