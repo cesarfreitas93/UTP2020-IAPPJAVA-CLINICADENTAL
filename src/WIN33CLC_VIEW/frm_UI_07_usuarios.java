@@ -29,11 +29,14 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         menu_salir1 = new RSMaterialComponent.RSPanelMaterial();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txt_name = new rojerusan.RSMetroTextPlaceHolder();
-        rSMetroTextPassPlaceHolder1 = new rojerusan.RSMetroTextPassPlaceHolder();
+        txt_user = new rojerusan.RSMetroTextPlaceHolder();
+        txt_pass = new rojerusan.RSMetroTextPassPlaceHolder();
+        chk_admin = new RSMaterialComponent.RSCheckBoxMaterial();
+        chk_recepcionista = new RSMaterialComponent.RSCheckBoxMaterial();
         menu_salir3 = new RSMaterialComponent.RSPanelMaterial();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePatients = new rojerusan.RSTableMetro();
@@ -58,16 +61,37 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("CONTRASEÑA");
 
-        txt_name.setForeground(new java.awt.Color(51, 51, 51));
-        txt_name.setBorderColor(new java.awt.Color(153, 153, 153));
-        txt_name.setBotonColor(new java.awt.Color(3, 111, 198));
-        txt_name.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_user.setForeground(new java.awt.Color(51, 51, 51));
+        txt_user.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_user.setBotonColor(new java.awt.Color(3, 111, 198));
+        txt_user.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
-        rSMetroTextPassPlaceHolder1.setForeground(new java.awt.Color(51, 51, 51));
-        rSMetroTextPassPlaceHolder1.setBorderColor(new java.awt.Color(153, 153, 153));
-        rSMetroTextPassPlaceHolder1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        rSMetroTextPassPlaceHolder1.setPhColor(new java.awt.Color(51, 51, 51));
-        rSMetroTextPassPlaceHolder1.setPlaceholder("");
+        txt_pass.setForeground(new java.awt.Color(51, 51, 51));
+        txt_pass.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_pass.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_pass.setPhColor(new java.awt.Color(51, 51, 51));
+        txt_pass.setPlaceholder("");
+
+        buttonGroup1.add(chk_admin);
+        chk_admin.setForeground(new java.awt.Color(51, 51, 51));
+        chk_admin.setText("ADMINISTRADOR");
+        chk_admin.setColorCheck(new java.awt.Color(0, 112, 192));
+        chk_admin.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        chk_admin.setFocusPainted(false);
+        chk_admin.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+
+        buttonGroup1.add(chk_recepcionista);
+        chk_recepcionista.setForeground(new java.awt.Color(51, 51, 51));
+        chk_recepcionista.setText("RECEPCIONISTA");
+        chk_recepcionista.setColorCheck(new java.awt.Color(0, 112, 192));
+        chk_recepcionista.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        chk_recepcionista.setFocusPainted(false);
+        chk_recepcionista.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        chk_recepcionista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chk_recepcionistaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menu_salir1Layout = new javax.swing.GroupLayout(menu_salir1);
         menu_salir1.setLayout(menu_salir1Layout);
@@ -76,12 +100,14 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
             .addGroup(menu_salir1Layout.createSequentialGroup()
                 .addContainerGap(112, Short.MAX_VALUE)
                 .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txt_user, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chk_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rSMetroTextPassPlaceHolder1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(chk_recepcionista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_pass, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
         menu_salir1Layout.setVerticalGroup(
@@ -93,9 +119,13 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
                     .addComponent(jLabel11))
                 .addGap(18, 18, 18)
                 .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSMetroTextPassPlaceHolder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                    .addComponent(txt_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chk_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chk_recepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         menu_salir3.setBackground(new java.awt.Color(255, 255, 255));
@@ -245,12 +275,19 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void chk_recepcionistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chk_recepcionistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chk_recepcionistaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private newscomponents.RSButtonFlat_new btn_cancelar_cambios;
     private newscomponents.RSButtonFlat_new btn_guardar_usuario;
     private newscomponents.RSButtonFlat_new btn_modificar_usuario;
     private newscomponents.RSButtonFlat_new btn_nuevo_usuario;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private RSMaterialComponent.RSCheckBoxMaterial chk_admin;
+    private RSMaterialComponent.RSCheckBoxMaterial chk_recepcionista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -258,9 +295,9 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private RSMaterialComponent.RSPanelMaterial menu_salir1;
     private RSMaterialComponent.RSPanelMaterial menu_salir3;
-    private rojerusan.RSMetroTextPassPlaceHolder rSMetroTextPassPlaceHolder1;
     private RSMaterialComponent.RSPanelBorderGradient rSPanelBorderGradient1;
     private rojerusan.RSTableMetro tablePatients;
-    private rojerusan.RSMetroTextPlaceHolder txt_name;
+    private rojerusan.RSMetroTextPassPlaceHolder txt_pass;
+    private rojerusan.RSMetroTextPlaceHolder txt_user;
     // End of variables declaration//GEN-END:variables
 }

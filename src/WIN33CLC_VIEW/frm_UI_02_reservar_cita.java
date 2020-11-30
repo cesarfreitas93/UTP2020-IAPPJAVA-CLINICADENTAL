@@ -9,7 +9,7 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
     public frm_UI_02_reservar_cita() {
         initComponents();
      
-        setBackground(new Color (255,255,255,1));
+        setBackground(new Color (255,255,255,0));
         btn_nueva_cita.setBackground(new Color (41,177,255,0));
        
         btn_guardar_cita.setBackground(new Color (41,177,255,0));

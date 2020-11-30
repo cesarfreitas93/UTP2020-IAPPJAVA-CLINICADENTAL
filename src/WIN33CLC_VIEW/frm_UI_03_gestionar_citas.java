@@ -32,8 +32,6 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        jLabel14 = new javax.swing.JLabel();
         menu_salir1 = new RSMaterialComponent.RSPanelMaterial();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -83,10 +81,6 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial26 = new RSMaterialComponent.RSRadioButtonMaterial();
         rSRadioButtonMaterial27 = new RSMaterialComponent.RSRadioButtonMaterial();
         rSRadioButtonMaterial28 = new RSMaterialComponent.RSRadioButtonMaterial();
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("FECHA DE LA CITA:");
 
         menu_salir1.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir1.setBgShade(new java.awt.Color(204, 204, 204));
@@ -427,6 +421,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         btn_horario_disponible1.setFocusPainted(false);
         btn_horario_disponible1.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
 
+        buttonGroup1.add(rSRadioButtonMaterial15);
         rSRadioButtonMaterial15.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial15.setText("8:00 - 8:30");
         rSRadioButtonMaterial15.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -435,6 +430,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial15.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial15.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial16);
         rSRadioButtonMaterial16.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial16.setText("8:30 - 9:00");
         rSRadioButtonMaterial16.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -443,6 +439,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial16.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial16.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial17);
         rSRadioButtonMaterial17.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial17.setText("9:00 - 9:30");
         rSRadioButtonMaterial17.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -451,6 +448,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial17.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial17.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial18);
         rSRadioButtonMaterial18.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial18.setText("9:30 - 10:00");
         rSRadioButtonMaterial18.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -459,6 +457,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial18.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial18.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial19);
         rSRadioButtonMaterial19.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial19.setText("10:00 - 10:30");
         rSRadioButtonMaterial19.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -467,6 +466,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial19.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial19.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial20);
         rSRadioButtonMaterial20.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial20.setText("10:30 - 11:00");
         rSRadioButtonMaterial20.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -475,6 +475,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial20.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial20.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial21);
         rSRadioButtonMaterial21.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial21.setText("11:00 - 11:30");
         rSRadioButtonMaterial21.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -483,6 +484,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial21.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial21.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial22);
         rSRadioButtonMaterial22.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial22.setText("11:30 - 12:00");
         rSRadioButtonMaterial22.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -491,6 +493,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial22.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial22.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial23);
         rSRadioButtonMaterial23.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial23.setText("12:00 - 12:30");
         rSRadioButtonMaterial23.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -499,6 +502,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial23.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial23.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial24);
         rSRadioButtonMaterial24.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial24.setText("12:30 - 13:00");
         rSRadioButtonMaterial24.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -507,6 +511,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial24.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial24.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial25);
         rSRadioButtonMaterial25.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial25.setText("13:00 - 13:30");
         rSRadioButtonMaterial25.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -515,6 +520,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial25.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial25.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial26);
         rSRadioButtonMaterial26.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial26.setText("13:30 - 14:00");
         rSRadioButtonMaterial26.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -523,6 +529,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial26.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial26.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial27);
         rSRadioButtonMaterial27.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial27.setText("14:00 - 14:30");
         rSRadioButtonMaterial27.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -531,6 +538,7 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         rSRadioButtonMaterial27.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         rSRadioButtonMaterial27.setRippleColor(new java.awt.Color(0, 112, 192));
 
+        buttonGroup1.add(rSRadioButtonMaterial28);
         rSRadioButtonMaterial28.setForeground(new java.awt.Color(51, 51, 51));
         rSRadioButtonMaterial28.setText("14:30 - 15:00");
         rSRadioButtonMaterial28.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -648,12 +656,10 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_horario_disponible1;
     private newscomponents.RSButtonFlat_new btn_nuevo_paciente;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;

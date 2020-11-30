@@ -430,12 +430,14 @@ boolean a=true;
         rSPanelMaterial4.setLayout(new java.awt.CardLayout());
 
         panel_inicio.setName("panel_inicio"); // NOI18N
+        panel_inicio.setOpaque(false);
         panel_inicio.setLayout(new java.awt.CardLayout());
         panel_inicio.add(frm_UI_inicio2, "card2");
 
         rSPanelsSlider1.add(panel_inicio, "card3");
 
         panel_paciente.setName("panel_paciente"); // NOI18N
+        panel_paciente.setOpaque(false);
         panel_paciente.setLayout(new java.awt.CardLayout());
         panel_paciente.add(frm_UI_01_Patien1, "card2");
 

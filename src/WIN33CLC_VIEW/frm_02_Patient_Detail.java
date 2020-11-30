@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN33CLC_VIEW;
 
 import WIN30CLC_DAO.DaoException;
@@ -445,6 +441,11 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         cbx_distrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_distrito.setColorMaterial(new java.awt.Color(10, 117, 167));
         cbx_distrito.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        cbx_distrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbx_distritoActionPerformed(evt);
+            }
+        });
         panel_contenedor.add(cbx_distrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 420, 210, -1));
 
         txt_buscar_reniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-encuentra-hombre-usuario-30.png"))); // NOI18N
@@ -873,6 +874,10 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         // TODO add your handling code here:
         listar_distrito();
     }//GEN-LAST:event_cbx_provinciaActionPerformed
+
+    private void cbx_distritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_distritoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbx_distritoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

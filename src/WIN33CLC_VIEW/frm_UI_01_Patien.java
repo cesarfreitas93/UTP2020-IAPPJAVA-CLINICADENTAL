@@ -1,21 +1,74 @@
 
 package WIN33CLC_VIEW;
 
+import WIN30CLC_DAO.DaoException;
+import WIN31CLC_DTO.Patient;
+import WIN31CLC_DTO.Ubigeo;
+import WIN32CLC_CTR.CTR_02_Patient;
+import WIN32CLC_CTR.CTR_10_Ubigeo;
+import static WIN_2020_UTILS.Validators.esEmail;
+import static WIN_2020_UTILS.Validators.inputStringIngresado;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
+import org.json.JSONException;
+import rojerusan.RSNotifyFade;
 
 
 public class frm_UI_01_Patien extends javax.swing.JPanel {
-
+ArrayList<Ubigeo> ubigeo_lista_dep = null;
+    ArrayList<Ubigeo> ubigeo_lista_dep_pro = null;
+    ArrayList<Ubigeo> ubigeo_lista_dep_pro_dis = null;
+    Ubigeo entity_ubigeo = null;
+    CTR_10_Ubigeo ubigeo_bds = null;
+    
+    private CTR_02_Patient cTR_02_Patient;
+    
+    
+    
     public frm_UI_01_Patien() {
         initComponents();
-     
-        setBackground(new Color (255,255,255,1));
+      initComponents();
+        LoadData();
+                
+        txt_dni.setEnabled(false);
+        btn_buscar_reniec.setEnabled(false);
+        txt_name.setEnabled(false);
+        txt_apellidoPAT.setEnabled(false);
+        txt_apellidoMAT.setEnabled(false);
+        txt_phone.setEnabled(false);
+        txt_email.setEnabled(false);
+        txt_direccion.setEnabled(false);
+        
+        btn_cancelar_cambios.setEnabled(false);
+        btn_modificar_paciente.setEnabled(false);
+        btn_guardar_paciente.setEnabled(false);
+        listar_Departamento();
+        cTR_02_Patient = new CTR_02_Patient();
+        
+        
+        
+        setBackground(new Color (255,255,255,0));
         btn_nuevo_paciente.setBackground(new Color (41,177,255,0));
         btn_modificar_paciente.setBackground(new Color (41,177,255,0));
         btn_guardar_paciente.setBackground(new Color (41,177,255,0));
         btn_cancelar_cambios.setBackground(new Color (41,177,255,0));
        
     }
+    
+    
+    
     
     public void ocultar_form_patient(boolean b)
     {
@@ -24,6 +77,181 @@ public class frm_UI_01_Patien extends javax.swing.JPanel {
             menu_salir3.setVisible(b);
             rSPanelBorderGradient1.setVisible(b);
             
+    }
+    
+     public void listar_Departamento() {
+        //-----Cargando Departamento---------------------------------------------------
+        try {
+            ubigeo_bds = new CTR_10_Ubigeo();
+            ubigeo_lista_dep = new ArrayList<Ubigeo>();
+            cbx_departamento.removeAllItems();
+            //--------------------------------------------------------
+            entity_ubigeo = new Ubigeo();
+            entity_ubigeo.setCodigo_departamento("00");
+            entity_ubigeo.setDescripcion_departamento("--Seleccionar--");
+            ubigeo_lista_dep.add(entity_ubigeo);
+            //--------------------------------------------------------
+            List fakultases = ubigeo_bds.get_departamentos();
+
+            //  ArrayList<Ubigeo> countries = (ArrayList<Ubigeo>) ubigeo_bds.get_departamentos();
+            ubigeo_lista_dep.addAll(fakultases);
+
+            //--------------------------------------------------------
+            if (ubigeo_lista_dep != null) {
+                for (int i = 0; i < ubigeo_lista_dep.size(); i++) {
+                    entity_ubigeo = ubigeo_lista_dep.get(i);
+                    cbx_departamento.addItem(entity_ubigeo.getDescripcion_departamento());
+                }
+            }
+//            cbx_departamento.setSelectedIndex(0);
+        } catch (DaoException ex) {
+            //Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+           // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void listar_Provincia() {
+        //-----Cargando Provincia---------------------------------------------------
+        try {
+            ubigeo_bds = new CTR_10_Ubigeo();
+            ubigeo_lista_dep_pro = new ArrayList<Ubigeo>();
+            entity_ubigeo = new Ubigeo();
+            //--------------------------------------------------------
+            if (cbx_departamento.getSelectedIndex() > 0) {
+                cbx_provincia.removeAllItems();
+                entity_ubigeo.setCodigo_provincia("00");
+                entity_ubigeo.setDescripcion_provincia("--Seleccionar--");
+                ubigeo_lista_dep_pro.add(entity_ubigeo);
+                //--------------------------------------------------------
+                Ubigeo parametro = ubigeo_lista_dep.get(cbx_departamento.getSelectedIndex());
+                ArrayList<Ubigeo> countries = (ArrayList<Ubigeo>) ubigeo_bds.get_departa_provi(parametro.getCodigo_departamento());
+                ubigeo_lista_dep_pro.addAll(countries);
+                //--------------------------------------------------------
+                if (cbx_departamento != null) {
+                    for (int i = 0; i < ubigeo_lista_dep_pro.size(); i++) {
+                        cbx_provincia.addItem(ubigeo_lista_dep_pro.get(i).getDescripcion_provincia());
+                    }
+                }
+            } else {
+                cbx_provincia.removeAllItems();
+                
+                entity_ubigeo.setCodigo_provincia("00");
+                entity_ubigeo.setDescripcion_provincia("--Seleccionar--");
+                ubigeo_lista_dep_pro.add(entity_ubigeo);
+                cbx_provincia.addItem(entity_ubigeo.getDescripcion_provincia());
+                
+            }
+        } catch (DaoException ex) {
+          //  Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+           // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void listar_distrito() {
+        //-----Cargando Distrito---------------------------------------------------
+        try {
+            ubigeo_bds = new CTR_10_Ubigeo();
+            ubigeo_lista_dep_pro_dis = new ArrayList<Ubigeo>();
+            entity_ubigeo = new Ubigeo();
+            //--------------------------------------------------------
+            if (cbx_provincia.getSelectedIndex() > 0) {
+                cbx_distrito.removeAllItems();
+                entity_ubigeo.setCodigo_distrito("00");
+                entity_ubigeo.setDescripcion_distrito("--Seleccionar--");
+                ubigeo_lista_dep_pro_dis.add(entity_ubigeo);
+                //----------------------ubigeo_lista_dep_pro_dis_dis----------------------------------
+                Ubigeo parametro = ubigeo_lista_dep.get(cbx_departamento.getSelectedIndex());
+                Ubigeo parametro1 = ubigeo_lista_dep_pro.get(cbx_provincia.getSelectedIndex());
+                
+                ArrayList<Ubigeo> countries = (ArrayList<Ubigeo>) ubigeo_bds.get_provi_dist(parametro.getCodigo_departamento(), parametro1.getCodigo_provincia());
+                ubigeo_lista_dep_pro_dis.addAll(countries);
+                //--------------------------------------------------------
+                if (cbx_provincia != null) {
+                    for (int i = 0; i < ubigeo_lista_dep_pro_dis.size(); i++) {
+                        cbx_distrito.addItem(ubigeo_lista_dep_pro_dis.get(i).getDescripcion_distrito());
+                    }
+                }
+            } else {
+                cbx_distrito.removeAllItems();
+                entity_ubigeo.setCodigo_distrito("00");
+                entity_ubigeo.setDescripcion_distrito("--Seleccionar--");
+                ubigeo_lista_dep_pro_dis.add(entity_ubigeo);
+                cbx_distrito.addItem(entity_ubigeo.getDescripcion_distrito());
+            }
+        } catch (DaoException ex) {
+           // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+          //  Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void LoadData() {
+        try {
+            CTR_02_Patient ctr = new CTR_02_Patient();
+            this.tablePatients.setModel(ctr.ListPatients());
+            this.tablePatients.getSelectionModel().addListSelectionListener(e -> {
+                boolean seleccionValid = (tablePatients.getSelectedRow() != -1);
+                //btnEdit.setEnabled(seleccionValid);
+                //btnDelete.setEnabled(seleccionValid);
+            });
+        } catch (DaoException ex) {
+           // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+         //   Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        this.tablePatients.setDefaultRenderer(JButton.class, new TableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable jtable, Object objeto, boolean estaSeleccionado, boolean tieneElFoco, int fila, int columna) {
+                return (Component) objeto;
+            }
+        });
+        
+        this.tablePatients.addMouseListener(new MouseAdapter() {
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila = tablePatients.rowAtPoint(e.getPoint());
+                int columna = tablePatients.columnAtPoint(e.getPoint());
+                
+                System.out.println("click");
+                setEditable(true);
+                
+                if (tablePatients.getModel().getColumnClass(columna).equals(JButton.class)) {
+                    try {
+                        System.out.println(tablePatients.getModel().getValueAt(fila, 0));
+                        cTR_02_Patient.DeletePatien((long) tablePatients.getModel().getValueAt(fila, 0));
+                        System.out.println("eliminado por el botton");
+                        tablePatients.setModel(cTR_02_Patient.ListPatients());
+                        setEditable(false);
+                    } catch (SQLException ex) {
+                       // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (DaoException ex) {
+                        //Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                
+                if (!tablePatients.getModel().getColumnClass(0).equals(JButton.class)) {
+                    //System.out.println(tablePatients.getModel().getValueAt(fila, 0)); 
+                    setId((long) tablePatients.getModel().getValueAt(fila, 0));
+                    
+                }
+                
+            }
+            
+        });
+    }
+    
+    private Patient getPatientSelected() throws SQLException, DaoException {
+        CTR_02_Patient ctr = new CTR_02_Patient();
+        int id = (int) tablePatients.getValueAt(tablePatients.getSelectedRow(), 0);
+        return ctr.SelectPatient(id);
+    }
+    
+    public void mensaje() throws DaoException, SQLException {
+        tablePatients.setModel(cTR_02_Patient.ListPatients());
     }
 
 
@@ -52,7 +280,7 @@ public class frm_UI_01_Patien extends javax.swing.JPanel {
         jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         cbx_provincia = new RSMaterialComponent.RSComboBoxMaterial();
-        cbx_departamento1 = new RSMaterialComponent.RSComboBoxMaterial();
+        cbx_departamento = new RSMaterialComponent.RSComboBoxMaterial();
         cbx_distrito = new RSMaterialComponent.RSComboBoxMaterial();
         menu_salir3 = new RSMaterialComponent.RSPanelMaterial();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -148,6 +376,11 @@ public class frm_UI_01_Patien extends javax.swing.JPanel {
         btn_buscar_reniec.setColorSecundarioHover(new java.awt.Color(41, 177, 255));
         btn_buscar_reniec.setFocusPainted(false);
         btn_buscar_reniec.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
+        btn_buscar_reniec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar_reniecActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menu_salir1Layout = new javax.swing.GroupLayout(menu_salir1);
         menu_salir1.setLayout(menu_salir1Layout);
@@ -260,14 +493,14 @@ public class frm_UI_01_Patien extends javax.swing.JPanel {
             }
         });
 
-        cbx_departamento1.setForeground(new java.awt.Color(51, 51, 51));
-        cbx_departamento1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
-        cbx_departamento1.setColorMaterial(new java.awt.Color(10, 117, 167));
-        cbx_departamento1.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        cbx_departamento1.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
-        cbx_departamento1.addActionListener(new java.awt.event.ActionListener() {
+        cbx_departamento.setForeground(new java.awt.Color(51, 51, 51));
+        cbx_departamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
+        cbx_departamento.setColorMaterial(new java.awt.Color(10, 117, 167));
+        cbx_departamento.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        cbx_departamento.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        cbx_departamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbx_departamento1ActionPerformed(evt);
+                cbx_departamentoActionPerformed(evt);
             }
         });
 
@@ -293,7 +526,7 @@ public class frm_UI_01_Patien extends javax.swing.JPanel {
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
                         .addGap(49, 49, 49))
                     .addGroup(menu_salir2Layout.createSequentialGroup()
-                        .addComponent(cbx_departamento1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                        .addComponent(cbx_departamento, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                         .addGap(67, 67, 67)))
                 .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menu_salir2Layout.createSequentialGroup()
@@ -321,7 +554,7 @@ public class frm_UI_01_Patien extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cbx_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbx_departamento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbx_departamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbx_distrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -393,24 +626,44 @@ public class frm_UI_01_Patien extends javax.swing.JPanel {
         btn_nuevo_paciente.setText("Nuevo Paciente");
         btn_nuevo_paciente.setBorderPainted(false);
         btn_nuevo_paciente.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
+        btn_nuevo_paciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nuevo_pacienteActionPerformed(evt);
+            }
+        });
 
         btn_guardar_paciente.setBackground(new java.awt.Color(0, 160, 253));
         btn_guardar_paciente.setForeground(new java.awt.Color(51, 51, 51));
         btn_guardar_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-guardar-24.png"))); // NOI18N
         btn_guardar_paciente.setText("Guardar Paciente");
         btn_guardar_paciente.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
+        btn_guardar_paciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardar_pacienteActionPerformed(evt);
+            }
+        });
 
         btn_modificar_paciente.setBackground(new java.awt.Color(0, 160, 253));
         btn_modificar_paciente.setForeground(new java.awt.Color(51, 51, 51));
         btn_modificar_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-editar-usuario-masculino-24.png"))); // NOI18N
         btn_modificar_paciente.setText("Modificar Paciente");
         btn_modificar_paciente.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
+        btn_modificar_paciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificar_pacienteActionPerformed(evt);
+            }
+        });
 
         btn_cancelar_cambios.setBackground(new java.awt.Color(0, 160, 253));
         btn_cancelar_cambios.setForeground(new java.awt.Color(51, 51, 51));
         btn_cancelar_cambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/cancelar.png"))); // NOI18N
         btn_cancelar_cambios.setText("Cancelar Cambios");
         btn_cancelar_cambios.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
+        btn_cancelar_cambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelar_cambiosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout rSPanelBorderGradient1Layout = new javax.swing.GroupLayout(rSPanelBorderGradient1);
         rSPanelBorderGradient1.setLayout(rSPanelBorderGradient1Layout);
@@ -475,17 +728,318 @@ public class frm_UI_01_Patien extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbx_provinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_provinciaActionPerformed
-    
+ listar_distrito();    
     }//GEN-LAST:event_cbx_provinciaActionPerformed
 
-    private void cbx_departamento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_departamento1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbx_departamento1ActionPerformed
+    private void cbx_departamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_departamentoActionPerformed
+listar_Provincia();        // TODO add your handling code here:
+    }//GEN-LAST:event_cbx_departamentoActionPerformed
 
     private void cbx_distritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_distritoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbx_distritoActionPerformed
 
+    private void btn_buscar_reniecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reniecActionPerformed
+ try {
+            if (txt_dni.getText().length() >= 8) {
+                CTR_02_Patient ctr = new CTR_02_Patient();
+                Patient entidad = new Patient();
+                //buscar si existe el paciente el la base de datos
+                try {
+                    entidad = ctr.CheckDNI(txt_dni.getText());
+                } catch (Exception e) {
+                    //JOptionPane.showMessageDialog(null, e.getMessage(),
+                    //"Dental SyS", JOptionPane.WARNING_MESSAGE);
+
+                    //muestra los datos de la reniec en el fomrulario
+                    entidad = ctr.SearchReniec(txt_dni.getText());
+                    txt_name.setText(entidad.getName());
+                    txt_apellidoPAT.setText(entidad.getLastname());
+                    txt_apellidoMAT.setText(entidad.getSurename());
+                }
+                if (entidad.getId() != 0) {
+                    // existe el dni
+                    // despliega un mensaje
+
+                    /* JOptionPane.showMessageDialog(null, "El DNI ingresado ya existe!",
+                        "Dental SyS", JOptionPane.WARNING_MESSAGE);*/
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Ingrese el DNI",
+                        "Dental SyS", JOptionPane.WARNING_MESSAGE);
+            }
+            
+        } catch (IOException ex) {
+            //Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JSONException ex) {
+            // Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_buscar_reniecActionPerformed
+
+    private void btn_guardar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_pacienteActionPerformed
+ String msg = "";
+        int focus = 0;
+        if (txt_dni.getText().length() < 8 || txt_dni.getText().length() > 8) {
+            msg = msg + "Ingrese un DNI válido\n";
+            focus = 0;
+        } else if (!inputStringIngresado(txt_name.getText())) {
+            msg = msg + "Ingrese su nombre\n";
+            focus = 1;
+        } else if (!inputStringIngresado(txt_apellidoPAT.getText())) {
+            msg = msg + "Ingrese el apellido paterno\n";
+            focus = 2;
+        } else if (!inputStringIngresado(txt_apellidoMAT.getText())) {
+            msg = msg + "Ingrese el apellido materno\n";
+            focus = 3;
+        } else if (!inputStringIngresado(txt_phone.getText())) {
+            msg = msg + "ingrese un numero de celular\n";
+            focus = 4;
+        } else if (!inputStringIngresado(txt_direccion.getText())) {
+            msg = msg + "Ingrese su dirección\n";
+            focus = 6;
+        } else if (!esEmail(txt_email.getText()) || txt_email.getText().length() <= 0) {
+            msg = msg + "El correo electrónico no es válido\n";
+            focus = 5;
+        }
+        
+        try {
+            if (msg.length() > 0) {
+                JOptionPane.showMessageDialog(null, msg,
+                        "Dental SyS", JOptionPane.ERROR_MESSAGE);
+                switch (focus) {
+                    case 0:
+                        txt_dni.requestFocus();
+                        break;
+                    case 1:
+                        txt_name.requestFocus();
+                        break;
+                    case 2:
+                        txt_apellidoPAT.requestFocus();
+                        break;
+                    case 3:
+                        txt_apellidoMAT.requestFocus();
+                        break;
+                    case 4:
+                        txt_phone.requestFocus();
+                        break;
+                    case 5:
+                        txt_email.requestFocus();
+                        break;
+                    case 6:
+                        txt_direccion.requestFocus();
+                        break;
+                    default:
+                        txt_dni.requestFocus();
+                        break;
+                }
+            } else {
+                
+                Patient patient = new Patient();
+                patient.setDni(txt_dni.getText());
+                patient.setName(txt_name.getText());
+                patient.setLastname(txt_apellidoPAT.getText());
+                patient.setSurename(txt_apellidoMAT.getText());
+                patient.setPhone(txt_phone.getText());
+                patient.setEmail(txt_email.getText());
+                patient.setAddress(txt_direccion.getText());
+                
+                String Ubigeo_Code = ubigeo_lista_dep.get(cbx_departamento.getSelectedIndex()).getCodigo_departamento() +
+                                     ubigeo_lista_dep_pro.get(cbx_provincia.getSelectedIndex()).getCodigo_provincia() + 
+                                     ubigeo_lista_dep_pro_dis.get(cbx_distrito.getSelectedIndex()).getCodigo_distrito();
+
+                patient.setUbigeo(Ubigeo_Code);
+                
+                patient.setEnable(true);
+                
+                CTR_02_Patient ctrp = new CTR_02_Patient();
+                
+                if (id > 0) {
+                    //modificar
+                    patient.setId(id);
+                    ctrp.UpdatePatient(patient);
+                    btn_cancelar_cambios.setEnabled(false);
+                    btn_guardar_paciente.setEnabled(false);
+                    btn_buscar_reniec.setEnabled(false);
+                    btn_nuevo_paciente.setEnabled(true);
+                    Limpiar();
+                    dto = new Patient();
+                    id = 0;
+                    //frm_02_Patient frame = (frm_02_Patient) this.getTopLevelAncestor();
+                    //frame.mensaje();
+                    mensaje();
+                } else {
+                    // insertar
+                    if (patient.getId() == 0) {
+                        patient = ctrp.InsertPatient(patient);
+                        btn_cancelar_cambios.setEnabled(false);
+                        btn_guardar_paciente.setEnabled(false);
+                        btn_buscar_reniec.setEnabled(false);
+                        Limpiar();
+                        // frm_02_Patient frame = (frm_02_Patient) this.getTopLevelAncestor();
+                        // frame.mensaje();
+                        mensaje();
+                        new rojerusan.RSNotifyFade("DentalSys", "Se guardaron los cambios correctamente.", 7,
+                                RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.SUCCESS).setVisible(true);
+                    } else {
+                        
+                        new rojerusan.RSNotifyFade("DentalSys", "No se guardaron los datos! \n Intente nuevamente", 7,
+                                RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.WARNING).setVisible(true);
+                    }
+                }
+                
+            }
+            
+        } catch (SQLException ex) {
+            // Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            //Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_guardar_pacienteActionPerformed
+
+    private void btn_nuevo_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_pacienteActionPerformed
+ Limpiar();
+        txt_dni.setEnabled(true);
+        txt_name.setEnabled(true);
+        txt_apellidoPAT.setEnabled(true);
+        txt_apellidoMAT.setEnabled(true);
+        txt_phone.setEnabled(true);
+        txt_email.setEnabled(true);
+        txt_direccion.setEnabled(true);
+        btn_cancelar_cambios.setEnabled(true);
+        btn_guardar_paciente.setEnabled(true);
+        btn_buscar_reniec.setEnabled(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_nuevo_pacienteActionPerformed
+
+    private void btn_modificar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificar_pacienteActionPerformed
+  try {
+            Patient dto = new Patient();
+            dto = cTR_02_Patient.SelectPatient(this.id);
+            
+            btn_modificar_paciente.setEnabled(false);
+            btn_nuevo_paciente.setEnabled(false);
+            btn_cancelar_cambios.setEnabled(true);
+            btn_guardar_paciente.setEnabled(true);
+            txt_dni.setText(dto.getDni());
+            txt_dni.setEnabled(false);
+            txt_name.setEnabled(true);
+            txt_apellidoPAT.setEnabled(true);
+            txt_apellidoMAT.setEnabled(true);
+            txt_phone.setEnabled(true);
+            txt_email.setEnabled(true);
+            txt_direccion.setEnabled(true);
+            
+            txt_name.setText(dto.getName());
+            txt_apellidoPAT.setText(dto.getLastname());
+            txt_apellidoMAT.setText(dto.getSurename());
+            txt_phone.setText(dto.getPhone());
+            txt_email.setText(dto.getEmail());
+            txt_direccion.setText(dto.getAddress());
+            btn_buscar_reniec.setEnabled(false);
+            
+            // substring en el string
+            String cod_dep = dto.getUbigeo().substring(0, 2);
+            String cod_prov = dto.getUbigeo().substring(2, 4);
+            String cod_dist = dto.getUbigeo().substring(4, 6);
+            
+            for(int a = 0; a < ubigeo_lista_dep.size(); a++){
+                if(ubigeo_lista_dep.get(a).getCodigo_departamento().equals(cod_dep)){
+                    cbx_departamento.setSelectedIndex(a);
+                    break;
+                }
+            }
+            
+            for(int a = 0; a < ubigeo_lista_dep_pro.size(); a++){
+                if(ubigeo_lista_dep_pro.get(a).getCodigo_provincia().equals(cod_prov)){
+                    cbx_provincia.setSelectedIndex(a);
+                    break;
+                }
+            }
+
+            for(int a = 0; a < ubigeo_lista_dep_pro_dis.size(); a++){
+                if(ubigeo_lista_dep_pro_dis.get(a).getCodigo_distrito().equals(cod_dist)){
+                    cbx_distrito.setSelectedIndex(a);
+                    break;
+                }
+            }
+            
+            int a = 0;            
+            
+            // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_02_Patient_Detail.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_02_Patient_Detail.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_modificar_pacienteActionPerformed
+
+    private void btn_cancelar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambiosActionPerformed
+ Limpiar();
+        txt_dni.setEnabled(false);
+        btn_buscar_reniec.setEnabled(false);
+        txt_name.setEnabled(false);
+        txt_apellidoPAT.setEnabled(false);
+        txt_apellidoMAT.setEnabled(false);
+        txt_phone.setEnabled(false);
+        txt_email.setEnabled(false);
+        txt_direccion.setEnabled(false);
+        btn_cancelar_cambios.setEnabled(false);
+        btn_guardar_paciente.setEnabled(false);
+        btn_modificar_paciente.setEnabled(false);
+        btn_nuevo_paciente.setEnabled(true);
+        dto = new Patient();
+        id = 0;        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelar_cambiosActionPerformed
+ private boolean editable;
+    private Patient dto;
+    
+    public Patient getDto() {
+        return dto;
+    }
+    
+    public void setDto(Patient dto) {
+        this.dto = dto;
+    }
+    
+    private long id;
+    
+    public long getId() {
+        return id;
+    }
+    
+    public void setId(long id) {
+        this.id = id;
+    }
+    
+    public boolean isEditable() {
+        return editable;
+    }
+    
+    public void setEditable(boolean editable) {
+        btn_modificar_paciente.setEnabled(editable);
+    }
+    
+    public void Limpiar() {
+        txt_dni.setText("");
+        txt_name.setText("");
+        txt_apellidoPAT.setText("");
+        txt_apellidoMAT.setText("");
+        txt_phone.setText("");
+        txt_email.setText("");
+        txt_direccion.setText("");
+        cbx_departamento.setSelectedIndex(0);
+        cbx_provincia.setSelectedIndex(0);
+        cbx_distrito.setSelectedIndex(0);
+        txt_dni.requestFocus();
+        
+        txt_dni.setEnabled(false);
+        txt_name.setEnabled(false);
+        txt_apellidoPAT.setEnabled(false);
+        txt_apellidoMAT.setEnabled(false);
+        txt_phone.setEnabled(false);
+        txt_email.setEnabled(false);
+        txt_direccion.setEnabled(false);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_buscar_reniec;
@@ -493,7 +1047,7 @@ public class frm_UI_01_Patien extends javax.swing.JPanel {
     private newscomponents.RSButtonFlat_new btn_guardar_paciente;
     private newscomponents.RSButtonFlat_new btn_modificar_paciente;
     private newscomponents.RSButtonFlat_new btn_nuevo_paciente;
-    private RSMaterialComponent.RSComboBoxMaterial cbx_departamento1;
+    private RSMaterialComponent.RSComboBoxMaterial cbx_departamento;
     private RSMaterialComponent.RSComboBoxMaterial cbx_distrito;
     private RSMaterialComponent.RSComboBoxMaterial cbx_provincia;
     private javax.swing.JLabel jLabel1;

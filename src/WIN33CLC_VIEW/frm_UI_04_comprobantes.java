@@ -31,6 +31,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         menu_salir3 = new RSMaterialComponent.RSPanelMaterial();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePatients = new rojerusan.RSTableMetro();
@@ -48,7 +49,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         menu_salir4 = new RSMaterialComponent.RSPanelMaterial();
         jLabel16 = new javax.swing.JLabel();
         txt_dni = new rojerusan.RSMetroTextPlaceHolder();
-        btn_buscar_reniec1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_buscar_paciente = new RSMaterialComponent.RSButtonMaterialGradientOne();
         menu_salir5 = new RSMaterialComponent.RSPanelMaterial();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -59,6 +60,8 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         fSTexFieldMD1 = new LIB.FSTexFieldMD();
         menu_salir6 = new RSMaterialComponent.RSPanelMaterial();
+        jLabel19 = new javax.swing.JLabel();
+        lbl_total_pago = new javax.swing.JLabel();
 
         menu_salir3.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir3.setBgShade(new java.awt.Color(204, 204, 204));
@@ -200,6 +203,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         menu_salir2.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir2.setRound(40);
 
+        buttonGroup1.add(rSCheckBoxMaterial1);
         rSCheckBoxMaterial1.setForeground(new java.awt.Color(51, 51, 51));
         rSCheckBoxMaterial1.setText("BOLETA");
         rSCheckBoxMaterial1.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -207,6 +211,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         rSCheckBoxMaterial1.setFocusPainted(false);
         rSCheckBoxMaterial1.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
 
+        buttonGroup1.add(rSCheckBoxMaterial2);
         rSCheckBoxMaterial2.setForeground(new java.awt.Color(51, 51, 51));
         rSCheckBoxMaterial2.setText("FACTURA");
         rSCheckBoxMaterial2.setColorCheck(new java.awt.Color(0, 112, 192));
@@ -249,16 +254,16 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         txt_dni.setBotonColor(new java.awt.Color(3, 111, 198));
         txt_dni.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
-        btn_buscar_reniec1.setForeground(new java.awt.Color(51, 51, 51));
-        btn_buscar_reniec1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-encuentra-hombre-usuario-24.png"))); // NOI18N
-        btn_buscar_reniec1.setText("Buscar en Reniec");
-        btn_buscar_reniec1.setBorderPainted(false);
-        btn_buscar_reniec1.setColorPrimario(new java.awt.Color(41, 177, 255));
-        btn_buscar_reniec1.setColorPrimarioHover(new java.awt.Color(41, 177, 255));
-        btn_buscar_reniec1.setColorSecundario(new java.awt.Color(41, 177, 255));
-        btn_buscar_reniec1.setColorSecundarioHover(new java.awt.Color(41, 177, 255));
-        btn_buscar_reniec1.setFocusPainted(false);
-        btn_buscar_reniec1.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
+        btn_buscar_paciente.setForeground(new java.awt.Color(51, 51, 51));
+        btn_buscar_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-encuentra-hombre-usuario-24.png"))); // NOI18N
+        btn_buscar_paciente.setText("Buscar Paciente");
+        btn_buscar_paciente.setBorderPainted(false);
+        btn_buscar_paciente.setColorPrimario(new java.awt.Color(41, 177, 255));
+        btn_buscar_paciente.setColorPrimarioHover(new java.awt.Color(41, 177, 255));
+        btn_buscar_paciente.setColorSecundario(new java.awt.Color(41, 177, 255));
+        btn_buscar_paciente.setColorSecundarioHover(new java.awt.Color(41, 177, 255));
+        btn_buscar_paciente.setFocusPainted(false);
+        btn_buscar_paciente.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout menu_salir4Layout = new javax.swing.GroupLayout(menu_salir4);
         menu_salir4.setLayout(menu_salir4Layout);
@@ -270,7 +275,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                 .addGap(7, 7, 7)
                 .addComponent(txt_dni, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(btn_buscar_reniec1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                .addComponent(btn_buscar_paciente, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         menu_salir4Layout.setVerticalGroup(
@@ -280,7 +285,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                 .addGroup(menu_salir4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_buscar_reniec1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_buscar_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -379,15 +384,33 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         menu_salir6.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir6.setRound(40);
 
+        jLabel19.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel19.setText("TOTAL A PAGAR ");
+
+        lbl_total_pago.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lbl_total_pago.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_total_pago.setText("S/.000000");
+
         javax.swing.GroupLayout menu_salir6Layout = new javax.swing.GroupLayout(menu_salir6);
         menu_salir6.setLayout(menu_salir6Layout);
         menu_salir6Layout.setHorizontalGroup(
             menu_salir6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir6Layout.createSequentialGroup()
+                .addContainerGap(302, Short.MAX_VALUE)
+                .addGroup(menu_salir6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_total_pago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
         menu_salir6Layout.setVerticalGroup(
             menu_salir6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(menu_salir6Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_total_pago)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -425,11 +448,12 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private RSMaterialComponent.RSButtonMaterialGradientOne btn_buscar_reniec1;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_buscar_paciente;
     private newscomponents.RSButtonFlat_new btn_cancelar_cambios;
     private newscomponents.RSButtonFlat_new btn_imprimir_comprobante;
     private newscomponents.RSButtonFlat_new btn_nuevo_comprobante;
     private newscomponents.RSButtonFlat_new btn_pagar_comprobante;
+    private javax.swing.ButtonGroup buttonGroup1;
     private LIB.FSTexFieldMD fSTexFieldMD1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -441,8 +465,10 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_patient;
+    private javax.swing.JLabel lbl_total_pago;
     private RSMaterialComponent.RSPanelMaterial menu_salir2;
     private RSMaterialComponent.RSPanelMaterial menu_salir3;
     private RSMaterialComponent.RSPanelMaterial menu_salir4;

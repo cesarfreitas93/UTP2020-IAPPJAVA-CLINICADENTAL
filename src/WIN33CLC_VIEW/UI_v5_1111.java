@@ -23,9 +23,10 @@ boolean a=true;
 
     public UI_v5_1111() {
         initComponents();
-       // rSPanelMaterial4.setBackground(new Color (255,255,255,5));
+        rSPanelMaterial4.setBackground(new Color (255,255,255,0));
+        rSPanelMaterial4.setOpaque(false);
 
-       rSPanelsSlider1.setBackground(new Color (255,255,255,255));
+      
         setBackground(new Color (255,255,255,200));
         setLocationRelativeTo(null);
        
@@ -34,6 +35,17 @@ boolean a=true;
        labels_iniciales();
     
         colores_menus_despegables();
+        
+        
+        
+           frm_UI_01_Patien1.ocultar_form_patient(false);
+           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
+           frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
+           frm_UI_05_servicios1.ocultar_form_servicios(false);
+           frm_UI_06_especialista1.ocultar_form_especialista(false);
+           frm_UI_07_usuarios1.ocultar_form_usuarios(false);
+           frm_UI_inicio2.ocultar_form_inicio(true);
         
     }
 
@@ -58,9 +70,8 @@ boolean a=true;
         btn_especialista = new RSMaterialComponent.RSButtonMaterialGradientOne();
         lblespecialista = new javax.swing.JLabel();
         rSPanelMaterial4 = new RSMaterialComponent.RSPanelMaterial();
-        rSPanelsSlider1 = new rojerusan.RSPanelsSlider();
         panel_inicio = new javax.swing.JPanel();
-        frm_UI_inicio1 = new WIN33CLC_VIEW.frm_UI_inicio();
+        frm_UI_inicio2 = new WIN33CLC_VIEW.frm_UI_inicio();
         panel_paciente = new javax.swing.JPanel();
         frm_UI_01_Patien1 = new WIN33CLC_VIEW.frm_UI_01_Patien();
         panel_cita = new javax.swing.JPanel();
@@ -418,67 +429,61 @@ boolean a=true;
         rSPanelMaterial4.setRound(40);
         rSPanelMaterial4.setLayout(new java.awt.CardLayout());
 
+        panel_inicio.setBackground(new java.awt.Color(255, 255, 255));
         panel_inicio.setName("panel_inicio"); // NOI18N
         panel_inicio.setLayout(new java.awt.CardLayout());
+        panel_inicio.add(frm_UI_inicio2, "card2");
 
-        javax.swing.GroupLayout frm_UI_inicio1Layout = new javax.swing.GroupLayout(frm_UI_inicio1);
-        frm_UI_inicio1.setLayout(frm_UI_inicio1Layout);
-        frm_UI_inicio1Layout.setHorizontalGroup(
-            frm_UI_inicio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1021, Short.MAX_VALUE)
-        );
-        frm_UI_inicio1Layout.setVerticalGroup(
-            frm_UI_inicio1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 746, Short.MAX_VALUE)
-        );
+        rSPanelMaterial4.add(panel_inicio, "card3");
 
-        panel_inicio.add(frm_UI_inicio1, "card2");
-
-        rSPanelsSlider1.add(panel_inicio, "card3");
-
+        panel_paciente.setBackground(new java.awt.Color(255, 255, 255));
         panel_paciente.setName("panel_paciente"); // NOI18N
         panel_paciente.setLayout(new java.awt.CardLayout());
         panel_paciente.add(frm_UI_01_Patien1, "card2");
 
-        rSPanelsSlider1.add(panel_paciente, "card3");
+        rSPanelMaterial4.add(panel_paciente, "card3");
 
+        panel_cita.setBackground(new java.awt.Color(255, 255, 255));
         panel_cita.setName("panel_cita"); // NOI18N
         panel_cita.setLayout(new java.awt.CardLayout());
         panel_cita.add(frm_UI_02_reservar_cita1, "card2");
 
-        rSPanelsSlider1.add(panel_cita, "card3");
+        rSPanelMaterial4.add(panel_cita, "card3");
 
+        panel_gestion_cita.setBackground(new java.awt.Color(255, 255, 255));
         panel_gestion_cita.setName("panel_gestion_cita"); // NOI18N
         panel_gestion_cita.setLayout(new java.awt.CardLayout());
         panel_gestion_cita.add(frm_UI_03_gestionar_citas1, "card2");
 
-        rSPanelsSlider1.add(panel_gestion_cita, "card2");
+        rSPanelMaterial4.add(panel_gestion_cita, "card2");
 
+        panel_comprobante.setBackground(new java.awt.Color(255, 255, 255));
         panel_comprobante.setName("panel_comprobante"); // NOI18N
         panel_comprobante.setLayout(new java.awt.CardLayout());
         panel_comprobante.add(frm_UI_04_comprobantes2, "card2");
 
-        rSPanelsSlider1.add(panel_comprobante, "card3");
+        rSPanelMaterial4.add(panel_comprobante, "card3");
 
+        panel_servicios.setBackground(new java.awt.Color(255, 255, 255));
         panel_servicios.setName("panel_servicios"); // NOI18N
         panel_servicios.setLayout(new java.awt.CardLayout());
         panel_servicios.add(frm_UI_05_servicios1, "card2");
 
-        rSPanelsSlider1.add(panel_servicios, "card3");
+        rSPanelMaterial4.add(panel_servicios, "card3");
 
+        panel_especialista.setBackground(new java.awt.Color(255, 255, 255));
         panel_especialista.setName("panel_especialista"); // NOI18N
         panel_especialista.setLayout(new java.awt.CardLayout());
         panel_especialista.add(frm_UI_06_especialista1, "card2");
 
-        rSPanelsSlider1.add(panel_especialista, "card3");
+        rSPanelMaterial4.add(panel_especialista, "card3");
 
+        panel_usuarios.setBackground(new java.awt.Color(255, 255, 255));
         panel_usuarios.setName("panel_usuarios"); // NOI18N
         panel_usuarios.setLayout(new java.awt.CardLayout());
         panel_usuarios.add(frm_UI_07_usuarios1, "card2");
 
-        rSPanelsSlider1.add(panel_usuarios, "card3");
-
-        rSPanelMaterial4.add(rSPanelsSlider1, "card2");
+        rSPanelMaterial4.add(panel_usuarios, "card3");
 
         menu_ventana.setBackground(new java.awt.Color(255, 255, 255));
         menu_ventana.setBgShade(new java.awt.Color(204, 204, 204));
@@ -1346,7 +1351,7 @@ boolean a=true;
                             .addComponent(menu_bd, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panel_despegable_ventana, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(panel_despegable_ventana, javax.swing.GroupLayout.PREFERRED_SIZE, 110, Short.MAX_VALUE)
                             .addComponent(menu_ventana, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(rSPanelMaterial4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1434,14 +1439,32 @@ boolean a=true;
             this.btn_cita.setSelected(false);
             this.btn_gestionar_cita.setSelected(false);
             this.btn_factura.setSelected(false);
-            
             this.btn_servicios.setSelected(false);
-            this.btn_especialista.setSelected(false);
-            
+            this.btn_especialista.setSelected(false);            
             this.btn_reportes.setSelected(false);
             this.btn_usuario.setSelected(false);
             
-            rSPanelsSlider1.slidPanel(10, panel_inicio, RSPanelsSlider.direct.Right);
+            panel_inicio.setVisible(true);
+            panel_paciente.setVisible(false);
+            panel_cita.setVisible(false);
+            panel_gestion_cita.setVisible(false);
+            panel_comprobante.setVisible(false);
+            panel_servicios.setVisible(false);
+            panel_especialista.setVisible(false);
+            panel_usuarios.setVisible(false);
+
+           frm_UI_01_Patien1.ocultar_form_patient(false);
+           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
+           frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
+           frm_UI_05_servicios1.ocultar_form_servicios(false);
+           frm_UI_06_especialista1.ocultar_form_especialista(false);
+           frm_UI_07_usuarios1.ocultar_form_usuarios(false);
+           frm_UI_inicio2.ocultar_form_inicio(true);
+            
+
+    
+                   
         }
         
         lblinicio.setBackground(new Color(101,208,250));
@@ -1470,18 +1493,27 @@ boolean a=true;
             this.btn_reportes.setSelected(false);
             this.btn_usuario.setSelected(false);
             
-            
-            
-            rSPanelsSlider1.slidPanel(10, panel_paciente, RSPanelsSlider.direct.Right);
-            
-           // frm_UI_02_reservar_cita1.ocultar_form_cita(false);
-            
-            
             panel_inicio.setVisible(false);
+            panel_paciente.setVisible(true);
             panel_cita.setVisible(false);
-            panel_comprobante.setVisible(false);
             panel_gestion_cita.setVisible(false);
+            panel_comprobante.setVisible(false);
             panel_servicios.setVisible(false);
+            panel_especialista.setVisible(false);
+            panel_usuarios.setVisible(false);
+            
+           frm_UI_01_Patien1.ocultar_form_patient(true);
+           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
+           frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
+           frm_UI_05_servicios1.ocultar_form_servicios(false);
+           frm_UI_06_especialista1.ocultar_form_especialista(false);
+           frm_UI_07_usuarios1.ocultar_form_usuarios(false);
+           frm_UI_inicio2.ocultar_form_inicio(false);
+           
+            
+
+   
         }
         
         
@@ -1510,9 +1542,29 @@ boolean a=true;
             this.btn_reportes.setSelected(false);
             this.btn_usuario.setSelected(false);
             
+            panel_inicio.setVisible(false);
+            panel_paciente.setVisible(false);
+            panel_cita.setVisible(true);
+            panel_gestion_cita.setVisible(false);
+            panel_comprobante.setVisible(false);
+            panel_servicios.setVisible(false);
+            panel_especialista.setVisible(false);
+            panel_usuarios.setVisible(false);
+            
+           frm_UI_01_Patien1.ocultar_form_patient(false);
+           frm_UI_02_reservar_cita1.ocultar_form_cita(true);
+           frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
+           frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
+           frm_UI_05_servicios1.ocultar_form_servicios(false);
+           frm_UI_06_especialista1.ocultar_form_especialista(false);
+           frm_UI_07_usuarios1.ocultar_form_usuarios(false);
+           frm_UI_inicio2.ocultar_form_inicio(false);
+            
+     
+             
         }
         
-        rSPanelsSlider1.slidPanel(10, panel_cita, RSPanelsSlider.direct.Right);
+       
         
         
         lblinicio.setBackground(new Color(255,255,255));
@@ -1538,9 +1590,31 @@ boolean a=true;
             this.btn_especialista.setSelected(false);
             this.btn_reportes.setSelected(false);
             this.btn_usuario.setSelected(false);
+            
+            panel_gestion_cita.updateUI();
+            
+            panel_inicio.setVisible(false);
+            panel_paciente.setVisible(false);
+            panel_cita.setVisible(false);
+            panel_gestion_cita.setVisible(true);
+            panel_comprobante.setVisible(false);
+            panel_servicios.setVisible(false);
+            panel_especialista.setVisible(false);
+            panel_usuarios.setVisible(false);
+            
+             frm_UI_01_Patien1.ocultar_form_patient(false);
+           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_03_gestionar_citas1.ocultar_form_gestion(true);
+           frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
+           frm_UI_05_servicios1.ocultar_form_servicios(false);
+           frm_UI_06_especialista1.ocultar_form_especialista(false);
+           frm_UI_07_usuarios1.ocultar_form_usuarios(false);
+           frm_UI_inicio2.ocultar_form_inicio(false);
+        
+        
         }
         
-        rSPanelsSlider1.slidPanel(10, panel_gestion_cita, RSPanelsSlider.direct.Right);
+          
         
         lblinicio.setBackground(new Color(255,255,255));
         lblpacientes.setBackground(new Color(255,255,255));
@@ -1568,7 +1642,25 @@ boolean a=true;
             this.btn_reportes.setSelected(false);
             this.btn_usuario.setSelected(false);
             
-             rSPanelsSlider1.slidPanel(10, panel_comprobante, RSPanelsSlider.direct.Right);
+              panel_inicio.setVisible(false);
+            panel_paciente.setVisible(false);
+            panel_cita.setVisible(false);
+            panel_gestion_cita.setVisible(false);
+            panel_comprobante.setVisible(true);
+            panel_servicios.setVisible(false);
+            panel_especialista.setVisible(false);
+            panel_usuarios.setVisible(false);
+            
+           frm_UI_01_Patien1.ocultar_form_patient(false);
+           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
+           frm_UI_04_comprobantes2.ocultar_form_comprobantes(true);
+           frm_UI_05_servicios1.ocultar_form_servicios(false);
+           frm_UI_06_especialista1.ocultar_form_especialista(false);
+           frm_UI_07_usuarios1.ocultar_form_usuarios(false);
+           frm_UI_inicio2.ocultar_form_inicio(false);
+           
+            
          }
          
         lblinicio.setBackground(new Color(255,255,255));
@@ -1581,6 +1673,61 @@ boolean a=true;
         lblbasedatos.setBackground(new Color(255,255,255));
         lblusuarios.setBackground(new Color(255,255,255));
     }
+    
+    public void boton_reportes ()
+    {
+        
+         if(a==true){
+       
+                 hideshow(panel_despegable_1, a);
+           hideshow(panel_despegable_titulo_1, a);
+            hideshow(panel_despegable_salir_1, a);
+            hideshow(panel_despegable_reportes, a);
+            
+           hideshow(panel_despegable_2, a);
+           hideshow(panel_despegable_titulo_2, a);
+           hideshow(panel_despegable_base_datos, a);
+           hideshow(panel_despegable_ventana, a);
+            
+          SwingUtilities.updateComponentTreeUI(this);
+                    
+          a=false;
+          
+            changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
+            changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
+        }
+        else{
+         
+              hideshow(panel_despegable_1, a);
+              hideshow(panel_despegable_titulo_1, a);
+            hideshow(panel_despegable_salir_1, a);
+            hideshow(panel_despegable_reportes, a);
+            
+         
+            
+            SwingUtilities.updateComponentTreeUI(this);
+            a=true;
+            changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-atrás-30.png");
+            
+            
+          
+   }
+        
+        
+        
+        
+        lblinicio.setBackground(new Color(255,255,255));
+        lblpacientes.setBackground(new Color(255,255,255));
+        lblcita.setBackground(new Color(255,255,255));
+        lblgestionar_cita.setBackground(new Color(255,255,255));
+        lblfactura.setBackground(new Color(255,255,255));
+        lblreporte.setBackground(new Color(101,208,250));
+        lblservicios.setBackground(new Color(255,255,255));
+        lblespecialista.setBackground(new Color(255,255,255));
+        lblbasedatos.setBackground(new Color(255,255,255));
+        lblusuarios.setBackground(new Color(255,255,255));
+    }
+    
     
     public void boton_servicios()
     {
@@ -1596,7 +1743,25 @@ boolean a=true;
             this.btn_reportes.setSelected(false);
             this.btn_usuario.setSelected(false);
             
-            rSPanelsSlider1.slidPanel(10,panel_servicios, RSPanelsSlider.direct.Left);
+            panel_inicio.setVisible(false);
+            panel_paciente.setVisible(false);
+            panel_cita.setVisible(false);
+            panel_gestion_cita.setVisible(false);
+            panel_comprobante.setVisible(false);
+            panel_servicios.setVisible(true);
+            panel_especialista.setVisible(false);
+            panel_usuarios.setVisible(false);
+            
+           frm_UI_01_Patien1.ocultar_form_patient(false);
+           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
+           frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
+           frm_UI_05_servicios1.ocultar_form_servicios(true);
+           frm_UI_06_especialista1.ocultar_form_especialista(false);
+           frm_UI_07_usuarios1.ocultar_form_usuarios(false);
+           frm_UI_inicio2.ocultar_form_inicio(false);
+            
+            
             
         }
         lblinicio.setBackground(new Color(255,255,255));
@@ -1624,9 +1789,25 @@ boolean a=true;
             this.btn_reportes.setSelected(false);
             this.btn_usuario.setSelected(false);
             
+            panel_inicio.setVisible(false);
+            panel_paciente.setVisible(false);
+            panel_cita.setVisible(false);
+            panel_gestion_cita.setVisible(false);
+            panel_comprobante.setVisible(false);
+            panel_servicios.setVisible(false);
+            panel_especialista.setVisible(true);
+            panel_usuarios.setVisible(false);
             
+           frm_UI_01_Patien1.ocultar_form_patient(false);
+           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
+           frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
+           frm_UI_05_servicios1.ocultar_form_servicios(false);
+           frm_UI_06_especialista1.ocultar_form_especialista(true);
+           frm_UI_07_usuarios1.ocultar_form_usuarios(false);
+           frm_UI_inicio2.ocultar_form_inicio(false);
             
-            rSPanelsSlider1.slidPanel(10,panel_especialista, RSPanelsSlider.direct.Left);
+           
         }
         lblinicio.setBackground(new Color(255,255,255));
         lblpacientes.setBackground(new Color(255,255,255));
@@ -1641,6 +1822,37 @@ boolean a=true;
      
      public void boton_base_datos()
     {
+        if(a==true){
+         hideshow(panel_despegable_titulo_2, a);
+          hideshow(panel_despegable_2, a);
+          hideshow(panel_despegable_base_datos, a);
+         hideshow(panel_despegable_ventana, a);
+         
+          hideshow(panel_despegable_1, a);
+           hideshow(panel_despegable_titulo_1, a);
+            hideshow(panel_despegable_salir_1, a);
+            hideshow(panel_despegable_reportes, a);
+         
+          SwingUtilities.updateComponentTreeUI(this);
+                    
+          a=false;
+          
+            changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
+            changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
+        }
+        else{
+            hideshow(panel_despegable_2, a);
+            hideshow(panel_despegable_titulo_2, a);
+        
+        hideshow(panel_despegable_base_datos, a);
+         hideshow(panel_despegable_ventana, a);
+            SwingUtilities.updateComponentTreeUI(this);
+            a=true;
+            
+              changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-adelante-30.png");
+   }//       
+        
+        
         lblinicio.setBackground(new Color(255,255,255));
         lblpacientes.setBackground(new Color(255,255,255));
         lblcita.setBackground(new Color(255,255,255));
@@ -1666,9 +1878,25 @@ boolean a=true;
             this.btn_reportes.setSelected(false);
             this.btn_usuario.setSelected(true);
             
+            panel_inicio.setVisible(false);
+            panel_paciente.setVisible(false);
+            panel_cita.setVisible(false);
+            panel_gestion_cita.setVisible(false);
+            panel_comprobante.setVisible(false);
+            panel_servicios.setVisible(false);
+            panel_especialista.setVisible(false);
+            panel_usuarios.setVisible(true);
             
+           frm_UI_01_Patien1.ocultar_form_patient(false);
+           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
+           frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
+           frm_UI_05_servicios1.ocultar_form_servicios(false);
+           frm_UI_06_especialista1.ocultar_form_especialista(false);
+           frm_UI_07_usuarios1.ocultar_form_usuarios(true);
+           frm_UI_inicio2.ocultar_form_inicio(false);
             
-            rSPanelsSlider1.slidPanel(10,panel_usuarios, RSPanelsSlider.direct.Left);
+         
         }
         lblinicio.setBackground(new Color(255,255,255));
         lblpacientes.setBackground(new Color(255,255,255));
@@ -1776,7 +2004,7 @@ lblinicio.setBackground(new Color(101,208,250));         // TODO add your handli
     }//GEN-LAST:event_btn_inicioMouseExited
 
     private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
-boton_inicio();        // TODO add your handling code here:
+boton_inicio();       // TODO add your handling code here:
     }//GEN-LAST:event_btn_inicioActionPerformed
 
     private void btn_salirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salirMouseEntered
@@ -1904,7 +2132,7 @@ boton_especialistas();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_especialistaActionPerformed
 
     private void btn_base_datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_base_datosActionPerformed
-        // TODO add your handling code here:
+boton_base_datos();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_base_datosActionPerformed
 
     private void btn_base_datosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_base_datosMouseExited
@@ -2072,7 +2300,7 @@ lblreporte.setBackground(new Color(101,208,250));         // TODO add your handl
     }//GEN-LAST:event_btn_reportesMouseExited
 
     private void btn_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reportesActionPerformed
-        // TODO add your handling code here:
+        boton_reportes();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_reportesActionPerformed
 
     private void lbl_menu_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_menu_2MouseClicked
@@ -2153,7 +2381,7 @@ if(a==true){
     private WIN33CLC_VIEW.frm_UI_05_servicios frm_UI_05_servicios1;
     private WIN33CLC_VIEW.frm_UI_06_especialista frm_UI_06_especialista1;
     private WIN33CLC_VIEW.frm_UI_07_usuarios frm_UI_07_usuarios1;
-    private WIN33CLC_VIEW.frm_UI_inicio frm_UI_inicio1;
+    private WIN33CLC_VIEW.frm_UI_inicio frm_UI_inicio2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_menu_1;
@@ -2193,6 +2421,5 @@ if(a==true){
     private javax.swing.JPanel panel_servicios;
     private javax.swing.JPanel panel_usuarios;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial4;
-    private rojerusan.RSPanelsSlider rSPanelsSlider1;
     // End of variables declaration//GEN-END:variables
 }

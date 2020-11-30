@@ -538,6 +538,7 @@
             <Container class="javax.swing.JPanel" name="panel_inicio">
               <Properties>
                 <Property name="name" type="java.lang.String" value="panel_inicio" noResource="true"/>
+                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
@@ -559,6 +560,7 @@
             <Container class="javax.swing.JPanel" name="panel_paciente">
               <Properties>
                 <Property name="name" type="java.lang.String" value="panel_paciente" noResource="true"/>
+                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">

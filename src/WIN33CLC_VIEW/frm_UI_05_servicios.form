@@ -61,13 +61,13 @@
                   <EmptySpace pref="189" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="txt_phone" min="-2" pref="108" max="-2" attributes="0"/>
+                          <Component id="txt_precio_servicio" min="-2" pref="108" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="chk_estado" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txt_name" alignment="0" pref="304" max="32767" attributes="0"/>
+                      <Component id="txt_nombre_servicio" alignment="0" pref="304" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="236" max="32767" attributes="0"/>
               </Group>
@@ -79,12 +79,12 @@
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txt_name" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_nombre_servicio" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_phone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_precio_servicio" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="chk_estado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="36" max="32767" attributes="0"/>
@@ -104,7 +104,7 @@
             <Property name="text" type="java.lang.String" value="NOMBRE DEL SERVICIO"/>
           </Properties>
         </Component>
-        <Component class="rojerusan.RSMetroTextPlaceHolder" name="txt_name">
+        <Component class="rojerusan.RSMetroTextPlaceHolder" name="txt_nombre_servicio">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -131,7 +131,7 @@
             <Property name="text" type="java.lang.String" value="PRECIO DEL SERVICIO"/>
           </Properties>
         </Component>
-        <Component class="rojerusan.RSMetroTextFullPlaceHolder" name="txt_phone">
+        <Component class="rojerusan.RSMetroTextFullPlaceHolder" name="txt_precio_servicio">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -210,7 +210,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="rojerusan.RSTableMetro" name="table_servicios">
+            <Component class="rojerusan.RSTableMetro" name="table_services">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="4a" green="4a" red="4a" type="rgb"/>
@@ -287,7 +287,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btn_modificar_paciente" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_modificar_servicio" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_cancelar_cambios" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_guardar_servicio" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_nuevo_servicios" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -317,7 +317,7 @@
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   <Component id="btn_guardar_servicio" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                  <Component id="btn_modificar_paciente" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_modificar_servicio" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="btn_cancelar_cambios" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
@@ -361,6 +361,9 @@
               <Font name="Segoe UI Black" size="15" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_nuevo_serviciosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="newscomponents.RSButtonFlat_new" name="btn_guardar_servicio">
           <Properties>
@@ -378,8 +381,11 @@
               <Font name="Segoe UI Black" size="15" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_guardar_servicioActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="newscomponents.RSButtonFlat_new" name="btn_modificar_paciente">
+        <Component class="newscomponents.RSButtonFlat_new" name="btn_modificar_servicio">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fd" green="a0" red="0" type="rgb"/>
@@ -395,6 +401,9 @@
               <Font name="Segoe UI Black" size="15" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modificar_servicioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="newscomponents.RSButtonFlat_new" name="btn_cancelar_cambios">
           <Properties>
@@ -412,6 +421,9 @@
               <Font name="Segoe UI Black" size="15" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cancelar_cambiosActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
