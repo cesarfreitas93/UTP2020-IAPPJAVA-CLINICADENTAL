@@ -32,10 +32,10 @@ public class MySql_11_DaoDataBaseConfiguration implements Dao_11_DataBaseConfigu
             pst = (PreparedStatement) conn.prepareStatement(RESET);
             
             res = true;
-            if(pst.executeUpdate() == 0){
-                res = false;
-                throw new DaoException("Puede que no se haya reseteado.");
-            }
+//            if(pst.executeUpdate() == 0){
+//                res = false;
+//                throw new DaoException("Puede que no se haya reseteado.");
+//            }
         }
         catch (SQLException ex) {
             res = false;
