@@ -1,4 +1,3 @@
-
 package WIN33CLC_VIEW;
 
 import com.sun.awt.AWTUtilities;
@@ -21,46 +20,51 @@ import javax.swing.JOptionPane;
  * @author Cesar
  */
 public class frm_01_login extends javax.swing.JFrame {
-
-
-    public frm_01_login(){
-       
+    
+    public frm_01_login() {
+        
         initComponents();
         
-      
-         setBackground(new Color (255,255,255,245));
+        setBackground(new Color(255, 255, 255, 245));
         jPanel2.setOpaque(false);
-        txt_username.setBackground(new Color (0,0,0,1));
-        txt_password.setBackground(new Color (0,0,0,1));
+        txt_username.setBackground(new Color(0, 0, 0, 1));
+        txt_password.setBackground(new Color(0, 0, 0, 1));
         
-        setLocationRelativeTo(null); 
+        setLocationRelativeTo(null);        
         Shape forma = new RoundRectangle2D.Double(0, 0, getBounds().width, getBounds().height, 20, 20);
         AWTUtilities.setWindowShape(this, forma);
-     
+        
     }
     
-     int xx,xy;
-
+    int xx, xy;
+    
     public void login() {
         try {
             
-            
             CTR_01_Auth ctr = new CTR_01_Auth();
-            char clave[]=txt_password.getPassword();
-            String clavedef=new String(clave);
+            char clave[] = txt_password.getPassword();
+            String clavedef = new String(clave);
             
-            if (ctr.CheckAuth(txt_username.getText(), clavedef )){
-                System.out.println("yes");
+            if (ctr.CheckAuth(txt_username.getText(), clavedef)) {
+                frm_Main frm_m = new frm_Main();
+                frm_m.setVisible(true);
+                frm_m.pack();
+                frm_m.setLocationRelativeTo(null);
+                this.dispose();
+                
+            }else{
+                 JOptionPane.showMessageDialog(null, "Usuario o contraseña Incorrecto");
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(frm_01_login.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DaoException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(),
-                "Dental SyS", JOptionPane.ERROR_MESSAGE);
+                    "Dental SyS", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(frm_01_login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-  
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -75,7 +79,7 @@ public class frm_01_login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txt_username = new LIB.FSTexFieldMD();
-        rSButtonMaterialGradientOne1 = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_loguin = new RSMaterialComponent.RSButtonMaterialGradientOne();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -140,16 +144,21 @@ public class frm_01_login extends javax.swing.JFrame {
         txt_username.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 18)); // NOI18N
         txt_username.setPlaceholder("Usuario");
 
-        rSButtonMaterialGradientOne1.setText("Iniciar");
-        rSButtonMaterialGradientOne1.setBorderPainted(false);
-        rSButtonMaterialGradientOne1.setColorPrimario(new java.awt.Color(42, 170, 232));
-        rSButtonMaterialGradientOne1.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
-        rSButtonMaterialGradientOne1.setColorSecundario(new java.awt.Color(3, 102, 183));
-        rSButtonMaterialGradientOne1.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        rSButtonMaterialGradientOne1.setFocusPainted(false);
-        rSButtonMaterialGradientOne1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 18)); // NOI18N
-        rSButtonMaterialGradientOne1.setRippleColor(new java.awt.Color(204, 255, 255));
-        rSButtonMaterialGradientOne1.setRound(3);
+        btn_loguin.setText("Iniciar");
+        btn_loguin.setBorderPainted(false);
+        btn_loguin.setColorPrimario(new java.awt.Color(42, 170, 232));
+        btn_loguin.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
+        btn_loguin.setColorSecundario(new java.awt.Color(3, 102, 183));
+        btn_loguin.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        btn_loguin.setFocusPainted(false);
+        btn_loguin.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 18)); // NOI18N
+        btn_loguin.setRippleColor(new java.awt.Color(204, 255, 255));
+        btn_loguin.setRound(3);
+        btn_loguin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_loguinActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout fSGradientPanel1Layout = new javax.swing.GroupLayout(fSGradientPanel1);
         fSGradientPanel1.setLayout(fSGradientPanel1Layout);
@@ -175,10 +184,9 @@ public class frm_01_login extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)
                                         .addGroup(fSGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(rSButtonMaterialGradientOne1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(btn_loguin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(42, 42, 42))
-                    .addGroup(fSGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         fSGradientPanel1Layout.setVerticalGroup(
@@ -198,7 +206,7 @@ public class frm_01_login extends javax.swing.JFrame {
                         .addComponent(jLabel5))
                     .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
-                .addComponent(rSButtonMaterialGradientOne1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_loguin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
 
@@ -212,20 +220,24 @@ public class frm_01_login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
-xx=evt.getX();
-  xy=evt.getY();        // TODO add your handling code here:
+        xx = evt.getX();
+        xy = evt.getY();        // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
-int x=evt.getXOnScreen();
-       int y=evt.getYOnScreen();
-       
-        this.setLocation(x-xx, y-xy);          // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        
+        this.setLocation(x - xx, y - xy);          // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2MouseDragged
 
+    private void btn_loguinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loguinActionPerformed
+        login();
+        
+    }//GEN-LAST:event_btn_loguinActionPerformed
     
     public static void main(String args[]) {
-       
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -242,7 +254,7 @@ int x=evt.getXOnScreen();
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frm_01_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-       
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frm_01_login().setVisible(true);
@@ -251,6 +263,7 @@ int x=evt.getXOnScreen();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_loguin;
     private LIB.FSGradientPanel fSGradientPanel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -259,7 +272,6 @@ int x=evt.getXOnScreen();
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private RSMaterialComponent.RSButtonMaterialGradientOne rSButtonMaterialGradientOne1;
     private LIB.FSPasswordFieldMD txt_password;
     private LIB.FSTexFieldMD txt_username;
     // End of variables declaration//GEN-END:variables

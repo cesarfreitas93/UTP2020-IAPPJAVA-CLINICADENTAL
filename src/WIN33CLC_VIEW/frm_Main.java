@@ -1,13 +1,24 @@
 
 package WIN33CLC_VIEW;
 
+import WIN32CLC_CTR.CTR_11_DataBaseConfiguration;
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Frame;
 import java.awt.GraphicsEnvironment;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -400,9 +411,9 @@ if(!this.btn_citas.isSelected()){
         lblbasedatos = new javax.swing.JLabel();
         lblusuario = new javax.swing.JLabel();
         panel_base_datos = new javax.swing.JPanel();
-        rSButtonRiple2 = new rojeru_san.RSButtonRiple();
-        rSButtonRiple3 = new rojeru_san.RSButtonRiple();
-        rSButtonRiple4 = new rojeru_san.RSButtonRiple();
+        btn_createbackup = new rojeru_san.RSButtonRiple();
+        btn_restoredatabase = new rojeru_san.RSButtonRiple();
+        btn_resetdatabase = new rojeru_san.RSButtonRiple();
         Panel_Menu_despegable = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btn_inicio_02 = new newscomponents.RSButtonFlat_new();
@@ -817,44 +828,59 @@ if(!this.btn_citas.isSelected()){
         panel_base_datos.setBackground(new java.awt.Color(255, 255, 255));
         panel_base_datos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rSButtonRiple2.setBackground(new java.awt.Color(255, 255, 255));
-        rSButtonRiple2.setForeground(new java.awt.Color(0, 0, 0));
-        rSButtonRiple2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-configuración-de-datos-30.png"))); // NOI18N
-        rSButtonRiple2.setText("Hacer Copia de Seguridad");
-        rSButtonRiple2.setBorderPainted(false);
-        rSButtonRiple2.setColorHover(new java.awt.Color(255, 255, 255));
-        rSButtonRiple2.setColorText(new java.awt.Color(0, 0, 0));
-        rSButtonRiple2.setColorTextHover(new java.awt.Color(0, 0, 0));
-        rSButtonRiple2.setFocusPainted(false);
-        rSButtonRiple2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        rSButtonRiple2.setIconTextGap(8);
-        panel_base_datos.add(rSButtonRiple2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 90));
+        btn_createbackup.setBackground(new java.awt.Color(255, 255, 255));
+        btn_createbackup.setForeground(new java.awt.Color(0, 0, 0));
+        btn_createbackup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-configuración-de-datos-30.png"))); // NOI18N
+        btn_createbackup.setText("Hacer Copia de Seguridad");
+        btn_createbackup.setBorderPainted(false);
+        btn_createbackup.setColorHover(new java.awt.Color(255, 255, 255));
+        btn_createbackup.setColorText(new java.awt.Color(0, 0, 0));
+        btn_createbackup.setColorTextHover(new java.awt.Color(0, 0, 0));
+        btn_createbackup.setFocusPainted(false);
+        btn_createbackup.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_createbackup.setIconTextGap(8);
+        btn_createbackup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_createbackupActionPerformed(evt);
+            }
+        });
+        panel_base_datos.add(btn_createbackup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 90));
 
-        rSButtonRiple3.setBackground(new java.awt.Color(255, 255, 255));
-        rSButtonRiple3.setForeground(new java.awt.Color(0, 0, 0));
-        rSButtonRiple3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-configuración-restaurar-copia-de-seguridad-30.png"))); // NOI18N
-        rSButtonRiple3.setText("Restaurar Base de Datos");
-        rSButtonRiple3.setBorderPainted(false);
-        rSButtonRiple3.setColorHover(new java.awt.Color(255, 255, 255));
-        rSButtonRiple3.setColorText(new java.awt.Color(0, 0, 0));
-        rSButtonRiple3.setColorTextHover(new java.awt.Color(0, 0, 0));
-        rSButtonRiple3.setFocusPainted(false);
-        rSButtonRiple3.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        rSButtonRiple3.setIconTextGap(8);
-        panel_base_datos.add(rSButtonRiple3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 290, 90));
+        btn_restoredatabase.setBackground(new java.awt.Color(255, 255, 255));
+        btn_restoredatabase.setForeground(new java.awt.Color(0, 0, 0));
+        btn_restoredatabase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-configuración-restaurar-copia-de-seguridad-30.png"))); // NOI18N
+        btn_restoredatabase.setText("Restaurar Base de Datos");
+        btn_restoredatabase.setBorderPainted(false);
+        btn_restoredatabase.setColorHover(new java.awt.Color(255, 255, 255));
+        btn_restoredatabase.setColorText(new java.awt.Color(0, 0, 0));
+        btn_restoredatabase.setColorTextHover(new java.awt.Color(0, 0, 0));
+        btn_restoredatabase.setFocusPainted(false);
+        btn_restoredatabase.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_restoredatabase.setIconTextGap(8);
+        btn_restoredatabase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_restoredatabaseActionPerformed(evt);
+            }
+        });
+        panel_base_datos.add(btn_restoredatabase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 290, 90));
 
-        rSButtonRiple4.setBackground(new java.awt.Color(255, 255, 255));
-        rSButtonRiple4.setForeground(new java.awt.Color(0, 0, 0));
-        rSButtonRiple4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-eliminar-30.png"))); // NOI18N
-        rSButtonRiple4.setText("Vaciar Base de Datos");
-        rSButtonRiple4.setBorderPainted(false);
-        rSButtonRiple4.setColorHover(new java.awt.Color(255, 255, 255));
-        rSButtonRiple4.setColorText(new java.awt.Color(0, 0, 0));
-        rSButtonRiple4.setColorTextHover(new java.awt.Color(0, 0, 0));
-        rSButtonRiple4.setFocusPainted(false);
-        rSButtonRiple4.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        rSButtonRiple4.setIconTextGap(8);
-        panel_base_datos.add(rSButtonRiple4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 290, 90));
+        btn_resetdatabase.setBackground(new java.awt.Color(255, 255, 255));
+        btn_resetdatabase.setForeground(new java.awt.Color(0, 0, 0));
+        btn_resetdatabase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-eliminar-30.png"))); // NOI18N
+        btn_resetdatabase.setText("Vaciar Base de Datos");
+        btn_resetdatabase.setBorderPainted(false);
+        btn_resetdatabase.setColorHover(new java.awt.Color(255, 255, 255));
+        btn_resetdatabase.setColorText(new java.awt.Color(0, 0, 0));
+        btn_resetdatabase.setColorTextHover(new java.awt.Color(0, 0, 0));
+        btn_resetdatabase.setFocusPainted(false);
+        btn_resetdatabase.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_resetdatabase.setIconTextGap(8);
+        btn_resetdatabase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_resetdatabaseActionPerformed(evt);
+            }
+        });
+        panel_base_datos.add(btn_resetdatabase, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 290, 90));
 
         getContentPane().add(panel_base_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1242, 330, 360, 280));
 
@@ -1597,6 +1623,52 @@ if(!this.btn_usuario1 .isSelected()){
         }            // TODO add your handling code here:
     }//GEN-LAST:event_btn_usuarios_02MouseExited
 
+    private void btn_createbackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createbackupActionPerformed
+        // TODO add your handling code here:
+        //restoreBackUpMysql();
+        generateBackUpMysql();
+    }//GEN-LAST:event_btn_createbackupActionPerformed
+
+    private void btn_resetdatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetdatabaseActionPerformed
+        // TODO add your handling code here:
+        try {
+            // preguntar si se resetea o no
+            
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(this, "¿Esta seguro de limpiar por completo la base de datos?\n"+"Asegurese de tener una copia de seguridad.", "DentalSys", dialogButton);
+            if(dialogResult == 0) {
+
+                CTR_11_DataBaseConfiguration baseConfiguration = new CTR_11_DataBaseConfiguration();
+                if(baseConfiguration.RESETDATABASE())
+                {
+                    JOptionPane optionPane = new JOptionPane("Success!", JOptionPane.INFORMATION_MESSAGE);    
+                    JDialog dialog = optionPane.createDialog("DentalSys");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);  
+                }
+                else
+                {    
+                    JOptionPane optionPane = new JOptionPane("Puede que no se haya borrado limpiado la base de datos", JOptionPane.ERROR_MESSAGE);    
+                    JDialog dialog = optionPane.createDialog("DentalSys");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);         
+                }
+                
+            } else {
+              System.out.println("No Option");
+            } 
+
+        } catch (SQLException ex) {
+            Logger.getLogger(test_para_lanzar_metodos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+    }//GEN-LAST:event_btn_resetdatabaseActionPerformed
+
+    private void btn_restoredatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_restoredatabaseActionPerformed
+        // TODO add your handling code here:
+        restoreBackUpMysql();
+    }//GEN-LAST:event_btn_restoredatabaseActionPerformed
+
  
     public static void main(String args[]) {
         
@@ -1615,6 +1687,7 @@ if(!this.btn_usuario1 .isSelected()){
     private newscomponents.RSButtonFlat_new btn_base_datos_2;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_citas;
     private newscomponents.RSButtonFlat_new btn_citas_2;
+    private rojeru_san.RSButtonRiple btn_createbackup;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_especialista;
     private newscomponents.RSButtonFlat_new btn_especialista_02;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_factura;
@@ -1625,6 +1698,8 @@ if(!this.btn_usuario1 .isSelected()){
     private newscomponents.RSButtonFlat_new btn_inicio_02;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_paciente;
     private newscomponents.RSButtonFlat_new btn_paciente_02;
+    private rojeru_san.RSButtonRiple btn_resetdatabase;
+    private rojeru_san.RSButtonRiple btn_restoredatabase;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_salir1;
     private newscomponents.RSButtonFlat_new btn_salir_02;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_servicios;
@@ -1667,12 +1742,98 @@ if(!this.btn_usuario1 .isSelected()){
     private javax.swing.JPanel panel_menu_despegable_2;
     private javax.swing.JPanel panel_paciente;
     private javax.swing.JPanel panel_servicios;
-    private rojeru_san.RSButtonRiple rSButtonRiple2;
-    private rojeru_san.RSButtonRiple rSButtonRiple3;
-    private rojeru_san.RSButtonRiple rSButtonRiple4;
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
     // End of variables declaration//GEN-END:variables
 
+    private void generateBackUpMysql() {
+         Calendar c = Calendar.getInstance();//creamos una instancia de la clase calendar de java
+        //java.util.Date fecha = new Date();
+        String DiaHoy = Integer.toString(c.get(Calendar.DATE));
+        String MesHoy = Integer.toString(c.get(Calendar.MONTH)+1);
+        String AnioHoy = Integer.toString(c.get(Calendar.YEAR));        
+                
+        
+        JFileChooser RealizarBackupMySQL = new JFileChooser();
+        int resp;
+        resp=RealizarBackupMySQL.showSaveDialog(this);//JFileChooser de nombre RealizarBackupMySQL
+        if (resp==JFileChooser.APPROVE_OPTION) {//Si el usuario presiona aceptar; se genera el Backup
+            try{
+                Runtime runtime = Runtime.getRuntime();
+                File backupFile = new File(String.valueOf(RealizarBackupMySQL.getSelectedFile().toString())+" "+DiaHoy +"-"+MesHoy+"-"+AnioHoy+".sql");
+                FileWriter fw = new FileWriter(backupFile);
+                Process child = runtime.exec("C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysqldump --routines --opt --password= --user=root --databases utp2020-dental-system-dev"); 
+                InputStreamReader irs = new InputStreamReader(child.getInputStream());
+                BufferedReader br = new BufferedReader(irs);
+                String line;
+                while( (line=br.readLine()) != null ) {
+                    fw.write(line + "\n");
+                }
+                fw.close();
+                irs.close();
+                br.close();
+                JOptionPane.showMessageDialog(null, "Archivo generado","Verificar",JOptionPane. INFORMATION_MESSAGE);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error no se genero el archivo por el siguiente motivo:"+e.getMessage(), "Verificar",JOptionPane.ERROR_MESSAGE);
+            }            
+        } else if (resp==JFileChooser.CANCEL_OPTION) {
+            JOptionPane.showMessageDialog(null,"Ha sido cancelada la generacion del Backup");
+        }
+    }
+
+    private void restoreBackUpMysql(){
+        
+        String dbName="utp2020-dental-system-dev"; 
+        String dbUserName="root";
+        String dbPassword= "";
+        
+        int resp;
+        JFileChooser RealizarBackupMySQL = new JFileChooser();
+        resp=RealizarBackupMySQL.showOpenDialog(this);//Muestra el cuadro con la opcion abrir
+        if (resp==JFileChooser.APPROVE_OPTION) 
+        {//Si el usuario presiona aceptar(Abrir); Backup
+            try
+            {
+                String ubicacion= String.valueOf(RealizarBackupMySQL.getSelectedFile().toString().trim());                
+        
+                //en nombre almacenamos la ruta del fichero con extension sql que se desea restaurar...
+                String nombre = ubicacion.toString().substring(ubicacion.lastIndexOf('/')+1);
+                File fichero=new File(nombre);
+//                System.out.println("Path: " + ubicacion + " -- File: " + nombre);
+                String dd=fichero.getName();//aqui obtenermos el nombre del fichero con extension sql.
+                
+                String[] executeCmd = new String[]{"C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysql", "--password=" + dbPassword, "--user=" + dbUserName,  dbName,"-e", "source "+nombre};
+                Process runtimeProcess;
+
+                try {
+
+                    runtimeProcess = Runtime.getRuntime().exec(executeCmd);
+
+                    int processComplete = runtimeProcess.waitFor();
+
+                    if (processComplete == 0) 
+                    {
+                        JOptionPane.showMessageDialog(null,"Backup realizado satisfactoriamente");
+                        JOptionPane.showMessageDialog(null,dd);
+                    } 
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"No se pudo realizar el Backup");
+                        JOptionPane.showMessageDialog(null,dd);
+                    }
+                } catch (Exception ex) {
+                }
+            }
+            catch (Exception ex) 
+            {
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Ha sido cancelada la actualizacion del Backup");            
+        }
+        
+    
+    }
 
 
 }

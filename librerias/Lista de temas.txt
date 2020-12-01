@@ -1,0 +1,46 @@
+VASQUEZ PEREZ
+
+2.3.  Definición del sistema.
+2.3.1. Sistema de Citas Médicas.
+2.3.2. Sistema de facturación.
+2.4.  Descripción de la secuencia de pasos del proceso actual del sistema
+Sistema de Citas Médicas
+Sistema de facturación.
+3.2. Modelamiento de base de datos 
+3.3. Entorno visual de los formularios
+
+---------------------------------
+
+PAQUETE TABLEMODELS, VIEW, RESOURCE y UTILS.
+
+CARLOS RAFA
+
+2.1 Marco teórico de programación orientada a objetos.
+2.2.Breve reseña histórica de la empresa.
+3.4. Código Fuente
+---------------------------------
+
+PAQUETE DAO y DAO/MSQL
+
+
+CESAR FREITAS
+
+3.1 Diagrama de clases
+*Diagrama de clases del paquete de acceso a datos DAO(Data Access Object).
+*Diagrama de clases del paquete DTO (Data Transfer Object).
+*Diagrama de clases del paquete CTR.
+
+---------------------------------
+PAQUETE DTO y CTR
+
+
+
+
+
+
+
+
+
+
+
+

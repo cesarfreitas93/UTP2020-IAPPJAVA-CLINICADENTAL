@@ -117,7 +117,7 @@
                                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="txt_password" min="-2" pref="208" max="-2" attributes="0"/>
-                                              <Component id="rSButtonMaterialGradientOne1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btn_loguin" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -125,9 +125,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel9" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel9" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -153,7 +151,7 @@
                       <Component id="txt_password" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="rSButtonMaterialGradientOne1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_loguin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -210,7 +208,7 @@
             <Property name="text" type="java.lang.String" value="x"/>
             <Property name="toolTipText" type="java.lang.String" value="Cerrar la Aplicacion"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Default Cursor"/>
+              <Color id="Cursor Por defecto"/>
             </Property>
           </Properties>
           <Events>
@@ -238,7 +236,7 @@
             <Property name="placeholder" type="java.lang.String" value="Usuario"/>
           </Properties>
         </Component>
-        <Component class="RSMaterialComponent.RSButtonMaterialGradientOne" name="rSButtonMaterialGradientOne1">
+        <Component class="RSMaterialComponent.RSButtonMaterialGradientOne" name="btn_loguin">
           <Properties>
             <Property name="text" type="java.lang.String" value="Iniciar"/>
             <Property name="borderPainted" type="boolean" value="false"/>
@@ -263,6 +261,9 @@
             </Property>
             <Property name="round" type="int" value="3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_loguinActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
