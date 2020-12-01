@@ -22,14 +22,14 @@ import javax.swing.table.TableCellRenderer;
 import org.json.JSONException;
 
 
-public class frm_UI_06_especialista extends javax.swing.JPanel {
+public class frm_UI_06_especialista1 extends javax.swing.JPanel {
     
     
   ArrayList<Service> service_list = null;
     CTR_04_Specialist cTR_04_Specialist;
     
     
-    public frm_UI_06_especialista() {
+    public frm_UI_06_especialista1() {
         initComponents();
      
         setBackground(new Color (255,255,255,1));
@@ -166,20 +166,17 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
 
         menu_salir1 = new RSMaterialComponent.RSPanelMaterial();
         jLabel10 = new javax.swing.JLabel();
+        txt_name = new rojerusan.RSMetroTextPlaceHolder();
+        txt_dni = new rojerusan.RSMetroTextPlaceHolder();
         jLabel11 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        txt_name = new rojerusan.RSMetroTextPlaceHolder();
+        btn_buscar_reniec_especialista = new RSMaterialComponent.RSButtonMaterialGradientOne();
         txt_apellidoPAT = new rojerusan.RSMetroTextPlaceHolder();
         txt_apellidoMAT = new rojerusan.RSMetroTextPlaceHolder();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txt_phone = new rojerusan.RSMetroTextFullPlaceHolder();
-        txt_direccion = new rojerusan.RSMetroTextFullPlaceHolder();
-        txt_email = new rojerusan.RSMetroTextFullPlaceHolder();
-        jLabel14 = new javax.swing.JLabel();
-        txt_dni = new rojerusan.RSMetroTextPlaceHolder();
-        btn_buscar_reniec_especialista = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        jLabel6 = new javax.swing.JLabel();
+        txt_phone = new rojerusan.RSMetroTextPlaceHolder();
+        txt_direccion = new rojerusan.RSMetroTextPlaceHolder();
         menu_salir2 = new RSMaterialComponent.RSPanelMaterial();
         jLabel8 = new javax.swing.JLabel();
         cbx_servicio = new RSMaterialComponent.RSComboBoxMaterial();
@@ -205,6 +202,17 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("NOMBRES");
 
+        txt_name.setForeground(new java.awt.Color(51, 51, 51));
+        txt_name.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_name.setBotonColor(new java.awt.Color(3, 111, 198));
+        txt_name.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+
+        txt_dni.setForeground(new java.awt.Color(51, 51, 51));
+        txt_dni.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_dni.setBotonColor(new java.awt.Color(3, 111, 198));
+        txt_dni.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_dni.setPlaceholder("Digite el Nro de DNI");
+
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("APELLIDO PATERNO");
@@ -212,62 +220,6 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(51, 51, 51));
         jLabel17.setText("APELLIDO PATERNO");
-
-        txt_name.setForeground(new java.awt.Color(51, 51, 51));
-        txt_name.setBorderColor(new java.awt.Color(153, 153, 153));
-        txt_name.setBotonColor(new java.awt.Color(3, 111, 198));
-        txt_name.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-
-        txt_apellidoPAT.setForeground(new java.awt.Color(51, 51, 51));
-        txt_apellidoPAT.setBorderColor(new java.awt.Color(153, 153, 153));
-        txt_apellidoPAT.setBotonColor(new java.awt.Color(3, 111, 198));
-        txt_apellidoPAT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        txt_apellidoPAT.setOpaque(false);
-
-        txt_apellidoMAT.setForeground(new java.awt.Color(51, 51, 51));
-        txt_apellidoMAT.setBorderColor(new java.awt.Color(153, 153, 153));
-        txt_apellidoMAT.setBotonColor(new java.awt.Color(3, 111, 198));
-        txt_apellidoMAT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        txt_apellidoMAT.setOpaque(false);
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("TELÉFONO");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("DIRECCIÓN");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("CORREO ELECTRÓNICO");
-
-        txt_phone.setForeground(new java.awt.Color(51, 51, 51));
-        txt_phone.setBorderColor(new java.awt.Color(153, 153, 153));
-        txt_phone.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        txt_phone.setPhColor(new java.awt.Color(0, 0, 0));
-        txt_phone.setPlaceholder("");
-
-        txt_direccion.setForeground(new java.awt.Color(51, 51, 51));
-        txt_direccion.setBorderColor(new java.awt.Color(153, 153, 153));
-        txt_direccion.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        txt_direccion.setPhColor(new java.awt.Color(0, 0, 0));
-        txt_direccion.setPlaceholder("");
-
-        txt_email.setForeground(new java.awt.Color(51, 51, 51));
-        txt_email.setBorderColor(new java.awt.Color(153, 153, 153));
-        txt_email.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        txt_email.setPhColor(new java.awt.Color(0, 0, 0));
-        txt_email.setPlaceholder("");
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("DNI:");
-
-        txt_dni.setForeground(new java.awt.Color(51, 51, 51));
-        txt_dni.setBorderColor(new java.awt.Color(153, 153, 153));
-        txt_dni.setBotonColor(new java.awt.Color(3, 111, 198));
-        txt_dni.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
 
         btn_buscar_reniec_especialista.setForeground(new java.awt.Color(51, 51, 51));
         btn_buscar_reniec_especialista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-encuentra-hombre-usuario-24.png"))); // NOI18N
@@ -285,67 +237,69 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
             }
         });
 
+        txt_apellidoPAT.setForeground(new java.awt.Color(51, 51, 51));
+        txt_apellidoPAT.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_apellidoPAT.setBotonColor(new java.awt.Color(3, 111, 198));
+        txt_apellidoPAT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_apellidoPAT.setOpaque(false);
+
+        txt_apellidoMAT.setForeground(new java.awt.Color(51, 51, 51));
+        txt_apellidoMAT.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_apellidoMAT.setBotonColor(new java.awt.Color(3, 111, 198));
+        txt_apellidoMAT.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txt_apellidoMAT.setOpaque(false);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("TELÉFONO");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("DIRECCIÓN");
+
+        txt_phone.setForeground(new java.awt.Color(51, 51, 51));
+        txt_phone.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_phone.setBotonColor(new java.awt.Color(3, 111, 198));
+        txt_phone.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+
+        txt_direccion.setForeground(new java.awt.Color(51, 51, 51));
+        txt_direccion.setBorderColor(new java.awt.Color(153, 153, 153));
+        txt_direccion.setBotonColor(new java.awt.Color(3, 111, 198));
+        txt_direccion.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+
         javax.swing.GroupLayout menu_salir1Layout = new javax.swing.GroupLayout(menu_salir1);
         menu_salir1.setLayout(menu_salir1Layout);
         menu_salir1Layout.setHorizontalGroup(
             menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu_salir1Layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menu_salir1Layout.createSequentialGroup()
-                        .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(menu_salir1Layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
-                            .addGroup(menu_salir1Layout.createSequentialGroup()
-                                .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                                    .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                                .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))))
-                        .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(menu_salir1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
-                            .addGroup(menu_salir1Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(txt_apellidoMAT, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
-                            .addGroup(menu_salir1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
-                            .addGroup(menu_salir1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                                .addComponent(txt_email, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)))
-                        .addContainerGap(60, Short.MAX_VALUE))
-                    .addGroup(menu_salir1Layout.createSequentialGroup()
-                        .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(menu_salir1Layout.createSequentialGroup()
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                            .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
-                        .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(menu_salir1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                                .addComponent(txt_apellidoPAT, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                                .addContainerGap(277, Short.MAX_VALUE))
-                            .addGroup(menu_salir1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                                .addComponent(btn_buscar_reniec_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_phone, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .addComponent(txt_dni, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_buscar_reniec_especialista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_apellidoPAT, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                    .addComponent(txt_apellidoMAT, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         menu_salir1Layout.setVerticalGroup(
             menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu_salir1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
                     .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_buscar_reniec_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(36, 36, 36)
                 .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
@@ -355,17 +309,15 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
                     .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_apellidoPAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_apellidoMAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(38, 38, 38)
                 .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
         );
 
         menu_salir2.setBackground(new java.awt.Color(255, 255, 255));
@@ -561,7 +513,7 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(btn_nuevo_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addComponent(btn_guardar_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -636,43 +588,6 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btn_guardar_especialistaActionPerformed
 
-    private void btn_buscar_reniec_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reniec_especialistaActionPerformed
- try {
-            if (txt_dni.getText().length() >= 8) {
-                CTR_04_Specialist ctr = new CTR_04_Specialist();
-                Specialist entidad = new Specialist();
-                //buscar si existe el paciente el la base de datos
-                try {
-                    entidad = ctr.CheckDNI(txt_dni.getText());
-                } catch (Exception e) {
-                    //JOptionPane.showMessageDialog(null, e.getMessage(),
-                    //"Dental SyS", JOptionPane.WARNING_MESSAGE);
-
-                    //muestra los datos de la reniec en el fomrulario
-                    entidad = ctr.SearchReniec(txt_dni.getText());
-                    txt_name.setText(entidad.getName());
-                    txt_apellidoPAT.setText(entidad.getLastname());
-                    txt_apellidoMAT.setText(entidad.getSurename());
-                }
-                if (entidad.getId() != 0) {
-                    // existe el dni
-                    // despliega un mensaje
-
-                    /* JOptionPane.showMessageDialog(null, "El DNI ingresado ya existe!",
-                        "Dental SyS", JOptionPane.WARNING_MESSAGE);*/
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Ingrese el DNI",
-                        "Dental SyS", JOptionPane.WARNING_MESSAGE);
-            }
-            
-        } catch (IOException ex) {
-            //Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (JSONException ex) {
-            // Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_buscar_reniec_especialistaActionPerformed
-
     private void btn_nuevo_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_especialistaActionPerformed
   btn_nuevo_especialista.setEnabled(false);
         btn_guardar_especialista.setEnabled(true);
@@ -705,6 +620,7 @@ try {
             txt_apellidoPAT.setText(dto.getLastname());
             txt_apellidoMAT.setText(dto.getSurename());
             txt_direccion.setText(dto.getAddress());
+          
             txt_dni.setText(dto.getDni());
             txt_name.setText(dto.getName());
             txt_phone.setText(dto.getPhone());
@@ -726,6 +642,7 @@ try {
         txt_apellidoMAT.setEnabled(true);
         txt_apellidoPAT.setEnabled(true);
         txt_direccion.setEnabled(true);
+     
         txt_dni.setEnabled(false);
         txt_name.setEnabled(true);
         txt_phone.setEnabled(true);
@@ -736,6 +653,43 @@ try {
             Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btn_modificar_especialistaActionPerformed
+
+    private void btn_buscar_reniec_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reniec_especialistaActionPerformed
+        try {
+            if (txt_dni.getText().length() >= 8) {
+                CTR_04_Specialist ctr = new CTR_04_Specialist();
+                Specialist entidad = new Specialist();
+                //buscar si existe el paciente el la base de datos
+                try {
+                    entidad = ctr.CheckDNI(txt_dni.getText());
+                } catch (Exception e) {
+                    //JOptionPane.showMessageDialog(null, e.getMessage(),
+                        //"Dental SyS", JOptionPane.WARNING_MESSAGE);
+
+                    //muestra los datos de la reniec en el fomrulario
+                    entidad = ctr.SearchReniec(txt_dni.getText());
+                    txt_name.setText(entidad.getName());
+                    txt_apellidoPAT.setText(entidad.getLastname());
+                    txt_apellidoMAT.setText(entidad.getSurename());
+                }
+                if (entidad.getId() != 0) {
+                    // existe el dni
+                    // despliega un mensaje
+
+                    /* JOptionPane.showMessageDialog(null, "El DNI ingresado ya existe!",
+                        "Dental SyS", JOptionPane.WARNING_MESSAGE);*/
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Ingrese el DNI",
+                    "Dental SyS", JOptionPane.WARNING_MESSAGE);
+            }
+
+        } catch (IOException ex) {
+            //Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JSONException ex) {
+            // Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_buscar_reniec_especialistaActionPerformed
  boolean modificar = true;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -750,12 +704,10 @@ try {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private RSMaterialComponent.RSPanelMaterial menu_salir1;
@@ -765,18 +717,17 @@ try {
     private rojerusan.RSTableMetro table_especialista;
     private rojerusan.RSMetroTextPlaceHolder txt_apellidoMAT;
     private rojerusan.RSMetroTextPlaceHolder txt_apellidoPAT;
-    private rojerusan.RSMetroTextFullPlaceHolder txt_direccion;
+    private rojerusan.RSMetroTextPlaceHolder txt_direccion;
     private rojerusan.RSMetroTextPlaceHolder txt_dni;
-    private rojerusan.RSMetroTextFullPlaceHolder txt_email;
     private rojerusan.RSMetroTextPlaceHolder txt_name;
-    private rojerusan.RSMetroTextFullPlaceHolder txt_phone;
+    private rojerusan.RSMetroTextPlaceHolder txt_phone;
     // End of variables declaration//GEN-END:variables
 
 private void limpiar() {
         txt_apellidoMAT.setEnabled(false);
         txt_apellidoPAT.setEnabled(false);
         txt_direccion.setEnabled(false);
-        txt_direccion.setEnabled(false);
+    
         txt_dni.setEnabled(false);
         txt_name.setEnabled(false);
         txt_phone.setEnabled(false);
@@ -794,7 +745,7 @@ private void limpiar() {
         txt_apellidoMAT.setText("");
         txt_apellidoPAT.setText("");
         txt_direccion.setText("");
-        txt_direccion.setText("");
+       
         txt_dni.setText("");
         txt_name.setText("");
         txt_phone.setText("");

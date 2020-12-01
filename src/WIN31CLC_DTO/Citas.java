@@ -17,7 +17,7 @@ public class Citas {
  private Specialist specialist;
  private Service service;
  
-    public Citas() {
+    public Citas() { //instanciar un obejto de tipo cita
         
     }
 
@@ -38,6 +38,9 @@ public class Citas {
         this.especialista_id = especialista_id;
     }
 
+    
+    
+    // encapsulamiento - datos privado - nos ayuda a mantener la consistencia de la informacion
     public Patient getPatient() {
         return patient;
     }
@@ -123,7 +126,7 @@ public class Citas {
     
     
     @Override
-    public int hashCode() {
+    public int hashCode() {  // necesitar que los objetos que estamos instanciamos seran 
         int hash = 7;
         hash = 97 * hash + (int) (this.id ^ (this.id >>> 32));
         hash = 97 * hash + Objects.hashCode(this.createAt);
