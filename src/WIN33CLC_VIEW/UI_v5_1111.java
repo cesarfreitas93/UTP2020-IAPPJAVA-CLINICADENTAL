@@ -27,7 +27,7 @@ boolean a=true;
         rSPanelMaterial4.setOpaque(false);
 
       
-        setBackground(new Color (255,255,255,200));
+        setBackground(new Color (255,255,255,220));
         setLocationRelativeTo(null);
        
         
@@ -39,21 +39,24 @@ boolean a=true;
         
         
            frm_UI_01_Patien1.ocultar_form_patient(false);
-           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_02_reservar_cita2.ocultar_form_cita(false);
            frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
            frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
            frm_UI_05_servicios1.ocultar_form_servicios(false);
            frm_UI_06_especialista1.ocultar_form_especialista(false);
            frm_UI_07_usuarios1.ocultar_form_usuarios(false);
-           frm_UI_inicio2.ocultar_form_inicio(true);
+           frm_UI_inicio1.ocultar_form_inicio(true);
         
     }
 
-
+int xx,xy;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        frm_UI_02_reservar_cita2 = new WIN33CLC_VIEW.frm_UI_02_reservar_cita();
+        frm_UI_03_gestionar_citas1 = new WIN33CLC_VIEW.frm_UI_03_gestionar_citas();
+        frm_UI_04_comprobantes1 = new WIN33CLC_VIEW.frm_UI_04_comprobantes();
         panel_menu2 = new RSMaterialComponent.RSPanelMaterial();
         lbl_menu_2 = new javax.swing.JLabel();
         panel_despegable_1 = new RSMaterialComponent.RSPanelMaterial();
@@ -71,13 +74,12 @@ boolean a=true;
         lblespecialista = new javax.swing.JLabel();
         rSPanelMaterial4 = new RSMaterialComponent.RSPanelMaterial();
         panel_inicio = new javax.swing.JPanel();
-        frm_UI_inicio2 = new WIN33CLC_VIEW.frm_UI_inicio();
+        frm_UI_inicio1 = new WIN33CLC_VIEW.frm_UI_inicio();
         panel_paciente = new javax.swing.JPanel();
         frm_UI_01_Patien1 = new WIN33CLC_VIEW.frm_UI_01_Patien();
         panel_cita = new javax.swing.JPanel();
-        frm_UI_02_reservar_cita1 = new WIN33CLC_VIEW.frm_UI_02_reservar_cita();
         panel_gestion_cita = new javax.swing.JPanel();
-        frm_UI_03_gestionar_citas1 = new WIN33CLC_VIEW.frm_UI_03_gestionar_citas();
+        frm_UI_03_gestionar_citas2 = new WIN33CLC_VIEW.frm_UI_03_gestionar_citas();
         panel_comprobante = new javax.swing.JPanel();
         frm_UI_04_comprobantes2 = new WIN33CLC_VIEW.frm_UI_04_comprobantes();
         panel_servicios = new javax.swing.JPanel();
@@ -173,7 +175,7 @@ boolean a=true;
         btn_inicio_02.setForeground(new java.awt.Color(104, 102, 110));
         btn_inicio_02.setText("Inicio");
         btn_inicio_02.setBorderPainted(false);
-        btn_inicio_02.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_inicio_02.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
         btn_inicio_02.setRolloverEnabled(false);
         btn_inicio_02.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -194,7 +196,7 @@ boolean a=true;
         btn_paciente_02.setText("Paciente");
         btn_paciente_02.setBorderPainted(false);
         btn_paciente_02.setDefaultCapable(false);
-        btn_paciente_02.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_paciente_02.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
         btn_paciente_02.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         btn_paciente_02.setIconTextGap(0);
         btn_paciente_02.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -215,7 +217,7 @@ boolean a=true;
         btn_cita_02.setForeground(new java.awt.Color(104, 102, 110));
         btn_cita_02.setText("Reserva de Cita");
         btn_cita_02.setBorderPainted(false);
-        btn_cita_02.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_cita_02.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
         btn_cita_02.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btn_cita_02MouseEntered(evt);
@@ -234,7 +236,7 @@ boolean a=true;
         btn_gestionar_cita_02.setForeground(new java.awt.Color(104, 102, 110));
         btn_gestionar_cita_02.setText("Gestión de Citas");
         btn_gestionar_cita_02.setBorderPainted(false);
-        btn_gestionar_cita_02.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_gestionar_cita_02.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
         btn_gestionar_cita_02.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         btn_gestionar_cita_02.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -254,7 +256,7 @@ boolean a=true;
         btn_comprobante_02.setForeground(new java.awt.Color(104, 102, 110));
         btn_comprobante_02.setText("Comprobante");
         btn_comprobante_02.setBorderPainted(false);
-        btn_comprobante_02.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btn_comprobante_02.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
         btn_comprobante_02.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btn_comprobante_02MouseEntered(evt);
@@ -432,7 +434,7 @@ boolean a=true;
         panel_inicio.setBackground(new java.awt.Color(255, 255, 255));
         panel_inicio.setName("panel_inicio"); // NOI18N
         panel_inicio.setLayout(new java.awt.CardLayout());
-        panel_inicio.add(frm_UI_inicio2, "card2");
+        panel_inicio.add(frm_UI_inicio1, "card2");
 
         rSPanelMaterial4.add(panel_inicio, "card3");
 
@@ -446,14 +448,12 @@ boolean a=true;
         panel_cita.setBackground(new java.awt.Color(255, 255, 255));
         panel_cita.setName("panel_cita"); // NOI18N
         panel_cita.setLayout(new java.awt.CardLayout());
-        panel_cita.add(frm_UI_02_reservar_cita1, "card2");
-
         rSPanelMaterial4.add(panel_cita, "card3");
 
         panel_gestion_cita.setBackground(new java.awt.Color(255, 255, 255));
         panel_gestion_cita.setName("panel_gestion_cita"); // NOI18N
         panel_gestion_cita.setLayout(new java.awt.CardLayout());
-        panel_gestion_cita.add(frm_UI_03_gestionar_citas1, "card2");
+        panel_gestion_cita.add(frm_UI_03_gestionar_citas2, "card2");
 
         rSPanelMaterial4.add(panel_gestion_cita, "card2");
 
@@ -564,13 +564,23 @@ boolean a=true;
         menu_01.setBackground(new java.awt.Color(255, 255, 255));
         menu_01.setBgShade(new java.awt.Color(204, 204, 204));
         menu_01.setRound(40);
+        menu_01.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                menu_01MouseDragged(evt);
+            }
+        });
+        menu_01.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menu_01MousePressed(evt);
+            }
+        });
 
         lblinicio.setBackground(new java.awt.Color(101, 208, 250));
         lblinicio.setOpaque(true);
 
         btn_inicio.setBackground(new java.awt.Color(255, 255, 255));
         btn_inicio.setBorder(null);
-        btn_inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-casa-30 (1).png"))); // NOI18N
+        btn_inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-casa-30.png"))); // NOI18N
         btn_inicio.setBorderPainted(false);
         btn_inicio.setColorPrimario(new java.awt.Color(255, 255, 255));
         btn_inicio.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
@@ -594,7 +604,7 @@ boolean a=true;
 
         btn_paciente.setBackground(new java.awt.Color(255, 255, 255));
         btn_paciente.setBorder(null);
-        btn_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-persona-de-sexo-masculino-30 (2).png"))); // NOI18N
+        btn_paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-persona-de-sexo-masculino-30.png"))); // NOI18N
         btn_paciente.setBorderPainted(false);
         btn_paciente.setColorPrimario(new java.awt.Color(255, 255, 255));
         btn_paciente.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
@@ -618,7 +628,7 @@ boolean a=true;
 
         btn_cita.setBackground(new java.awt.Color(255, 255, 255));
         btn_cita.setBorder(null);
-        btn_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-calendario-30 (1).png"))); // NOI18N
+        btn_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png"))); // NOI18N
         btn_cita.setBorderPainted(false);
         btn_cita.setColorPrimario(new java.awt.Color(255, 255, 255));
         btn_cita.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
@@ -642,7 +652,7 @@ boolean a=true;
 
         btn_gestionar_cita.setBackground(new java.awt.Color(255, 255, 255));
         btn_gestionar_cita.setBorder(null);
-        btn_gestionar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30 (1).png"))); // NOI18N
+        btn_gestionar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png"))); // NOI18N
         btn_gestionar_cita.setBorderPainted(false);
         btn_gestionar_cita.setColorPrimario(new java.awt.Color(255, 255, 255));
         btn_gestionar_cita.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
@@ -666,7 +676,7 @@ boolean a=true;
 
         btn_factura.setBackground(new java.awt.Color(255, 255, 255));
         btn_factura.setBorder(null);
-        btn_factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-factura-30 (1).png"))); // NOI18N
+        btn_factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-factura-30.png"))); // NOI18N
         btn_factura.setBorderPainted(false);
         btn_factura.setColorPrimario(new java.awt.Color(255, 255, 255));
         btn_factura.setColorPrimarioHover(new java.awt.Color(255, 255, 255));
@@ -1184,7 +1194,7 @@ boolean a=true;
         panel_despegable_salir_1.setRound(40);
 
         btn_salir_02.setBackground(new java.awt.Color(104, 102, 110));
-        btn_salir_02.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        btn_salir_02.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
         btn_salir_02.setForeground(new java.awt.Color(104, 102, 110));
         btn_salir_02.setText("Salir");
 
@@ -1202,7 +1212,7 @@ boolean a=true;
             .addGroup(panel_despegable_salir_1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(btn_salir_02)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         menu_salir1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1268,13 +1278,13 @@ boolean a=true;
         btn_reporte_cita.setForeground(new java.awt.Color(104, 102, 110));
         btn_reporte_cita.setText("Reportes Citas");
         btn_reporte_cita.setBorderPainted(false);
-        btn_reporte_cita.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btn_reporte_cita.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
 
         btn_reportes_facturas.setBackground(new java.awt.Color(255, 255, 255));
         btn_reportes_facturas.setForeground(new java.awt.Color(104, 102, 110));
         btn_reportes_facturas.setText("Reportes Facturas");
         btn_reportes_facturas.setBorderPainted(false);
-        btn_reportes_facturas.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btn_reportes_facturas.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout panel_despegable_reportesLayout = new javax.swing.GroupLayout(panel_despegable_reportes);
         panel_despegable_reportes.setLayout(panel_despegable_reportesLayout);
@@ -1336,7 +1346,7 @@ boolean a=true;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panel_despegable_titulo_2, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
@@ -1353,25 +1363,24 @@ boolean a=true;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panel_despegable_ventana, javax.swing.GroupLayout.PREFERRED_SIZE, 110, Short.MAX_VALUE)
                             .addComponent(menu_ventana, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(rSPanelMaterial4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panel_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                                .addComponent(panel_despegable_titulo_1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panel_despegable_1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
-                                .addComponent(menu_01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(menu_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                                .addComponent(panel_despegable_reportes, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(menu_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panel_despegable_salir_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                            .addComponent(panel_despegable_titulo_1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel_despegable_1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                            .addComponent(menu_01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(menu_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                            .addComponent(panel_despegable_reportes, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(menu_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panel_despegable_salir_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(rSPanelMaterial4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -1454,13 +1463,13 @@ boolean a=true;
             panel_usuarios.setVisible(false);
 
            frm_UI_01_Patien1.ocultar_form_patient(false);
-           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_02_reservar_cita2.ocultar_form_cita(false);
            frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
            frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
            frm_UI_05_servicios1.ocultar_form_servicios(false);
            frm_UI_06_especialista1.ocultar_form_especialista(false);
            frm_UI_07_usuarios1.ocultar_form_usuarios(false);
-           frm_UI_inicio2.ocultar_form_inicio(true);
+           frm_UI_inicio1.ocultar_form_inicio(true);
             
 
     
@@ -1503,13 +1512,13 @@ boolean a=true;
             panel_usuarios.setVisible(false);
             
            frm_UI_01_Patien1.ocultar_form_patient(true);
-           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_02_reservar_cita2.ocultar_form_cita(false);
            frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
            frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
            frm_UI_05_servicios1.ocultar_form_servicios(false);
            frm_UI_06_especialista1.ocultar_form_especialista(false);
            frm_UI_07_usuarios1.ocultar_form_usuarios(false);
-           frm_UI_inicio2.ocultar_form_inicio(false);
+           frm_UI_inicio1.ocultar_form_inicio(false);
            
             
 
@@ -1552,13 +1561,13 @@ boolean a=true;
             panel_usuarios.setVisible(false);
             
            frm_UI_01_Patien1.ocultar_form_patient(false);
-           frm_UI_02_reservar_cita1.ocultar_form_cita(true);
+           frm_UI_02_reservar_cita2.ocultar_form_cita(true);
            frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
            frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
            frm_UI_05_servicios1.ocultar_form_servicios(false);
            frm_UI_06_especialista1.ocultar_form_especialista(false);
            frm_UI_07_usuarios1.ocultar_form_usuarios(false);
-           frm_UI_inicio2.ocultar_form_inicio(false);
+           frm_UI_inicio1.ocultar_form_inicio(false);
             
      
              
@@ -1603,13 +1612,13 @@ boolean a=true;
             panel_usuarios.setVisible(false);
             
              frm_UI_01_Patien1.ocultar_form_patient(false);
-           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_02_reservar_cita2.ocultar_form_cita(false);
            frm_UI_03_gestionar_citas1.ocultar_form_gestion(true);
            frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
            frm_UI_05_servicios1.ocultar_form_servicios(false);
            frm_UI_06_especialista1.ocultar_form_especialista(false);
            frm_UI_07_usuarios1.ocultar_form_usuarios(false);
-           frm_UI_inicio2.ocultar_form_inicio(false);
+           frm_UI_inicio1.ocultar_form_inicio(false);
         
         
         }
@@ -1652,13 +1661,13 @@ boolean a=true;
             panel_usuarios.setVisible(false);
             
            frm_UI_01_Patien1.ocultar_form_patient(false);
-           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_02_reservar_cita2.ocultar_form_cita(false);
            frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
            frm_UI_04_comprobantes2.ocultar_form_comprobantes(true);
            frm_UI_05_servicios1.ocultar_form_servicios(false);
            frm_UI_06_especialista1.ocultar_form_especialista(false);
            frm_UI_07_usuarios1.ocultar_form_usuarios(false);
-           frm_UI_inicio2.ocultar_form_inicio(false);
+           frm_UI_inicio1.ocultar_form_inicio(false);
            
             
          }
@@ -1753,13 +1762,13 @@ boolean a=true;
             panel_usuarios.setVisible(false);
             
            frm_UI_01_Patien1.ocultar_form_patient(false);
-           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_02_reservar_cita2.ocultar_form_cita(false);
            frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
            frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
            frm_UI_05_servicios1.ocultar_form_servicios(true);
            frm_UI_06_especialista1.ocultar_form_especialista(false);
            frm_UI_07_usuarios1.ocultar_form_usuarios(false);
-           frm_UI_inicio2.ocultar_form_inicio(false);
+           frm_UI_inicio1.ocultar_form_inicio(false);
             
             
             
@@ -1799,13 +1808,13 @@ boolean a=true;
             panel_usuarios.setVisible(false);
             
            frm_UI_01_Patien1.ocultar_form_patient(false);
-           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_02_reservar_cita2.ocultar_form_cita(false);
            frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
            frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
            frm_UI_05_servicios1.ocultar_form_servicios(false);
            frm_UI_06_especialista1.ocultar_form_especialista(true);
            frm_UI_07_usuarios1.ocultar_form_usuarios(false);
-           frm_UI_inicio2.ocultar_form_inicio(false);
+           frm_UI_inicio1.ocultar_form_inicio(false);
             
            
         }
@@ -1888,13 +1897,13 @@ boolean a=true;
             panel_usuarios.setVisible(true);
             
            frm_UI_01_Patien1.ocultar_form_patient(false);
-           frm_UI_02_reservar_cita1.ocultar_form_cita(false);
+           frm_UI_02_reservar_cita2.ocultar_form_cita(false);
            frm_UI_03_gestionar_citas1.ocultar_form_gestion(false);
            frm_UI_04_comprobantes2.ocultar_form_comprobantes(false);
            frm_UI_05_servicios1.ocultar_form_servicios(false);
            frm_UI_06_especialista1.ocultar_form_especialista(false);
            frm_UI_07_usuarios1.ocultar_form_usuarios(true);
-           frm_UI_inicio2.ocultar_form_inicio(false);
+           frm_UI_inicio1.ocultar_form_inicio(false);
             
          
         }
@@ -2335,6 +2344,19 @@ if(a==true){
    }//              // TODO add your handling code here:
     }//GEN-LAST:event_lbl_menu_2MouseClicked
 
+    private void menu_01MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_01MousePressed
+xx=evt.getX();
+       xy=evt.getY();         // TODO add your handling code here:
+    }//GEN-LAST:event_menu_01MousePressed
+
+    private void menu_01MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_01MouseDragged
+ int x=evt.getXOnScreen();
+       int y=evt.getYOnScreen();
+       
+        this.setLocation(x-xx, y-xy);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menu_01MouseDragged
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -2375,13 +2397,15 @@ if(a==true){
     private newscomponents.RSButtonFlat_new btn_usuario_02;
     private newscomponents.RSButtonFlat_new btn_vaciar_bd;
     private WIN33CLC_VIEW.frm_UI_01_Patien frm_UI_01_Patien1;
-    private WIN33CLC_VIEW.frm_UI_02_reservar_cita frm_UI_02_reservar_cita1;
+    private WIN33CLC_VIEW.frm_UI_02_reservar_cita frm_UI_02_reservar_cita2;
     private WIN33CLC_VIEW.frm_UI_03_gestionar_citas frm_UI_03_gestionar_citas1;
+    private WIN33CLC_VIEW.frm_UI_03_gestionar_citas frm_UI_03_gestionar_citas2;
+    private WIN33CLC_VIEW.frm_UI_04_comprobantes frm_UI_04_comprobantes1;
     private WIN33CLC_VIEW.frm_UI_04_comprobantes frm_UI_04_comprobantes2;
     private WIN33CLC_VIEW.frm_UI_05_servicios frm_UI_05_servicios1;
     private WIN33CLC_VIEW.frm_UI_06_especialista frm_UI_06_especialista1;
     private WIN33CLC_VIEW.frm_UI_07_usuarios frm_UI_07_usuarios1;
-    private WIN33CLC_VIEW.frm_UI_inicio frm_UI_inicio2;
+    private WIN33CLC_VIEW.frm_UI_inicio frm_UI_inicio1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_menu_1;

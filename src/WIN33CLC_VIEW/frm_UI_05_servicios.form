@@ -33,7 +33,7 @@
               <Component id="menu_salir1" min="-2" pref="277" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Component id="menu_salir3" min="-2" pref="283" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="73" max="32767" attributes="0"/>
           </Group>
           <Component id="rSPanelBorderGradient1" max="32767" attributes="0"/>
       </Group>
@@ -59,10 +59,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace pref="189" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="txt_precio_servicio" min="-2" pref="108" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="txt_precio_servicio" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                           <Component id="chk_estado" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel10" alignment="0" max="32767" attributes="0"/>
@@ -78,16 +78,16 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txt_nombre_servicio" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="txt_nombre_servicio" min="-2" pref="54" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txt_precio_servicio" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="chk_estado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_precio_servicio" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,56 +96,23 @@
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
+              <Font name="Poppins SemiBold" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="NOMBRE DEL SERVICIO"/>
-          </Properties>
-        </Component>
-        <Component class="rojerusan.RSMetroTextPlaceHolder" name="txt_nombre_servicio">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="borderColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="99" red="99" type="rgb"/>
-            </Property>
-            <Property name="botonColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="c6" green="6f" red="3" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="15" style="0"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Nombre del Servicio:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
+              <Font name="Poppins SemiBold" size="14" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="PRECIO DEL SERVICIO"/>
-          </Properties>
-        </Component>
-        <Component class="rojerusan.RSMetroTextFullPlaceHolder" name="txt_precio_servicio">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="borderColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="99" red="99" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="15" style="0"/>
-            </Property>
-            <Property name="phColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="placeholder" type="java.lang.String" value=""/>
+            <Property name="text" type="java.lang.String" value="Precio del Producto:"/>
           </Properties>
         </Component>
         <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="chk_estado">
@@ -161,9 +128,72 @@
               <Color blue="c6" green="6f" red="3" type="rgb"/>
             </Property>
             <Property name="focusPainted" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Poppins" size="14" style="0"/>
+            </Property>
             <Property name="rippleColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="c6" green="6f" red="3" type="rgb"/>
             </Property>
+          </Properties>
+        </Component>
+        <Component class="rscomponentshade.RSFormatFieldShade" name="txt_nombre_servicio">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fb" green="f7" red="f6" type="rgb"/>
+            </Property>
+            <Property name="bgShade" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="bgShadeHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="doubleBuffered" type="boolean" value="true"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Poppins Light" size="14" style="0"/>
+            </Property>
+            <Property name="intensity" type="int" value="0"/>
+            <Property name="phColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="pixels" type="int" value="0"/>
+            <Property name="placeholder" type="java.lang.String" value=""/>
+            <Property name="round" type="int" value="40"/>
+          </Properties>
+        </Component>
+        <Component class="rscomponentshade.RSFormatFieldShade" name="txt_precio_servicio">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fb" green="f7" red="f6" type="rgb"/>
+            </Property>
+            <Property name="bgShade" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="bgShadeHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="doubleBuffered" type="boolean" value="true"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Poppins Light" size="14" style="0"/>
+            </Property>
+            <Property name="intensity" type="int" value="0"/>
+            <Property name="phColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="pixels" type="int" value="0"/>
+            <Property name="placeholder" type="java.lang.String" value=""/>
+            <Property name="round" type="int" value="40"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -233,16 +263,16 @@
                   <Color blue="4a" green="4a" red="4a" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="15" style="0"/>
+                  <Font name="Poppins Light" size="15" style="0"/>
                 </Property>
                 <Property name="fuenteFilas" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="15" style="0"/>
+                  <Font name="Poppins Light" size="15" style="0"/>
                 </Property>
                 <Property name="fuenteFilasSelect" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="15" style="0"/>
+                  <Font name="Poppins Light" size="15" style="0"/>
                 </Property>
                 <Property name="fuenteHead" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Black" size="15" style="0"/>
+                  <Font name="Poppins SemiBold" size="15" style="0"/>
                 </Property>
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -267,10 +297,10 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="colorPrimario" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="b1" red="29" type="rgb"/>
+          <Color blue="fa" green="e8" red="c8" type="rgb"/>
         </Property>
         <Property name="colorSecundario" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="b1" red="29" type="rgb"/>
+          <Color blue="fa" green="e8" red="c8" type="rgb"/>
         </Property>
         <Property name="gradiente" type="RSMaterialComponent.RSPanelBorderGradient$Gradiente" editor="org.netbeans.modules.form.editors.EnumEditor">
           <Value id="HORIZONTAL"/>
@@ -287,19 +317,19 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btn_modificar_servicio" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_cancelar_cambios" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_guardar_servicio" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_nuevo_servicios" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="btn_nuevo_servicios" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_modificar_servicio" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_guardar_servicio" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_cancelar_cambios" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -312,15 +342,15 @@
                   <Component id="jLabel12" min="-2" pref="90" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="126" max="32767" attributes="0"/>
-                  <Component id="btn_nuevo_servicios" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="btn_guardar_servicio" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                  <Component id="btn_modificar_servicio" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="btn_cancelar_cambios" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                  <Component id="btn_nuevo_servicios" min="-2" pref="53" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btn_guardar_servicio" min="-2" pref="53" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btn_modificar_servicio" min="-2" pref="53" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="btn_cancelar_cambios" min="-2" pref="53" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -336,7 +366,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Black" size="19" style="0"/>
+              <Font name="Poppins ExtraBold" size="19" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -347,18 +377,20 @@
         <Component class="newscomponents.RSButtonFlat_new" name="btn_nuevo_servicios">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fd" green="a0" red="0" type="rgb"/>
+              <Color blue="ff" green="c6" red="8b" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/WIN34CLC_RESOURCES_UI/icons8-agregar-archivo-24.png"/>
+              <Image iconType="3" name="/WIN34CLC_RESOURCES_UI/icons8-calendario-menos-24.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nuevo Servicio"/>
             <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="true"/>
+            <Property name="cornerRound" type="int" value="45"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Black" size="15" style="0"/>
+              <Font name="Poppins SemiBold" size="14" style="0"/>
             </Property>
           </Properties>
           <Events>
@@ -368,17 +400,20 @@
         <Component class="newscomponents.RSButtonFlat_new" name="btn_guardar_servicio">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fd" green="a0" red="0" type="rgb"/>
+              <Color blue="ff" green="c6" red="8b" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/WIN34CLC_RESOURCES_UI/icons8-guardar-24.png"/>
+              <Image iconType="3" name="/WIN34CLC_RESOURCES_UI/icons8-horas-extras-24.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar Servicio"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="true"/>
+            <Property name="cornerRound" type="int" value="45"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Black" size="15" style="0"/>
+              <Font name="Poppins SemiBold" size="14" style="0"/>
             </Property>
           </Properties>
           <Events>
@@ -388,17 +423,20 @@
         <Component class="newscomponents.RSButtonFlat_new" name="btn_modificar_servicio">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fd" green="a0" red="0" type="rgb"/>
+              <Color blue="ff" green="c6" red="8b" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/WIN34CLC_RESOURCES_UI/icons8-editar-archivo-24.png"/>
+              <Image iconType="3" name="/WIN34CLC_RESOURCES_UI/cancelar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Modificar Servicio"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="true"/>
+            <Property name="cornerRound" type="int" value="45"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Black" size="15" style="0"/>
+              <Font name="Poppins SemiBold" size="14" style="0"/>
             </Property>
           </Properties>
           <Events>
@@ -408,7 +446,7 @@
         <Component class="newscomponents.RSButtonFlat_new" name="btn_cancelar_cambios">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="fd" green="a0" red="0" type="rgb"/>
+              <Color blue="ff" green="c6" red="8b" type="rgb"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -417,8 +455,11 @@
               <Image iconType="3" name="/WIN34CLC_RESOURCES_UI/cancelar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar Cambios"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="true"/>
+            <Property name="cornerRound" type="int" value="45"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Black" size="15" style="0"/>
+              <Font name="Poppins SemiBold" size="14" style="0"/>
             </Property>
           </Properties>
           <Events>
