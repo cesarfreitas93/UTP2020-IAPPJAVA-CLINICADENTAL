@@ -16,7 +16,7 @@ import javax.swing.table.TableCellRenderer;
 
 public class frm_07_gestionar_cita extends javax.swing.JPanel {
 
-    private CTR_05_Citas CTR_05_Citas_e;
+    private CTR_05_Citas ctr;
 
     public frm_07_gestionar_cita() {
         initComponents();
@@ -25,7 +25,7 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
 
     public void LoadData() {
         try {
-            CTR_05_Citas ctr = new CTR_05_Citas();
+            ctr = new CTR_05_Citas();
             this.tabla_citas_vigentes.setModel(ctr.ListCitas(1));
             this.tabla_citas_reprogramadas.setModel(ctr.ListCitas(2));
             this.tabla_citas_vencidas.setModel(ctr.ListCitas(3));
@@ -51,38 +51,25 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                int fila = tabla_citas_vigentes.rowAtPoint(e.getPoint());
-                int columna = tabla_citas_vigentes.columnAtPoint(e.getPoint());
-
-                System.out.println("click");
+                try {
+                    int fila = tabla_citas_vigentes.rowAtPoint(e.getPoint());
+                    int columna = tabla_citas_vigentes.columnAtPoint(e.getPoint());
+                    
+                    System.out.println("click");
 //                if (!tabla_citas_vigentes.getModel().getColumnClass(0).equals(JButton.class)) {
 //                    //System.out.println(tabla_citas_vigentes.getModel().getValueAt(fila, 0)); 
 //                    setId((long) tabla_citas_vigentes.getModel().getValueAt(fila, 0));
 //
 //                }
-                try {
-                    Citas dtos = new Citas();
-                  long id=  (long) tabla_citas_vigentes.getModel().getValueAt(fila, 0);
-                    dtos = CTR_05_Citas_e.SelecteCitasGestionar(id);
-                     System.out.println(dtos);
+
+                    //Citas dtos = new Citas();
+                    long id=  (long) tabla_citas_vigentes.getModel().getValueAt(fila, 0);
+                    ctr.SelecteCitasGestionar(id);
+                    System.out.println("hoa mundo");
                 } catch (SQLException ex) {
-                    Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(frm_07_gestionar_cita.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (DaoException ex) {
-                    Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                // setEditable(true);
-                if (tabla_citas_vigentes.getModel().getColumnClass(columna).equals(JButton.class)) {
-                    try {
-                        System.out.println(tabla_citas_vigentes.getModel().getValueAt(fila, 0));
-                        //    CTR_05_Citas_e.DeletePatien((long) tabla_citas_vigentes.getModel().getValueAt(fila, 0));
-                        System.out.println("eliminado por el botton");
-                        tabla_citas_vigentes.setModel(CTR_05_Citas_e.ListCitas(1));
-                        //    setEditable(false);
-                    } catch (SQLException ex) {
-                        // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (DaoException ex) {
-                        //Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    Logger.getLogger(frm_07_gestionar_cita.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
 
