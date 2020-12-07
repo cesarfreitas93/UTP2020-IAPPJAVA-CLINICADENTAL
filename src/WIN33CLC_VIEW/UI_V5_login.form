@@ -89,7 +89,7 @@
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="61" max="-2" attributes="0"/>
-                  <EmptySpace min="139" pref="139" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
                   <Component id="txt_user" min="-2" pref="54" max="-2" attributes="0"/>
@@ -171,7 +171,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingresa tus Credenciales"/>
+            <Property name="text" type="java.lang.String" value="Ingrese sus Credenciales"/>
           </Properties>
         </Component>
         <Component class="newscomponents.RSButtonFlat_new" name="btn_ingresar">

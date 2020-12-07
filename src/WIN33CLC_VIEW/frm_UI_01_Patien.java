@@ -57,9 +57,9 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         listar_Departamento();
         cTR_02_Patient = new CTR_02_Patient();
         
-        
-        
         setBackground(new Color (255,255,255,0));
+      //  menu_salir4.setBackground(new Color (255,255,255,200));
+
       
        
     }
@@ -283,14 +283,15 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         tablePatients = new rojerusan.RSTableMetro();
         menu_salir4 = new RSMaterialComponent.RSPanelMaterial();
         jLabel12 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         btn_nuevo_paciente = new newscomponents.RSButtonFlat_new();
         btn_guardar_paciente = new newscomponents.RSButtonFlat_new();
         btn_modificar_paciente = new newscomponents.RSButtonFlat_new();
         btn_cancelar_cambios = new newscomponents.RSButtonFlat_new();
+        jLabel3 = new javax.swing.JLabel();
 
         menu_salir1.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir1.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir1.setPixels(0);
         menu_salir1.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir1.setRound(40);
 
@@ -341,6 +342,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         txt_phone.setRound(40);
 
         txt_dni.setBackground(new java.awt.Color(247, 248, 251));
+        txt_dni.setBorder(null);
         txt_dni.setForeground(new java.awt.Color(51, 51, 51));
         txt_dni.setBgShade(new java.awt.Color(255, 255, 255));
         txt_dni.setBgShadeHover(new java.awt.Color(255, 255, 255));
@@ -421,7 +423,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
                 .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(txt_dni, javax.swing.GroupLayout.DEFAULT_SIZE, 1, Short.MAX_VALUE)
                     .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                     .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
@@ -471,6 +473,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
 
         menu_salir2.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir2.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir2.setPixels(0);
         menu_salir2.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir2.setRound(40);
 
@@ -557,6 +560,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
 
         menu_salir3.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir3.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir3.setPixels(0);
         menu_salir3.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir3.setRound(40);
 
@@ -605,14 +609,11 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
 
         menu_salir4.setBackground(new java.awt.Color(200, 232, 250));
         menu_salir4.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir4.setPixels(0);
         menu_salir4.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir4.setRound(40);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-persona-de-sexo-masculino-100.png"))); // NOI18N
-
-        jLabel1.setFont(new java.awt.Font("Poppins ExtraBold", 0, 19)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("PACIENTES");
 
         btn_nuevo_paciente.setBackground(new java.awt.Color(139, 198, 255));
         btn_nuevo_paciente.setForeground(new java.awt.Color(51, 51, 51));
@@ -670,33 +671,40 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Poppins", 1, 42)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Pacientes");
+
         javax.swing.GroupLayout menu_salir4Layout = new javax.swing.GroupLayout(menu_salir4);
         menu_salir4.setLayout(menu_salir4Layout);
         menu_salir4Layout.setHorizontalGroup(
             menu_salir4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_salir4Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addGroup(menu_salir4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel12))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir4Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(menu_salir4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_nuevo_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_cancelar_cambios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_modificar_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_guardar_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31))
+            .addGroup(menu_salir4Layout.createSequentialGroup()
+                .addGroup(menu_salir4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_salir4Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jLabel12))
+                    .addGroup(menu_salir4Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         menu_salir4Layout.setVerticalGroup(
             menu_salir4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu_salir4Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(125, 125, 125)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105)
                 .addComponent(btn_nuevo_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(btn_modificar_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1057,7 +1065,6 @@ listar_Provincia();        // TODO add your handling code here:
     private RSMaterialComponent.RSComboBoxMaterial cbx_departamento;
     private RSMaterialComponent.RSComboBoxMaterial cbx_distrito;
     private RSMaterialComponent.RSComboBoxMaterial cbx_provincia;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1065,6 +1072,7 @@ listar_Provincia();        // TODO add your handling code here:
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

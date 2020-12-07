@@ -35,11 +35,11 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         jLabel18 = new javax.swing.JLabel();
         rSPanelBorderGradient1 = new RSMaterialComponent.RSPanelBorderGradient();
         jLabel12 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         btn_nuevo_comprobante = new newscomponents.RSButtonFlat_new();
         btn_pagar_comprobante = new newscomponents.RSButtonFlat_new();
         btn_imprimir_comprobante = new newscomponents.RSButtonFlat_new();
         btn_cancelar_cambios = new newscomponents.RSButtonFlat_new();
+        jLabel3 = new javax.swing.JLabel();
         menu_salir2 = new RSMaterialComponent.RSPanelMaterial();
         rSCheckBoxMaterial1 = new RSMaterialComponent.RSCheckBoxMaterial();
         rSCheckBoxMaterial2 = new RSMaterialComponent.RSCheckBoxMaterial();
@@ -127,10 +127,6 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-factura-100.png"))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 19)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("COMPROBANTES");
-
         btn_nuevo_comprobante.setBackground(new java.awt.Color(139, 198, 255));
         btn_nuevo_comprobante.setForeground(new java.awt.Color(51, 51, 51));
         btn_nuevo_comprobante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-agregar-recibo-24.png"))); // NOI18N
@@ -187,19 +183,18 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Poppins", 1, 30)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Comprobantes");
+
         javax.swing.GroupLayout rSPanelBorderGradient1Layout = new javax.swing.GroupLayout(rSPanelBorderGradient1);
         rSPanelBorderGradient1.setLayout(rSPanelBorderGradient1Layout);
         rSPanelBorderGradient1Layout.setHorizontalGroup(
             rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelBorderGradient1Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addGap(81, 81, 81))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelBorderGradient1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(49, 49, 49))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(81, 81, 81))
             .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -208,15 +203,19 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                     .addComponent(btn_imprimir_comprobante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_pagar_comprobante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                .addContainerGap())
         );
         rSPanelBorderGradient1Layout.setVerticalGroup(
             rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel12)
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(141, 141, 141)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138)
                 .addComponent(btn_nuevo_comprobante, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(btn_pagar_comprobante, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,7 +223,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                 .addComponent(btn_imprimir_comprobante, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(btn_cancelar_cambios, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         menu_salir2.setBackground(new java.awt.Color(255, 255, 255));
@@ -521,7 +520,6 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     private newscomponents.RSButtonFlat_new btn_nuevo_comprobante;
     private newscomponents.RSButtonFlat_new btn_pagar_comprobante;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -532,6 +530,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_patient;
     private javax.swing.JLabel lbl_total_pago;

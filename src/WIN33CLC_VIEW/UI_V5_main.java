@@ -20,13 +20,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import rojerusan.RSPanelsSlider;
 
-public class UI_v5_save1 extends javax.swing.JFrame {
+public class UI_V5_main extends javax.swing.JFrame {
  static boolean maximized = true;
 
 boolean a=true;
 
 
-    public UI_v5_save1() {
+    public UI_V5_main() {
   
         initComponents();
         rSPanelMaterial4.setBackground(new Color (255,255,255,0));
@@ -43,7 +43,7 @@ boolean a=true;
         btn_usuarios_02.setBackground(new Color (255,255,255,0));
 
       
-        setBackground(new Color (255,255,255,245));
+        setBackground(new Color (255,255,255,0));
         setLocationRelativeTo(null);
        
         boton_inicio();
@@ -64,6 +64,8 @@ int xx,xy;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel_menu = new RSMaterialComponent.RSPanelMaterial();
+        lbl_menu_1 = new javax.swing.JLabel();
         panel_menu2 = new RSMaterialComponent.RSPanelMaterial();
         lbl_menu_2 = new javax.swing.JLabel();
         panel_despegable_1 = new RSMaterialComponent.RSPanelMaterial();
@@ -85,11 +87,17 @@ int xx,xy;
         panel_paciente = new javax.swing.JPanel();
         frm_UI_01_Patien1 = new WIN33CLC_VIEW.frm_UI_01_Patien();
         panel_cita = new javax.swing.JPanel();
+        frm_UI_02_reservar_cita1 = new WIN33CLC_VIEW.frm_UI_02_reservar_cita();
         panel_gestion_cita = new javax.swing.JPanel();
+        frm_UI_02_gestionar_cita2 = new WIN33CLC_VIEW.frm_UI_03_gestionar_cita();
         panel_comprobante = new javax.swing.JPanel();
+        frm_UI_04_comprobantes1 = new WIN33CLC_VIEW.frm_UI_04_comprobantes();
         panel_servicios = new javax.swing.JPanel();
+        frm_UI_05_servicios1 = new WIN33CLC_VIEW.frm_UI_05_servicios();
         panel_especialista = new javax.swing.JPanel();
+        frm_UI_06_especialista1 = new WIN33CLC_VIEW.frm_UI_06_especialista();
         panel_usuarios = new javax.swing.JPanel();
+        frm_UI_07_usuarios1 = new WIN33CLC_VIEW.frm_UI_07_usuarios();
         menu_ventana = new RSMaterialComponent.RSPanelMaterial();
         btn_min = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_max = new RSMaterialComponent.RSButtonMaterialGradientOne();
@@ -106,8 +114,6 @@ int xx,xy;
         lblfactura = new javax.swing.JLabel();
         menu_salir = new RSMaterialComponent.RSPanelMaterial();
         btn_salir = new RSMaterialComponent.RSButtonMaterialGradientOne();
-        panel_menu = new RSMaterialComponent.RSPanelMaterial();
-        lbl_menu_1 = new javax.swing.JLabel();
         panel_despegable_2 = new RSMaterialComponent.RSPanelMaterial();
         btn_usuarios_02 = new newscomponents.RSButtonFlat_new();
         btn_servicios_02 = new newscomponents.RSButtonFlat_new();
@@ -134,12 +140,44 @@ int xx,xy;
         panel_despegable_reportes = new RSMaterialComponent.RSPanelMaterial();
         btn_reporte_citas = new newscomponents.RSButtonFlat_new();
         btn_reportes_facturas = new newscomponents.RSButtonFlat_new();
+        rSPanelImage1 = new rojerusan.RSPanelImage();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
+        panel_menu.setBackground(new java.awt.Color(255, 255, 255));
+        panel_menu.setBgShade(new java.awt.Color(204, 204, 204));
+        panel_menu.setPixels(0);
+        panel_menu.setPreferredSize(new java.awt.Dimension(90, 62));
+        panel_menu.setRound(40);
+
+        lbl_menu_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-menú-30.png"))); // NOI18N
+        lbl_menu_1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_menu_1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
+        panel_menu.setLayout(panel_menuLayout);
+        panel_menuLayout.setHorizontalGroup(
+            panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_menuLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(lbl_menu_1)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        panel_menuLayout.setVerticalGroup(
+            panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_menuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_menu_1)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
         panel_menu2.setBackground(new java.awt.Color(255, 255, 255));
         panel_menu2.setBgShade(new java.awt.Color(204, 204, 204));
+        panel_menu2.setPixels(0);
         panel_menu2.setPreferredSize(new java.awt.Dimension(90, 62));
         panel_menu2.setRound(40);
 
@@ -169,7 +207,7 @@ int xx,xy;
 
         panel_despegable_1.setBackground(new java.awt.Color(255, 255, 255));
         panel_despegable_1.setBgShade(new java.awt.Color(255, 255, 255));
-        panel_despegable_1.setPixels(2);
+        panel_despegable_1.setPixels(0);
         panel_despegable_1.setPreferredSize(new java.awt.Dimension(10, 722));
         panel_despegable_1.setRound(40);
 
@@ -318,6 +356,7 @@ int xx,xy;
 
         menu_02.setBackground(new java.awt.Color(255, 255, 255));
         menu_02.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_02.setPixels(0);
         menu_02.setRound(40);
 
         lblservicios.setBackground(new java.awt.Color(101, 208, 250));
@@ -461,37 +500,48 @@ int xx,xy;
         rSPanelMaterial4.add(panel_paciente, "card3");
 
         panel_cita.setBackground(new java.awt.Color(255, 255, 255));
-        panel_cita.setName("panel_cita"); // NOI18N
+        panel_cita.setName("panel_paciente"); // NOI18N
         panel_cita.setLayout(new java.awt.CardLayout());
+        panel_cita.add(frm_UI_02_reservar_cita1, "card2");
+
         rSPanelMaterial4.add(panel_cita, "card3");
 
-        panel_gestion_cita.setBackground(new java.awt.Color(255, 255, 255));
-        panel_gestion_cita.setName("panel_gestion_cita"); // NOI18N
         panel_gestion_cita.setLayout(new java.awt.CardLayout());
-        rSPanelMaterial4.add(panel_gestion_cita, "card2");
+        panel_gestion_cita.add(frm_UI_02_gestionar_cita2, "card2");
+
+        rSPanelMaterial4.add(panel_gestion_cita, "card9");
 
         panel_comprobante.setBackground(new java.awt.Color(255, 255, 255));
         panel_comprobante.setName("panel_comprobante"); // NOI18N
         panel_comprobante.setLayout(new java.awt.CardLayout());
+        panel_comprobante.add(frm_UI_04_comprobantes1, "card2");
+
         rSPanelMaterial4.add(panel_comprobante, "card3");
 
         panel_servicios.setBackground(new java.awt.Color(255, 255, 255));
         panel_servicios.setName("panel_servicios"); // NOI18N
         panel_servicios.setLayout(new java.awt.CardLayout());
+        panel_servicios.add(frm_UI_05_servicios1, "card2");
+
         rSPanelMaterial4.add(panel_servicios, "card3");
 
         panel_especialista.setBackground(new java.awt.Color(255, 255, 255));
         panel_especialista.setName("panel_especialista"); // NOI18N
         panel_especialista.setLayout(new java.awt.CardLayout());
+        panel_especialista.add(frm_UI_06_especialista1, "card2");
+
         rSPanelMaterial4.add(panel_especialista, "card3");
 
         panel_usuarios.setBackground(new java.awt.Color(255, 255, 255));
         panel_usuarios.setName("panel_usuarios"); // NOI18N
         panel_usuarios.setLayout(new java.awt.CardLayout());
+        panel_usuarios.add(frm_UI_07_usuarios1, "card2");
+
         rSPanelMaterial4.add(panel_usuarios, "card3");
 
         menu_ventana.setBackground(new java.awt.Color(255, 255, 255));
         menu_ventana.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_ventana.setPixels(0);
         menu_ventana.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_ventana.setRound(40);
 
@@ -568,6 +618,7 @@ int xx,xy;
 
         menu_01.setBackground(new java.awt.Color(255, 255, 255));
         menu_01.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_01.setPixels(0);
         menu_01.setRound(40);
         menu_01.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -773,6 +824,7 @@ int xx,xy;
 
         menu_salir.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir.setPixels(0);
         menu_salir.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir.setRound(40);
 
@@ -818,38 +870,9 @@ int xx,xy;
                 .addGap(15, 15, 15))
         );
 
-        panel_menu.setBackground(new java.awt.Color(255, 255, 255));
-        panel_menu.setBgShade(new java.awt.Color(204, 204, 204));
-        panel_menu.setPreferredSize(new java.awt.Dimension(90, 62));
-        panel_menu.setRound(40);
-
-        lbl_menu_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-menú-30.png"))); // NOI18N
-        lbl_menu_1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_menu_1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
-        panel_menu.setLayout(panel_menuLayout);
-        panel_menuLayout.setHorizontalGroup(
-            panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_menuLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lbl_menu_1)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-        panel_menuLayout.setVerticalGroup(
-            panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_menuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_menu_1)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
         panel_despegable_2.setBackground(new java.awt.Color(255, 255, 255));
         panel_despegable_2.setBgShade(new java.awt.Color(255, 255, 255));
-        panel_despegable_2.setPixels(2);
+        panel_despegable_2.setPixels(0);
         panel_despegable_2.setPreferredSize(new java.awt.Dimension(10, 360));
         panel_despegable_2.setRound(40);
 
@@ -942,7 +965,7 @@ int xx,xy;
 
         panel_despegable_base_datos.setBackground(new java.awt.Color(255, 255, 255));
         panel_despegable_base_datos.setBgShade(new java.awt.Color(255, 255, 255));
-        panel_despegable_base_datos.setPixels(2);
+        panel_despegable_base_datos.setPixels(0);
         panel_despegable_base_datos.setPreferredSize(new java.awt.Dimension(10, 722));
         panel_despegable_base_datos.setRound(40);
 
@@ -1035,7 +1058,7 @@ int xx,xy;
 
         panel_despegable_ventana.setBackground(new java.awt.Color(255, 255, 255));
         panel_despegable_ventana.setBgShade(new java.awt.Color(255, 255, 255));
-        panel_despegable_ventana.setPixels(2);
+        panel_despegable_ventana.setPixels(0);
         panel_despegable_ventana.setPreferredSize(new java.awt.Dimension(10, 722));
         panel_despegable_ventana.setRound(40);
 
@@ -1104,7 +1127,7 @@ int xx,xy;
 
         panel_despegable_titulo_2.setBackground(new java.awt.Color(255, 255, 255));
         panel_despegable_titulo_2.setBgShade(new java.awt.Color(255, 255, 255));
-        panel_despegable_titulo_2.setPixels(2);
+        panel_despegable_titulo_2.setPixels(0);
         panel_despegable_titulo_2.setPreferredSize(new java.awt.Dimension(10, 722));
         panel_despegable_titulo_2.setRound(40);
 
@@ -1131,6 +1154,7 @@ int xx,xy;
 
         menu_bd.setBackground(new java.awt.Color(255, 255, 255));
         menu_bd.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_bd.setPixels(0);
         menu_bd.setPreferredSize(new java.awt.Dimension(80, 128));
         menu_bd.setRound(40);
 
@@ -1184,7 +1208,7 @@ int xx,xy;
 
         panel_despegable_titulo_1.setBackground(new java.awt.Color(255, 255, 255));
         panel_despegable_titulo_1.setBgShade(new java.awt.Color(255, 255, 255));
-        panel_despegable_titulo_1.setPixels(2);
+        panel_despegable_titulo_1.setPixels(0);
         panel_despegable_titulo_1.setPreferredSize(new java.awt.Dimension(10, 722));
         panel_despegable_titulo_1.setRound(40);
 
@@ -1211,7 +1235,7 @@ int xx,xy;
 
         panel_despegable_salir_1.setBackground(new java.awt.Color(255, 255, 255));
         panel_despegable_salir_1.setBgShade(new java.awt.Color(255, 255, 255));
-        panel_despegable_salir_1.setPixels(2);
+        panel_despegable_salir_1.setPixels(0);
         panel_despegable_salir_1.setPreferredSize(new java.awt.Dimension(10, 74));
         panel_despegable_salir_1.setRound(40);
 
@@ -1255,6 +1279,7 @@ int xx,xy;
 
         menu_salir1.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir1.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir1.setPixels(0);
         menu_salir1.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir1.setRound(40);
 
@@ -1308,7 +1333,7 @@ int xx,xy;
 
         panel_despegable_reportes.setBackground(new java.awt.Color(255, 255, 255));
         panel_despegable_reportes.setBgShade(new java.awt.Color(255, 255, 255));
-        panel_despegable_reportes.setPixels(2);
+        panel_despegable_reportes.setPixels(0);
         panel_despegable_reportes.setPreferredSize(new java.awt.Dimension(10, 74));
         panel_despegable_reportes.setRound(40);
 
@@ -1375,6 +1400,19 @@ int xx,xy;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        rSPanelImage1.setImagen(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/f27.png"))); // NOI18N
+
+        javax.swing.GroupLayout rSPanelImage1Layout = new javax.swing.GroupLayout(rSPanelImage1);
+        rSPanelImage1.setLayout(rSPanelImage1Layout);
+        rSPanelImage1Layout.setHorizontalGroup(
+            rSPanelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1244, Short.MAX_VALUE)
+        );
+        rSPanelImage1Layout.setVerticalGroup(
+            rSPanelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 768, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1409,6 +1447,11 @@ int xx,xy;
                     .addComponent(menu_bd, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
                     .addComponent(menu_02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addComponent(rSPanelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1450,6 +1493,11 @@ int xx,xy;
                                 .addComponent(menu_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(panel_despegable_salir_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(rSPanelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -1474,15 +1522,15 @@ int xx,xy;
     } 
     public void colores_menus_despegables ()
     {
-        panel_despegable_1.setBackground(new Color (200,232,250,150));
-        panel_despegable_titulo_1.setBackground(new Color (139,198,255,150));
-      panel_despegable_salir_1.setBackground(new Color (139,198,255,150));
-        panel_despegable_reportes.setBackground(new Color (200,232,250,150));
+        panel_despegable_1.setBackground(new Color (255,255,255,150));
+        panel_despegable_titulo_1.setBackground(new Color (255,255,255,220));
+      panel_despegable_salir_1.setBackground(new Color (255,255,255,220));
+        panel_despegable_reportes.setBackground(new Color (255,255,255,150));
         
-        panel_despegable_2.setBackground(new Color (200,232,250,150));
-       panel_despegable_titulo_2.setBackground(new Color (139,198,255,150));
-       panel_despegable_ventana.setBackground(new Color (139,198,255,150));
-        panel_despegable_base_datos.setBackground(new Color (200,232,250,150));
+        panel_despegable_2.setBackground(new Color (255,255,255,150));
+       panel_despegable_titulo_2.setBackground(new Color (255,255,255,220));
+       panel_despegable_ventana.setBackground(new Color (255,255,255,220));
+        panel_despegable_base_datos.setBackground(new Color (255,255,255,150));
         //-------
         
        
@@ -2672,9 +2720,9 @@ changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/max.png");
     private void btn_maxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_maxActionPerformed
  if(maximized){
           
-            UI_v5_save1.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            UI_V5_main.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
             GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            UI_v5_save1.this.setMaximizedBounds(env.getMaximumWindowBounds());
+            UI_V5_main.this.setMaximizedBounds(env.getMaximumWindowBounds());
             maximized = false;
         }else{
             setExtendedState(JFrame.NORMAL);
@@ -3289,9 +3337,9 @@ System.exit(0);           // TODO add your handling code here:
     private void btn_max_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_max_02ActionPerformed
 if(maximized){
           
-            UI_v5_save1.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            UI_V5_main.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
             GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            UI_v5_save1.this.setMaximizedBounds(env.getMaximumWindowBounds());
+            UI_V5_main.this.setMaximizedBounds(env.getMaximumWindowBounds());
             maximized = false;
         }else{
             setExtendedState(JFrame.NORMAL);
@@ -3376,7 +3424,7 @@ subboton_vaciar_bd();        // TODO add your handling code here:
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI_v5_save1().setVisible(true);
+                new UI_V5_main().setVisible(true);
             }
         });
     }
@@ -3412,6 +3460,12 @@ subboton_vaciar_bd();        // TODO add your handling code here:
     private newscomponents.RSButtonFlat_new btn_usuarios_02;
     private newscomponents.RSButtonFlat_new btn_vaciar_bd;
     private WIN33CLC_VIEW.frm_UI_01_Patien frm_UI_01_Patien1;
+    private WIN33CLC_VIEW.frm_UI_03_gestionar_cita frm_UI_02_gestionar_cita2;
+    private WIN33CLC_VIEW.frm_UI_02_reservar_cita frm_UI_02_reservar_cita1;
+    private WIN33CLC_VIEW.frm_UI_04_comprobantes frm_UI_04_comprobantes1;
+    private WIN33CLC_VIEW.frm_UI_05_servicios frm_UI_05_servicios1;
+    private WIN33CLC_VIEW.frm_UI_06_especialista frm_UI_06_especialista1;
+    private WIN33CLC_VIEW.frm_UI_07_usuarios frm_UI_07_usuarios1;
     private WIN33CLC_VIEW.frm_UI_inicio frm_UI_inicio1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -3451,6 +3505,7 @@ subboton_vaciar_bd();        // TODO add your handling code here:
     private javax.swing.JPanel panel_paciente;
     private javax.swing.JPanel panel_servicios;
     private javax.swing.JPanel panel_usuarios;
+    private rojerusan.RSPanelImage rSPanelImage1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial4;
     // End of variables declaration//GEN-END:variables
 

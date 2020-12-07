@@ -77,7 +77,7 @@ int xx,xy;
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Ingresa tus Credenciales");
+        jLabel1.setText("Ingrese sus Credenciales");
 
         btn_ingresar.setBackground(new java.awt.Color(73, 162, 235));
         btn_ingresar.setForeground(new java.awt.Color(51, 51, 51));

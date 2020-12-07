@@ -4,9 +4,9 @@ package WIN33CLC_VIEW;
 import java.awt.Color;
 
 
-public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
+public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
 
-    public frm_UI_02_reservar_cita() {
+    public frm_UI_03_gestionar_cita() {
         initComponents();
      
         setBackground(new Color (255,255,255,0));
@@ -17,7 +17,7 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
      public void ocultar_form_cita(boolean b)
     {
     menu_salir1.setVisible(b);
-    menu_salir2.setVisible(b);
+  
     menu_salir3.setVisible(b);
     rSPanelBorderGradient1.setVisible(b);
             
@@ -29,17 +29,6 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        menu_salir1 = new RSMaterialComponent.RSPanelMaterial();
-        jLabel10 = new javax.swing.JLabel();
-        lbl_patient = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        btn_cancelar_cambios1 = new newscomponents.RSButtonFlat_new();
-        txt_dni = new rscomponentshade.RSFormatFieldShade();
-        menu_salir2 = new RSMaterialComponent.RSPanelMaterial();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        cbx_especialista = new RSMaterialComponent.RSComboBoxMaterial();
-        cbx_servicios = new RSMaterialComponent.RSComboBoxMaterial();
         menu_salir3 = new RSMaterialComponent.RSPanelMaterial();
         jLabel9 = new javax.swing.JLabel();
         rSDateChooser1 = new rojerusan.RSDateChooser();
@@ -61,153 +50,36 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
         rSRadioButtonMaterial43 = new RSMaterialComponent.RSRadioButtonMaterial();
         rSPanelBorderGradient1 = new RSMaterialComponent.RSPanelBorderGradient();
         jLabel12 = new javax.swing.JLabel();
-        btn_nueva_cita = new newscomponents.RSButtonFlat_new();
-        btn_guardar_cita = new newscomponents.RSButtonFlat_new();
-        btn_cancelar_cambios = new newscomponents.RSButtonFlat_new();
+        btn_anular_cita = new newscomponents.RSButtonFlat_new();
+        btn_reprogramar_cita = new newscomponents.RSButtonFlat_new();
+        btn_eliminar_cita = new newscomponents.RSButtonFlat_new();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-
-        menu_salir1.setBackground(new java.awt.Color(255, 255, 255));
-        menu_salir1.setBgShade(new java.awt.Color(204, 204, 204));
-        menu_salir1.setPreferredSize(new java.awt.Dimension(90, 62));
-        menu_salir1.setRound(40);
-
-        jLabel10.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Paciente:");
-
-        lbl_patient.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        lbl_patient.setForeground(new java.awt.Color(51, 51, 51));
-        lbl_patient.setText("Nombres y Apellidos Completos");
-
-        jLabel14.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Dni:");
-
-        btn_cancelar_cambios1.setBackground(new java.awt.Color(139, 198, 255));
-        btn_cancelar_cambios1.setForeground(new java.awt.Color(51, 51, 51));
-        btn_cancelar_cambios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-encuentra-hombre-usuario-24.png"))); // NOI18N
-        btn_cancelar_cambios1.setText("Buscar Paciente");
-        btn_cancelar_cambios1.setBorderPainted(false);
-        btn_cancelar_cambios1.setContentAreaFilled(true);
-        btn_cancelar_cambios1.setCornerRound(45);
-        btn_cancelar_cambios1.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        btn_cancelar_cambios1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelar_cambios1ActionPerformed(evt);
-            }
-        });
-
-        txt_dni.setBackground(new java.awt.Color(246, 247, 251));
-        txt_dni.setBgShade(new java.awt.Color(255, 255, 255));
-        txt_dni.setBgShadeHover(new java.awt.Color(255, 255, 255));
-        txt_dni.setCaretColor(new java.awt.Color(255, 255, 255));
-        txt_dni.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        txt_dni.setDoubleBuffered(true);
-        txt_dni.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
-        txt_dni.setIntensity(0);
-        txt_dni.setPhColor(new java.awt.Color(255, 255, 255));
-        txt_dni.setPixels(0);
-        txt_dni.setPlaceholder("");
-        txt_dni.setRound(40);
-
-        javax.swing.GroupLayout menu_salir1Layout = new javax.swing.GroupLayout(menu_salir1);
-        menu_salir1.setLayout(menu_salir1Layout);
-        menu_salir1Layout.setHorizontalGroup(
-            menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_salir1Layout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
-                .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menu_salir1Layout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(lbl_patient, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))
-                    .addGroup(menu_salir1Layout.createSequentialGroup()
-                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_dni, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_cancelar_cambios1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(174, Short.MAX_VALUE))
-        );
-        menu_salir1Layout.setVerticalGroup(
-            menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_salir1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(btn_cancelar_cambios1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(lbl_patient))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-
-        menu_salir2.setBackground(new java.awt.Color(255, 255, 255));
-        menu_salir2.setBgShade(new java.awt.Color(204, 204, 204));
-        menu_salir2.setPreferredSize(new java.awt.Dimension(90, 62));
-        menu_salir2.setRound(40);
-
-        jLabel8.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Servicios");
-
-        jLabel13.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel13.setText("Especialista");
-
-        cbx_especialista.setForeground(new java.awt.Color(51, 51, 51));
-        cbx_especialista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
-        cbx_especialista.setColorMaterial(new java.awt.Color(10, 117, 167));
-        cbx_especialista.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
-        cbx_especialista.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
-        cbx_especialista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbx_especialistaActionPerformed(evt);
-            }
-        });
-
-        cbx_servicios.setForeground(new java.awt.Color(51, 51, 51));
-        cbx_servicios.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
-        cbx_servicios.setColorMaterial(new java.awt.Color(10, 117, 167));
-        cbx_servicios.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
-        cbx_servicios.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
-        cbx_servicios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbx_serviciosActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout menu_salir2Layout = new javax.swing.GroupLayout(menu_salir2);
-        menu_salir2.setLayout(menu_salir2Layout);
-        menu_salir2Layout.setHorizontalGroup(
-            menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_salir2Layout.createSequentialGroup()
-                .addContainerGap(125, Short.MAX_VALUE)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbx_servicios, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbx_especialista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(125, Short.MAX_VALUE))
-        );
-        menu_salir2Layout.setVerticalGroup(
-            menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_salir2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbx_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbx_servicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
+        menu_salir1 = new RSMaterialComponent.RSPanelMaterial();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        table_citas_vigentes = new rojerusan.RSTableMetro();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        table_citas_programadas = new rojerusan.RSTableMetro();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        table_citas_vencidas = new rojerusan.RSTableMetro();
+        menu_salir2 = new RSMaterialComponent.RSPanelMaterial();
+        jLabel2 = new javax.swing.JLabel();
+        lbl_numero_cita = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lbl_phone = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lbl_patient = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        lbl_correo = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lbl_especialista = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lbl_servicio = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        lbl_hora_cita = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        lbl_fecha_cita = new javax.swing.JLabel();
 
         menu_salir3.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir3.setBgShade(new java.awt.Color(204, 204, 204));
@@ -455,17 +327,17 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
             .addGroup(menu_salir3Layout.createSequentialGroup()
                 .addGroup(menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menu_salir3Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
+                        .addGap(35, 35, 35)
                         .addComponent(jLabel9))
                     .addGroup(menu_salir3Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(22, 22, 22)
                         .addComponent(rSDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(menu_salir3Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(22, 22, 22)
                         .addComponent(btn_cancelar_cambios2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addGap(21, 21, 21))
         );
 
         rSPanelBorderGradient1.setBackground(new java.awt.Color(204, 204, 204));
@@ -478,51 +350,51 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-calendario-100 (1).png"))); // NOI18N
 
-        btn_nueva_cita.setBackground(new java.awt.Color(139, 198, 255));
-        btn_nueva_cita.setForeground(new java.awt.Color(51, 51, 51));
-        btn_nueva_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-agregar-archivo-24.png"))); // NOI18N
-        btn_nueva_cita.setText("Nueva Cita");
-        btn_nueva_cita.setBorderPainted(false);
-        btn_nueva_cita.setContentAreaFilled(true);
-        btn_nueva_cita.setCornerRound(45);
-        btn_nueva_cita.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        btn_nueva_cita.addActionListener(new java.awt.event.ActionListener() {
+        btn_anular_cita.setBackground(new java.awt.Color(139, 198, 255));
+        btn_anular_cita.setForeground(new java.awt.Color(51, 51, 51));
+        btn_anular_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-calendario-menos-24.png"))); // NOI18N
+        btn_anular_cita.setText("Anular Cita");
+        btn_anular_cita.setBorderPainted(false);
+        btn_anular_cita.setContentAreaFilled(true);
+        btn_anular_cita.setCornerRound(45);
+        btn_anular_cita.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        btn_anular_cita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_nueva_citaActionPerformed(evt);
+                btn_anular_citaActionPerformed(evt);
             }
         });
 
-        btn_guardar_cita.setBackground(new java.awt.Color(139, 198, 255));
-        btn_guardar_cita.setForeground(new java.awt.Color(51, 51, 51));
-        btn_guardar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-guardar-24.png"))); // NOI18N
-        btn_guardar_cita.setText("Guardar Cita");
-        btn_guardar_cita.setBorderPainted(false);
-        btn_guardar_cita.setContentAreaFilled(true);
-        btn_guardar_cita.setCornerRound(45);
-        btn_guardar_cita.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        btn_guardar_cita.addActionListener(new java.awt.event.ActionListener() {
+        btn_reprogramar_cita.setBackground(new java.awt.Color(139, 198, 255));
+        btn_reprogramar_cita.setForeground(new java.awt.Color(51, 51, 51));
+        btn_reprogramar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-horas-extras-24.png"))); // NOI18N
+        btn_reprogramar_cita.setText("Reprogramar Cita");
+        btn_reprogramar_cita.setBorderPainted(false);
+        btn_reprogramar_cita.setContentAreaFilled(true);
+        btn_reprogramar_cita.setCornerRound(45);
+        btn_reprogramar_cita.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        btn_reprogramar_cita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_guardar_citaActionPerformed(evt);
+                btn_reprogramar_citaActionPerformed(evt);
             }
         });
 
-        btn_cancelar_cambios.setBackground(new java.awt.Color(139, 198, 255));
-        btn_cancelar_cambios.setForeground(new java.awt.Color(51, 51, 51));
-        btn_cancelar_cambios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/cancelar.png"))); // NOI18N
-        btn_cancelar_cambios.setText("Cancelar Cambios");
-        btn_cancelar_cambios.setBorderPainted(false);
-        btn_cancelar_cambios.setContentAreaFilled(true);
-        btn_cancelar_cambios.setCornerRound(45);
-        btn_cancelar_cambios.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        btn_cancelar_cambios.addActionListener(new java.awt.event.ActionListener() {
+        btn_eliminar_cita.setBackground(new java.awt.Color(139, 198, 255));
+        btn_eliminar_cita.setForeground(new java.awt.Color(51, 51, 51));
+        btn_eliminar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/cancelar.png"))); // NOI18N
+        btn_eliminar_cita.setText("Eliminar Cita");
+        btn_eliminar_cita.setBorderPainted(false);
+        btn_eliminar_cita.setContentAreaFilled(true);
+        btn_eliminar_cita.setCornerRound(45);
+        btn_eliminar_cita.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        btn_eliminar_cita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelar_cambiosActionPerformed(evt);
+                btn_eliminar_citaActionPerformed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Poppins", 1, 42)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Reservar");
+        jLabel3.setText("Gestionar");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 1, 42)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
@@ -533,20 +405,24 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
         rSPanelBorderGradient1Layout.setHorizontalGroup(
             rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
-                .addContainerGap(82, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btn_anular_cita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(btn_reprogramar_cita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(btn_eliminar_cita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(70, 70, 70))
+            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
-                .addGap(81, 81, 81))
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btn_nueva_cita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_cancelar_cambios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_guardar_cita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         rSPanelBorderGradient1Layout.setVerticalGroup(
@@ -559,11 +435,253 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(101, 101, 101)
-                .addComponent(btn_nueva_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_anular_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(btn_guardar_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_reprogramar_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addComponent(btn_cancelar_cambios, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_eliminar_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        menu_salir1.setBackground(new java.awt.Color(255, 255, 255));
+        menu_salir1.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir1.setPreferredSize(new java.awt.Dimension(90, 62));
+        menu_salir1.setRound(40);
+
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setForeground(new java.awt.Color(51, 51, 51));
+        jTabbedPane1.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+
+        table_citas_vigentes.setForeground(new java.awt.Color(51, 51, 51));
+        table_citas_vigentes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        table_citas_vigentes.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        table_citas_vigentes.setColorFilasForeground1(new java.awt.Color(204, 204, 204));
+        table_citas_vigentes.setColorFilasForeground2(new java.awt.Color(204, 204, 204));
+        table_citas_vigentes.setFont(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        table_citas_vigentes.setFuenteFilas(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        table_citas_vigentes.setFuenteFilasSelect(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        table_citas_vigentes.setFuenteHead(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        table_citas_vigentes.setGridColor(new java.awt.Color(153, 153, 153));
+        table_citas_vigentes.setGrosorBordeFilas(0);
+        table_citas_vigentes.setGrosorBordeHead(0);
+        table_citas_vigentes.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane5.setViewportView(table_citas_vigentes);
+
+        jTabbedPane1.addTab("CITAS VIGENTES", jScrollPane5);
+
+        table_citas_programadas.setForeground(new java.awt.Color(51, 51, 51));
+        table_citas_programadas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        table_citas_programadas.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        table_citas_programadas.setColorFilasForeground1(new java.awt.Color(204, 204, 204));
+        table_citas_programadas.setColorFilasForeground2(new java.awt.Color(204, 204, 204));
+        table_citas_programadas.setFont(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        table_citas_programadas.setFuenteFilas(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        table_citas_programadas.setFuenteFilasSelect(new java.awt.Font("Poppins", 0, 15)); // NOI18N
+        table_citas_programadas.setFuenteHead(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        table_citas_programadas.setGridColor(new java.awt.Color(153, 153, 153));
+        table_citas_programadas.setGrosorBordeFilas(0);
+        table_citas_programadas.setGrosorBordeHead(0);
+        table_citas_programadas.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane6.setViewportView(table_citas_programadas);
+
+        jTabbedPane1.addTab("CITAS PROGRAMADAS", jScrollPane6);
+
+        table_citas_vencidas.setForeground(new java.awt.Color(51, 51, 51));
+        table_citas_vencidas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        table_citas_vencidas.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        table_citas_vencidas.setColorFilasForeground1(new java.awt.Color(204, 204, 204));
+        table_citas_vencidas.setColorFilasForeground2(new java.awt.Color(204, 204, 204));
+        table_citas_vencidas.setFont(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        table_citas_vencidas.setFuenteFilas(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        table_citas_vencidas.setFuenteFilasSelect(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        table_citas_vencidas.setFuenteHead(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        table_citas_vencidas.setGridColor(new java.awt.Color(153, 153, 153));
+        table_citas_vencidas.setGrosorBordeFilas(0);
+        table_citas_vencidas.setGrosorBordeHead(0);
+        table_citas_vencidas.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane7.setViewportView(table_citas_vencidas);
+
+        jTabbedPane1.addTab("CITAS VENCIDAS", jScrollPane7);
+
+        javax.swing.GroupLayout menu_salir1Layout = new javax.swing.GroupLayout(menu_salir1);
+        menu_salir1.setLayout(menu_salir1Layout);
+        menu_salir1Layout.setHorizontalGroup(
+            menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_salir1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addGap(18, 18, 18))
+        );
+        menu_salir1Layout.setVerticalGroup(
+            menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
+        );
+
+        menu_salir2.setBackground(new java.awt.Color(255, 255, 255));
+        menu_salir2.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir2.setPreferredSize(new java.awt.Dimension(90, 62));
+        menu_salir2.setRound(40);
+
+        jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Cita Nro:");
+
+        lbl_numero_cita.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lbl_numero_cita.setForeground(new java.awt.Color(255, 0, 51));
+        lbl_numero_cita.setText("000000");
+
+        jLabel11.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setText("Teléfono:");
+
+        lbl_phone.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lbl_phone.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_phone.setText("000-000-000");
+
+        jLabel8.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("Pacitente:");
+
+        lbl_patient.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lbl_patient.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_patient.setText("NOMBRES Y APELLIDOS COMPLETOS");
+
+        jLabel18.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel18.setText("Correo electrónico:");
+
+        lbl_correo.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lbl_correo.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_correo.setText("USUARIO@DOMINIO.COM");
+
+        jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("Especialista:");
+
+        lbl_especialista.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lbl_especialista.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_especialista.setText("NOMBRE Y APELLIDOS COMPLETOS");
+
+        jLabel6.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("Servicio");
+
+        lbl_servicio.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lbl_servicio.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_servicio.setText("NOMBRE DEL SERVICIO");
+
+        jLabel15.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel15.setText("Cita Hora:");
+
+        lbl_hora_cita.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lbl_hora_cita.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_hora_cita.setText("00:00");
+
+        jLabel20.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel20.setText("Fecha Cita:");
+
+        lbl_fecha_cita.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lbl_fecha_cita.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_fecha_cita.setText("00/00/0000");
+
+        javax.swing.GroupLayout menu_salir2Layout = new javax.swing.GroupLayout(menu_salir2);
+        menu_salir2.setLayout(menu_salir2Layout);
+        menu_salir2Layout.setHorizontalGroup(
+            menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_salir2Layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_numero_cita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_phone, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(lbl_hora_cita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_especialista, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_fecha_cita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu_salir2Layout.createSequentialGroup()
+                        .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_patient, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE))
+                        .addGap(2, 2, 2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_correo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_servicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        menu_salir2Layout.setVerticalGroup(
+            menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu_salir2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel18))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_numero_cita)
+                    .addComponent(lbl_patient)
+                    .addComponent(lbl_correo))
+                .addGap(18, 18, 18)
+                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_phone)
+                    .addComponent(lbl_especialista)
+                    .addComponent(lbl_servicio))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_hora_cita)
+                    .addComponent(lbl_fecha_cita))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -571,54 +689,39 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(menu_salir2, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
                     .addComponent(menu_salir3, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
-                    .addComponent(menu_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)))
+                    .addComponent(menu_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
+                    .addComponent(menu_salir2, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(menu_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(menu_salir2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(menu_salir3, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(menu_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menu_salir2, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
+                .addComponent(menu_salir3, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbx_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_especialistaActionPerformed
-    
-    }//GEN-LAST:event_cbx_especialistaActionPerformed
-
-    private void cbx_serviciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_serviciosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbx_serviciosActionPerformed
-
-    private void btn_nueva_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueva_citaActionPerformed
+    private void btn_anular_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anular_citaActionPerformed
           
-        btn_guardar_cita.setEnabled(true);
-        btn_cancelar_cambios.setEnabled(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_nueva_citaActionPerformed
+        btn_reprogramar_cita.setEnabled(true);
+        btn_eliminar_cita.setEnabled(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_anular_citaActionPerformed
 
-    private void btn_guardar_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_citaActionPerformed
+    private void btn_reprogramar_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reprogramar_citaActionPerformed
           // TODO add your handling code here:
-    }//GEN-LAST:event_btn_guardar_citaActionPerformed
+    }//GEN-LAST:event_btn_reprogramar_citaActionPerformed
 
-    private void btn_cancelar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambiosActionPerformed
+    private void btn_eliminar_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminar_citaActionPerformed
            // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelar_cambiosActionPerformed
-
-    private void btn_cancelar_cambios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambios1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelar_cambios1ActionPerformed
+    }//GEN-LAST:event_btn_eliminar_citaActionPerformed
 
     private void btn_cancelar_cambios2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambios2ActionPerformed
         // TODO add your handling code here:
@@ -634,24 +737,36 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private newscomponents.RSButtonFlat_new btn_cancelar_cambios;
-    private newscomponents.RSButtonFlat_new btn_cancelar_cambios1;
+    private newscomponents.RSButtonFlat_new btn_anular_cita;
     private newscomponents.RSButtonFlat_new btn_cancelar_cambios2;
-    private newscomponents.RSButtonFlat_new btn_guardar_cita;
-    private newscomponents.RSButtonFlat_new btn_nueva_cita;
+    private newscomponents.RSButtonFlat_new btn_eliminar_cita;
+    private newscomponents.RSButtonFlat_new btn_reprogramar_cita;
     private javax.swing.ButtonGroup buttonGroup1;
-    private RSMaterialComponent.RSComboBoxMaterial cbx_especialista;
-    private RSMaterialComponent.RSComboBoxMaterial cbx_servicios;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lbl_correo;
+    private javax.swing.JLabel lbl_especialista;
+    private javax.swing.JLabel lbl_fecha_cita;
+    private javax.swing.JLabel lbl_hora_cita;
+    private javax.swing.JLabel lbl_numero_cita;
     private javax.swing.JLabel lbl_patient;
+    private javax.swing.JLabel lbl_phone;
+    private javax.swing.JLabel lbl_servicio;
     private RSMaterialComponent.RSPanelMaterial menu_salir1;
     private RSMaterialComponent.RSPanelMaterial menu_salir2;
     private RSMaterialComponent.RSPanelMaterial menu_salir3;
@@ -671,6 +786,8 @@ public class frm_UI_02_reservar_cita extends javax.swing.JPanel {
     private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial41;
     private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial42;
     private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial43;
-    private rscomponentshade.RSFormatFieldShade txt_dni;
+    private rojerusan.RSTableMetro table_citas_programadas;
+    private rojerusan.RSTableMetro table_citas_vencidas;
+    private rojerusan.RSTableMetro table_citas_vigentes;
     // End of variables declaration//GEN-END:variables
 }
