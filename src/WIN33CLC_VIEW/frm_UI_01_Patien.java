@@ -822,10 +822,10 @@ listar_Provincia();        // TODO add your handling code here:
         } else if (!inputStringIngresado(txt_phone.getText())) {
             msg = msg + "ingrese un numero de celular\n";
             focus = 4;
-        } else if (!inputStringIngresado(txt_email.getText())) {
+        } else if (!inputStringIngresado(txt_direccion.getText())) {
             msg = msg + "Ingrese su dirección\n";
             focus = 6;
-        } else if (!esEmail(txt_direccion.getText()) || txt_direccion.getText().length() <= 0) {
+        } else if (!esEmail(txt_email.getText()) || txt_email.getText().length() <= 0) {
             msg = msg + "El correo electrónico no es válido\n";
             focus = 5;
         }

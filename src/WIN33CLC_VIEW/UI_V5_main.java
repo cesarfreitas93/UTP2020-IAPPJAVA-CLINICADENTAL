@@ -3,6 +3,7 @@ package WIN33CLC_VIEW;
 
 import RSMaterialComponent.RSButtonMaterialGradientOne;
 import RSMaterialComponent.RSPanelMaterial;
+import WIN32CLC_CTR.CTR_11_DataBaseConfiguration;
 import static WIN33CLC_VIEW.frm_Main.maximized;
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
@@ -13,9 +14,20 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import rojerusan.RSPanelsSlider;
@@ -83,13 +95,12 @@ int xx,xy;
         lblespecialista = new javax.swing.JLabel();
         rSPanelMaterial4 = new RSMaterialComponent.RSPanelMaterial();
         panel_inicio = new javax.swing.JPanel();
-        frm_UI_inicio1 = new WIN33CLC_VIEW.frm_UI_inicio();
         panel_paciente = new javax.swing.JPanel();
         frm_UI_01_Patien1 = new WIN33CLC_VIEW.frm_UI_01_Patien();
         panel_cita = new javax.swing.JPanel();
         frm_UI_02_reservar_cita1 = new WIN33CLC_VIEW.frm_UI_02_reservar_cita();
         panel_gestion_cita = new javax.swing.JPanel();
-        frm_UI_02_gestionar_cita2 = new WIN33CLC_VIEW.frm_UI_03_gestionar_cita();
+        frm_UI_03_gestionar_cita1 = new WIN33CLC_VIEW.frm_UI_03_gestionar_cita();
         panel_comprobante = new javax.swing.JPanel();
         frm_UI_04_comprobantes1 = new WIN33CLC_VIEW.frm_UI_04_comprobantes();
         panel_servicios = new javax.swing.JPanel();
@@ -119,9 +130,9 @@ int xx,xy;
         btn_servicios_02 = new newscomponents.RSButtonFlat_new();
         btn_especialista_02 = new newscomponents.RSButtonFlat_new();
         panel_despegable_base_datos = new RSMaterialComponent.RSPanelMaterial();
-        btn_copia_seguridad_bd = new newscomponents.RSButtonFlat_new();
-        btn_restaurar_bd = new newscomponents.RSButtonFlat_new();
-        btn_vaciar_bd = new newscomponents.RSButtonFlat_new();
+        btn_createbackup = new newscomponents.RSButtonFlat_new();
+        btn_restoredatabase = new newscomponents.RSButtonFlat_new();
+        btn_resetdatabase = new newscomponents.RSButtonFlat_new();
         panel_despegable_ventana = new RSMaterialComponent.RSPanelMaterial();
         btn_max_02 = new newscomponents.RSButtonFlat_new();
         btn_min_02 = new newscomponents.RSButtonFlat_new();
@@ -488,8 +499,6 @@ int xx,xy;
         panel_inicio.setBackground(new java.awt.Color(255, 255, 255));
         panel_inicio.setName("panel_inicio"); // NOI18N
         panel_inicio.setLayout(new java.awt.CardLayout());
-        panel_inicio.add(frm_UI_inicio1, "card2");
-
         rSPanelMaterial4.add(panel_inicio, "card3");
 
         panel_paciente.setBackground(new java.awt.Color(255, 255, 255));
@@ -507,7 +516,7 @@ int xx,xy;
         rSPanelMaterial4.add(panel_cita, "card3");
 
         panel_gestion_cita.setLayout(new java.awt.CardLayout());
-        panel_gestion_cita.add(frm_UI_02_gestionar_cita2, "card2");
+        panel_gestion_cita.add(frm_UI_03_gestionar_cita1, "card2");
 
         rSPanelMaterial4.add(panel_gestion_cita, "card9");
 
@@ -969,66 +978,66 @@ int xx,xy;
         panel_despegable_base_datos.setPreferredSize(new java.awt.Dimension(10, 722));
         panel_despegable_base_datos.setRound(40);
 
-        btn_copia_seguridad_bd.setBackground(new java.awt.Color(246, 247, 251));
-        btn_copia_seguridad_bd.setForeground(new java.awt.Color(131, 137, 152));
-        btn_copia_seguridad_bd.setText("Copia de Seguridad BD");
-        btn_copia_seguridad_bd.setBorderPainted(false);
-        btn_copia_seguridad_bd.setContentAreaFilled(true);
-        btn_copia_seguridad_bd.setCornerRound(40);
-        btn_copia_seguridad_bd.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
-        btn_copia_seguridad_bd.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_createbackup.setBackground(new java.awt.Color(246, 247, 251));
+        btn_createbackup.setForeground(new java.awt.Color(131, 137, 152));
+        btn_createbackup.setText("Copia de Seguridad BD");
+        btn_createbackup.setBorderPainted(false);
+        btn_createbackup.setContentAreaFilled(true);
+        btn_createbackup.setCornerRound(40);
+        btn_createbackup.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        btn_createbackup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_copia_seguridad_bdMouseEntered(evt);
+                btn_createbackupMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_copia_seguridad_bdMouseExited(evt);
+                btn_createbackupMouseExited(evt);
             }
         });
-        btn_copia_seguridad_bd.addActionListener(new java.awt.event.ActionListener() {
+        btn_createbackup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_copia_seguridad_bdActionPerformed(evt);
+                btn_createbackupActionPerformed(evt);
             }
         });
 
-        btn_restaurar_bd.setBackground(new java.awt.Color(246, 247, 251));
-        btn_restaurar_bd.setForeground(new java.awt.Color(131, 137, 152));
-        btn_restaurar_bd.setText("Restaurar BD");
-        btn_restaurar_bd.setBorderPainted(false);
-        btn_restaurar_bd.setContentAreaFilled(true);
-        btn_restaurar_bd.setCornerRound(40);
-        btn_restaurar_bd.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
-        btn_restaurar_bd.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_restoredatabase.setBackground(new java.awt.Color(246, 247, 251));
+        btn_restoredatabase.setForeground(new java.awt.Color(131, 137, 152));
+        btn_restoredatabase.setText("Restaurar BD");
+        btn_restoredatabase.setBorderPainted(false);
+        btn_restoredatabase.setContentAreaFilled(true);
+        btn_restoredatabase.setCornerRound(40);
+        btn_restoredatabase.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        btn_restoredatabase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_restaurar_bdMouseEntered(evt);
+                btn_restoredatabaseMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_restaurar_bdMouseExited(evt);
+                btn_restoredatabaseMouseExited(evt);
             }
         });
-        btn_restaurar_bd.addActionListener(new java.awt.event.ActionListener() {
+        btn_restoredatabase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_restaurar_bdActionPerformed(evt);
+                btn_restoredatabaseActionPerformed(evt);
             }
         });
 
-        btn_vaciar_bd.setBackground(new java.awt.Color(246, 247, 251));
-        btn_vaciar_bd.setForeground(new java.awt.Color(131, 137, 152));
-        btn_vaciar_bd.setText("Vaciar");
-        btn_vaciar_bd.setBorderPainted(false);
-        btn_vaciar_bd.setContentAreaFilled(true);
-        btn_vaciar_bd.setCornerRound(40);
-        btn_vaciar_bd.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
-        btn_vaciar_bd.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_resetdatabase.setBackground(new java.awt.Color(246, 247, 251));
+        btn_resetdatabase.setForeground(new java.awt.Color(131, 137, 152));
+        btn_resetdatabase.setText("Vaciar");
+        btn_resetdatabase.setBorderPainted(false);
+        btn_resetdatabase.setContentAreaFilled(true);
+        btn_resetdatabase.setCornerRound(40);
+        btn_resetdatabase.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        btn_resetdatabase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_vaciar_bdMouseEntered(evt);
+                btn_resetdatabaseMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_vaciar_bdMouseExited(evt);
+                btn_resetdatabaseMouseExited(evt);
             }
         });
-        btn_vaciar_bd.addActionListener(new java.awt.event.ActionListener() {
+        btn_resetdatabase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_vaciar_bdActionPerformed(evt);
+                btn_resetdatabaseActionPerformed(evt);
             }
         });
 
@@ -1039,20 +1048,20 @@ int xx,xy;
             .addGroup(panel_despegable_base_datosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_despegable_base_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_copia_seguridad_bd, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btn_restaurar_bd, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btn_vaciar_bd, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(btn_createbackup, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btn_restoredatabase, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btn_resetdatabase, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panel_despegable_base_datosLayout.setVerticalGroup(
             panel_despegable_base_datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_despegable_base_datosLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(btn_copia_seguridad_bd, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_createbackup, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_restaurar_bd, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_restoredatabase, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_vaciar_bd, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_resetdatabase, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -1543,9 +1552,9 @@ int xx,xy;
         btn_reportes_facturas.setBackground(new Color (255,255,255,0));
         //btn_paciente_5.setBackground(new Color (255,255,255,0));
         
-        btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-        btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-        btn_vaciar_bd.setBackground(new Color (255,255,255,0));
+        btn_createbackup.setBackground(new Color (255,255,255,0));
+        btn_restoredatabase.setBackground(new Color (255,255,255,0));
+        btn_resetdatabase.setBackground(new Color (255,255,255,0));
         
         btn_max_02.setBackground(new Color (255,255,255,0));
         btn_min_02.setBackground(new Color (255,255,255,0));
@@ -1575,9 +1584,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
             
             btn_inicio_02.setBackground(new Color (139,198,255,255));
@@ -1600,12 +1609,12 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
             
             
@@ -1662,9 +1671,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
@@ -1687,12 +1696,12 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
             panel_inicio.setVisible(false);
             panel_paciente.setVisible(true);
@@ -1747,9 +1756,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
@@ -1773,12 +1782,12 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
             panel_inicio.setVisible(false);
             panel_paciente.setVisible(false);
@@ -1832,9 +1841,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
             
 
@@ -1860,12 +1869,12 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
             
             
@@ -1923,9 +1932,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
            
             
@@ -1952,12 +1961,12 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
              panel_inicio.setVisible(false);
             panel_paciente.setVisible(false);
@@ -2107,9 +2116,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
             
             panel_inicio.setVisible(false);
@@ -2142,12 +2151,12 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
           changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
           changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
@@ -2188,9 +2197,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
             
             panel_inicio.setVisible(false);
@@ -2223,12 +2232,12 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
           changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
           changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
@@ -2360,9 +2369,9 @@ int xx,xy;
             this.btn_usuario.setSelected(true);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
             
             panel_inicio.setVisible(false);
@@ -2395,12 +2404,12 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
           changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
           changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
@@ -2444,9 +2453,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(true);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
             
             
@@ -2470,12 +2479,12 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (255,255,255,255));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
              }
     }
@@ -2495,9 +2504,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(true);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
@@ -2520,19 +2529,19 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (139,198,255,255));
             btn_reportes_facturas.setForeground(new Color (255,255,255,255));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
              }
     }
     
     public void subboton_copia_bd()
     {
-            if(!this.btn_copia_seguridad_bd.isSelected()){
+            if(!this.btn_createbackup.isSelected()){
             this.btn_especialista.setSelected(false);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2544,9 +2553,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(true);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(true);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(false);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -2568,19 +2577,19 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (139,198,255,255));
-            btn_copia_seguridad_bd.setForeground(new Color (255,255,255,255));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (139,198,255,255));
+            btn_createbackup.setForeground(new Color (255,255,255,255));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
             
              }
     }
     
     public void subboton_restuarar_bd()
     {
-            if(!this.btn_restaurar_bd.isSelected()){
+            if(!this.btn_restoredatabase.isSelected()){
             this.btn_especialista.setSelected(false);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2592,9 +2601,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(true);
-            this.btn_vaciar_bd.setSelected(false);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(true);
+            this.btn_resetdatabase.setSelected(false);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -2616,17 +2625,17 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (139,198,255,255));
-            btn_restaurar_bd.setForeground(new Color (255,255,255,255));
-            btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (139,198,255,255));
+            btn_restoredatabase.setForeground(new Color (255,255,255,255));
+            btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));
              }
     }
     public void subboton_vaciar_bd()
     {
-            if(!this.btn_vaciar_bd.isSelected()){
+            if(!this.btn_resetdatabase.isSelected()){
             this.btn_especialista.setSelected(false);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2638,9 +2647,9 @@ int xx,xy;
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
-            this.btn_copia_seguridad_bd.setSelected(false);
-            this.btn_restaurar_bd.setSelected(false);
-            this.btn_vaciar_bd.setSelected(true);
+            this.btn_createbackup.setSelected(false);
+            this.btn_restoredatabase.setSelected(false);
+            this.btn_resetdatabase.setSelected(true);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -2662,12 +2671,12 @@ int xx,xy;
             btn_reporte_citas.setForeground(new Color (131,137,152));
             btn_reportes_facturas.setBackground(new Color (255,255,255,0));
             btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));
-            btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));
-            btn_vaciar_bd.setBackground(new Color (139,198,255,255));
-            btn_vaciar_bd.setForeground(new Color (255,255,255,255));
+            btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));
+            btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));
+            btn_resetdatabase.setBackground(new Color (139,198,255,255));
+            btn_resetdatabase.setForeground(new Color (255,255,255,255));
             
              }
     }
@@ -3363,17 +3372,53 @@ if(maximized){
 this.setState(Frame.ICONIFIED);          
     }//GEN-LAST:event_btn_min_02ActionPerformed
 
-    private void btn_copia_seguridad_bdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_copia_seguridad_bdActionPerformed
-subboton_copia_bd();        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_copia_seguridad_bdActionPerformed
+    private void btn_createbackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createbackupActionPerformed
+   generateBackUpMysql();
+   
+   subboton_copia_bd();        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_createbackupActionPerformed
 
-    private void btn_restaurar_bdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_restaurar_bdActionPerformed
-subboton_restuarar_bd();        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_restaurar_bdActionPerformed
+    private void btn_restoredatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_restoredatabaseActionPerformed
+restoreBackUpMysql();
+        subboton_restuarar_bd();        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_restoredatabaseActionPerformed
 
-    private void btn_vaciar_bdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_vaciar_bdActionPerformed
-subboton_vaciar_bd();        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_vaciar_bdActionPerformed
+    private void btn_resetdatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetdatabaseActionPerformed
+  try {
+            // preguntar si se resetea o no
+            
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(this, "¿Esta seguro de limpiar por completo la base de datos?\n"+"Asegurese de tener una copia de seguridad.", "DentalSys", dialogButton);
+            if(dialogResult == 0) {
+
+                CTR_11_DataBaseConfiguration baseConfiguration = new CTR_11_DataBaseConfiguration();
+                if(baseConfiguration.RESETDATABASE())
+                {
+                    JOptionPane optionPane = new JOptionPane("Success!", JOptionPane.INFORMATION_MESSAGE);    
+                    JDialog dialog = optionPane.createDialog("DentalSys");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);  
+                }
+                else
+                {    
+                    JOptionPane optionPane = new JOptionPane("Puede que no se haya borrado limpiado la base de datos", JOptionPane.ERROR_MESSAGE);    
+                    JDialog dialog = optionPane.createDialog("DentalSys");
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setVisible(true);         
+                }
+                
+            } else {
+              System.out.println("No Option");
+            } 
+
+        } catch (SQLException ex) {
+            Logger.getLogger(test_para_lanzar_metodos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
+  
+  subboton_vaciar_bd();       
+  
+    }//GEN-LAST:event_btn_resetdatabaseActionPerformed
 
     private void btn_reporte_citasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_reporte_citasMouseExited
 	  btn_reporte_citas.setBackground(new Color (255,255,255,0));
@@ -3390,35 +3435,35 @@ subboton_vaciar_bd();        // TODO add your handling code here:
             btn_reportes_facturas.setForeground(new Color (131,137,152));         // TODO add your handling code here:
     }//GEN-LAST:event_btn_reportes_facturasMouseExited
 
-    private void btn_copia_seguridad_bdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_copia_seguridad_bdMouseEntered
-		   btn_copia_seguridad_bd.setBackground(new Color (247, 248, 251));
-          btn_copia_seguridad_bd.setForeground(new Color (131,137,152));        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_copia_seguridad_bdMouseEntered
+    private void btn_createbackupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_createbackupMouseEntered
+		   btn_createbackup.setBackground(new Color (247, 248, 251));
+          btn_createbackup.setForeground(new Color (131,137,152));        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_createbackupMouseEntered
 
-    private void btn_copia_seguridad_bdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_copia_seguridad_bdMouseExited
-		  btn_copia_seguridad_bd.setBackground(new Color (255,255,255,0));
-            btn_copia_seguridad_bd.setForeground(new Color (131,137,152));          // TODO add your handling code here:
-    }//GEN-LAST:event_btn_copia_seguridad_bdMouseExited
+    private void btn_createbackupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_createbackupMouseExited
+		  btn_createbackup.setBackground(new Color (255,255,255,0));
+            btn_createbackup.setForeground(new Color (131,137,152));          // TODO add your handling code here:
+    }//GEN-LAST:event_btn_createbackupMouseExited
 
-    private void btn_restaurar_bdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_restaurar_bdMouseEntered
-		   btn_restaurar_bd.setBackground(new Color (247, 248, 251));
-          btn_restaurar_bd.setForeground(new Color (131,137,152));        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_restaurar_bdMouseEntered
+    private void btn_restoredatabaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_restoredatabaseMouseEntered
+		   btn_restoredatabase.setBackground(new Color (247, 248, 251));
+          btn_restoredatabase.setForeground(new Color (131,137,152));        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_restoredatabaseMouseEntered
 
-    private void btn_restaurar_bdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_restaurar_bdMouseExited
-		  btn_restaurar_bd.setBackground(new Color (255,255,255,0));
-            btn_restaurar_bd.setForeground(new Color (131,137,152));          // TODO add your handling code here:
-    }//GEN-LAST:event_btn_restaurar_bdMouseExited
+    private void btn_restoredatabaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_restoredatabaseMouseExited
+		  btn_restoredatabase.setBackground(new Color (255,255,255,0));
+            btn_restoredatabase.setForeground(new Color (131,137,152));          // TODO add your handling code here:
+    }//GEN-LAST:event_btn_restoredatabaseMouseExited
 
-    private void btn_vaciar_bdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_vaciar_bdMouseEntered
-		   btn_vaciar_bd.setBackground(new Color (247, 248, 251));
-          btn_vaciar_bd.setForeground(new Color (131,137,152));        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_vaciar_bdMouseEntered
+    private void btn_resetdatabaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_resetdatabaseMouseEntered
+		   btn_resetdatabase.setBackground(new Color (247, 248, 251));
+          btn_resetdatabase.setForeground(new Color (131,137,152));        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_resetdatabaseMouseEntered
 
-    private void btn_vaciar_bdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_vaciar_bdMouseExited
-		  btn_vaciar_bd.setBackground(new Color (255,255,255,0));
-            btn_vaciar_bd.setForeground(new Color (131,137,152));        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_vaciar_bdMouseExited
+    private void btn_resetdatabaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_resetdatabaseMouseExited
+		  btn_resetdatabase.setBackground(new Color (255,255,255,0));
+            btn_resetdatabase.setForeground(new Color (131,137,152));        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_resetdatabaseMouseExited
 
     public static void main(String args[]) {
 
@@ -3434,7 +3479,7 @@ subboton_vaciar_bd();        // TODO add your handling code here:
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_cita;
     private newscomponents.RSButtonFlat_new btn_cita_02;
     private newscomponents.RSButtonFlat_new btn_comprobantes_02;
-    private newscomponents.RSButtonFlat_new btn_copia_seguridad_bd;
+    private newscomponents.RSButtonFlat_new btn_createbackup;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_especialista;
     private newscomponents.RSButtonFlat_new btn_especialista_02;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_factura;
@@ -3451,22 +3496,21 @@ subboton_vaciar_bd();        // TODO add your handling code here:
     private newscomponents.RSButtonFlat_new btn_reporte_citas;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_reportes;
     private newscomponents.RSButtonFlat_new btn_reportes_facturas;
-    private newscomponents.RSButtonFlat_new btn_restaurar_bd;
+    private newscomponents.RSButtonFlat_new btn_resetdatabase;
+    private newscomponents.RSButtonFlat_new btn_restoredatabase;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_salir;
     private newscomponents.RSButtonFlat_new btn_salir_02;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_servicios;
     private newscomponents.RSButtonFlat_new btn_servicios_02;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_usuario;
     private newscomponents.RSButtonFlat_new btn_usuarios_02;
-    private newscomponents.RSButtonFlat_new btn_vaciar_bd;
     private WIN33CLC_VIEW.frm_UI_01_Patien frm_UI_01_Patien1;
-    private WIN33CLC_VIEW.frm_UI_03_gestionar_cita frm_UI_02_gestionar_cita2;
     private WIN33CLC_VIEW.frm_UI_02_reservar_cita frm_UI_02_reservar_cita1;
+    private WIN33CLC_VIEW.frm_UI_03_gestionar_cita frm_UI_03_gestionar_cita1;
     private WIN33CLC_VIEW.frm_UI_04_comprobantes frm_UI_04_comprobantes1;
     private WIN33CLC_VIEW.frm_UI_05_servicios frm_UI_05_servicios1;
     private WIN33CLC_VIEW.frm_UI_06_especialista frm_UI_06_especialista1;
     private WIN33CLC_VIEW.frm_UI_07_usuarios frm_UI_07_usuarios1;
-    private WIN33CLC_VIEW.frm_UI_inicio frm_UI_inicio1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_menu_1;
@@ -3508,6 +3552,94 @@ subboton_vaciar_bd();        // TODO add your handling code here:
     private rojerusan.RSPanelImage rSPanelImage1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial4;
     // End of variables declaration//GEN-END:variables
+private void generateBackUpMysql() {
+         Calendar c = Calendar.getInstance();//creamos una instancia de la clase calendar de java
+        //java.util.Date fecha = new Date();
+        String DiaHoy = Integer.toString(c.get(Calendar.DATE));
+        String MesHoy = Integer.toString(c.get(Calendar.MONTH)+1);
+        String AnioHoy = Integer.toString(c.get(Calendar.YEAR));        
+                
+        
+        JFileChooser RealizarBackupMySQL = new JFileChooser();
+        int resp;
+        resp=RealizarBackupMySQL.showSaveDialog(this);//JFileChooser de nombre RealizarBackupMySQL
+        if (resp==JFileChooser.APPROVE_OPTION) {//Si el usuario presiona aceptar; se genera el Backup
+            try{
+                Runtime runtime = Runtime.getRuntime();
+                File backupFile = new File(String.valueOf(RealizarBackupMySQL.getSelectedFile().toString())+" "+DiaHoy +"-"+MesHoy+"-"+AnioHoy+".sql");
+                FileWriter fw = new FileWriter(backupFile);
+                Process child = runtime.exec("C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysqldump --routines --opt --password= --user=root --databases utp2020-dental-system-dev"); 
+                InputStreamReader irs = new InputStreamReader(child.getInputStream());
+                BufferedReader br = new BufferedReader(irs);
+                String line;
+                while( (line=br.readLine()) != null ) {
+                    fw.write(line + "\n");
+                }
+                fw.close();
+                irs.close();
+                br.close();
+                JOptionPane.showMessageDialog(null, "Archivo generado","Verificar",JOptionPane. INFORMATION_MESSAGE);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error no se genero el archivo por el siguiente motivo:"+e.getMessage(), "Verificar",JOptionPane.ERROR_MESSAGE);
+            }            
+        } else if (resp==JFileChooser.CANCEL_OPTION) {
+            JOptionPane.showMessageDialog(null,"Ha sido cancelada la generacion del Backup");
+        }
+    }
 
+   private void restoreBackUpMysql(){
+        
+        String dbName="utp2020-dental-system-dev"; 
+        String dbUserName="root";
+        String dbPassword= "";
+        
+        int resp;
+        JFileChooser RealizarBackupMySQL = new JFileChooser();
+        resp=RealizarBackupMySQL.showOpenDialog(this);//Muestra el cuadro con la opcion abrir
+        if (resp==JFileChooser.APPROVE_OPTION) 
+        {//Si el usuario presiona aceptar(Abrir); Backup
+            try
+            {
+                String ubicacion= String.valueOf(RealizarBackupMySQL.getSelectedFile().toString().trim());                
+        
+                //en nombre almacenamos la ruta del fichero con extension sql que se desea restaurar...
+                String nombre = ubicacion.toString().substring(ubicacion.lastIndexOf('/')+1);
+                File fichero=new File(nombre);
+//                System.out.println("Path: " + ubicacion + " -- File: " + nombre);
+                String dd=fichero.getName();//aqui obtenermos el nombre del fichero con extension sql.
+                
+                String[] executeCmd = new String[]{"C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysql", "--password=" + dbPassword, "--user=" + dbUserName,  dbName,"-e", "source "+nombre};
+                Process runtimeProcess;
+
+                try {
+
+                    runtimeProcess = Runtime.getRuntime().exec(executeCmd);
+
+                    int processComplete = runtimeProcess.waitFor();
+
+                    if (processComplete == 0) 
+                    {
+                        JOptionPane.showMessageDialog(null,"Backup realizado satisfactoriamente");
+                        JOptionPane.showMessageDialog(null,dd);
+                    } 
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"No se pudo realizar el Backup");
+                        JOptionPane.showMessageDialog(null,dd);
+                    }
+                } catch (Exception ex) {
+                }
+            }
+            catch (Exception ex) 
+            {
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Ha sido cancelada la actualizacion del Backup");            
+        }
+        
+    
+    }
 
 }

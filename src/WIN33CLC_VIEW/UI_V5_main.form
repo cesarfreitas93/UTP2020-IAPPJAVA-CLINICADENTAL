@@ -618,15 +618,6 @@
           </Constraints>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
-          <SubComponents>
-            <Component class="WIN33CLC_VIEW.frm_UI_inicio" name="frm_UI_inicio1">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                  <CardConstraints cardName="card2"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_paciente">
           <Properties>
@@ -685,7 +676,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
           <SubComponents>
-            <Component class="WIN33CLC_VIEW.frm_UI_03_gestionar_cita" name="frm_UI_02_gestionar_cita2">
+            <Component class="WIN33CLC_VIEW.frm_UI_03_gestionar_cita" name="frm_UI_03_gestionar_cita1">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                   <CardConstraints cardName="card2"/>
@@ -1409,9 +1400,9 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btn_copia_seguridad_bd" alignment="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btn_restaurar_bd" alignment="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btn_vaciar_bd" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btn_createbackup" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btn_restoredatabase" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btn_resetdatabase" alignment="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -1421,18 +1412,18 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Component id="btn_copia_seguridad_bd" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="btn_createbackup" min="-2" pref="49" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_restaurar_bd" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="btn_restoredatabase" min="-2" pref="49" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_vaciar_bd" min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="btn_resetdatabase" min="-2" pref="49" max="-2" attributes="0"/>
                   <EmptySpace pref="19" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="newscomponents.RSButtonFlat_new" name="btn_copia_seguridad_bd">
+        <Component class="newscomponents.RSButtonFlat_new" name="btn_createbackup">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fb" green="f7" red="f6" type="rgb"/>
@@ -1449,12 +1440,12 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_copia_seguridad_bdMouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_copia_seguridad_bdMouseExited"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_copia_seguridad_bdActionPerformed"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_createbackupMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_createbackupMouseExited"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_createbackupActionPerformed"/>
           </Events>
         </Component>
-        <Component class="newscomponents.RSButtonFlat_new" name="btn_restaurar_bd">
+        <Component class="newscomponents.RSButtonFlat_new" name="btn_restoredatabase">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fb" green="f7" red="f6" type="rgb"/>
@@ -1471,12 +1462,12 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_restaurar_bdMouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_restaurar_bdMouseExited"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_restaurar_bdActionPerformed"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_restoredatabaseMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_restoredatabaseMouseExited"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_restoredatabaseActionPerformed"/>
           </Events>
         </Component>
-        <Component class="newscomponents.RSButtonFlat_new" name="btn_vaciar_bd">
+        <Component class="newscomponents.RSButtonFlat_new" name="btn_resetdatabase">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fb" green="f7" red="f6" type="rgb"/>
@@ -1493,9 +1484,9 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_vaciar_bdMouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_vaciar_bdMouseExited"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_vaciar_bdActionPerformed"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_resetdatabaseMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_resetdatabaseMouseExited"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_resetdatabaseActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
