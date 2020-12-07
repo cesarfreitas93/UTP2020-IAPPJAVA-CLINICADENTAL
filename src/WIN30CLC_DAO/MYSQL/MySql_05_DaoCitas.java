@@ -3,6 +3,9 @@ package WIN30CLC_DAO.MYSQL;
 import WIN30CLC_DAO.DaoException;
 import WIN30CLC_DAO.Dao_05_Citas;
 import WIN31CLC_DTO.Citas;
+import WIN31CLC_DTO.Patient;
+import WIN31CLC_DTO.Service;
+import WIN31CLC_DTO.Specialist;
 import WIN31CLC_DTO.horario_citas;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
@@ -17,17 +20,19 @@ import java.util.List;
 public class MySql_05_DaoCitas implements Dao_05_Citas {
 
     private Connection conn;
-    final String INSERT = "insert into citas (fechadecita, createAt, updateat, status, patient_id, specialista_id) values(?,?,?,?,?)";
+    final String INSERT = "insert into citas (`createAt`,`status`,`patient_id`,`especialista_id`,`service_id`,`updateAt`,`fechaDeCita`,`id_horario`,`estado`) values(?,?,?,?,?,?,?,?,?)";
     final String CHANGE_STATUS = "update CITAS set status = ? where id = ?";
     final String UPDATE = "UPDATE CITAS set fechadecita = ?, updateat = ?, status = ?, patient_id = ?, service_id = ?, specialista_id = ? SET WHERE ID = ?";
     final String FINDBYID = "SELECT `id`,`fechaDeCita`,`status`,`patient_id`,`service_id`,`especialista_id` FROM `citas` WHERE `id`= ?";
     final String CAPTURAR_CANTIDAD_FECHAS = "SELECT count(1) as total FROM citas WHERE convert(fechadecita,date) = ? and estado = 1";
     final String CAPTURAR_CANTIDAD_FECHAS_1 = "SELECT hc.cita_horario_inicio,hc.cita_horario_fin FROM citas  as c inner join horario_citas as hc on hc.id_horario = c.id_horario WHERE convert(c.fechadecita,date) = ? and c.especialista_id=? and c.service_id=? and c.estado = 1 ";
     final String LISTAR_HORARIO_DISPONIBLE = "SELECT * FROM horario_citas WHERE habilitado=1";
+    final String LISTAR_CITAS_TODOS= "select cts.id,pat.name,pat.lastname,pat.surename,srv.name as name_services,spt.name as name_especialista from citas as cts inner join patient as pat on pat.id = cts.patient_id inner join services as srv on srv.id = cts.service_id inner join especialista as spt on spt.id = cts.especialista_id inner join horario_citas as hct on hct.id_horario = cts.id_horario where status = ?";
 
     public MySql_05_DaoCitas(Connection conn) {
         this.conn = conn;
     }
+
     public Citas rlInsert(Citas entity) throws DaoException {
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -38,11 +43,14 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
 
             pst = (PreparedStatement) conn.prepareStatement(INSERT, new String[]{"id"});
             pst.setTimestamp(1, new Timestamp(time));
-            pst.setTimestamp(2, new Timestamp(time));
-            pst.setInt(3, entity.isStatus());
-            pst.setLong(4, entity.getService_id());
-            pst.setLong(5, entity.getPatient_id());
-            pst.setLong(6, entity.getEspecialista_id());
+            pst.setInt(2, entity.isStatus());
+            pst.setLong(3, entity.getPatient_id());
+            pst.setLong(4, entity.getEspecialista_id());
+            pst.setLong(5, entity.getService_id());
+            pst.setTimestamp(6, new Timestamp(time));
+            pst.setDate(7, (java.sql.Date) entity.getFechadecita());
+            pst.setLong(8, entity.getId_horario());
+            pst.setInt(9, 1);
 
             if (pst.executeUpdate() == 0) {
                 throw new DaoException("Puede que no se haya guardado.");
@@ -73,8 +81,8 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
                     throw new DaoException("Error en SQL", ex);
                 }
             }
-        } 
-        
+        }
+
         return entity;
     }
 
@@ -114,8 +122,61 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    private Citas Convert_listar_todo_citas(ResultSet rs) throws SQLException {
+
+        Citas dto = new Citas();
+
+        dto.setId(rs.getLong("id"));
+
+        Patient dto1 = new Patient();
+        dto1.setLastname(rs.getString("lastname"));
+        dto1.setSurename(rs.getString("surename"));
+        dto.setPatient(dto1);
+
+        Service dto2 = new Service();
+        dto2.setName(rs.getString("name_services"));
+        dto.setService(dto2);
+       
+        Specialist dto3 = new Specialist();
+        dto3.setName(rs.getString("name_especialista"));
+
+        dto.setSpecialist(dto3);
+
+        return dto;
+    }
+
+    @Override
     public List<Citas> findAll(int id) throws DaoException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        List<Citas> list = new ArrayList<Citas>();
+        try {
+            pst = (PreparedStatement) conn.prepareStatement(LISTAR_CITAS_TODOS);
+                 pst.setLong(1, id);
+            rs = pst.executeQuery();
+            System.out.println(rs);
+            while (rs.next()) {
+                list.add(Convert_listar_todo_citas(rs));
+            }
+        } catch (SQLException ex) {
+            throw new DaoException("Error en SQL", ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    new DaoException("Error en SQL", ex);
+                }
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException ex) {
+                    new DaoException("Error en SQL", ex);
+                }
+            }
+        }
+        return list;
     }
 
     private Citas Convert_(ResultSet rs) throws SQLException {
@@ -128,6 +189,7 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
         Citas dto = new Citas(id, status, paciente, servicio, especialista, fechadecita);
         return dto;
     }
+
     public Citas findById(Citas entity) throws DaoException {
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -161,6 +223,7 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
         }
         return dto;
     }
+
     /*
     El siguiente metodo es llevado a evaluacion para su futuro borrado en esta clase
      */

@@ -1,6 +1,7 @@
 package WIN33CLC_VIEW;
 
 import WIN30CLC_DAO.DaoException;
+import WIN31CLC_DTO.Citas;
 import WIN31CLC_DTO.Patient;
 import WIN31CLC_DTO.Service;
 import WIN31CLC_DTO.Specialist;
@@ -10,16 +11,20 @@ import WIN32CLC_CTR.CTR_03_Service;
 import WIN32CLC_CTR.CTR_04_Specialist;
 import WIN32CLC_CTR.CTR_05_Citas;
 import WIN_2020_UTILS.Validators;
+import static WIN_2020_UTILS.Validators.getSelectedButtonIndex;
+import static WIN_2020_UTILS.Validators.inputStringIngresado;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import rojerusan.RSNotifyFade;
 
 /**
  *
@@ -40,16 +45,16 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     public frm_03_reservar_cita() {
         initComponents();
         LoadData();
-        
+
         btn_nueva_cita.setEnabled(true);
         btn_cancelar_cambios1.setEnabled(false);
         btn_guardar_cita1.setEnabled(false);
     }
 
-    void loadmam(){
-        
+    void loadmam() {
+
     }
-    
+
     public void LoadData() {
         try {
             checkbox_horario(false);
@@ -472,12 +477,16 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
         add(panel_contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 740));
     }// </editor-fold>//GEN-END:initComponents
- public void deshabilitar_rbx(  boolean b)
-  {
+ public void deshabilitar_rbx(boolean b) {
 
-     rbx_4.setVisible(b);rbx_8.setVisible(b);rbx_12.setVisible(b);
-     rbx_3.setVisible(b);rbx_7.setVisible(b);rbx_11.setVisible(b); rbx_14.setVisible(b);
-  }
+        rbx_4.setVisible(b);
+        rbx_8.setVisible(b);
+        rbx_12.setVisible(b);
+        rbx_3.setVisible(b);
+        rbx_7.setVisible(b);
+        rbx_11.setVisible(b);
+        rbx_14.setVisible(b);
+    }
     private void btn_buscar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_pacienteActionPerformed
         try {
             patient = cTR_02_Patient.SelectPatient(txt_dni.getText());
@@ -664,12 +673,11 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 //                                } else {
                             // check_horario_validacion(ehorarios_citas_disponible.getId_horario(), true);
                             //   if (hora_sistema.compareTo(ehorarios_citas_disponible.getCita_horario_inicio()) >= 0 && hora_sistema.compareTo(ehorarios_citas_disponible.getCita_horario_fin()) >= 0) {
-                       //     check_horario_validacion(ehorarios_citas_disponible.getId_horario(), false);
-
+                            //     check_horario_validacion(ehorarios_citas_disponible.getId_horario(), false);
                             //  } else {
                             if (ehorarios_citas_disponible.getCita_horario_inicio().equals(ehorarios_citas_reservadas.getCita_horario_inicio()) && ehorarios_citas_disponible.getCita_horario_fin().equals(ehorarios_citas_reservadas.getCita_horario_fin())) {
                                 check_horario_validacion(ehorarios_citas_disponible.getId_horario(), false);
-                            } 
+                            }
 //else {
 //                                check_horario_validacion(ehorarios_citas_disponible.getId_horario(), true);
 //
@@ -778,35 +786,105 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
     }
 
     private void btn_guardar_cita1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_cita1ActionPerformed
-        
-        System.out.println(Validators.getSelectedButtonText(buttonGroup1));
-        //El paciente 
-        if (patient != null) {
-            // el servicio
-            Service e_service = service_list.get(cbx_service.getSelectedIndex());
-            if (e_service.getId() > 0) {
-                // el especialista
-                Specialist e_especialista = specialist_list.get(cbx_especialista.getSelectedIndex());
-                if (e_especialista.getId() > 0) {
-                    // select fecha
-                    //cal_fecha_cita.g
-                    // seleccionamos la hora
+//    
+//        //El paciente 
+//        if (patient != null) {
+//            // el servicio
+//            Service e_service = service_list.get(cbx_service.getSelectedIndex());
+//            if (e_service.getId() > 0) {
+//                // el especialista
+//                Specialist e_especialista = specialist_list.get(cbx_especialista.getSelectedIndex());
+//                if (e_especialista.getId() > 0) {
+//                    // select fecha
+//                    //cal_fecha_cita.g
+//                    // seleccionamos la hora
+//
+//                }
+//            }
+//        } else {
+//            // mensaje de error
+//        }
+//
+//        btn_cancelar_cambios1.setEnabled(false);
+//        btn_guardar_cita1.setEnabled(false);
+//        btn_nueva_cita.setEnabled(true);
+        String msg = "";
+        int focus = 0;
+        if (txt_dni.getText().length() < 8 || txt_dni.getText().length() > 8) {
+            msg = msg + "Ingrese un DNI válido \n";
+            focus = 0;
+        } else if (!inputStringIngresado(txt_dni.getText())) {
+            msg = msg + "Ingrese Dni \n";
+            focus = 1;
+        } else if (cbx_service.getSelectedIndex() == 0) {
+            msg = msg + "Seleccione Servicio \n";
+            focus = 2;
 
-                }
-            }
-        } else {
-            // mensaje de error
+        } else if (cbx_especialista.getSelectedIndex() == 0) {
+            msg = msg + "Seleccione Especialista \n";
+            focus = 3;
+
         }
-        
-        btn_cancelar_cambios1.setEnabled(false);
-        btn_guardar_cita1.setEnabled(false);
-        btn_nueva_cita.setEnabled(true);
-        
+
+        try {
+            if (msg.length() > 0) {
+                JOptionPane.showMessageDialog(null, msg,
+                        "Dental SyS", JOptionPane.ERROR_MESSAGE);
+                switch (focus) {
+                    case 0:
+                        txt_dni.requestFocus();
+                        break;
+                    case 1:
+                        txt_dni.requestFocus();
+                        break;
+                    case 2:
+                        cbx_service.requestFocus();
+                        break;
+                    case 3:
+                        cbx_service.requestFocus();
+                        break;
+                    default:
+                        txt_dni.requestFocus();
+                        break;
+                }
+            } else {
+                //patient = cTR_02_Patient.SelectPatient(txt_dni.getText());
+               // if (patient.getId() == 0) {
+
+                    Service e_service = service_list.get(cbx_service.getSelectedIndex());
+                    Specialist e_especialista = specialist_list.get(cbx_especialista.getSelectedIndex());
+                    Citas citas_e = new Citas();
+                    java.util.Date date = rSDateChooser2.getDatoFecha();
+                    java.sql.Date date1 = new java.sql.Date(date.getTime());
+                    citas_e.setFechadecita(date1);
+                    citas_e.setStatus(1);
+                    citas_e.setPatient_id(patient.getId());
+                    citas_e.setService_id(e_service.getId());
+                    citas_e.setEspecialista_id(e_especialista.getId());
+                    citas_e.setId_horario(getSelectedButtonIndex(buttonGroup1));
+
+                    cTR_05_Citas.insert(citas_e);
+                    new rojerusan.RSNotifyFade("DentalSys", "Se guardaron los cambios correctamente.", 7,
+                            RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.SUCCESS).setVisible(true);
+                    btn_cancelar_cambios1.setEnabled(false);
+                    btn_guardar_cita1.setEnabled(false);
+                    btn_nueva_cita.setEnabled(true);
+                //} else {
+                    new rojerusan.RSNotifyFade("DentalSys", "No se guardaron los datos! \n Intente nuevamente", 7,
+                            RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.WARNING).setVisible(true);
+               // }
+            }
+
+        } catch (SQLException ex) {
+            // Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            //Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_guardar_cita1ActionPerformed
 
     private void btn_nueva_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueva_citaActionPerformed
         // TODO add your handling code here:
-        
+
         btn_guardar_cita1.setEnabled(true);
         btn_cancelar_cambios1.setEnabled(false);
     }//GEN-LAST:event_btn_nueva_citaActionPerformed

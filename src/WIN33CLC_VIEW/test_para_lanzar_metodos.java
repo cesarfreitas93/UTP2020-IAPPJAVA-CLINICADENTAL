@@ -836,7 +836,10 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
                 Runtime runtime = Runtime.getRuntime();
                 File backupFile = new File(String.valueOf(RealizarBackupMySQL.getSelectedFile().toString())+" "+DiaHoy +"-"+MesHoy+"-"+AnioHoy+".sql");
                 FileWriter fw = new FileWriter(backupFile);
-                Process child = runtime.exec("C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysqldump --routines --opt --password= --user=root --databases utp2020-dental-system-dev"); 
+             
+                Process child = runtime.exec("C:\\xampp\\mysql\\bin\\mysqldump --routines --opt --password= --user=root --databases utp2020-dental-system-dev"); 
+
+               // Process child = runtime.exec("C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysqldump --routines --opt --password= --user=root --databases utp2020-dental-system-dev"); 
                 InputStreamReader irs = new InputStreamReader(child.getInputStream());
                 BufferedReader br = new BufferedReader(irs);
                 String line;

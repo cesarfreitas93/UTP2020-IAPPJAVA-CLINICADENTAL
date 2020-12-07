@@ -1,4 +1,3 @@
-
 package WIN_2020_UTILS;
 
 import java.util.Enumeration;
@@ -7,20 +6,19 @@ import java.util.regex.Pattern;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 
-
 public class Validators {
-    
+
     public static boolean esEmail(String correo) {
-         // Patrón para validar el email
-         Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-         Matcher mather = pattern.matcher(correo);
-         return mather.find();
+        // Patrón para validar el email
+        Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mather = pattern.matcher(correo);
+        return mather.find();
     }
-    
-    public static boolean inputStringIngresado(String val){
-        return val.length()>2? true : false;
+
+    public static boolean inputStringIngresado(String val) {
+        return val.length() > 2 ? true : false;
     }
-    
+
     public static boolean isNullOrEmpty(String str) {
         if (str != null && !str.isEmpty()) {
             return false;
@@ -39,7 +37,6 @@ public class Validators {
 
         return null;
     }
-    
     public static int getSelectedButtonIndex(ButtonGroup buttonGroup) {
         int a = 0;
         for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
@@ -72,6 +69,6 @@ public class Validators {
         return _Validador;
     }
     
-    */
+     */
 
 }
