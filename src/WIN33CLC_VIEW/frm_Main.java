@@ -2,6 +2,7 @@
 package WIN33CLC_VIEW;
 
 import WIN32CLC_CTR.CTR_11_DataBaseConfiguration;
+import WIN_2020_UTILS.ConfigReader;
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Component;
@@ -10,6 +11,7 @@ import java.awt.GraphicsEnvironment;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -1624,9 +1626,13 @@ if(!this.btn_usuario1 .isSelected()){
     }//GEN-LAST:event_btn_usuarios_02MouseExited
 
     private void btn_createbackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createbackupActionPerformed
-        // TODO add your handling code here:
-        //restoreBackUpMysql();
-        generateBackUpMysql();
+        try {
+            // TODO add your handling code here:
+            //restoreBackUpMysql();
+            generateBackUpMysql();
+        } catch (IOException ex) {
+            Logger.getLogger(frm_Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_createbackupActionPerformed
 
     private void btn_resetdatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetdatabaseActionPerformed
@@ -1665,8 +1671,12 @@ if(!this.btn_usuario1 .isSelected()){
     }//GEN-LAST:event_btn_resetdatabaseActionPerformed
 
     private void btn_restoredatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_restoredatabaseActionPerformed
-        // TODO add your handling code here:
-        restoreBackUpMysql();
+        try {
+            // TODO add your handling code here:
+            restoreBackUpMysql();
+        } catch (IOException ex) {
+            Logger.getLogger(frm_Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_restoredatabaseActionPerformed
 
  
@@ -1745,7 +1755,13 @@ if(!this.btn_usuario1 .isSelected()){
     private rojerusan.RSPanelsSlider rSPanelsSlider1;
     // End of variables declaration//GEN-END:variables
 
-    private void generateBackUpMysql() {
+    private void generateBackUpMysql() throws IOException {
+        properties = new ConfigReader();
+        
+        String dbName= properties.getPropValues().getMySqlDAOMANAGER_db_name();
+        String dbUserName= properties.getPropValues().getMySqlDAOMANAGER_db_user();
+        String dbPassword= properties.getPropValues().getMySqlDAOMANAGER_db_pass();
+        
          Calendar c = Calendar.getInstance();//creamos una instancia de la clase calendar de java
         //java.util.Date fecha = new Date();
         String DiaHoy = Integer.toString(c.get(Calendar.DATE));
@@ -1761,7 +1777,7 @@ if(!this.btn_usuario1 .isSelected()){
                 Runtime runtime = Runtime.getRuntime();
                 File backupFile = new File(String.valueOf(RealizarBackupMySQL.getSelectedFile().toString())+" "+DiaHoy +"-"+MesHoy+"-"+AnioHoy+".sql");
                 FileWriter fw = new FileWriter(backupFile);
-                Process child = runtime.exec("C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysqldump --routines --opt --password= --user=root --databases utp2020-dental-system-dev"); 
+                Process child = runtime.exec( properties.getPropValues().getPathMysqlDump()+ " --routines --opt --password="+dbPassword+" --user="+dbUserName+" --databases "+ dbName); 
                 InputStreamReader irs = new InputStreamReader(child.getInputStream());
                 BufferedReader br = new BufferedReader(irs);
                 String line;
@@ -1780,11 +1796,14 @@ if(!this.btn_usuario1 .isSelected()){
         }
     }
 
-    private void restoreBackUpMysql(){
+    protected ConfigReader properties = null;
+    private void restoreBackUpMysql() throws IOException{
         
-        String dbName="utp2020-dental-system-dev"; 
-        String dbUserName="root";
-        String dbPassword= "";
+        properties = new ConfigReader();
+        
+        String dbName= properties.getPropValues().getMySqlDAOMANAGER_db_name();
+        String dbUserName= properties.getPropValues().getMySqlDAOMANAGER_db_user();
+        String dbPassword= properties.getPropValues().getMySqlDAOMANAGER_db_pass();
         
         int resp;
         JFileChooser RealizarBackupMySQL = new JFileChooser();
@@ -1801,7 +1820,7 @@ if(!this.btn_usuario1 .isSelected()){
 //                System.out.println("Path: " + ubicacion + " -- File: " + nombre);
                 String dd=fichero.getName();//aqui obtenermos el nombre del fichero con extension sql.
                 
-                String[] executeCmd = new String[]{"C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysql", "--password=" + dbPassword, "--user=" + dbUserName,  dbName,"-e", "source "+nombre};
+                String[] executeCmd = new String[]{properties.getPropValues().getPathMysql(), "--password=" + dbPassword, "--user=" + dbUserName,  dbName,"-e", "source "+nombre};
                 Process runtimeProcess;
 
                 try {

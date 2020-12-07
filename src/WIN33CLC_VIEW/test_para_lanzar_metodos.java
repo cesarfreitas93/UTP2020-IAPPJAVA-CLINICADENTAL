@@ -8,9 +8,12 @@ package WIN33CLC_VIEW;
 import WIN30CLC_DAO.DaoException;
 import WIN32CLC_CTR.CTR_05_Citas;
 import WIN32CLC_CTR.CTR_11_DataBaseConfiguration;
+import WIN35CLC_REPORTS.CLASS.Rpt_Patients;
+import WIN_2020_UTILS.ConfigReader;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -48,6 +51,9 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,18 +78,50 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("get properties");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("jButton5");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("REPORTE LISTA DE PACIENTES");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(107, 107, 107))
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(47, 47, 47)
-                .addComponent(jButton2)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(47, 47, 47)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jButton6)))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +132,13 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
                     .addComponent(jButton2))
                 .addGap(32, 32, 32)
                 .addComponent(jButton3)
-                .addContainerGap(378, Short.MAX_VALUE))
+                .addGap(124, 124, 124)
+                .addComponent(jButton4)
+                .addGap(32, 32, 32)
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(74, 74, 74))
         );
 
         pack();
@@ -122,7 +166,34 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try {
+            ConfigReader properties = new ConfigReader();
+            System.out.println(properties.getPropValues().getMySqlDAOMANAGER_db_name());
+            System.out.println(properties.getPropValues().getMySqlDAOMANAGER_db_pass());
+            System.out.println(properties.getPropValues().getMySqlDAOMANAGER_db_server());
+            System.out.println(properties.getPropValues().getMySqlDAOMANAGER_db_user());
+        } catch (IOException ex) {
+            Logger.getLogger(test_para_lanzar_metodos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        
+        System.out.println(System.getProperty("user.dir"));
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        try {
+            // TODO add your handling code here:
+            Rpt_Patients patients = new Rpt_Patients();
+            patients.CallRPTListPatient();
+        } catch (IOException ex) {
+            Logger.getLogger(test_para_lanzar_metodos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -163,6 +234,9 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     // End of variables declaration//GEN-END:variables
 
     private void generateBackUpMysql() {

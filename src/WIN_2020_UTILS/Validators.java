@@ -1,8 +1,11 @@
 
 package WIN_2020_UTILS;
 
+import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 
 
 public class Validators {
@@ -25,6 +28,30 @@ public class Validators {
         return true;
     }
 
+    public static String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+
+        return null;
+    }
+    
+    public static int getSelectedButtonIndex(ButtonGroup buttonGroup) {
+        int a = 0;
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+            a++;
+            if (button.isSelected()) {
+                return a;
+            }
+        }
+
+        return a;
+    }
     /*
     public boolean validacion_columnas_filas_escalar_multiplicacion() {
         boolean _Validador = true;

@@ -14,8 +14,14 @@ import WIN30CLC_DAO.Dao_08_Comprobante;
 import WIN30CLC_DAO.Dao_09_Comprobante_Detalle;
 import WIN30CLC_DAO.Dao_10_Ubigeo;
 import WIN30CLC_DAO.Dao_11_DataBaseConfiguration;
+import WIN31CLC_DTO.Config;
+import WIN33CLC_VIEW.test_para_lanzar_metodos;
+import WIN_2020_UTILS.ConfigReader;
+import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,15 +41,21 @@ public class MySqlDaoManager implements DaoManager {
     private Dao_10_Ubigeo ubigeo = null;
     private Dao_11_DataBaseConfiguration baseConfiguration = null;
 
+    protected ConfigReader properties = null;
     protected String db_name, db_url , db_user, db_pass;
     protected java.sql.Connection connection_  = null;
     
     public MySqlDaoManager() throws SQLException{
-        this.db_name = "utp2020-dental-system-dev"; 
-        this.db_url = "jdbc:mysql://localhost:3306/"+ this.db_name; 
-        this.db_user = "root"; 
-        this.db_pass = "";
-        connection_ = DriverManager.getConnection(this.db_url, this.db_user, this.db_pass);
+        
+        try {
+            properties = new ConfigReader();
+            this.db_url = properties.getPropValues().getMySqlDAOMANAGER_db_server();
+            this.db_user = properties.getPropValues().getMySqlDAOMANAGER_db_user();
+            this.db_pass = properties.getPropValues().getMySqlDAOMANAGER_db_pass();
+            connection_ = DriverManager.getConnection(this.db_url, this.db_user, this.db_pass);
+        } catch (IOException ex) {
+            Logger.getLogger(MySqlDaoManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

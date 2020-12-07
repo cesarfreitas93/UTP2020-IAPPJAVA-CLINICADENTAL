@@ -9,6 +9,7 @@ import WIN32CLC_CTR.CTR_02_Patient;
 import WIN32CLC_CTR.CTR_03_Service;
 import WIN32CLC_CTR.CTR_04_Specialist;
 import WIN32CLC_CTR.CTR_05_Citas;
+import WIN_2020_UTILS.Validators;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -778,7 +779,7 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
 
     private void btn_guardar_cita1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_cita1ActionPerformed
         
-        
+        System.out.println(Validators.getSelectedButtonText(buttonGroup1));
         //El paciente 
         if (patient != null) {
             // el servicio
