@@ -1,13 +1,100 @@
-
 package WIN33CLC_VIEW;
+
+import WIN30CLC_DAO.DaoException;
+import WIN30CLC_DAO.Dao_05_Citas;
+import WIN31CLC_DTO.Citas;
+import WIN32CLC_CTR.CTR_05_Citas;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
 
 public class frm_07_gestionar_cita extends javax.swing.JPanel {
 
+    private CTR_05_Citas CTR_05_Citas_e;
+
     public frm_07_gestionar_cita() {
         initComponents();
+        LoadData();
     }
 
+    public void LoadData() {
+        try {
+            CTR_05_Citas ctr = new CTR_05_Citas();
+            this.tabla_citas_vigentes.setModel(ctr.ListCitas(1));
+            this.tabla_citas_reprogramadas.setModel(ctr.ListCitas(2));
+            this.tabla_citas_vencidas.setModel(ctr.ListCitas(3));
 
+            this.tabla_citas_vigentes.getSelectionModel().addListSelectionListener(e -> {
+                boolean seleccionValid = (tabla_citas_vigentes.getSelectedRow() != -1);
+                //btnEdit.setEnabled(seleccionValid);
+                //btnDelete.setEnabled(seleccionValid);
+            });
+        } catch (DaoException ex) {
+            // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            //   Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        this.tabla_citas_vigentes.setDefaultRenderer(JButton.class, new TableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable jtable, Object objeto, boolean estaSeleccionado, boolean tieneElFoco, int fila, int columna) {
+                return (Component) objeto;
+            }
+        });
+        this.tabla_citas_vigentes.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila = tabla_citas_vigentes.rowAtPoint(e.getPoint());
+                int columna = tabla_citas_vigentes.columnAtPoint(e.getPoint());
+
+                System.out.println("click");
+//                if (!tabla_citas_vigentes.getModel().getColumnClass(0).equals(JButton.class)) {
+//                    //System.out.println(tabla_citas_vigentes.getModel().getValueAt(fila, 0)); 
+//                    setId((long) tabla_citas_vigentes.getModel().getValueAt(fila, 0));
+//
+//                }
+                try {
+                    Citas dtos = new Citas();
+                  long id=  (long) tabla_citas_vigentes.getModel().getValueAt(fila, 0);
+                    dtos = CTR_05_Citas_e.SelecteCitasGestionar(id);
+                     System.out.println(dtos);
+                } catch (SQLException ex) {
+                    Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (DaoException ex) {
+                    Logger.getLogger(frm_05_servicios.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                // setEditable(true);
+                if (tabla_citas_vigentes.getModel().getColumnClass(columna).equals(JButton.class)) {
+                    try {
+                        System.out.println(tabla_citas_vigentes.getModel().getValueAt(fila, 0));
+                        //    CTR_05_Citas_e.DeletePatien((long) tabla_citas_vigentes.getModel().getValueAt(fila, 0));
+                        System.out.println("eliminado por el botton");
+                        tabla_citas_vigentes.setModel(CTR_05_Citas_e.ListCitas(1));
+                        //    setEditable(false);
+                    } catch (SQLException ex) {
+                        // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (DaoException ex) {
+                        //Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+
+
+            }
+
+        });
+    }
+    private Citas getCitasSelected() throws SQLException, DaoException {
+        CTR_05_Citas ctr = new CTR_05_Citas();
+        int id = (int) tabla_citas_vigentes.getValueAt(tabla_citas_vigentes.getSelectedRow(), 0);
+        return ctr.SelecteCitasGestionar(id);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -83,6 +170,11 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
         btn_anular_cita.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_anular_cita.setFocusPainted(false);
         btn_anular_cita.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_anular_cita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_anular_citaActionPerformed(evt);
+            }
+        });
         fSGradientPanel1.add(btn_anular_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 210, -1));
 
         btn_eliminar_cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-cancelar-30.png"))); // NOI18N
@@ -131,12 +223,12 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabla_citas_vigentes.setColorBackgoundHead(new java.awt.Color(3, 111, 198));
         tabla_citas_vigentes.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
         tabla_citas_vigentes.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
-        tabla_citas_vigentes.setColorFilasForeground2(new java.awt.Color(255, 255, 255));
-        tabla_citas_vigentes.setFuenteFilas(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        tabla_citas_vigentes.setFuenteFilasSelect(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        tabla_citas_vigentes.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tabla_citas_vigentes.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        tabla_citas_vigentes.setFuenteFilas(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tabla_citas_vigentes.setFuenteFilasSelect(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         tabla_citas_vigentes.setFuenteHead(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         tabla_citas_vigentes.setGrosorBordeFilas(0);
         tabla_citas_vigentes.setGrosorBordeHead(0);
@@ -161,12 +253,12 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabla_citas_reprogramadas.setColorBackgoundHead(new java.awt.Color(3, 111, 198));
         tabla_citas_reprogramadas.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
         tabla_citas_reprogramadas.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
-        tabla_citas_reprogramadas.setColorFilasForeground2(new java.awt.Color(255, 255, 255));
-        tabla_citas_reprogramadas.setFuenteFilas(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        tabla_citas_reprogramadas.setFuenteFilasSelect(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        tabla_citas_reprogramadas.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tabla_citas_reprogramadas.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        tabla_citas_reprogramadas.setFuenteFilas(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tabla_citas_reprogramadas.setFuenteFilasSelect(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         tabla_citas_reprogramadas.setFuenteHead(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         tabla_citas_reprogramadas.setGrosorBordeFilas(0);
         tabla_citas_reprogramadas.setGrosorBordeHead(0);
@@ -191,12 +283,12 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabla_citas_vencidas.setColorBackgoundHead(new java.awt.Color(3, 111, 198));
         tabla_citas_vencidas.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
         tabla_citas_vencidas.setColorFilasForeground1(new java.awt.Color(0, 0, 0));
-        tabla_citas_vencidas.setColorFilasForeground2(new java.awt.Color(255, 255, 255));
-        tabla_citas_vencidas.setFuenteFilas(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        tabla_citas_vencidas.setFuenteFilasSelect(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        tabla_citas_vencidas.setColorFilasForeground2(new java.awt.Color(0, 0, 0));
+        tabla_citas_vencidas.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
+        tabla_citas_vencidas.setFuenteFilas(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tabla_citas_vencidas.setFuenteFilasSelect(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         tabla_citas_vencidas.setFuenteHead(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         tabla_citas_vencidas.setGrosorBordeFilas(0);
         tabla_citas_vencidas.setGrosorBordeHead(0);
@@ -440,22 +532,49 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
 
         add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 780, 170));
     }// </editor-fold>//GEN-END:initComponents
-public void deshabilitar_rbx_Gestionar_cita(  boolean b)
-  {
-    //jPanel3.setVisible(b);
-     rbx_4.setVisible(b);rbx_8.setVisible(b);rbx_12.setVisible(b);
-      rbx_3.setVisible(b);rbx_7.setVisible(b);rbx_11.setVisible(b); rbx_14.setVisible(b);
-      
-  }
+public void deshabilitar_rbx_Gestionar_cita(boolean b) {
+        //jPanel3.setVisible(b);
+        rbx_4.setVisible(b);
+        rbx_8.setVisible(b);
+        rbx_12.setVisible(b);
+        rbx_3.setVisible(b);
+        rbx_7.setVisible(b);
+        rbx_11.setVisible(b);
+        rbx_14.setVisible(b);
+
+    }
     private void btn_reprogramar_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reprogramar_citaActionPerformed
-       
+
     }//GEN-LAST:event_btn_reprogramar_citaActionPerformed
 
     private void txt_buscar_horariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscar_horariosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_buscar_horariosActionPerformed
 
+    private void btn_anular_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anular_citaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_anular_citaActionPerformed
 
+    private boolean editable;
+    private Citas dto;
+
+    public Citas getDto() {
+        return dto;
+    }
+
+    public void setDto(Citas dto) {
+        this.dto = dto;
+    }
+
+    private long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_anular_cita;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_eliminar_cita;

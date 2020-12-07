@@ -773,7 +773,7 @@ public class frm_02_Patient_Detail extends javax.swing.JPanel {
         
         try {
             Patient dto = new Patient();
-            dto = cTR_02_Patient.SelectPatient(this.id);
+            dto = cTR_02_Patient.SelectPatient (this.id);
             
             btn_modificar_paciente.setEnabled(false);
             btn_nuevo_paciente.setEnabled(false);

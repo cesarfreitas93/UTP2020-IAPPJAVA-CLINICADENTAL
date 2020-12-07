@@ -12,8 +12,12 @@ import WIN31CLC_DTO.Patient;
 import WIN31CLC_DTO.Service;
 import WIN31CLC_DTO.Specialist;
 import WIN31CLC_DTO.horario_citas;
+import WIN32CLC_TABLEMODELS.CitasTableModel;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.AbstractTableModel;
 
 /**
  *
@@ -48,6 +52,16 @@ public class CTR_05_Citas {
         return cita;
     }
 
+     public boolean insert(Citas entity) throws SQLException,DaoException{
+        MySqlDaoManager man = new MySqlDaoManager();
+        try {
+            man.getCitas().rlInsert(entity);
+            return true;
+        } catch (DaoException ex) {
+            Logger.getLogger(CTR_03_Service.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     public int capturar_cantidad_fechas(String fecha) throws SQLException, DaoException {
         int registros = 0;
 
@@ -68,4 +82,23 @@ public class CTR_05_Citas {
         return man.getCitas().listando_horario_disponible();
 
     }
+        private CitasTableModel  model;
+
+        public AbstractTableModel ListCitas(int id_status) throws DaoException, SQLException{
+        MySqlDaoManager man = new MySqlDaoManager();
+        this.model = new CitasTableModel(man.getCitas());
+        this.model.updateModel(id_status);
+        this.model.fireTableDataChanged();
+        return this.model;
+    }
+        
+    public Citas SelecteCitasGestionar(long id) throws SQLException, DaoException {
+        MySqlDaoManager man = new MySqlDaoManager();
+        Citas p = new Citas();
+        p.setId(id);
+        p =  man.getCitas().findById(p);
+        return p;
+    }
+        
+        
 }

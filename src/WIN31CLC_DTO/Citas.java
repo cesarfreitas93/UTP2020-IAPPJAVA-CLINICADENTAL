@@ -1,24 +1,27 @@
-
 package WIN31CLC_DTO;
 
 import java.util.Date;
 import java.util.Objects;
 
 public class Citas {
- private long id;
- private Date createAt;
- private int status;
- private long patient_id;
- private long service_id;
- private long especialista_id;
- private Date fechadecita;
 
- private Patient patient;
- private Specialist specialist;
- private Service service;
- 
+    private long id;
+    private Date createAt;
+    private int status;
+    private long patient_id;
+    private long service_id;
+    private long especialista_id;
+    private Date fechadecita;
+    private int id_horario;
+
+    
+    private Patient patient;
+    private Specialist specialist;
+    private Service service;
+    private horario_citas horario_citas;
+
     public Citas() { //instanciar un obejto de tipo cita
-        
+
     }
 
     public Citas(long id, int status, long patient_id, long service_id, long especialista_id, Date fechadecita) {
@@ -38,8 +41,6 @@ public class Citas {
         this.especialista_id = especialista_id;
     }
 
-    
-    
     // encapsulamiento - datos privado - nos ayuda a mantener la consistencia de la informacion
     public Patient getPatient() {
         return patient;
@@ -65,8 +66,6 @@ public class Citas {
         this.service = service;
     }
 
-    
-    
     public long getId() {
         return id;
     }
@@ -123,8 +122,22 @@ public class Citas {
         this.service_id = service_id;
     }
 
-    
-    
+    public horario_citas getHorario_citas() {
+        return horario_citas;
+    }
+
+    public void setHorario_citas(horario_citas horario_citas) {
+        this.horario_citas = horario_citas;
+    }
+
+    public int getId_horario() {
+        return id_horario;
+    }
+
+    public void setId_horario(int id_horario) {
+        this.id_horario = id_horario;
+    }
+
     @Override
     public int hashCode() {  // necesitar que los objetos que estamos instanciamos seran 
         int hash = 7;
@@ -185,7 +198,4 @@ public class Citas {
         return super.clone(); //To change body of generated methods, choose Tools | Templates.
     }
 
-
- 
- 
 }
