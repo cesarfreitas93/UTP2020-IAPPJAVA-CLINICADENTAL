@@ -361,7 +361,7 @@ public class frm_05_servicios extends javax.swing.JPanel {
         btn_nuevo_servicio.setEnabled(true);
         setId(0);
         modificar = false;
-        
+
         txt_nombre_servicio.setText("");
         txt_precio_servicio.setText("");
         chk_estado.setSelected(false);
