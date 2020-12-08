@@ -95,6 +95,7 @@ int xx,xy;
         lblespecialista = new javax.swing.JLabel();
         rSPanelMaterial4 = new RSMaterialComponent.RSPanelMaterial();
         panel_inicio = new javax.swing.JPanel();
+        frm_UI_inicio1 = new WIN33CLC_VIEW.frm_UI_inicio();
         panel_paciente = new javax.swing.JPanel();
         frm_UI_01_Patien1 = new WIN33CLC_VIEW.frm_UI_01_Patien();
         panel_cita = new javax.swing.JPanel();
@@ -499,6 +500,8 @@ int xx,xy;
         panel_inicio.setBackground(new java.awt.Color(255, 255, 255));
         panel_inicio.setName("panel_inicio"); // NOI18N
         panel_inicio.setLayout(new java.awt.CardLayout());
+        panel_inicio.add(frm_UI_inicio1, "card2");
+
         rSPanelMaterial4.add(panel_inicio, "card3");
 
         panel_paciente.setBackground(new java.awt.Color(255, 255, 255));
@@ -3089,7 +3092,9 @@ changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
     }//GEN-LAST:event_btn_inicio_02MouseEntered
 
     private void btn_reporte_citasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporte_citasActionPerformed
-subboton_reporte_cita();
+        subboton_reporte_cita();
+        frm_exploradorCitas citas = new frm_exploradorCitas();
+        citas.setVisible(true);
     }//GEN-LAST:event_btn_reporte_citasActionPerformed
 
     private void btn_reportes_facturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reportes_facturasActionPerformed
@@ -3511,6 +3516,7 @@ restoreBackUpMysql();
     private WIN33CLC_VIEW.frm_UI_05_servicios frm_UI_05_servicios1;
     private WIN33CLC_VIEW.frm_UI_06_especialista frm_UI_06_especialista1;
     private WIN33CLC_VIEW.frm_UI_07_usuarios frm_UI_07_usuarios1;
+    private WIN33CLC_VIEW.frm_UI_inicio frm_UI_inicio1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_menu_1;

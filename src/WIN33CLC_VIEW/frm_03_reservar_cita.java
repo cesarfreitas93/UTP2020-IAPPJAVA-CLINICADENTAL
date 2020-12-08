@@ -870,8 +870,8 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
                     btn_guardar_cita1.setEnabled(false);
                     btn_nueva_cita.setEnabled(true);
                 //} else {
-                    new rojerusan.RSNotifyFade("DentalSys", "No se guardaron los datos! \n Intente nuevamente", 7,
-                            RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.WARNING).setVisible(true);
+                    //new rojerusan.RSNotifyFade("DentalSys", "No se guardaron los datos! \n Intente nuevamente", 7,
+                            //RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.WARNING).setVisible(true);
                // }
             }
 
