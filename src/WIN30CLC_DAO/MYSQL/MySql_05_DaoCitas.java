@@ -21,13 +21,16 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
 
     private Connection conn;
     final String INSERT = "insert into citas (`createAt`,`status`,`patient_id`,`especialista_id`,`service_id`,`updateAt`,`fechaDeCita`,`id_horario`,`estado`) values(?,?,?,?,?,?,?,?,?)";
-    final String CHANGE_STATUS = "update CITAS set status = ? where id = ?";
+    final String CHANGE_STATUS = "UPDATE citas set fechadecita =convert(?,date),updateat = ?,status = ?,  id_horario = ? WHERE ID = ?";
+    final String ANULAR_CITAS = "UPDATE citas set updateat = ?,status = ? WHERE ID = ?";
+
     final String UPDATE = "UPDATE CITAS set fechadecita = ?, updateat = ?, status = ?, patient_id = ?, service_id = ?, specialista_id = ? SET WHERE ID = ?";
     final String FINDBYID = "SELECT `id`,`fechaDeCita`,`status`,`patient_id`,`service_id`,`especialista_id` FROM `citas` WHERE `id`= ?";
     final String CAPTURAR_CANTIDAD_FECHAS = "SELECT count(1) as total FROM citas WHERE convert(fechadecita,date) = ? and estado = 1";
     final String CAPTURAR_CANTIDAD_FECHAS_1 = "SELECT hc.cita_horario_inicio,hc.cita_horario_fin FROM citas  as c inner join horario_citas as hc on hc.id_horario = c.id_horario WHERE convert(c.fechadecita,date) = ? and c.especialista_id=? and c.service_id=? and c.estado = 1 ";
     final String LISTAR_HORARIO_DISPONIBLE = "SELECT * FROM horario_citas WHERE habilitado=1";
-    final String LISTAR_CITAS_TODOS= "select cts.id,pat.name,pat.lastname,pat.surename,srv.name as name_services,spt.name as name_especialista from citas as cts inner join patient as pat on pat.id = cts.patient_id inner join services as srv on srv.id = cts.service_id inner join especialista as spt on spt.id = cts.especialista_id inner join horario_citas as hct on hct.id_horario = cts.id_horario where status = ?";
+    final String LISTAR_CITAS_TODOS = "select cts.id,pat.name,pat.lastname,pat.surename,srv.name as name_services,spt.name as name_especialista from citas as cts inner join patient as pat on pat.id = cts.patient_id inner join services as srv on srv.id = cts.service_id inner join especialista as spt on spt.id = cts.especialista_id inner join horario_citas as hct on hct.id_horario = cts.id_horario where status = ?";
+    final String LISTAR_CITAS_TODOS_BY_ID = "select cts.id as id_citas,pat.id as id_paciente,pat.name,pat.lastname,pat.surename,pat.phone,srv.id as id_services,srv.name as name_services,spt.id as id_especialista,spt.name as name_especialista,convert(fechadecita,date) as fechadecita,hct.id_horario,hct.cita_horario_inicio,hct.cita_horario_fin from citas as cts inner join patient as pat on pat.id = cts.patient_id inner join services as srv on srv.id = cts.service_id inner join especialista as spt on spt.id = cts.especialista_id inner join horario_citas as hct on hct.id_horario = cts.id_horario where cts.id = ?";
 
     public MySql_05_DaoCitas(Connection conn) {
         this.conn = conn;
@@ -136,7 +139,7 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
         Service dto2 = new Service();
         dto2.setName(rs.getString("name_services"));
         dto.setService(dto2);
-       
+
         Specialist dto3 = new Specialist();
         dto3.setName(rs.getString("name_especialista"));
 
@@ -152,7 +155,7 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
         List<Citas> list = new ArrayList<Citas>();
         try {
             pst = (PreparedStatement) conn.prepareStatement(LISTAR_CITAS_TODOS);
-                 pst.setLong(1, id);
+            pst.setLong(1, id);
             rs = pst.executeQuery();
             System.out.println(rs);
             while (rs.next()) {
@@ -179,14 +182,37 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
         return list;
     }
 
-    private Citas Convert_(ResultSet rs) throws SQLException {
-        int id = rs.getInt("id");
-        int status = rs.getInt("status");
-        long paciente = rs.getLong("patient_id");
-        long servicio = rs.getLong("service_id");
-        long especialista = rs.getLong("especialista_id");
-        Date fechadecita = rs.getDate("fechaDeCita");
-        Citas dto = new Citas(id, status, paciente, servicio, especialista, fechadecita);
+    private Citas Convert_listar_todo_citas_findById(ResultSet rs) throws SQLException {
+
+        Citas dto = new Citas();
+
+        dto.setId(rs.getLong("id_citas"));
+        dto.setFechadecita(rs.getDate("fechadecita"));
+
+        Patient dto1 = new Patient();
+        dto1.setId(rs.getLong("id_paciente"));
+        dto1.setLastname(rs.getString("lastname"));
+        dto1.setSurename(rs.getString("surename"));
+        dto1.setPhone(rs.getString("phone"));
+
+        dto.setPatient(dto1);
+
+        Service dto2 = new Service();
+        dto2.setId(rs.getLong("id_services"));
+        dto2.setName(rs.getString("name_services"));
+        dto.setService(dto2);
+
+        Specialist dto3 = new Specialist();
+        dto3.setId(rs.getLong("id_especialista"));
+        dto3.setName(rs.getString("name_especialista"));
+        dto.setSpecialist(dto3);
+
+        horario_citas dto4 = new horario_citas();
+        dto4.setId_horario((int) rs.getLong("id_horario"));
+        dto4.setCita_horario_inicio(rs.getString("cita_horario_inicio"));
+        dto4.setCita_horario_fin(rs.getString("cita_horario_fin"));
+        dto.setHorario_citas(dto4);
+
         return dto;
     }
 
@@ -195,11 +221,11 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
         ResultSet rs = null;
         Citas dto = null;
         try {
-            pst = (PreparedStatement) conn.prepareStatement(FINDBYID);
+            pst = (PreparedStatement) conn.prepareStatement(LISTAR_CITAS_TODOS_BY_ID);
             pst.setLong(1, entity.getId());
             rs = pst.executeQuery();
             if (rs.next()) {
-                dto = Convert_(rs);
+                dto = Convert_listar_todo_citas_findById(rs);
             } else {
                 throw new DaoException("No se ha encontrado el registro");
             }
@@ -228,14 +254,54 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
     El siguiente metodo es llevado a evaluacion para su futuro borrado en esta clase
      */
     @Override
-    public boolean CambiarStatus(int STATUS, long ID) throws DaoException {
+    public boolean CambiarStatus(Citas entity) throws DaoException {
         boolean RESULT = true;
         PreparedStatement pst = null;
         try {
+            Calendar calendar = Calendar.getInstance();
+            java.util.Date currentTime = calendar.getTime();
+            long time = currentTime.getTime();
 
             pst = (PreparedStatement) conn.prepareStatement(CHANGE_STATUS);
-            pst.setInt(1, STATUS);
-            pst.setLong(2, ID);
+            pst.setDate(1, (java.sql.Date) entity.getFechadecita());
+            pst.setTimestamp(2, new Timestamp(time));
+            pst.setInt(3, entity.getStatus());
+            pst.setInt(4, entity.getHorario_citas().getId_horario());
+            pst.setLong(5, entity.getId());
+            if (pst.executeUpdate() == 0) {
+                RESULT = false;
+                throw new DaoException("Puede que no se haya modificado el estado.");
+            }
+        } catch (SQLException ex) {
+            RESULT = false;
+            throw new DaoException("Error en SQL", ex);
+
+        } finally {
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException ex) {
+                    RESULT = false;
+                    throw new DaoException("Error en SQL", ex);
+                }
+            }
+        }
+        return RESULT;
+    }
+
+    @Override
+    public boolean Anular_citas(Citas entity) throws DaoException {
+        boolean RESULT = true;
+        PreparedStatement pst = null;
+        try {
+            Calendar calendar = Calendar.getInstance();
+            java.util.Date currentTime = calendar.getTime();
+            long time = currentTime.getTime();
+
+            pst = (PreparedStatement) conn.prepareStatement(ANULAR_CITAS);
+            pst.setTimestamp(1, new Timestamp(time));
+            pst.setInt(2, entity.getStatus());
+            pst.setLong(3, entity.getId());
             if (pst.executeUpdate() == 0) {
                 RESULT = false;
                 throw new DaoException("Puede que no se haya modificado el estado.");

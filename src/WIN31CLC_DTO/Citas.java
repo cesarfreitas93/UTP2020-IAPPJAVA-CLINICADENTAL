@@ -85,7 +85,9 @@ public class Citas {
     public void setStatus(int status) {
         this.status = status;
     }
-
+ public int getStatus() {
+        return status;
+    }
     public void setPatient_id(long patient_id) {
         this.patient_id = patient_id;
     }
