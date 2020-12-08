@@ -850,10 +850,10 @@ listar_Provincia();        // TODO add your handling code here:
                     case 4:
                     txt_phone.requestFocus();
                     break;
-                    case 5:
+                    case 6:
                     txt_direccion.requestFocus();
                     break;
-                    case 6:
+                    case 5:
                     txt_email.requestFocus();
                     break;
                     default:
@@ -868,8 +868,8 @@ listar_Provincia();        // TODO add your handling code here:
                 patient.setLastname(txt_apellidoPAT.getText());
                 patient.setSurename(txt_apellidoMAT.getText());
                 patient.setPhone(txt_phone.getText());
-                patient.setEmail(txt_direccion.getText());
-                patient.setAddress(txt_email.getText());
+                patient.setAddress(txt_direccion.getText());
+                patient.setEmail(txt_email.getText());
 
                 String Ubigeo_Code = ubigeo_lista_dep.get(cbx_departamento.getSelectedIndex()).getCodigo_departamento() +
                 ubigeo_lista_dep_pro.get(cbx_provincia.getSelectedIndex()).getCodigo_provincia() +

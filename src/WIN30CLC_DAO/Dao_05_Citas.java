@@ -25,5 +25,7 @@ public interface Dao_05_Citas {
     public List<horario_citas> capturar_cantidad_fechas_v1(String fecha, long id_especialista, long id_servicio) throws DaoException;
 
     public List<horario_citas> listando_horario_disponible() throws DaoException;
+    
+    public List<Citas> Explorador(String filtro, int rowShow, int pagenumber) throws DaoException;
 
 }

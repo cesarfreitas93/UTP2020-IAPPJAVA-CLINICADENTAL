@@ -7,11 +7,13 @@ import WIN31CLC_DTO.Patient;
 import WIN31CLC_DTO.Service;
 import WIN31CLC_DTO.Specialist;
 import WIN31CLC_DTO.horario_citas;
+import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -29,7 +31,10 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
     final String CAPTURAR_CANTIDAD_FECHAS = "SELECT count(1) as total FROM citas WHERE convert(fechadecita,date) = ? and estado = 1";
     final String CAPTURAR_CANTIDAD_FECHAS_1 = "SELECT hc.cita_horario_inicio,hc.cita_horario_fin FROM citas  as c inner join horario_citas as hc on hc.id_horario = c.id_horario WHERE convert(c.fechadecita,date) = ? and c.especialista_id=? and c.service_id=? and c.estado = 1 ";
     final String LISTAR_HORARIO_DISPONIBLE = "SELECT * FROM horario_citas WHERE habilitado=1";
+    final String EXPLORADOR_CITAS = "call exploradordecitas(?,?,?)";
+
     final String LISTAR_CITAS_TODOS = "select cts.id,pat.name,pat.lastname,pat.surename,srv.name as name_services,spt.name as name_especialista from citas as cts inner join patient as pat on pat.id = cts.patient_id inner join services as srv on srv.id = cts.service_id inner join especialista as spt on spt.id = cts.especialista_id inner join horario_citas as hct on hct.id_horario = cts.id_horario where status = ?";
+
     final String LISTAR_CITAS_TODOS_BY_ID = "select cts.id as id_citas,pat.id as id_paciente,pat.name,pat.lastname,pat.surename,pat.phone,srv.id as id_services,srv.name as name_services,spt.id as id_especialista,spt.name as name_especialista,convert(fechadecita,date) as fechadecita,hct.id_horario,hct.cita_horario_inicio,hct.cita_horario_fin from citas as cts inner join patient as pat on pat.id = cts.patient_id inner join services as srv on srv.id = cts.service_id inner join especialista as spt on spt.id = cts.especialista_id inner join horario_citas as hct on hct.id_horario = cts.id_horario where cts.id = ?";
 
     public MySql_05_DaoCitas(Connection conn) {
@@ -425,6 +430,68 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
             System.out.println(rs);
             while (rs.next()) {
                 list.add(Convert_horario_citas(rs));
+            }
+        } catch (SQLException ex) {
+            throw new DaoException("Error en SQL", ex);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    new DaoException("Error en SQL", ex);
+                }
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException ex) {
+                    new DaoException("Error en SQL", ex);
+                }
+            }
+        }
+        return list;
+    }
+
+    private Citas ConvertExplorador(ResultSet rs) throws SQLException {
+
+        Citas dto = new Citas();
+        dto.setId(rs.getLong("id"));
+        Patient dto1 = new Patient();
+        dto1.setDni(rs.getString("DNI"));
+        dto1.setName(rs.getString("paciente"));
+        dto.setPatient(dto1);
+
+        Service dto2 = new Service();
+        dto2.setName(rs.getString("Servicio"));
+        dto.setService(dto2);
+
+        Specialist dto3 = new Specialist();
+        dto3.setName(rs.getString("medico"));
+        dto.setSpecialist(dto3);
+
+        dto.setFecha_Registro(rs.getString("fecha_registro"));
+        dto.setFecha_cita(rs.getString("fecha"));
+        dto.setHora_inicio(rs.getString("horainicio"));
+
+        dto.setTotal(rs.getInt("ototal"));
+        dto.setTotalpages(rs.getInt("opaginas"));
+        return dto;
+    }
+
+    @Override
+    public List<Citas> Explorador(String filtro, int rowShow, int pagenumber) throws DaoException {
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        List<Citas> list = new ArrayList<Citas>();
+        try {
+            pst = (PreparedStatement) conn.prepareStatement(EXPLORADOR_CITAS);
+            pst.setInt(1, rowShow);
+            pst.setInt(2, ((pagenumber - 1) * rowShow));
+            pst.setString(3, filtro);
+            rs = pst.executeQuery();
+            System.out.println(rs);
+            while (rs.next()) {
+                list.add(ConvertExplorador(rs));
             }
         } catch (SQLException ex) {
             throw new DaoException("Error en SQL", ex);

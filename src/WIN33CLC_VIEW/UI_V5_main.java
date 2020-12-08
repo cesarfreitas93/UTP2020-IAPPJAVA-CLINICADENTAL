@@ -5,6 +5,7 @@ import RSMaterialComponent.RSButtonMaterialGradientOne;
 import RSMaterialComponent.RSPanelMaterial;
 import WIN32CLC_CTR.CTR_11_DataBaseConfiguration;
 import static WIN33CLC_VIEW.frm_Main.maximized;
+import WIN_2020_UTILS.ConfigReader;
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,6 +18,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -95,6 +97,7 @@ int xx,xy;
         lblespecialista = new javax.swing.JLabel();
         rSPanelMaterial4 = new RSMaterialComponent.RSPanelMaterial();
         panel_inicio = new javax.swing.JPanel();
+        frm_UI_inicio1 = new WIN33CLC_VIEW.frm_UI_inicio();
         panel_paciente = new javax.swing.JPanel();
         frm_UI_01_Patien1 = new WIN33CLC_VIEW.frm_UI_01_Patien();
         panel_cita = new javax.swing.JPanel();
@@ -109,6 +112,8 @@ int xx,xy;
         frm_UI_06_especialista1 = new WIN33CLC_VIEW.frm_UI_06_especialista();
         panel_usuarios = new javax.swing.JPanel();
         frm_UI_07_usuarios1 = new WIN33CLC_VIEW.frm_UI_07_usuarios();
+        panel_reportes_citas = new javax.swing.JPanel();
+        frm_UI_Reportes_Citas1 = new WIN33CLC_VIEW.frm_UI_Reportes_Citas();
         menu_ventana = new RSMaterialComponent.RSPanelMaterial();
         btn_min = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_max = new RSMaterialComponent.RSButtonMaterialGradientOne();
@@ -499,6 +504,8 @@ int xx,xy;
         panel_inicio.setBackground(new java.awt.Color(255, 255, 255));
         panel_inicio.setName("panel_inicio"); // NOI18N
         panel_inicio.setLayout(new java.awt.CardLayout());
+        panel_inicio.add(frm_UI_inicio1, "card2");
+
         rSPanelMaterial4.add(panel_inicio, "card3");
 
         panel_paciente.setBackground(new java.awt.Color(255, 255, 255));
@@ -547,6 +554,13 @@ int xx,xy;
         panel_usuarios.add(frm_UI_07_usuarios1, "card2");
 
         rSPanelMaterial4.add(panel_usuarios, "card3");
+
+        panel_reportes_citas.setBackground(new java.awt.Color(255, 255, 255));
+        panel_reportes_citas.setName("panel_inicio"); // NOI18N
+        panel_reportes_citas.setLayout(new java.awt.CardLayout());
+        panel_reportes_citas.add(frm_UI_Reportes_Citas1, "card2");
+
+        rSPanelMaterial4.add(panel_reportes_citas, "card3");
 
         menu_ventana.setBackground(new java.awt.Color(255, 255, 255));
         menu_ventana.setBgShade(new java.awt.Color(204, 204, 204));
@@ -2458,6 +2472,15 @@ int xx,xy;
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
             
+             panel_inicio.setVisible(false);
+            panel_paciente.setVisible(false);
+            panel_cita.setVisible(false);
+            panel_gestion_cita.setVisible(false);
+            panel_comprobante.setVisible(false);
+            panel_servicios.setVisible(false);
+            panel_especialista.setVisible(false);
+            panel_usuarios.setVisible(false);
+            panel_reportes_citas.setVisible(true);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -3089,7 +3112,9 @@ changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
     }//GEN-LAST:event_btn_inicio_02MouseEntered
 
     private void btn_reporte_citasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporte_citasActionPerformed
-subboton_reporte_cita();
+        subboton_reporte_cita();
+       // frm_exploradorCitas citas = new frm_exploradorCitas();
+        //citas.setVisible(true);
     }//GEN-LAST:event_btn_reporte_citasActionPerformed
 
     private void btn_reportes_facturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reportes_facturasActionPerformed
@@ -3373,13 +3398,21 @@ this.setState(Frame.ICONIFIED);
     }//GEN-LAST:event_btn_min_02ActionPerformed
 
     private void btn_createbackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createbackupActionPerformed
-   generateBackUpMysql();
+     try {
+         generateBackUpMysql();
+     } catch (IOException ex) {
+         Logger.getLogger(UI_V5_main.class.getName()).log(Level.SEVERE, null, ex);
+     }
    
    subboton_copia_bd();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_createbackupActionPerformed
 
     private void btn_restoredatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_restoredatabaseActionPerformed
-restoreBackUpMysql();
+     try {
+         restoreBackUpMysql();
+     } catch (IOException ex) {
+         Logger.getLogger(UI_V5_main.class.getName()).log(Level.SEVERE, null, ex);
+     }
         subboton_restuarar_bd();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_restoredatabaseActionPerformed
 
@@ -3511,6 +3544,8 @@ restoreBackUpMysql();
     private WIN33CLC_VIEW.frm_UI_05_servicios frm_UI_05_servicios1;
     private WIN33CLC_VIEW.frm_UI_06_especialista frm_UI_06_especialista1;
     private WIN33CLC_VIEW.frm_UI_07_usuarios frm_UI_07_usuarios1;
+    private WIN33CLC_VIEW.frm_UI_Reportes_Citas frm_UI_Reportes_Citas1;
+    private WIN33CLC_VIEW.frm_UI_inicio frm_UI_inicio1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_menu_1;
@@ -3547,12 +3582,19 @@ restoreBackUpMysql();
     private RSMaterialComponent.RSPanelMaterial panel_menu;
     private RSMaterialComponent.RSPanelMaterial panel_menu2;
     private javax.swing.JPanel panel_paciente;
+    private javax.swing.JPanel panel_reportes_citas;
     private javax.swing.JPanel panel_servicios;
     private javax.swing.JPanel panel_usuarios;
     private rojerusan.RSPanelImage rSPanelImage1;
     private RSMaterialComponent.RSPanelMaterial rSPanelMaterial4;
     // End of variables declaration//GEN-END:variables
-private void generateBackUpMysql() {
+private void generateBackUpMysql() throws IOException {
+        properties = new ConfigReader();
+        
+        String dbName= properties.getPropValues().getMySqlDAOMANAGER_db_name();
+        String dbUserName= properties.getPropValues().getMySqlDAOMANAGER_db_user();
+        String dbPassword= properties.getPropValues().getMySqlDAOMANAGER_db_pass();
+        
          Calendar c = Calendar.getInstance();//creamos una instancia de la clase calendar de java
         //java.util.Date fecha = new Date();
         String DiaHoy = Integer.toString(c.get(Calendar.DATE));
@@ -3568,7 +3610,7 @@ private void generateBackUpMysql() {
                 Runtime runtime = Runtime.getRuntime();
                 File backupFile = new File(String.valueOf(RealizarBackupMySQL.getSelectedFile().toString())+" "+DiaHoy +"-"+MesHoy+"-"+AnioHoy+".sql");
                 FileWriter fw = new FileWriter(backupFile);
-                Process child = runtime.exec("C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysqldump --routines --opt --password= --user=root --databases utp2020-dental-system-dev"); 
+                Process child = runtime.exec( properties.getPropValues().getPathMysqlDump()+ " --routines --opt --password="+dbPassword+" --user="+dbUserName+" --databases "+ dbName); 
                 InputStreamReader irs = new InputStreamReader(child.getInputStream());
                 BufferedReader br = new BufferedReader(irs);
                 String line;
@@ -3586,12 +3628,14 @@ private void generateBackUpMysql() {
             JOptionPane.showMessageDialog(null,"Ha sido cancelada la generacion del Backup");
         }
     }
-
-   private void restoreBackUpMysql(){
+protected ConfigReader properties = null;
+   private void restoreBackUpMysql() throws IOException{
         
-        String dbName="utp2020-dental-system-dev"; 
-        String dbUserName="root";
-        String dbPassword= "";
+        properties = new ConfigReader();
+        
+        String dbName= properties.getPropValues().getMySqlDAOMANAGER_db_name();
+        String dbUserName= properties.getPropValues().getMySqlDAOMANAGER_db_user();
+        String dbPassword= properties.getPropValues().getMySqlDAOMANAGER_db_pass();
         
         int resp;
         JFileChooser RealizarBackupMySQL = new JFileChooser();
@@ -3608,7 +3652,7 @@ private void generateBackUpMysql() {
 //                System.out.println("Path: " + ubicacion + " -- File: " + nombre);
                 String dd=fichero.getName();//aqui obtenermos el nombre del fichero con extension sql.
                 
-                String[] executeCmd = new String[]{"C:\\wamp\\bin\\mariadb\\mariadb10.4.10\\bin\\mysql", "--password=" + dbPassword, "--user=" + dbUserName,  dbName,"-e", "source "+nombre};
+                String[] executeCmd = new String[]{properties.getPropValues().getPathMysql(), "--password=" + dbPassword, "--user=" + dbUserName,  dbName,"-e", "source "+nombre};
                 Process runtimeProcess;
 
                 try {

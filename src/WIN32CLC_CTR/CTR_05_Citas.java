@@ -13,6 +13,7 @@ import WIN31CLC_DTO.Service;
 import WIN31CLC_DTO.Specialist;
 import WIN31CLC_DTO.horario_citas;
 import WIN32CLC_TABLEMODELS.CitasTableModel;
+import WIN32CLC_TABLEMODELS.ExploradorCitasModel;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,7 +25,25 @@ import javax.swing.table.AbstractTableModel;
  * @author Cesar
  */
 public class CTR_05_Citas {
+    private int total_registros_bd;
+    private int paginas_page;
 
+    public int getTotal_registros_bd() {
+        return total_registros_bd;
+    }
+
+    public int getPaginas_page() {
+        return paginas_page;
+    }
+
+    public void setTotal_registros_bd(int total_registros_bd) {
+        this.total_registros_bd = total_registros_bd;
+    }
+
+    public void setPaginas_page(int paginas_page) {
+        this.paginas_page = paginas_page;
+    }
+    
     public Citas getCita(long id) throws SQLException, DaoException {
         // obtener la cita
         Citas cita = new Citas();
@@ -110,4 +129,16 @@ public class CTR_05_Citas {
         MySqlDaoManager man = new MySqlDaoManager();
         return man.getCitas().Anular_citas(entity);
     }
+        
+    private ExploradorCitasModel  explorador_model;
+    public AbstractTableModel ExploradorCitas(String filtro, int rowShow, int pagenumber) throws SQLException, DaoException {
+        MySqlDaoManager man = new MySqlDaoManager();
+        this.explorador_model = new ExploradorCitasModel(man.getCitas());
+        this.explorador_model.updateModel(filtro, rowShow, pagenumber);
+        this.explorador_model.fireTableDataChanged();
+        this.setTotal_registros_bd(this.explorador_model.getTotal_registros_bd());
+        this.setPaginas_page(this.explorador_model.getPaginas_page());
+        return this.explorador_model;
+    }
+        
 }

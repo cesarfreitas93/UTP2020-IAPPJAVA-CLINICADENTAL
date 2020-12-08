@@ -222,6 +222,11 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         btn_cancelar_cambios1.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
         btn_cancelar_cambios1.setFocusPainted(false);
         btn_cancelar_cambios1.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 15)); // NOI18N
+        btn_cancelar_cambios1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelar_cambios1ActionPerformed(evt);
+            }
+        });
         fSGradientPanel1.add(btn_cancelar_cambios1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 210, -1));
 
         btn_guardar_cita1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-guardar-como-30.png"))); // NOI18N
@@ -870,8 +875,8 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
                     btn_guardar_cita1.setEnabled(false);
                     btn_nueva_cita.setEnabled(true);
                 //} else {
-                    new rojerusan.RSNotifyFade("DentalSys", "No se guardaron los datos! \n Intente nuevamente", 7,
-                            RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.WARNING).setVisible(true);
+                    //new rojerusan.RSNotifyFade("DentalSys", "No se guardaron los datos! \n Intente nuevamente", 7,
+                            //RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.WARNING).setVisible(true);
                // }
             }
 
@@ -888,6 +893,10 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         btn_guardar_cita1.setEnabled(true);
         btn_cancelar_cambios1.setEnabled(false);
     }//GEN-LAST:event_btn_nueva_citaActionPerformed
+
+    private void btn_cancelar_cambios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambios1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelar_cambios1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
