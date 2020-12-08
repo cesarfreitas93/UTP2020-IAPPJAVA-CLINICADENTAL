@@ -33,7 +33,7 @@ public class prueba extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 718, Short.MAX_VALUE)
+            .addGap(0, 1029, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,5 +79,12 @@ public class prueba extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private newscomponents.RSButtonFlat_new btn_buscar;
+    private newscomponents.RSButtonFlat_new btn_print;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lbl_total;
+    private RSMaterialComponent.RSPanelMaterial menu_salir1;
+    private rscomponentshade.RSFormatFieldShade txt_filtro;
     // End of variables declaration//GEN-END:variables
 }
