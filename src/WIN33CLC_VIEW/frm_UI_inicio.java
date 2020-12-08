@@ -1,14 +1,31 @@
 
 package WIN33CLC_VIEW;
 
+import WIN31CLC_DTO.Dashboard;
+import WIN32CLC_CTR.CTR_12_Dashboard;
 import java.awt.Color;
 
 
 public class frm_UI_inicio extends javax.swing.JPanel {
 
+    Dashboard dashboard;
+    
+    CTR_12_Dashboard cTR_12_Dashboard = null;
+    
     public frm_UI_inicio() {
+        
         initComponents();
-         setBackground(new Color (255,255,255,1));
+        setBackground(new Color (255,255,255,1));
+        cTR_12_Dashboard = new  CTR_12_Dashboard();
+        loaddata();
+    }
+
+    public Dashboard getDashboard() {
+        return dashboard;
+    }
+
+    public void setDashboard(Dashboard dashboard) {
+        this.dashboard = dashboard;
     }
 
       public void ocultar_form_inicio(boolean b)
@@ -188,4 +205,8 @@ public class frm_UI_inicio extends javax.swing.JPanel {
     private RSMaterialComponent.RSPanelMaterial menu_salir5;
     private RSMaterialComponent.RSPanelMaterial menu_salir6;
     // End of variables declaration//GEN-END:variables
+
+    private void loaddata() {
+        
+    }
 }

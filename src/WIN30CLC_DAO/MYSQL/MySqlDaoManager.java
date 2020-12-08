@@ -14,6 +14,7 @@ import WIN30CLC_DAO.Dao_08_Comprobante;
 import WIN30CLC_DAO.Dao_09_Comprobante_Detalle;
 import WIN30CLC_DAO.Dao_10_Ubigeo;
 import WIN30CLC_DAO.Dao_11_DataBaseConfiguration;
+import WIN30CLC_DAO.Dao_12_Dashboard;
 import WIN31CLC_DTO.Config;
 import WIN33CLC_VIEW.test_para_lanzar_metodos;
 import WIN_2020_UTILS.ConfigReader;
@@ -40,6 +41,7 @@ public class MySqlDaoManager implements DaoManager {
     private Dao_09_Comprobante_Detalle comprobante_detalle = null;
     private Dao_10_Ubigeo ubigeo = null;
     private Dao_11_DataBaseConfiguration baseConfiguration = null;
+    private Dao_12_Dashboard dashboard = null;
 
     protected ConfigReader properties = null;
     protected String db_name, db_url , db_user, db_pass;
@@ -144,6 +146,14 @@ public class MySqlDaoManager implements DaoManager {
             baseConfiguration = new MySql_11_DaoDataBaseConfiguration(connection_);
         }
         return baseConfiguration;
+    }
+
+    @Override
+    public Dao_12_Dashboard getDashboard() {
+       if (dashboard == null) {
+            dashboard = new MySql_12_DaoDashboard(connection_);
+        }
+        return dashboard;
     }
 
 }

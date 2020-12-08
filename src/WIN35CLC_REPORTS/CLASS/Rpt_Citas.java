@@ -63,9 +63,9 @@ public class Rpt_Citas {
 
             //este es el parametro, se pueden agregar mas parametros
             Map parametro = new HashMap();
-            parametro.put("filtro", filtro +" ");
+            parametro.put("filtro", filtro);
             parametro.put("rows", 1000);
-            parametro.put("page", page);
+            parametro.put("page", page - 1);
             //Reporte diseñado y compilado con iReport
 //            JasperPrint jasperPrint= JasperFillManager.fillReport(masterReport,parametro,conexion);
             JasperPrint jasperPrint = JasperFillManager.fillReport(masterReport, parametro, conexion);

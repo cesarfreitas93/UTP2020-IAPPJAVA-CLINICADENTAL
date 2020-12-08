@@ -24,6 +24,7 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
     private int total_registros_bd;
     private int paginas_page;
     private boolean reload_page;
+    private int paginanumber = 1;
     /**
      * Creates new form frm_exploradorCitas
      */
@@ -68,8 +69,6 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         table_citas = new javax.swing.JTable();
         panel_navigation = new javax.swing.JPanel();
-        cbx_paginas = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
         btn_principio = new javax.swing.JButton();
         btn_anterior = new javax.swing.JButton();
         btn_siguiente = new javax.swing.JButton();
@@ -142,11 +141,19 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
 
         panel_table.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        jLabel1.setText("Páginas");
-
         btn_principio.setText("Principio");
+        btn_principio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_principioActionPerformed(evt);
+            }
+        });
 
         btn_anterior.setText("Anterior");
+        btn_anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_anteriorActionPerformed(evt);
+            }
+        });
 
         btn_siguiente.setText("Siguiente");
         btn_siguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +163,11 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
         });
 
         btn_final.setText("Final");
+        btn_final.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_finalActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Total de Registros:");
 
@@ -163,7 +175,7 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
 
         jLabel5.setText("Filas");
 
-        cbx_filas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "25", "50", "100" }));
+        cbx_filas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "10", "25", "50", "100" }));
 
         javax.swing.GroupLayout panel_navigationLayout = new javax.swing.GroupLayout(panel_navigation);
         panel_navigation.setLayout(panel_navigationLayout);
@@ -174,11 +186,7 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbx_filas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbx_paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(118, 118, 118)
                 .addComponent(btn_principio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_anterior)
@@ -197,8 +205,6 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_navigationLayout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(panel_navigationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbx_paginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
                     .addComponent(btn_principio)
                     .addComponent(btn_anterior)
                     .addComponent(btn_siguiente)
@@ -232,19 +238,10 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        try {
             CTR_05_Citas ctr = new CTR_05_Citas();
             int total_filas;
             total_filas = Integer.parseInt(cbx_filas.getSelectedItem().toString());
-            this.table_citas.setModel(ctr.ExploradorCitas(txt_filtro.getText(), total_filas, 1));
-            btn_principio.setEnabled(false);
-            btn_anterior.setEnabled(false);
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(frm_exploradorCitas.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DaoException ex) {
-            Logger.getLogger(frm_exploradorCitas.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            getCitas(txt_filtro.getText(), total_filas , this.paginanumber  , false);
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_printActionPerformed
@@ -254,7 +251,8 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
             // imprimir reporte
             
             Rpt_Citas citas = new Rpt_Citas();
-            citas.CallExplorerRPT(txt_filtro.getText(), 10, 1);
+            String filtro = txt_filtro.getText();
+            citas.CallExplorerRPT(filtro, 1000, 1);
         } catch (IOException ex) {
             Logger.getLogger(frm_exploradorCitas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -263,8 +261,31 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
     private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
         // TODO add your handling code here:
         int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
-        //getCitas(txt_filtro.getText(), rows , , false);
+        this.paginanumber ++;
+        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);
+        
     }//GEN-LAST:event_btn_siguienteActionPerformed
+
+    private void btn_anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anteriorActionPerformed
+        // TODO add your handling code here:
+        int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
+        this.paginanumber --;
+        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);
+    }//GEN-LAST:event_btn_anteriorActionPerformed
+
+    private void btn_principioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_principioActionPerformed
+        // TODO add your handling code here:
+        int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
+        this.paginanumber = 1;
+        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);
+    }//GEN-LAST:event_btn_principioActionPerformed
+
+    private void btn_finalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalActionPerformed
+        // TODO add your handling code here:
+        int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
+        this.paginanumber = this.getPaginas_page();
+        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);
+    }//GEN-LAST:event_btn_finalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,8 +330,6 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
     private javax.swing.JButton btn_print;
     private javax.swing.JButton btn_siguiente;
     private javax.swing.JComboBox<String> cbx_filas;
-    private javax.swing.JComboBox<String> cbx_paginas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -325,40 +344,22 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
 
     private void Load() {
         
-        getCitas("",10,1, true);
-        
-        ActionListener actionListener_paginas = new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                System.out.println("Selected: " + cbx_paginas.getSelectedItem());
-                System.out.print(", Position: " + cbx_paginas.getSelectedIndex());
-                int rows = Integer.parseInt(cbx_filas.getSelectedItem().toString());
-                int page = Integer.parseInt(cbx_paginas.getSelectedItem().toString());
-                if(reload_page)
-                    getCitas(txt_filtro.getText(), rows, page, false);
-            }
-        };
-        // add event al cbs_Service
-
-        cbx_paginas.addActionListener(actionListener_paginas);
-        
+        getCitas("",3,1, true);
         
         ActionListener actionListener_filas = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 System.out.println("Selected: " + cbx_filas.getSelectedItem());
                 System.out.print(", Position: " + cbx_filas.getSelectedIndex());
                 int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
-                getCitas(txt_filtro.getText(), rows, 1, false);
+                paginanumber = 1;
+                getCitas(txt_filtro.getText(), rows, paginanumber, false);
             }
         };
-        // add event al cbs_Service
-
         cbx_filas.addActionListener(actionListener_filas);
     }
 
     private void getCitas(String Filtro, int showrows, int page, boolean no_reload_page) {
         try {
-            
-            
             
             CTR_05_Citas ctr = new CTR_05_Citas();
             this.table_citas.setModel(ctr.ExploradorCitas(Filtro, showrows, page));
@@ -366,19 +367,36 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
             this.setTotal_registros_bd(ctr.getTotal_registros_bd());
             
             lbl_total.setText(total_registros_bd+ "");
+            int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());    
             
-            reload_page = no_reload_page;
-            if(no_reload_page){
-                cbx_paginas.removeAllItems();
-                for(int a = 1; a <= this.paginas_page; a++){
-                    cbx_paginas.addItem(a+"");
-                }
-                //cbx_paginas.setSelectedIndex(0);
-                reload_page = true;
+            
+            if(this.paginanumber == this.paginas_page)
+            {
+                btn_siguiente.setEnabled(false); 
+                btn_final.setEnabled(false);
+                btn_principio.setEnabled(true);
+                btn_anterior.setEnabled(true);
             }
-            
-            btn_principio.setEnabled(false);
-            btn_anterior.setEnabled(false);
+            if(this.paginanumber == 1)
+            {
+                btn_siguiente.setEnabled(true); 
+                btn_final.setEnabled(true);
+                btn_principio.setEnabled(false);
+                btn_anterior.setEnabled(false);
+            }
+            if(total_registros_bd <= rows ){
+                btn_siguiente.setEnabled(false); 
+                btn_final.setEnabled(false);
+                btn_principio.setEnabled(false);
+                btn_anterior.setEnabled(false);
+            }
+            if(paginanumber > 1 && paginanumber < this.paginas_page){
+               btn_siguiente.setEnabled(true); 
+               btn_final.setEnabled(true);
+               btn_principio.setEnabled(true);
+               btn_anterior.setEnabled(true);
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(frm_exploradorCitas.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DaoException ex) {
