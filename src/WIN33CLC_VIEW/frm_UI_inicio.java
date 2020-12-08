@@ -27,6 +27,9 @@ public class frm_UI_inicio extends javax.swing.JPanel {
 
         menu_salir2 = new RSMaterialComponent.RSPanelMaterial();
         menu_salir3 = new RSMaterialComponent.RSPanelMaterial();
+        lbl_cantidad_pacientes = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         menu_salir4 = new RSMaterialComponent.RSPanelMaterial();
         menu_salir5 = new RSMaterialComponent.RSPanelMaterial();
         menu_salir6 = new RSMaterialComponent.RSPanelMaterial();
@@ -40,7 +43,7 @@ public class frm_UI_inicio extends javax.swing.JPanel {
         menu_salir2.setLayout(menu_salir2Layout);
         menu_salir2Layout.setHorizontalGroup(
             menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 729, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         menu_salir2Layout.setVerticalGroup(
             menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -52,15 +55,43 @@ public class frm_UI_inicio extends javax.swing.JPanel {
         menu_salir3.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir3.setRound(40);
 
+        lbl_cantidad_pacientes.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        lbl_cantidad_pacientes.setText("123");
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel1.setText("Cantidad Pacientes");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-documentos-30.png"))); // NOI18N
+
         javax.swing.GroupLayout menu_salir3Layout = new javax.swing.GroupLayout(menu_salir3);
         menu_salir3.setLayout(menu_salir3Layout);
         menu_salir3Layout.setHorizontalGroup(
             menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGroup(menu_salir3Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menu_salir3Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(menu_salir3Layout.createSequentialGroup()
+                        .addComponent(lbl_cantidad_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))))
         );
         menu_salir3Layout.setVerticalGroup(
             menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 224, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir3Layout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addGroup(menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(menu_salir3Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_cantidad_pacientes)
+                        .addGap(15, 15, 15)))
+                .addGap(66, 66, 66))
         );
 
         menu_salir4.setBackground(new java.awt.Color(255, 255, 255));
@@ -116,21 +147,18 @@ public class frm_UI_inicio extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
-                .addComponent(menu_salir2, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
-                .addContainerGap(119, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(menu_salir2, javax.swing.GroupLayout.DEFAULT_SIZE, 856, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(menu_salir3, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addComponent(menu_salir4, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(menu_salir5, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addComponent(menu_salir6, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addGap(131, 131, 131))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,6 +179,9 @@ public class frm_UI_inicio extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbl_cantidad_pacientes;
     private RSMaterialComponent.RSPanelMaterial menu_salir2;
     private RSMaterialComponent.RSPanelMaterial menu_salir3;
     private RSMaterialComponent.RSPanelMaterial menu_salir4;

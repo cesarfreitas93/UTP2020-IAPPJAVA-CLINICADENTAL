@@ -19,7 +19,14 @@ public class Citas {
     private Specialist specialist;
     private Service service;
     private horario_citas horario_citas;
+    
+    private String fecha_Registro;
+    private String fecha_cita;
+    private String Hora_inicio;
 
+    private int total;
+    private int totalpages;
+    
     public Citas() { //instanciar un obejto de tipo cita
 
     }
@@ -138,6 +145,51 @@ public class Citas {
         this.id_horario = id_horario;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public String getFecha_Registro() {
+        return fecha_Registro;
+    }
+
+    public String getFecha_cita() {
+        return fecha_cita;
+    }
+
+    public String getHora_inicio() {
+        return Hora_inicio;
+    }
+
+    public void setFecha_Registro(String fecha_Registro) {
+        this.fecha_Registro = fecha_Registro;
+    }
+
+    public void setFecha_cita(String fecha_cita) {
+        this.fecha_cita = fecha_cita;
+    }
+
+    public void setHora_inicio(String Hora_inicio) {
+        this.Hora_inicio = Hora_inicio;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public int getTotalpages() {
+        return totalpages;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public void setTotalpages(int totalpages) {
+        this.totalpages = totalpages;
+    }
+
+    
     @Override
     public int hashCode() {  // necesitar que los objetos que estamos instanciamos seran 
         int hash = 7;
