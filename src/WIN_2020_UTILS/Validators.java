@@ -37,6 +37,7 @@ public class Validators {
 
         return null;
     }
+
     public static int getSelectedButtonIndex(ButtonGroup buttonGroup) {
         int a = 0;
         for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
@@ -44,7 +45,11 @@ public class Validators {
             a++;
             if (button.isSelected()) {
                 return a;
-            }
+           } 
+ //           else {
+//                a = 0;
+//                return a;
+//            }
         }
 
         return a;

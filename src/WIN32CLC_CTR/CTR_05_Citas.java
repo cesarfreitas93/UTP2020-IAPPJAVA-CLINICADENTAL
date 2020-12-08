@@ -71,7 +71,7 @@ public class CTR_05_Citas {
         return cita;
     }
 
-     public boolean insert(Citas entity) throws SQLException,DaoException{
+    public boolean insert(Citas entity) throws SQLException, DaoException {
         MySqlDaoManager man = new MySqlDaoManager();
         try {
             man.getCitas().rlInsert(entity);
@@ -81,6 +81,7 @@ public class CTR_05_Citas {
         }
         return false;
     }
+
     public int capturar_cantidad_fechas(String fecha) throws SQLException, DaoException {
         int registros = 0;
 
@@ -101,22 +102,32 @@ public class CTR_05_Citas {
         return man.getCitas().listando_horario_disponible();
 
     }
-        private CitasTableModel  model;
+    private CitasTableModel model;
 
-        public AbstractTableModel ListCitas(int id_status) throws DaoException, SQLException{
+    public AbstractTableModel ListCitas(int id_status) throws DaoException, SQLException {
         MySqlDaoManager man = new MySqlDaoManager();
         this.model = new CitasTableModel(man.getCitas());
         this.model.updateModel(id_status);
         this.model.fireTableDataChanged();
         return this.model;
     }
-        
+
     public Citas SelecteCitasGestionar(long id) throws SQLException, DaoException {
         MySqlDaoManager man = new MySqlDaoManager();
         Citas p = new Citas();
         p.setId(id);
-        p =  man.getCitas().findById(p);
+        p = man.getCitas().findById(p);
         return p;
+    }
+
+    public boolean UpdateCitas_reprogramar(Citas entity) throws SQLException, DaoException {
+        MySqlDaoManager man = new MySqlDaoManager();
+        return man.getCitas().CambiarStatus(entity);
+    }
+
+    public boolean Anular_citas(Citas entity) throws SQLException, DaoException {
+        MySqlDaoManager man = new MySqlDaoManager();
+        return man.getCitas().Anular_citas(entity);
     }
         
     private ExploradorCitasModel  explorador_model;

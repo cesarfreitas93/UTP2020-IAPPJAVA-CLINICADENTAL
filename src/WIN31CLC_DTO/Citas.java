@@ -92,7 +92,9 @@ public class Citas {
     public void setStatus(int status) {
         this.status = status;
     }
-
+ public int getStatus() {
+        return status;
+    }
     public void setPatient_id(long patient_id) {
         this.patient_id = patient_id;
     }
@@ -143,10 +145,6 @@ public class Citas {
 
     public void setId_horario(int id_horario) {
         this.id_horario = id_horario;
-    }
-
-    public int getStatus() {
-        return status;
     }
 
     public String getFecha_Registro() {

@@ -16,7 +16,9 @@ public interface Dao_05_Citas {
 
     public Citas findById(Citas entity) throws DaoException;
 
-    public boolean CambiarStatus(int STATUS, long ID) throws DaoException;
+    public boolean CambiarStatus(Citas entity) throws DaoException;
+
+    public boolean Anular_citas(Citas entity) throws DaoException;
 
     public int capturar_cantidad_fechas(String fecha) throws DaoException;
 

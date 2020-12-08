@@ -43,7 +43,7 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
         
         
         
-       rSButtonFlat_new1.setBackground(new Color (255,255,255,50));
+ 
         
     }
 
@@ -60,27 +60,6 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        fSTexFieldMD1 = new LIB.FSTexFieldMD();
-        rSButtonFlat_new1 = new newscomponents.RSButtonFlat_new();
-        rSTextFieldTwo2 = new RSMaterialComponent.RSTextFieldTwo();
-        rSFormatFieldShade1 = new rscomponentshade.RSFormatFieldShade();
-        rSFormatFieldShade2 = new rscomponentshade.RSFormatFieldShade();
-        menu_salir2 = new RSMaterialComponent.RSPanelMaterial();
-        jPanel1 = new javax.swing.JPanel();
-        rSRadioButtonMaterial15 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial16 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial17 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial18 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial19 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial20 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial21 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial22 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial23 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial24 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial25 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial26 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial27 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial28 = new RSMaterialComponent.RSRadioButtonMaterial();
         jPanel2 = new javax.swing.JPanel();
         rSRadioButtonMaterial29 = new RSMaterialComponent.RSRadioButtonMaterial();
         rSRadioButtonMaterial30 = new RSMaterialComponent.RSRadioButtonMaterial();
@@ -96,8 +75,24 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
         rSRadioButtonMaterial41 = new RSMaterialComponent.RSRadioButtonMaterial();
         rSRadioButtonMaterial42 = new RSMaterialComponent.RSRadioButtonMaterial();
         rSRadioButtonMaterial43 = new RSMaterialComponent.RSRadioButtonMaterial();
-        btn_paciente_02 = new newscomponents.RSButtonFlat_new();
-        btn_inicio_02 = new newscomponents.RSButtonFlat_new();
+        jPanel3 = new javax.swing.JPanel();
+        rbx_1 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_5 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_9 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_13 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_2 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_6 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_10 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_14 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_3 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_7 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_11 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_4 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_8 = new RSMaterialComponent.RSRadioButtonMaterial();
+        rbx_12 = new RSMaterialComponent.RSRadioButtonMaterial();
+        jPanel4 = new javax.swing.JPanel();
+        rSDateChooser2 = new rojeru_san.componentes.RSDateChooser();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,233 +116,6 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-
-        fSTexFieldMD1.setText("fSTexFieldMD1");
-        fSTexFieldMD1.setMaterialDesing(true);
-        fSTexFieldMD1.setMayusculas(true);
-
-        rSButtonFlat_new1.setText("Renew Pro");
-        rSButtonFlat_new1.setBorderPainted(false);
-        rSButtonFlat_new1.setContentAreaFilled(true);
-        rSButtonFlat_new1.setCornerRound(45);
-        rSButtonFlat_new1.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-
-        rSTextFieldTwo2.setText("rSTextFieldTwo2");
-
-        rSFormatFieldShade1.setBackground(new java.awt.Color(102, 102, 102));
-        rSFormatFieldShade1.setText("rSFormatFieldShade1");
-        rSFormatFieldShade1.setBgShade(new java.awt.Color(102, 102, 102));
-        rSFormatFieldShade1.setRound(40);
-
-        rSFormatFieldShade2.setBgShade(new java.awt.Color(255, 255, 255));
-        rSFormatFieldShade2.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        rSFormatFieldShade2.setPlaceholder("");
-        rSFormatFieldShade2.setRound(40);
-
-        menu_salir2.setBackground(new java.awt.Color(255, 255, 255));
-        menu_salir2.setBgShade(new java.awt.Color(204, 204, 204));
-        menu_salir2.setPreferredSize(new java.awt.Dimension(90, 62));
-        menu_salir2.setRound(40);
-
-        javax.swing.GroupLayout menu_salir2Layout = new javax.swing.GroupLayout(menu_salir2);
-        menu_salir2.setLayout(menu_salir2Layout);
-        menu_salir2Layout.setHorizontalGroup(
-            menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 190, Short.MAX_VALUE)
-        );
-        menu_salir2Layout.setVerticalGroup(
-            menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 104, Short.MAX_VALUE)
-        );
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-
-        rSRadioButtonMaterial15.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial15.setText("8:00 - 8:30");
-        rSRadioButtonMaterial15.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial15.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial15.setFocusPainted(false);
-        rSRadioButtonMaterial15.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial15.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial16.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial16.setText("8:30 - 9:00");
-        rSRadioButtonMaterial16.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial16.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial16.setFocusPainted(false);
-        rSRadioButtonMaterial16.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial16.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial17.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial17.setText("9:00 - 9:30");
-        rSRadioButtonMaterial17.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial17.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial17.setFocusPainted(false);
-        rSRadioButtonMaterial17.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial17.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial18.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial18.setText("9:30 - 10:00");
-        rSRadioButtonMaterial18.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial18.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial18.setFocusPainted(false);
-        rSRadioButtonMaterial18.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial18.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial19.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial19.setText("10:00 - 10:30");
-        rSRadioButtonMaterial19.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial19.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial19.setFocusPainted(false);
-        rSRadioButtonMaterial19.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial19.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial20.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial20.setText("10:30 - 11:00");
-        rSRadioButtonMaterial20.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial20.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial20.setFocusPainted(false);
-        rSRadioButtonMaterial20.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial20.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial21.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial21.setText("11:00 - 11:30");
-        rSRadioButtonMaterial21.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial21.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial21.setFocusPainted(false);
-        rSRadioButtonMaterial21.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial21.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial22.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial22.setText("11:30 - 12:00");
-        rSRadioButtonMaterial22.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial22.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial22.setFocusPainted(false);
-        rSRadioButtonMaterial22.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial22.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial23.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial23.setText("12:00 - 12:30");
-        rSRadioButtonMaterial23.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial23.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial23.setFocusPainted(false);
-        rSRadioButtonMaterial23.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial23.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial24.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial24.setText("12:30 - 13:00");
-        rSRadioButtonMaterial24.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial24.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial24.setFocusPainted(false);
-        rSRadioButtonMaterial24.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial24.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial25.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial25.setText("13:00 - 13:30");
-        rSRadioButtonMaterial25.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial25.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial25.setFocusPainted(false);
-        rSRadioButtonMaterial25.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial25.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial26.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial26.setText("13:30 - 14:00");
-        rSRadioButtonMaterial26.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial26.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial26.setFocusPainted(false);
-        rSRadioButtonMaterial26.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial26.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial27.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial27.setText("14:00 - 14:30");
-        rSRadioButtonMaterial27.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial27.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial27.setFocusPainted(false);
-        rSRadioButtonMaterial27.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial27.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        rSRadioButtonMaterial28.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial28.setText("14:30 - 15:00");
-        rSRadioButtonMaterial28.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial28.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial28.setFocusPainted(false);
-        rSRadioButtonMaterial28.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        rSRadioButtonMaterial28.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSRadioButtonMaterial16, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(rSRadioButtonMaterial28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                        .addComponent(rSRadioButtonMaterial24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(rSRadioButtonMaterial20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSRadioButtonMaterial21, javax.swing.GroupLayout.PREFERRED_SIZE, 86, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial25, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSRadioButtonMaterial26, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(rSRadioButtonMaterial22, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                        .addComponent(rSRadioButtonMaterial18, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(91, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(30, 30, 30)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(rSRadioButtonMaterial23, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                        .addComponent(rSRadioButtonMaterial19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(rSRadioButtonMaterial15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(rSRadioButtonMaterial27, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addContainerGap(500, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rSRadioButtonMaterial16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rSRadioButtonMaterial20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rSRadioButtonMaterial24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rSRadioButtonMaterial17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(3, 3, 3)
-                                .addComponent(rSRadioButtonMaterial21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rSRadioButtonMaterial25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rSRadioButtonMaterial28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(rSRadioButtonMaterial18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(rSRadioButtonMaterial22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rSRadioButtonMaterial26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(40, 40, 40)
-                    .addComponent(rSRadioButtonMaterial15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(5, 5, 5)
-                    .addComponent(rSRadioButtonMaterial19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(5, 5, 5)
-                    .addComponent(rSRadioButtonMaterial23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(5, 5, 5)
-                    .addComponent(rSRadioButtonMaterial27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -531,88 +299,253 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btn_paciente_02.setBackground(new java.awt.Color(246, 247, 251));
-        btn_paciente_02.setForeground(new java.awt.Color(51, 51, 51));
-        btn_paciente_02.setText("Paciente");
-        btn_paciente_02.setBorderPainted(false);
-        btn_paciente_02.setContentAreaFilled(true);
-        btn_paciente_02.setCornerRound(40);
-        btn_paciente_02.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
-        btn_paciente_02.addActionListener(new java.awt.event.ActionListener() {
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        rbx_1.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_1.setText("8:00 - 8:30");
+        rbx_1.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_1.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_1.setFocusPainted(false);
+        rbx_1.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_1.setRippleColor(new java.awt.Color(0, 112, 192));
+        rbx_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_paciente_02ActionPerformed(evt);
+                rbx_1ActionPerformed(evt);
             }
         });
 
-        btn_inicio_02.setBackground(new java.awt.Color(246, 247, 251));
-        btn_inicio_02.setForeground(new java.awt.Color(51, 51, 51));
-        btn_inicio_02.setText("Inicio");
-        btn_inicio_02.setBorderPainted(false);
-        btn_inicio_02.setContentAreaFilled(true);
-        btn_inicio_02.setCornerRound(40);
-        btn_inicio_02.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
-        btn_inicio_02.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_inicio_02MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_inicio_02MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_inicio_02MouseExited(evt);
-            }
-        });
-        btn_inicio_02.addActionListener(new java.awt.event.ActionListener() {
+        rbx_5.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_5.setText("10:00 - 10:30");
+        rbx_5.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_5.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_5.setFocusPainted(false);
+        rbx_5.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_5.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        rbx_9.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_9.setText("12:00 - 12:30");
+        rbx_9.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_9.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_9.setFocusPainted(false);
+        rbx_9.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_9.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        rbx_13.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_13.setText("14:00 - 14:30");
+        rbx_13.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_13.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_13.setFocusPainted(false);
+        rbx_13.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_13.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        rbx_2.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_2.setText("8:30 - 9:00");
+        rbx_2.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_2.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_2.setFocusPainted(false);
+        rbx_2.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_2.setRippleColor(new java.awt.Color(0, 112, 192));
+        rbx_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_inicio_02ActionPerformed(evt);
+                rbx_2ActionPerformed(evt);
             }
         });
+
+        rbx_6.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_6.setText("10:30 - 11:00");
+        rbx_6.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_6.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_6.setFocusPainted(false);
+        rbx_6.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_6.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        rbx_10.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_10.setText("12:30 - 13:00");
+        rbx_10.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_10.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_10.setFocusPainted(false);
+        rbx_10.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_10.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        rbx_14.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_14.setText("14:30 - 15:00");
+        rbx_14.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_14.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_14.setFocusPainted(false);
+        rbx_14.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_14.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        rbx_3.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_3.setText("9:00 - 9:30");
+        rbx_3.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_3.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_3.setFocusPainted(false);
+        rbx_3.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_3.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        rbx_7.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_7.setText("11:.00 - 11:30");
+        rbx_7.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_7.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_7.setFocusPainted(false);
+        rbx_7.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_7.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        rbx_11.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_11.setText("13:00 - 13:30");
+        rbx_11.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_11.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_11.setFocusPainted(false);
+        rbx_11.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_11.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        rbx_4.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_4.setText("9:00 - 9:30");
+        rbx_4.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_4.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_4.setFocusPainted(false);
+        rbx_4.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_4.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        rbx_8.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_8.setText("11:.00 - 11:30");
+        rbx_8.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_8.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_8.setFocusPainted(false);
+        rbx_8.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_8.setRippleColor(new java.awt.Color(0, 112, 192));
+        rbx_8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbx_8ActionPerformed(evt);
+            }
+        });
+
+        rbx_12.setForeground(new java.awt.Color(51, 51, 51));
+        rbx_12.setText("13:00 - 13:30");
+        rbx_12.setColorCheck(new java.awt.Color(0, 112, 192));
+        rbx_12.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        rbx_12.setFocusPainted(false);
+        rbx_12.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
+        rbx_12.setRippleColor(new java.awt.Color(0, 112, 192));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rbx_5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                    .addComponent(rbx_1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(rbx_13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(rbx_9, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                .addGap(18, 26, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbx_2, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                    .addComponent(rbx_6, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(rbx_10, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(rbx_14, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 26, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbx_3, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(rbx_7, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(rbx_11, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbx_4, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(rbx_8, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(rbx_12, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(rbx_4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rbx_3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rbx_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rbx_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rbx_6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rbx_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rbx_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rbx_5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbx_10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbx_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbx_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbx_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbx_14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbx_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        rSDateChooser2.setColorBackground(new java.awt.Color(3, 111, 198));
+        rSDateChooser2.setColorButtonHover(new java.awt.Color(3, 111, 198));
+        rSDateChooser2.setColorDiaActual(new java.awt.Color(255, 0, 0));
+        rSDateChooser2.setColorForeground(new java.awt.Color(3, 111, 198));
+        rSDateChooser2.setFuente(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("FECHA DE LA CITA:");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(rSDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                .addContainerGap(265, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(rSDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel9)))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(fSTexFieldMD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(rSFormatFieldShade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rSFormatFieldShade2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(47, 47, 47)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(rSTextFieldTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btn_paciente_02, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addComponent(rSButtonFlat_new1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(menu_salir2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(254, 254, 254)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(32, 32, 32)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(29, 29, 29)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(150, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(311, 311, 311)
-                    .addComponent(btn_inicio_02, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(311, Short.MAX_VALUE)))
+                    .addGap(85, 85, 85)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(86, 86, 86)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -621,40 +554,18 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rSTextFieldTwo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(fSTexFieldMD1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(rSButtonFlat_new1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(btn_paciente_02, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(rSFormatFieldShade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(rSFormatFieldShade2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(83, 83, 83)
-                .addComponent(menu_salir2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
+                .addComponent(jButton3)
+                .addGap(105, 105, 105)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(351, 351, 351)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(440, 440, 440)
-                    .addComponent(btn_inicio_02, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(557, Short.MAX_VALUE)))
+                    .addGap(475, 475, 475)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(475, Short.MAX_VALUE)))
         );
 
         pack();
@@ -691,27 +602,6 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rSRadioButtonMaterial42ActionPerformed
 
-    private void btn_paciente_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_paciente_02ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_paciente_02ActionPerformed
-
-    private void btn_inicio_02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicio_02MouseClicked
-    
-        // btn_inicio_02.setBackground(new Color (139,198,255,255));           // TODO add your handling code here:
-    }//GEN-LAST:event_btn_inicio_02MouseClicked
-
-    private void btn_inicio_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicio_02MouseEntered
-               // TODO add your handling code here:
-    }//GEN-LAST:event_btn_inicio_02MouseEntered
-
-    private void btn_inicio_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicio_02MouseExited
-   
-    }//GEN-LAST:event_btn_inicio_02MouseExited
-
-    private void btn_inicio_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicio_02ActionPerformed
-
-    }//GEN-LAST:event_btn_inicio_02ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         try {
             ConfigReader properties = new ConfigReader();
@@ -739,6 +629,18 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
             Logger.getLogger(test_para_lanzar_metodos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void rbx_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbx_8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbx_8ActionPerformed
+
+    private void rbx_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbx_2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbx_2ActionPerformed
+
+    private void rbx_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbx_1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbx_1ActionPerformed
 
     
     /**
@@ -777,32 +679,14 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private newscomponents.RSButtonFlat_new btn_inicio_02;
-    private newscomponents.RSButtonFlat_new btn_paciente_02;
-    private LIB.FSTexFieldMD fSTexFieldMD1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private RSMaterialComponent.RSPanelMaterial menu_salir2;
-    private newscomponents.RSButtonFlat_new rSButtonFlat_new1;
-    private rscomponentshade.RSFormatFieldShade rSFormatFieldShade1;
-    private rscomponentshade.RSFormatFieldShade rSFormatFieldShade2;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial15;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial16;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial17;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial18;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial19;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial20;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial21;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial22;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial23;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial24;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial25;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial26;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial27;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial28;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private rojeru_san.componentes.RSDateChooser rSDateChooser2;
     private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial29;
     private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial30;
     private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial31;
@@ -817,7 +701,20 @@ public class test_para_lanzar_metodos extends javax.swing.JFrame {
     private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial41;
     private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial42;
     private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial43;
-    private RSMaterialComponent.RSTextFieldTwo rSTextFieldTwo2;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_1;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_10;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_11;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_12;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_13;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_14;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_2;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_3;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_4;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_5;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_6;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_7;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_8;
+    private RSMaterialComponent.RSRadioButtonMaterial rbx_9;
     // End of variables declaration//GEN-END:variables
 
     private void generateBackUpMysql() {
