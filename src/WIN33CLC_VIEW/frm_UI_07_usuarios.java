@@ -11,7 +11,7 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
      
         setBackground(new Color (255,255,255,1));
 
-       
+       LoadData();
     }
 
     public void ocultar_form_usuarios(boolean b)
@@ -354,4 +354,9 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
     private rscomponentshade.RSPassFieldShade txt_pass;
     private rscomponentshade.RSFormatFieldShade txt_user;
     // End of variables declaration//GEN-END:variables
+
+    private void LoadData() {
+        
+    }
+    
 }
