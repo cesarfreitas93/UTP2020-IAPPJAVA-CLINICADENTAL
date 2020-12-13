@@ -348,4 +348,9 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
     private rscomponentshade.RSPassFieldShade txt_pass;
     private rscomponentshade.RSFormatFieldShade txt_user;
     // End of variables declaration//GEN-END:variables
+
+    private void LoadData() {
+        
+    }
+    
 }
