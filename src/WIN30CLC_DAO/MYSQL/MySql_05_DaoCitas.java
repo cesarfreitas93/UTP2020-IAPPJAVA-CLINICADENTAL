@@ -33,8 +33,23 @@ public class MySql_05_DaoCitas implements Dao_05_Citas {
     final String LISTAR_HORARIO_DISPONIBLE = "SELECT * FROM horario_citas WHERE habilitado=1";
     final String EXPLORADOR_CITAS = "call exploradordecitas(?,?,?)";
 
-    final String LISTAR_CITAS_TODOS = "select cts.id,pat.name,pat.lastname,pat.surename,srv.name as name_services,spt.name as name_especialista from citas as cts inner join patient as pat on pat.id = cts.patient_id inner join services as srv on srv.id = cts.service_id inner join especialista as spt on spt.id = cts.especialista_id inner join horario_citas as hct on hct.id_horario = cts.id_horario where status = ?";
-
+    //final String LISTAR_CITAS_TODOS = "select cts.id,pat.name,pat.lastname,pat.surename,srv.name as name_services,spt.name as name_especialista from citas as cts inner join patient as pat on pat.id = cts.patient_id inner join services as srv on srv.id = cts.service_id inner join especialista as spt on spt.id = cts.especialista_id inner join horario_citas as hct on hct.id_horario = cts.id_horario where status = ?";
+    final String LISTAR_CITAS_TODOS =new StringBuilder()
+    .append("select  ")
+    .append("cts.id, ")
+    .append("pat.name, ")
+    .append("pat.lastname, ")
+    .append("pat.surename, ")
+    .append("srv.name as name_services, ")
+    .append("CONCAT(spt.name,', ', spt.lastname,' ', spt.surename) as name_especialista  ")
+    .append("from citas as cts  ")
+    .append("inner join patient as pat on pat.id = cts.patient_id  ")
+    .append("inner join services as srv on srv.id = cts.service_id  ")
+    .append("inner join especialista as spt on spt.id = cts.especialista_id  ")
+    .append("inner join horario_citas as hct on hct.id_horario = cts.id_horario  ")
+    .append("where status = ? ").toString();
+        
+        
     final String LISTAR_CITAS_TODOS_BY_ID = "select cts.id as id_citas,pat.id as id_paciente,pat.name,pat.lastname,pat.surename,pat.phone,srv.id as id_services,srv.name as name_services,spt.id as id_especialista,spt.name as name_especialista,convert(fechadecita,date) as fechadecita,hct.id_horario,hct.cita_horario_inicio,hct.cita_horario_fin from citas as cts inner join patient as pat on pat.id = cts.patient_id inner join services as srv on srv.id = cts.service_id inner join especialista as spt on spt.id = cts.especialista_id inner join horario_citas as hct on hct.id_horario = cts.id_horario where cts.id = ?";
 
     public MySql_05_DaoCitas(Connection conn) {
