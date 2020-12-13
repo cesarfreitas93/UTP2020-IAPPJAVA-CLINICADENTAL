@@ -97,23 +97,14 @@ int xx,xy;
         lblespecialista = new javax.swing.JLabel();
         rSPanelMaterial4 = new RSMaterialComponent.RSPanelMaterial();
         panel_inicio = new javax.swing.JPanel();
-        frm_UI_inicio1 = new WIN33CLC_VIEW.frm_UI_inicio();
         panel_paciente = new javax.swing.JPanel();
-        frm_UI_01_Patien1 = new WIN33CLC_VIEW.frm_UI_01_Patien();
-        panel_cita = new javax.swing.JPanel();
-        frm_UI_02_reservar_cita1 = new WIN33CLC_VIEW.frm_UI_02_reservar_cita();
         panel_gestion_cita = new javax.swing.JPanel();
-        frm_UI_03_gestionar_cita1 = new WIN33CLC_VIEW.frm_UI_03_gestionar_cita();
         panel_comprobante = new javax.swing.JPanel();
-        frm_UI_04_comprobantes1 = new WIN33CLC_VIEW.frm_UI_04_comprobantes();
         panel_servicios = new javax.swing.JPanel();
-        frm_UI_05_servicios1 = new WIN33CLC_VIEW.frm_UI_05_servicios();
         panel_especialista = new javax.swing.JPanel();
-        frm_UI_06_especialista1 = new WIN33CLC_VIEW.frm_UI_06_especialista();
         panel_usuarios = new javax.swing.JPanel();
-        frm_UI_07_usuarios1 = new WIN33CLC_VIEW.frm_UI_07_usuarios();
         panel_reportes_citas = new javax.swing.JPanel();
-        frm_UI_Reportes_Citas1 = new WIN33CLC_VIEW.frm_UI_Reportes_Citas();
+        panel_cita = new javax.swing.JPanel();
         menu_ventana = new RSMaterialComponent.RSPanelMaterial();
         btn_min = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_max = new RSMaterialComponent.RSButtonMaterialGradientOne();
@@ -504,63 +495,44 @@ int xx,xy;
         panel_inicio.setBackground(new java.awt.Color(255, 255, 255));
         panel_inicio.setName("panel_inicio"); // NOI18N
         panel_inicio.setLayout(new java.awt.CardLayout());
-        panel_inicio.add(frm_UI_inicio1, "card2");
-
         rSPanelMaterial4.add(panel_inicio, "card3");
 
         panel_paciente.setBackground(new java.awt.Color(255, 255, 255));
         panel_paciente.setName("panel_paciente"); // NOI18N
         panel_paciente.setLayout(new java.awt.CardLayout());
-        panel_paciente.add(frm_UI_01_Patien1, "card2");
-
         rSPanelMaterial4.add(panel_paciente, "card3");
 
-        panel_cita.setBackground(new java.awt.Color(255, 255, 255));
-        panel_cita.setName("panel_paciente"); // NOI18N
-        panel_cita.setLayout(new java.awt.CardLayout());
-        panel_cita.add(frm_UI_02_reservar_cita1, "card2");
-
-        rSPanelMaterial4.add(panel_cita, "card3");
-
         panel_gestion_cita.setLayout(new java.awt.CardLayout());
-        panel_gestion_cita.add(frm_UI_03_gestionar_cita1, "card2");
-
         rSPanelMaterial4.add(panel_gestion_cita, "card9");
 
         panel_comprobante.setBackground(new java.awt.Color(255, 255, 255));
         panel_comprobante.setName("panel_comprobante"); // NOI18N
         panel_comprobante.setLayout(new java.awt.CardLayout());
-        panel_comprobante.add(frm_UI_04_comprobantes1, "card2");
-
         rSPanelMaterial4.add(panel_comprobante, "card3");
 
         panel_servicios.setBackground(new java.awt.Color(255, 255, 255));
         panel_servicios.setName("panel_servicios"); // NOI18N
         panel_servicios.setLayout(new java.awt.CardLayout());
-        panel_servicios.add(frm_UI_05_servicios1, "card2");
-
         rSPanelMaterial4.add(panel_servicios, "card3");
 
         panel_especialista.setBackground(new java.awt.Color(255, 255, 255));
         panel_especialista.setName("panel_especialista"); // NOI18N
         panel_especialista.setLayout(new java.awt.CardLayout());
-        panel_especialista.add(frm_UI_06_especialista1, "card2");
-
         rSPanelMaterial4.add(panel_especialista, "card3");
 
         panel_usuarios.setBackground(new java.awt.Color(255, 255, 255));
         panel_usuarios.setName("panel_usuarios"); // NOI18N
         panel_usuarios.setLayout(new java.awt.CardLayout());
-        panel_usuarios.add(frm_UI_07_usuarios1, "card2");
-
         rSPanelMaterial4.add(panel_usuarios, "card3");
 
         panel_reportes_citas.setBackground(new java.awt.Color(255, 255, 255));
         panel_reportes_citas.setName("panel_inicio"); // NOI18N
         panel_reportes_citas.setLayout(new java.awt.CardLayout());
-        panel_reportes_citas.add(frm_UI_Reportes_Citas1, "card2");
-
         rSPanelMaterial4.add(panel_reportes_citas, "card3");
+
+        panel_cita.setBackground(new java.awt.Color(255, 255, 255));
+        panel_cita.setLayout(new java.awt.CardLayout());
+        rSPanelMaterial4.add(panel_cita, "card2");
 
         menu_ventana.setBackground(new java.awt.Color(255, 255, 255));
         menu_ventana.setBgShade(new java.awt.Color(204, 204, 204));
@@ -1640,6 +1612,7 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
+            panel_reportes_citas.setVisible(false);
 
           
           changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
@@ -1725,6 +1698,7 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
+             panel_reportes_citas.setVisible(false);
             
    changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/2.png");
             
@@ -1811,6 +1785,7 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
+             panel_reportes_citas.setVisible(false);
             
          changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
           changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
@@ -1900,6 +1875,7 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
+             panel_reportes_citas.setVisible(false);
             
             
            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
@@ -1990,6 +1966,7 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
+             panel_reportes_citas.setVisible(false);
             
           changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
           changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
@@ -2143,6 +2120,7 @@ int xx,xy;
             panel_servicios.setVisible(true);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
+             panel_reportes_citas.setVisible(false);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -2224,6 +2202,7 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(true);
             panel_usuarios.setVisible(false);
+             panel_reportes_citas.setVisible(false);
 
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -2396,6 +2375,7 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(true);
+             panel_reportes_citas.setVisible(false);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -2722,7 +2702,7 @@ int xx,xy;
     private void btn_minMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_minMouseEntered
  changeimage_button(btn_min, "/WIN34CLC_RESOURCES_UI/min.png");  
   btn_min_02.setBackground(new Color (200,232,250,150));
-            btn_min_02.setForeground(new Color (255,255,255));
+            btn_min_02.setForeground(new Color (131,137,152));
     }//GEN-LAST:event_btn_minMouseEntered
 
     private void btn_minMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_minMouseExited
@@ -2740,7 +2720,7 @@ this.setState(Frame.ICONIFIED);         // TODO add your handling code here:
     private void btn_maxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_maxMouseEntered
 changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/max.png");   
  btn_max_02.setBackground(new Color (200,232,250,150));
- btn_max_02.setForeground(new Color (255,255,255));// TODO add your handling code here:
+ btn_max_02.setForeground(new Color (131,137,152));// TODO add your handling code here:
     }//GEN-LAST:event_btn_maxMouseEntered
 
     private void btn_maxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_maxMouseExited
@@ -2829,7 +2809,7 @@ boton_inicio();       // TODO add your handling code here:
     private void btn_salirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salirMouseEntered
 changeimage_button(btn_salir, "/WIN34CLC_RESOURCES_UI/apagar.png");  
  btn_salir_02.setBackground(new Color (200,232,250,150));
-            btn_salir_02.setForeground(new Color (255,255,255));// TODO add your handling code here:
+            btn_salir_02.setForeground(new Color (131,137,152));// TODO add your handling code here:
     }//GEN-LAST:event_btn_salirMouseEntered
 
     private void btn_salirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salirMouseExited
@@ -3332,7 +3312,7 @@ if(!this.btn_especialista .isSelected()){
     private void btn_salir_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salir_02MouseEntered
        changeimage_button(btn_salir, "/WIN34CLC_RESOURCES_UI/apagar.png");     
         btn_salir_02.setBackground(new Color (200,232,250,150));
-            btn_salir_02.setForeground(new Color (255,255,255));        // TODO add your handling code here:
+            btn_salir_02.setForeground(new Color (131,137,152));        // TODO add your handling code here:
     }//GEN-LAST:event_btn_salir_02MouseEntered
 
     private void btn_salir_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salir_02MouseExited
@@ -3352,7 +3332,7 @@ System.exit(0);           // TODO add your handling code here:
 
     private void btn_max_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_max_02MouseEntered
  btn_max_02.setBackground(new Color (200,232,250,150));
-            btn_max_02.setForeground(new Color (255,255,255));
+            btn_max_02.setForeground(new Color (131,137,152));
         changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/max.png");   
        // TODO add your handling code here:
     }//GEN-LAST:event_btn_max_02MouseEntered
@@ -3383,7 +3363,7 @@ if(maximized){
 
     private void btn_min_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_min_02MouseEntered
  btn_min_02.setBackground(new Color (200,232,250,150));
-            btn_min_02.setForeground(new Color (255,255,255));
+            btn_min_02.setForeground(new Color (131,137,152));
             changeimage_button(btn_min, "/WIN34CLC_RESOURCES_UI/min.png");         // TODO add your handling code here:
     }//GEN-LAST:event_btn_min_02MouseEntered
 
@@ -3537,15 +3517,6 @@ this.setState(Frame.ICONIFIED);
     private newscomponents.RSButtonFlat_new btn_servicios_02;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_usuario;
     private newscomponents.RSButtonFlat_new btn_usuarios_02;
-    private WIN33CLC_VIEW.frm_UI_01_Patien frm_UI_01_Patien1;
-    private WIN33CLC_VIEW.frm_UI_02_reservar_cita frm_UI_02_reservar_cita1;
-    private WIN33CLC_VIEW.frm_UI_03_gestionar_cita frm_UI_03_gestionar_cita1;
-    private WIN33CLC_VIEW.frm_UI_04_comprobantes frm_UI_04_comprobantes1;
-    private WIN33CLC_VIEW.frm_UI_05_servicios frm_UI_05_servicios1;
-    private WIN33CLC_VIEW.frm_UI_06_especialista frm_UI_06_especialista1;
-    private WIN33CLC_VIEW.frm_UI_07_usuarios frm_UI_07_usuarios1;
-    private WIN33CLC_VIEW.frm_UI_Reportes_Citas frm_UI_Reportes_Citas1;
-    private WIN33CLC_VIEW.frm_UI_inicio frm_UI_inicio1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_menu_1;

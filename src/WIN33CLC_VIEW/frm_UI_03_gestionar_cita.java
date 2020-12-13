@@ -8,19 +8,15 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
 
     public frm_UI_03_gestionar_cita() {
         initComponents();
-     
-        setBackground(new Color (255,255,255,0));
+    setBackground(new Color (255,255,255,0));
+      p1.setColorPrimario(new Color (255,255,255,200));
+     p1.setColorSecundario(new Color (255,255,255,200));
 
-       
     }
     
      public void ocultar_form_cita(boolean b)
     {
-    menu_salir1.setVisible(b);
-  
-    menu_salir3.setVisible(b);
-    rSPanelBorderGradient1.setVisible(b);
-            
+
     }
 
 
@@ -29,33 +25,14 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        menu_salir3 = new RSMaterialComponent.RSPanelMaterial();
-        jLabel9 = new javax.swing.JLabel();
-        rSDateChooser1 = new rojerusan.RSDateChooser();
-        btn_cancelar_cambios2 = new newscomponents.RSButtonFlat_new();
-        jPanel2 = new javax.swing.JPanel();
-        rSRadioButtonMaterial29 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial30 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial31 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial32 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial33 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial34 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial35 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial36 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial37 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial38 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial39 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial41 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial42 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSRadioButtonMaterial43 = new RSMaterialComponent.RSRadioButtonMaterial();
-        rSPanelBorderGradient1 = new RSMaterialComponent.RSPanelBorderGradient();
+        p1 = new RSMaterialComponent.RSPanelBorderGradient();
         jLabel12 = new javax.swing.JLabel();
         btn_anular_cita = new newscomponents.RSButtonFlat_new();
         btn_reprogramar_cita = new newscomponents.RSButtonFlat_new();
         btn_eliminar_cita = new newscomponents.RSButtonFlat_new();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        menu_salir1 = new RSMaterialComponent.RSPanelMaterial();
+        p2 = new RSMaterialComponent.RSPanelMaterial();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane5 = new javax.swing.JScrollPane();
         table_citas_vigentes = new rojerusan.RSTableMetro();
@@ -63,7 +40,7 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
         table_citas_programadas = new rojerusan.RSTableMetro();
         jScrollPane7 = new javax.swing.JScrollPane();
         table_citas_vencidas = new rojerusan.RSTableMetro();
-        menu_salir2 = new RSMaterialComponent.RSPanelMaterial();
+        p3 = new RSMaterialComponent.RSPanelMaterial();
         jLabel2 = new javax.swing.JLabel();
         lbl_numero_cita = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -81,272 +58,13 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         lbl_fecha_cita = new javax.swing.JLabel();
 
-        menu_salir3.setBackground(new java.awt.Color(255, 255, 255));
-        menu_salir3.setBgShade(new java.awt.Color(204, 204, 204));
-        menu_salir3.setPreferredSize(new java.awt.Dimension(90, 62));
-        menu_salir3.setRound(40);
-
-        jLabel9.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("FECHA DE LA CITA:");
-
-        rSDateChooser1.setColorBackground(new java.awt.Color(23, 144, 244));
-        rSDateChooser1.setColorButtonHover(new java.awt.Color(23, 144, 244));
-        rSDateChooser1.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        rSDateChooser1.setFormatoFecha("dd/MM/yyyy");
-        rSDateChooser1.setFuente(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-
-        btn_cancelar_cambios2.setBackground(new java.awt.Color(139, 198, 255));
-        btn_cancelar_cambios2.setForeground(new java.awt.Color(51, 51, 51));
-        btn_cancelar_cambios2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-buscar-en-la-lista-24.png"))); // NOI18N
-        btn_cancelar_cambios2.setText("Ver Horario Disponible");
-        btn_cancelar_cambios2.setBorderPainted(false);
-        btn_cancelar_cambios2.setContentAreaFilled(true);
-        btn_cancelar_cambios2.setCornerRound(45);
-        btn_cancelar_cambios2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
-        btn_cancelar_cambios2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelar_cambios2ActionPerformed(evt);
-            }
-        });
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        buttonGroup1.add(rSRadioButtonMaterial29);
-        rSRadioButtonMaterial29.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial29.setText("8:00 - 8:30");
-        rSRadioButtonMaterial29.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial29.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial29.setFocusPainted(false);
-        rSRadioButtonMaterial29.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial29.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial30);
-        rSRadioButtonMaterial30.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial30.setText("10:00 - 10:30");
-        rSRadioButtonMaterial30.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial30.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial30.setFocusPainted(false);
-        rSRadioButtonMaterial30.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial30.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial31);
-        rSRadioButtonMaterial31.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial31.setText("12:00 - 12:30");
-        rSRadioButtonMaterial31.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial31.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial31.setFocusPainted(false);
-        rSRadioButtonMaterial31.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial31.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial32);
-        rSRadioButtonMaterial32.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial32.setText("14:00 - 14:30");
-        rSRadioButtonMaterial32.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial32.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial32.setFocusPainted(false);
-        rSRadioButtonMaterial32.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial32.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial33);
-        rSRadioButtonMaterial33.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial33.setText("8:30 - 9:00");
-        rSRadioButtonMaterial33.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial33.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial33.setFocusPainted(false);
-        rSRadioButtonMaterial33.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial33.setRippleColor(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial33.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSRadioButtonMaterial33ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(rSRadioButtonMaterial34);
-        rSRadioButtonMaterial34.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial34.setText("10:30 - 11:00");
-        rSRadioButtonMaterial34.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial34.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial34.setFocusPainted(false);
-        rSRadioButtonMaterial34.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial34.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial35);
-        rSRadioButtonMaterial35.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial35.setText("12:30 - 13:00");
-        rSRadioButtonMaterial35.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial35.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial35.setFocusPainted(false);
-        rSRadioButtonMaterial35.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial35.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial36);
-        rSRadioButtonMaterial36.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial36.setText("14:30 - 15:00");
-        rSRadioButtonMaterial36.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial36.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial36.setFocusPainted(false);
-        rSRadioButtonMaterial36.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial36.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial37);
-        rSRadioButtonMaterial37.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial37.setText("9:00 - 9:30");
-        rSRadioButtonMaterial37.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial37.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial37.setFocusPainted(false);
-        rSRadioButtonMaterial37.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial37.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial38);
-        rSRadioButtonMaterial38.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial38.setText("11:.00 - 11:30");
-        rSRadioButtonMaterial38.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial38.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial38.setFocusPainted(false);
-        rSRadioButtonMaterial38.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial38.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial39);
-        rSRadioButtonMaterial39.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial39.setText("13:00 - 13:30");
-        rSRadioButtonMaterial39.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial39.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial39.setFocusPainted(false);
-        rSRadioButtonMaterial39.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial39.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial41);
-        rSRadioButtonMaterial41.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial41.setText("9:00 - 9:30");
-        rSRadioButtonMaterial41.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial41.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial41.setFocusPainted(false);
-        rSRadioButtonMaterial41.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial41.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        buttonGroup1.add(rSRadioButtonMaterial42);
-        rSRadioButtonMaterial42.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial42.setText("11:.00 - 11:30");
-        rSRadioButtonMaterial42.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial42.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial42.setFocusPainted(false);
-        rSRadioButtonMaterial42.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial42.setRippleColor(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial42.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSRadioButtonMaterial42ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(rSRadioButtonMaterial43);
-        rSRadioButtonMaterial43.setForeground(new java.awt.Color(51, 51, 51));
-        rSRadioButtonMaterial43.setText("13:00 - 13:30");
-        rSRadioButtonMaterial43.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial43.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSRadioButtonMaterial43.setFocusPainted(false);
-        rSRadioButtonMaterial43.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
-        rSRadioButtonMaterial43.setRippleColor(new java.awt.Color(0, 112, 192));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(rSRadioButtonMaterial30, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial29, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial32, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial31, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                .addGap(18, 25, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSRadioButtonMaterial33, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial34, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial35, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial36, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(18, 25, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSRadioButtonMaterial37, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial38, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial39, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSRadioButtonMaterial41, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial42, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial43, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rSRadioButtonMaterial41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rSRadioButtonMaterial33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rSRadioButtonMaterial34, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(rSRadioButtonMaterial38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(rSRadioButtonMaterial42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(rSRadioButtonMaterial30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSRadioButtonMaterial35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSRadioButtonMaterial31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSRadioButtonMaterial39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSRadioButtonMaterial43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSRadioButtonMaterial36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSRadioButtonMaterial32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout menu_salir3Layout = new javax.swing.GroupLayout(menu_salir3);
-        menu_salir3.setLayout(menu_salir3Layout);
-        menu_salir3Layout.setHorizontalGroup(
-            menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir3Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addGroup(menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menu_salir3Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addComponent(rSDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                        .addComponent(btn_cancelar_cambios2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
-        menu_salir3Layout.setVerticalGroup(
-            menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_salir3Layout.createSequentialGroup()
-                .addGroup(menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menu_salir3Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel9))
-                    .addGroup(menu_salir3Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(rSDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(menu_salir3Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(btn_cancelar_cambios2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-        );
-
-        rSPanelBorderGradient1.setBackground(new java.awt.Color(204, 204, 204));
-        rSPanelBorderGradient1.setBgShade(new java.awt.Color(255, 255, 255));
-        rSPanelBorderGradient1.setColorPrimario(new java.awt.Color(200, 232, 250));
-        rSPanelBorderGradient1.setColorSecundario(new java.awt.Color(200, 232, 250));
-        rSPanelBorderGradient1.setGradiente(RSMaterialComponent.RSPanelBorderGradient.Gradiente.HORIZONTAL);
-        rSPanelBorderGradient1.setRound(40);
-        rSPanelBorderGradient1.setWidthBorder(0);
+        p1.setBackground(new java.awt.Color(204, 204, 204));
+        p1.setBgShade(new java.awt.Color(255, 255, 255));
+        p1.setColorPrimario(new java.awt.Color(200, 232, 250));
+        p1.setColorSecundario(new java.awt.Color(200, 232, 250));
+        p1.setGradiente(RSMaterialComponent.RSPanelBorderGradient.Gradiente.HORIZONTAL);
+        p1.setRound(40);
+        p1.setWidthBorder(0);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-calendario-100 (1).png"))); // NOI18N
 
@@ -394,59 +112,57 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Poppins", 1, 42)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Gestionar");
+        jLabel3.setText(" Gestionar");
 
         jLabel4.setFont(new java.awt.Font("Poppins", 1, 42)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("Citas");
+        jLabel4.setText("    Citas");
 
-        javax.swing.GroupLayout rSPanelBorderGradient1Layout = new javax.swing.GroupLayout(rSPanelBorderGradient1);
-        rSPanelBorderGradient1.setLayout(rSPanelBorderGradient1Layout);
-        rSPanelBorderGradient1Layout.setHorizontalGroup(
-            rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btn_anular_cita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btn_reprogramar_cita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btn_eliminar_cita, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(70, 70, 70))
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
+        p1.setLayout(p1Layout);
+        p1Layout.setHorizontalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addContainerGap(20, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE))
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_eliminar_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(btn_reprogramar_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(btn_anular_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
-        rSPanelBorderGradient1Layout.setVerticalGroup(
-            rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+        p1Layout.setVerticalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101)
+                .addGap(100, 100, 100)
                 .addComponent(btn_anular_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(37, 37, 37)
                 .addComponent(btn_reprogramar_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(btn_eliminar_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        menu_salir1.setBackground(new java.awt.Color(255, 255, 255));
-        menu_salir1.setBgShade(new java.awt.Color(204, 204, 204));
-        menu_salir1.setPreferredSize(new java.awt.Dimension(90, 62));
-        menu_salir1.setRound(40);
+        p2.setBackground(new java.awt.Color(255, 255, 255));
+        p2.setBgShade(new java.awt.Color(204, 204, 204));
+        p2.setPixels(0);
+        p2.setPreferredSize(new java.awt.Dimension(90, 62));
+        p2.setRound(40);
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.setForeground(new java.awt.Color(51, 51, 51));
@@ -533,27 +249,28 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("CITAS VENCIDAS", jScrollPane7);
 
-        javax.swing.GroupLayout menu_salir1Layout = new javax.swing.GroupLayout(menu_salir1);
-        menu_salir1.setLayout(menu_salir1Layout);
-        menu_salir1Layout.setHorizontalGroup(
-            menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_salir1Layout.createSequentialGroup()
+        javax.swing.GroupLayout p2Layout = new javax.swing.GroupLayout(p2);
+        p2.setLayout(p2Layout);
+        p2Layout.setHorizontalGroup(
+            p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addGap(18, 18, 18))
         );
-        menu_salir1Layout.setVerticalGroup(
-            menu_salir1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir1Layout.createSequentialGroup()
+        p2Layout.setVerticalGroup(
+            p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
 
-        menu_salir2.setBackground(new java.awt.Color(255, 255, 255));
-        menu_salir2.setBgShade(new java.awt.Color(204, 204, 204));
-        menu_salir2.setPreferredSize(new java.awt.Dimension(90, 62));
-        menu_salir2.setRound(40);
+        p3.setBackground(new java.awt.Color(255, 255, 255));
+        p3.setBgShade(new java.awt.Color(204, 204, 204));
+        p3.setPixels(0);
+        p3.setPreferredSize(new java.awt.Dimension(90, 62));
+        p3.setRound(40);
 
         jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -619,13 +336,13 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
         lbl_fecha_cita.setForeground(new java.awt.Color(51, 51, 51));
         lbl_fecha_cita.setText("00/00/0000");
 
-        javax.swing.GroupLayout menu_salir2Layout = new javax.swing.GroupLayout(menu_salir2);
-        menu_salir2.setLayout(menu_salir2Layout);
-        menu_salir2Layout.setHorizontalGroup(
-            menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_salir2Layout.createSequentialGroup()
+        javax.swing.GroupLayout p3Layout = new javax.swing.GroupLayout(p3);
+        p3.setLayout(p3Layout);
+        p3Layout.setHorizontalGroup(
+            p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p3Layout.createSequentialGroup()
                 .addContainerGap(39, Short.MAX_VALUE)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_numero_cita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -633,53 +350,53 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
                     .addComponent(lbl_phone, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                     .addComponent(lbl_hora_cita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_especialista, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_fecha_cita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu_salir2Layout.createSequentialGroup()
-                        .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, p3Layout.createSequentialGroup()
+                        .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_patient, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE))
                         .addGap(2, 2, 2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_correo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbl_servicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
-        menu_salir2Layout.setVerticalGroup(
-            menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_salir2Layout.createSequentialGroup()
+        p3Layout.setVerticalGroup(
+            p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel8)
                     .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_numero_cita)
                     .addComponent(lbl_patient)
                     .addComponent(lbl_correo))
                 .addGap(18, 18, 18)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_phone)
                     .addComponent(lbl_especialista)
                     .addComponent(lbl_servicio))
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(jLabel20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(p3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_hora_cita)
                     .addComponent(lbl_fecha_cita))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -690,55 +407,40 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(menu_salir3, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
-                    .addComponent(menu_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
-                    .addComponent(menu_salir2, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)))
+                    .addComponent(p2, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
+                    .addComponent(p3, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(menu_salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menu_salir2, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                .addGap(15, 15, 15)
-                .addComponent(menu_salir3, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(p3, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addGap(294, 294, 294))
+            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_eliminar_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminar_citaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_eliminar_citaActionPerformed
+
+    private void btn_reprogramar_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reprogramar_citaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_reprogramar_citaActionPerformed
+
     private void btn_anular_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anular_citaActionPerformed
-          
+
         btn_reprogramar_cita.setEnabled(true);
         btn_eliminar_cita.setEnabled(false);        // TODO add your handling code here:
     }//GEN-LAST:event_btn_anular_citaActionPerformed
 
-    private void btn_reprogramar_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reprogramar_citaActionPerformed
-          // TODO add your handling code here:
-    }//GEN-LAST:event_btn_reprogramar_citaActionPerformed
-
-    private void btn_eliminar_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminar_citaActionPerformed
-           // TODO add your handling code here:
-    }//GEN-LAST:event_btn_eliminar_citaActionPerformed
-
-    private void btn_cancelar_cambios2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambios2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cancelar_cambios2ActionPerformed
-
-    private void rSRadioButtonMaterial33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSRadioButtonMaterial33ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rSRadioButtonMaterial33ActionPerformed
-
-    private void rSRadioButtonMaterial42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSRadioButtonMaterial42ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rSRadioButtonMaterial42ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private newscomponents.RSButtonFlat_new btn_anular_cita;
-    private newscomponents.RSButtonFlat_new btn_cancelar_cambios2;
     private newscomponents.RSButtonFlat_new btn_eliminar_cita;
     private newscomponents.RSButtonFlat_new btn_reprogramar_cita;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -753,8 +455,6 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
@@ -767,25 +467,9 @@ public class frm_UI_03_gestionar_cita extends javax.swing.JPanel {
     private javax.swing.JLabel lbl_patient;
     private javax.swing.JLabel lbl_phone;
     private javax.swing.JLabel lbl_servicio;
-    private RSMaterialComponent.RSPanelMaterial menu_salir1;
-    private RSMaterialComponent.RSPanelMaterial menu_salir2;
-    private RSMaterialComponent.RSPanelMaterial menu_salir3;
-    private rojerusan.RSDateChooser rSDateChooser1;
-    private RSMaterialComponent.RSPanelBorderGradient rSPanelBorderGradient1;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial29;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial30;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial31;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial32;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial33;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial34;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial35;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial36;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial37;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial38;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial39;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial41;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial42;
-    private RSMaterialComponent.RSRadioButtonMaterial rSRadioButtonMaterial43;
+    private RSMaterialComponent.RSPanelBorderGradient p1;
+    private RSMaterialComponent.RSPanelMaterial p2;
+    private RSMaterialComponent.RSPanelMaterial p3;
     private rojerusan.RSTableMetro table_citas_programadas;
     private rojerusan.RSTableMetro table_citas_vencidas;
     private rojerusan.RSTableMetro table_citas_vigentes;

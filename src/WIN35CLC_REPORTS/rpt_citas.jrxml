@@ -37,7 +37,7 @@
 			<staticText>
 				<reportElement x="250" y="17" width="336" height="59" forecolor="#3399FF" uuid="aa0cd7b6-0f22-4d27-962e-9de75fbee6a0"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="28" isBold="true"/>
+					<font fontName="Poppins ExtraBold" size="28" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Reporte de Citas]]></text>
 			</staticText>
@@ -51,6 +51,9 @@
 		<band height="35" splitType="Stretch">
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement x="0" y="9" width="100" height="20" uuid="3fbcde27-b2d2-431e-8f2a-b7b656237c5e"/>
+				<textElement>
+					<font fontName="Poppins" size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
@@ -60,51 +63,51 @@
 			<staticText>
 				<reportElement x="0" y="41" width="100" height="20" uuid="e4149cb7-a923-4e9f-a9b2-559c12e608d8"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Poppins" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[fecha_registro]]></text>
+				<text><![CDATA[Fecha Ingreso]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="100" y="41" width="63" height="20" uuid="c960cfba-ac24-4c57-94e4-0b87aa21d031"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Poppins" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DNI]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="163" y="41" width="163" height="20" uuid="f1f9000d-6e90-4b83-ae83-ddac6c666ff7"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Poppins" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[paciente]]></text>
+				<text><![CDATA[Paciente]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="326" y="41" width="165" height="20" uuid="14106a24-2f28-4978-9a7d-7c12c8b83139"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Poppins" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[medico]]></text>
+				<text><![CDATA[Médico]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="491" y="41" width="147" height="20" uuid="4e3a26b4-0961-40c3-941b-f52f23cd7866"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Poppins" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Servicio]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="638" y="41" width="99" height="20" uuid="b3a445d1-64fb-4d4e-9513-6980fcbafa48"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Poppins" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[fecha]]></text>
+				<text><![CDATA[Fecha Cita]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="737" y="41" width="65" height="20" uuid="4dd7be95-2090-4229-83d0-8c2657540c61"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Poppins" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[horainicio]]></text>
+				<text><![CDATA[Hora Cita]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -113,49 +116,49 @@
 			<textField>
 				<reportElement x="0" y="0" width="100" height="20" uuid="dbbec56a-2a2a-4f76-899c-08b814aa151e"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Poppins"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_registro}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="100" y="0" width="63" height="20" uuid="9435d5d0-ec96-489c-9d91-b52eb85b46e8"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Poppins"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DNI}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="163" y="0" width="163" height="20" uuid="10cb02b8-023e-40b3-ab73-866f8cc7c3b5"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Poppins"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{paciente}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="326" y="0" width="165" height="20" uuid="e900ea58-4229-4acb-b6f5-440bd49a428e"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Poppins"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{medico}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="491" y="0" width="147" height="20" uuid="7ab105ac-a6e7-4ab7-b575-440ea723151c"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Poppins"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Servicio}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="638" y="0" width="99" height="20" uuid="8f277b22-c66c-4ff6-a494-8666be1aa519"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Poppins"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="737" y="0" width="65" height="20" uuid="692507be-7816-41a3-b4d7-483ff3b2e18a"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Poppins"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{horainicio}]]></textFieldExpression>
 			</textField>

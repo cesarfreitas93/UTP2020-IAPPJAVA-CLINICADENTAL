@@ -10,19 +10,11 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         initComponents();
      
         setBackground(new Color (255,255,255,1));
-
+      p1.setColorPrimario(new Color (255,255,255,200));
+     p1.setColorSecundario(new Color (255,255,255,200));
        
     }
-    public void ocultar_form_comprobantes(boolean b)
-    {
-    menu_salir2.setVisible(b);
-    menu_salir3.setVisible(b);
-            menu_salir4.setVisible(b);
-            menu_salir5.setVisible(b);
-            menu_salir6.setVisible(b);
-            rSPanelBorderGradient1.setVisible(b);
-            
-    }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -33,7 +25,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePatients = new rojerusan.RSTableMetro();
         jLabel18 = new javax.swing.JLabel();
-        rSPanelBorderGradient1 = new RSMaterialComponent.RSPanelBorderGradient();
+        p1 = new RSMaterialComponent.RSPanelBorderGradient();
         jLabel12 = new javax.swing.JLabel();
         btn_nuevo_comprobante = new newscomponents.RSButtonFlat_new();
         btn_pagar_comprobante = new newscomponents.RSButtonFlat_new();
@@ -62,6 +54,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
 
         menu_salir3.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir3.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir3.setPixels(0);
         menu_salir3.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir3.setRound(40);
 
@@ -117,13 +110,13 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        rSPanelBorderGradient1.setBackground(new java.awt.Color(204, 204, 204));
-        rSPanelBorderGradient1.setBgShade(new java.awt.Color(255, 255, 255));
-        rSPanelBorderGradient1.setColorPrimario(new java.awt.Color(200, 232, 250));
-        rSPanelBorderGradient1.setColorSecundario(new java.awt.Color(200, 232, 250));
-        rSPanelBorderGradient1.setGradiente(RSMaterialComponent.RSPanelBorderGradient.Gradiente.HORIZONTAL);
-        rSPanelBorderGradient1.setRound(40);
-        rSPanelBorderGradient1.setWidthBorder(0);
+        p1.setBackground(new java.awt.Color(204, 204, 204));
+        p1.setBgShade(new java.awt.Color(255, 255, 255));
+        p1.setColorPrimario(new java.awt.Color(200, 232, 250));
+        p1.setColorSecundario(new java.awt.Color(200, 232, 250));
+        p1.setGradiente(RSMaterialComponent.RSPanelBorderGradient.Gradiente.HORIZONTAL);
+        p1.setRound(40);
+        p1.setWidthBorder(0);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-factura-100.png"))); // NOI18N
 
@@ -187,30 +180,30 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Comprobantes");
 
-        javax.swing.GroupLayout rSPanelBorderGradient1Layout = new javax.swing.GroupLayout(rSPanelBorderGradient1);
-        rSPanelBorderGradient1.setLayout(rSPanelBorderGradient1Layout);
-        rSPanelBorderGradient1Layout.setHorizontalGroup(
-            rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
+        p1.setLayout(p1Layout);
+        p1Layout.setHorizontalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(81, 81, 81))
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+            .addGroup(p1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_cancelar_cambios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_nuevo_comprobante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_imprimir_comprobante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_pagar_comprobante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+            .addGroup(p1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        rSPanelBorderGradient1Layout.setVerticalGroup(
-            rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+        p1Layout.setVerticalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -228,6 +221,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
 
         menu_salir2.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir2.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir2.setPixels(0);
         menu_salir2.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir2.setRound(40);
 
@@ -270,6 +264,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
 
         menu_salir4.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir4.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir4.setPixels(0);
         menu_salir4.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir4.setRound(40);
 
@@ -289,7 +284,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         btn_buscar_reniec.setBackground(new java.awt.Color(139, 198, 255));
         btn_buscar_reniec.setForeground(new java.awt.Color(51, 51, 51));
         btn_buscar_reniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-encuentra-hombre-usuario-24.png"))); // NOI18N
-        btn_buscar_reniec.setText("Buscar en Reniec");
+        btn_buscar_reniec.setText("Buscar Paciente");
         btn_buscar_reniec.setBorderPainted(false);
         btn_buscar_reniec.setContentAreaFilled(true);
         btn_buscar_reniec.setCornerRound(45);
@@ -329,6 +324,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
 
         menu_salir5.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir5.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir5.setPixels(0);
         menu_salir5.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir5.setRound(40);
 
@@ -426,6 +422,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
 
         menu_salir6.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir6.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir6.setPixels(0);
         menu_salir6.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir6.setRound(40);
 
@@ -463,7 +460,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menu_salir3, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
@@ -487,7 +484,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                 .addComponent(menu_salir3, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menu_salir6, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
-            .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -539,9 +536,9 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     private RSMaterialComponent.RSPanelMaterial menu_salir4;
     private RSMaterialComponent.RSPanelMaterial menu_salir5;
     private RSMaterialComponent.RSPanelMaterial menu_salir6;
+    private RSMaterialComponent.RSPanelBorderGradient p1;
     private RSMaterialComponent.RSCheckBoxMaterial rSCheckBoxMaterial1;
     private RSMaterialComponent.RSCheckBoxMaterial rSCheckBoxMaterial2;
-    private RSMaterialComponent.RSPanelBorderGradient rSPanelBorderGradient1;
     private rojerusan.RSTableMetro tablePatients;
     private rscomponentshade.RSFormatFieldShade txt_dni;
     private rscomponentshade.RSFormatFieldShade txt_dni1;

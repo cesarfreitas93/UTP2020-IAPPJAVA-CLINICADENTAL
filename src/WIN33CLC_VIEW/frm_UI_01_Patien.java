@@ -56,9 +56,9 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         btn_guardar_paciente.setEnabled(false);
         listar_Departamento();
         cTR_02_Patient = new CTR_02_Patient();
-        
+        cbx();
         setBackground(new Color (255,255,255,0));
-      //  menu_salir4.setBackground(new Color (255,255,255,200));
+      p1.setBackground(new Color (255,255,255,200));
 
       
        
@@ -67,12 +67,11 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
     
     
     
-    public void ocultar_form_patient(boolean b)
+    public void cbx()
     {
-    menu_salir1.setVisible(b);
-    menu_salir2.setVisible(b);
-            menu_salir3.setVisible(b);
-            menu_salir4.setVisible(b);
+    cbx_departamento.setEnabled(false);
+       cbx_provincia.setEnabled(false);
+       cbx_distrito.setEnabled(false);
             
     }
     
@@ -281,7 +280,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         menu_salir3 = new RSMaterialComponent.RSPanelMaterial();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePatients = new rojerusan.RSTableMetro();
-        menu_salir4 = new RSMaterialComponent.RSPanelMaterial();
+        p1 = new RSMaterialComponent.RSPanelMaterial();
         jLabel12 = new javax.swing.JLabel();
         btn_nuevo_paciente = new newscomponents.RSButtonFlat_new();
         btn_guardar_paciente = new newscomponents.RSButtonFlat_new();
@@ -492,7 +491,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         cbx_provincia.setForeground(new java.awt.Color(51, 51, 51));
         cbx_provincia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_provincia.setColorMaterial(new java.awt.Color(10, 117, 167));
-        cbx_provincia.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        cbx_provincia.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         cbx_provincia.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
         cbx_provincia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -504,7 +503,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         cbx_departamento.setForeground(new java.awt.Color(51, 51, 51));
         cbx_departamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_departamento.setColorMaterial(new java.awt.Color(10, 117, 167));
-        cbx_departamento.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        cbx_departamento.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         cbx_departamento.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
         cbx_departamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -515,7 +514,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         cbx_distrito.setForeground(new java.awt.Color(51, 51, 51));
         cbx_distrito.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija una Opcion.", "RSItem 2", "RSItem 3", "RSItem 4" }));
         cbx_distrito.setColorMaterial(new java.awt.Color(10, 117, 167));
-        cbx_distrito.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        cbx_distrito.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         cbx_distrito.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
         cbx_distrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -545,7 +544,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         menu_salir2Layout.setVerticalGroup(
             menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu_salir2Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel13)
@@ -555,7 +554,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
                     .addComponent(cbx_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbx_departamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbx_distrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         menu_salir3.setBackground(new java.awt.Color(255, 255, 255));
@@ -607,11 +606,11 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        menu_salir4.setBackground(new java.awt.Color(200, 232, 250));
-        menu_salir4.setBgShade(new java.awt.Color(204, 204, 204));
-        menu_salir4.setPixels(0);
-        menu_salir4.setPreferredSize(new java.awt.Dimension(90, 62));
-        menu_salir4.setRound(40);
+        p1.setBackground(new java.awt.Color(200, 232, 250));
+        p1.setBgShade(new java.awt.Color(204, 204, 204));
+        p1.setPixels(0);
+        p1.setPreferredSize(new java.awt.Dimension(90, 62));
+        p1.setRound(40);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-persona-de-sexo-masculino-100.png"))); // NOI18N
 
@@ -675,31 +674,31 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Pacientes");
 
-        javax.swing.GroupLayout menu_salir4Layout = new javax.swing.GroupLayout(menu_salir4);
-        menu_salir4.setLayout(menu_salir4Layout);
-        menu_salir4Layout.setHorizontalGroup(
-            menu_salir4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir4Layout.createSequentialGroup()
+        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
+        p1.setLayout(p1Layout);
+        p1Layout.setHorizontalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(menu_salir4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_nuevo_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_cancelar_cambios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_modificar_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_guardar_paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31))
-            .addGroup(menu_salir4Layout.createSequentialGroup()
-                .addGroup(menu_salir4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menu_salir4Layout.createSequentialGroup()
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(p1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addComponent(jLabel12))
-                    .addGroup(menu_salir4Layout.createSequentialGroup()
+                    .addGroup(p1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        menu_salir4Layout.setVerticalGroup(
-            menu_salir4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu_salir4Layout.createSequentialGroup()
+        p1Layout.setVerticalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -720,7 +719,7 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(menu_salir4, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menu_salir2, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
@@ -731,11 +730,11 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(menu_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(menu_salir2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menu_salir2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menu_salir3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(menu_salir4, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
+            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -790,7 +789,9 @@ listar_Provincia();        // TODO add your handling code here:
 
     private void btn_nuevo_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_pacienteActionPerformed
     Limpiar();
-    
+    cbx_departamento.setEnabled(true);
+       cbx_provincia.setEnabled(true);
+       cbx_distrito.setEnabled(true);
     txt_dni.setFocusable(true);
         txt_dni.setEnabled(true);
         txt_name.setEnabled(true);
@@ -906,7 +907,7 @@ listar_Provincia();        // TODO add your handling code here:
                         // frm_02_Patient frame = (frm_02_Patient) this.getTopLevelAncestor();
                         // frame.mensaje();
                         mensaje();
-                        new rojerusan.RSNotifyFade("DentalSys", "Se guardaron los cambios correctamente.", 7,
+                        new rojerusan.RSNotifyFade("DentalSys", "Se registro correctamente al paciente en el sistema.", 7,
                             RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.SUCCESS).setVisible(true);
                     } else {
 
@@ -1002,7 +1003,9 @@ listar_Provincia();        // TODO add your handling code here:
         btn_modificar_paciente.setEnabled(false);
         btn_nuevo_paciente.setEnabled(true);
         dto = new Patient();
-        id = 0;         // TODO add your handling code here:
+        
+       cbx();
+        id = 0;         
     }//GEN-LAST:event_btn_cancelar_cambiosActionPerformed
  private boolean editable;
     private Patient dto;
@@ -1080,7 +1083,7 @@ listar_Provincia();        // TODO add your handling code here:
     private RSMaterialComponent.RSPanelMaterial menu_salir1;
     private RSMaterialComponent.RSPanelMaterial menu_salir2;
     private RSMaterialComponent.RSPanelMaterial menu_salir3;
-    private RSMaterialComponent.RSPanelMaterial menu_salir4;
+    private RSMaterialComponent.RSPanelMaterial p1;
     private rojerusan.RSTableMetro tablePatients;
     private rscomponentshade.RSFormatFieldShade txt_apellidoMAT;
     private rscomponentshade.RSFormatFieldShade txt_apellidoPAT;

@@ -17,9 +17,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="24" max="32767" attributes="0"/>
-              <Component id="cbx_paginas" min="-2" pref="46" max="-2" attributes="0"/>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace pref="115" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="menu_salir3" pref="780" max="32767" attributes="0"/>
                   <Component id="menu_salir2" pref="780" max="32767" attributes="0"/>
@@ -36,16 +34,8 @@
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Component id="menu_salir2" min="-2" pref="390" max="-2" attributes="0"/>
               <EmptySpace pref="22" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="menu_salir3" min="-2" pref="133" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="cbx_paginas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="menu_salir3" min="-2" pref="133" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -186,11 +176,11 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="btn_principio" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                           <Component id="btn_anterior" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
                           <Component id="btn_siguiente" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
                           <Component id="btn_final" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="btn_principio" min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                       <Component id="cbx_filas" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -217,11 +207,12 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="10"/>
-                <StringItem index="1" value="25"/>
-                <StringItem index="2" value="50"/>
-                <StringItem index="3" value="100"/>
+              <StringArray count="5">
+                <StringItem index="0" value="3"/>
+                <StringItem index="1" value="10"/>
+                <StringItem index="2" value="25"/>
+                <StringItem index="3" value="50"/>
+                <StringItem index="4" value="100"/>
               </StringArray>
             </Property>
             <Property name="colorMaterial" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -322,27 +313,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="RSMaterialComponent.RSComboBoxMaterial" name="cbx_paginas">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="33" red="33" type="rgb"/>
-        </Property>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="10"/>
-            <StringItem index="1" value="25"/>
-            <StringItem index="2" value="50"/>
-            <StringItem index="3" value="100"/>
-          </StringArray>
-        </Property>
-        <Property name="colorMaterial" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="a7" green="75" red="a" type="rgb"/>
-        </Property>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Poppins" size="14" style="0"/>
-        </Property>
-      </Properties>
-    </Component>
     <Container class="RSMaterialComponent.RSPanelMaterial" name="menu_salir4">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

@@ -5,6 +5,8 @@
  */
 package WIN33CLC_VIEW;
 
+import java.awt.Color;
+
 /**
  *
  * @author Lufra
@@ -16,6 +18,8 @@ public class prueba extends javax.swing.JFrame {
      */
     public prueba() {
         initComponents();
+        setBackground(new Color (255,255,255,0));
+
     }
 
     /**
@@ -28,17 +32,7 @@ public class prueba extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1029, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 618, Short.MAX_VALUE)
-        );
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,12 +73,5 @@ public class prueba extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private newscomponents.RSButtonFlat_new btn_buscar;
-    private newscomponents.RSButtonFlat_new btn_print;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel lbl_total;
-    private RSMaterialComponent.RSPanelMaterial menu_salir1;
-    private rscomponentshade.RSFormatFieldShade txt_filtro;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,17 +11,11 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
      
         setBackground(new Color (255,255,255,1));
 
-       
+             p1.setColorPrimario(new Color (255,255,255,200));
+     p1.setColorSecundario(new Color (255,255,255,200));
     }
 
-    public void ocultar_form_usuarios(boolean b)
-    {
-    menu_salir1.setVisible(b);
-    
-            menu_salir3.setVisible(b);
-            rSPanelBorderGradient1.setVisible(b);
-            
-    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -37,7 +31,7 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
         menu_salir3 = new RSMaterialComponent.RSPanelMaterial();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePatients = new rojerusan.RSTableMetro();
-        rSPanelBorderGradient1 = new RSMaterialComponent.RSPanelBorderGradient();
+        p1 = new RSMaterialComponent.RSPanelBorderGradient();
         jLabel12 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btn_nuevo_especialista = new newscomponents.RSButtonFlat_new();
@@ -182,13 +176,13 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        rSPanelBorderGradient1.setBackground(new java.awt.Color(204, 204, 204));
-        rSPanelBorderGradient1.setBgShade(new java.awt.Color(255, 255, 255));
-        rSPanelBorderGradient1.setColorPrimario(new java.awt.Color(200, 232, 250));
-        rSPanelBorderGradient1.setColorSecundario(new java.awt.Color(200, 232, 250));
-        rSPanelBorderGradient1.setGradiente(RSMaterialComponent.RSPanelBorderGradient.Gradiente.HORIZONTAL);
-        rSPanelBorderGradient1.setRound(40);
-        rSPanelBorderGradient1.setWidthBorder(0);
+        p1.setBackground(new java.awt.Color(204, 204, 204));
+        p1.setBgShade(new java.awt.Color(255, 255, 255));
+        p1.setColorPrimario(new java.awt.Color(200, 232, 250));
+        p1.setColorSecundario(new java.awt.Color(200, 232, 250));
+        p1.setGradiente(RSMaterialComponent.RSPanelBorderGradient.Gradiente.HORIZONTAL);
+        p1.setRound(40);
+        p1.setWidthBorder(0);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-100.png"))); // NOI18N
 
@@ -252,29 +246,29 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout rSPanelBorderGradient1Layout = new javax.swing.GroupLayout(rSPanelBorderGradient1);
-        rSPanelBorderGradient1.setLayout(rSPanelBorderGradient1Layout);
-        rSPanelBorderGradient1Layout.setHorizontalGroup(
-            rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelBorderGradient1Layout.createSequentialGroup()
+        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
+        p1.setLayout(p1Layout);
+        p1Layout.setHorizontalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                 .addContainerGap(32, Short.MAX_VALUE)
-                .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btn_cancelar_cambios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_nuevo_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_modificar_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_guardar_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelBorderGradient1Layout.createSequentialGroup()
+                    .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                             .addComponent(jLabel3)
                             .addGap(40, 40, 40))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelBorderGradient1Layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                             .addComponent(jLabel12)
                             .addGap(81, 81, 81)))))
         );
-        rSPanelBorderGradient1Layout.setVerticalGroup(
-            rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+        p1Layout.setVerticalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -295,7 +289,7 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menu_salir3, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
@@ -309,7 +303,7 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addComponent(menu_salir3, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(91, Short.MAX_VALUE))
-            .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -349,7 +343,7 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private RSMaterialComponent.RSPanelMaterial menu_salir1;
     private RSMaterialComponent.RSPanelMaterial menu_salir3;
-    private RSMaterialComponent.RSPanelBorderGradient rSPanelBorderGradient1;
+    private RSMaterialComponent.RSPanelBorderGradient p1;
     private rojerusan.RSTableMetro tablePatients;
     private rscomponentshade.RSPassFieldShade txt_pass;
     private rscomponentshade.RSFormatFieldShade txt_user;

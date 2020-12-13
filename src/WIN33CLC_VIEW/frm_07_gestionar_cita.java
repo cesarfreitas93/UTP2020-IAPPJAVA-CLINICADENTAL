@@ -43,7 +43,7 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
         btn_anular_cita.setEnabled(false);
         rSDateChooser2.setEnabled(false);
         rSDateChooser2.setDatoFecha(null);
-        txt_buscar_horarios.setEnabled(false);
+        btn_horario_disponible.setEnabled(false);
 
     }
 
@@ -96,15 +96,15 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
                         lblnro_cita.setText(String.valueOf(dtos.getId()));
                         lbl_servicio.setText(dtos.getService().getName());
                         lbl_especialista.setText(dtos.getSpecialist().getName());
-                        lbl_patient2.setText(dtos.getPatient().getName() + " " + dtos.getPatient().getLastname() + " " + dtos.getPatient().getSurename());
-                        lbl_patient3.setText(dtos.getPatient().getPhone());
-                        lbl_patient4.setText(String.valueOf(dtos.getFechadecita()));
-                        lbl_patient1.setText(String.valueOf(dtos.getHorario_citas().getCita_horario_inicio()) + " - " + String.valueOf(dtos.getHorario_citas().getCita_horario_fin()));
-                        btn_eliminar_cita.setEnabled(true);
+                        lbl_patient.setText(dtos.getPatient().getName() + " " + dtos.getPatient().getLastname() + " " + dtos.getPatient().getSurename());
+                        lbl_phone.setText(dtos.getPatient().getPhone());
+                        lbl_fecha_cita.setText(String.valueOf(dtos.getFechadecita()));
+                        lbl_hora_cita.setText(String.valueOf(dtos.getHorario_citas().getCita_horario_inicio()) + " - " + String.valueOf(dtos.getHorario_citas().getCita_horario_fin()));
+                        btn_eliminar_cita.setEnabled(false);
                         btn_reprogramar_cita.setEnabled(true);
-                        btn_anular_cita.setEnabled(false);
+                        btn_anular_cita.setEnabled(true);
                         rSDateChooser2.setEnabled(true);
-                        txt_buscar_horarios.setEnabled(true);
+                        btn_horario_disponible.setEnabled(true);
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(frm_07_gestionar_cita.class.getName()).log(Level.SEVERE, null, ex);
@@ -145,15 +145,15 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
                         lblnro_cita.setText(String.valueOf(dtos.getId()));
                         lbl_servicio.setText(dtos.getService().getName());
                         lbl_especialista.setText(dtos.getSpecialist().getName());
-                        lbl_patient2.setText(dtos.getPatient().getName() + " " + dtos.getPatient().getLastname() + " " + dtos.getPatient().getSurename());
-                        lbl_patient3.setText(dtos.getPatient().getPhone());
-                        lbl_patient4.setText(String.valueOf(dtos.getFechadecita()));
-                        lbl_patient1.setText(String.valueOf(dtos.getHorario_citas().getCita_horario_inicio()) + " - " + String.valueOf(dtos.getHorario_citas().getCita_horario_fin()));
+                        lbl_patient.setText(dtos.getPatient().getName() + " " + dtos.getPatient().getLastname() + " " + dtos.getPatient().getSurename());
+                        lbl_phone.setText(dtos.getPatient().getPhone());
+                        lbl_fecha_cita.setText(String.valueOf(dtos.getFechadecita()));
+                        lbl_hora_cita.setText(String.valueOf(dtos.getHorario_citas().getCita_horario_inicio()) + " - " + String.valueOf(dtos.getHorario_citas().getCita_horario_fin()));
                         btn_eliminar_cita.setEnabled(true);
                         btn_reprogramar_cita.setEnabled(false);
                         btn_anular_cita.setEnabled(true);
                         rSDateChooser2.setEnabled(false);
-                        txt_buscar_horarios.setEnabled(false);
+                        btn_horario_disponible.setEnabled(false);
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(frm_07_gestionar_cita.class.getName()).log(Level.SEVERE, null, ex);
@@ -193,15 +193,15 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
                         lblnro_cita.setText(String.valueOf(dtos.getId()));
                         lbl_servicio.setText(dtos.getService().getName());
                         lbl_especialista.setText(dtos.getSpecialist().getName());
-                        lbl_patient2.setText(dtos.getPatient().getName() + " " + dtos.getPatient().getLastname() + " " + dtos.getPatient().getSurename());
-                        lbl_patient3.setText(dtos.getPatient().getPhone());
-                        lbl_patient4.setText(String.valueOf(dtos.getFechadecita()));
-                        lbl_patient1.setText(String.valueOf(dtos.getHorario_citas().getCita_horario_inicio()) + " - " + String.valueOf(dtos.getHorario_citas().getCita_horario_fin()));
+                        lbl_patient.setText(dtos.getPatient().getName() + " " + dtos.getPatient().getLastname() + " " + dtos.getPatient().getSurename());
+                        lbl_phone.setText(dtos.getPatient().getPhone());
+                        lbl_fecha_cita.setText(String.valueOf(dtos.getFechadecita()));
+                        lbl_hora_cita.setText(String.valueOf(dtos.getHorario_citas().getCita_horario_inicio()) + " - " + String.valueOf(dtos.getHorario_citas().getCita_horario_fin()));
                         btn_eliminar_cita.setEnabled(false);
                         btn_reprogramar_cita.setEnabled(false);
                         btn_anular_cita.setEnabled(false);
                         rSDateChooser2.setEnabled(false);
-                        txt_buscar_horarios.setEnabled(false);
+                        btn_horario_disponible.setEnabled(false);
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(frm_07_gestionar_cita.class.getName()).log(Level.SEVERE, null, ex);
@@ -222,7 +222,7 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
                     rSDateChooser2.setDatoFecha(null);
                     limpiar_menu();
                     buttonGroup1.clearSelection();
-                    txt_buscar_horarios.setEnabled(false);
+                    btn_horario_disponible.setEnabled(false);
                 }
             }
         });
@@ -237,10 +237,10 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
         lblnro_cita.setText("");
         lbl_servicio.setText("");
         lbl_especialista.setText("");
-        lbl_patient2.setText("");
-        lbl_patient3.setText("");
-        lbl_patient4.setText("");
-        lbl_patient1.setText("");
+        lbl_patient.setText("");
+        lbl_phone.setText("");
+        lbl_fecha_cita.setText("");
+        lbl_hora_cita.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -266,7 +266,7 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         rSDateChooser2 = new rojeru_san.componentes.RSDateChooser();
-        txt_buscar_horarios = new RSMaterialComponent.RSButtonMaterialGradientOne();
+        btn_horario_disponible = new RSMaterialComponent.RSButtonMaterialGradientOne();
         jPanel5 = new javax.swing.JPanel();
         rbx_1 = new RSMaterialComponent.RSRadioButtonMaterial();
         rbx_2 = new RSMaterialComponent.RSRadioButtonMaterial();
@@ -289,14 +289,14 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
         lbl_especialista = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        lbl_patient1 = new javax.swing.JLabel();
+        lbl_hora_cita = new javax.swing.JLabel();
         lbl_servicio = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        lbl_patient2 = new javax.swing.JLabel();
+        lbl_patient = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        lbl_patient3 = new javax.swing.JLabel();
-        lbl_patient4 = new javax.swing.JLabel();
+        lbl_phone = new javax.swing.JLabel();
+        lbl_fecha_cita = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -465,21 +465,21 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
         rSDateChooser2.setFuente(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jPanel4.add(rSDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
 
-        txt_buscar_horarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-horas-extras-30.png"))); // NOI18N
-        txt_buscar_horarios.setText("Ver Horario Disponible");
-        txt_buscar_horarios.setBorderPainted(false);
-        txt_buscar_horarios.setColorPrimario(new java.awt.Color(42, 170, 232));
-        txt_buscar_horarios.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
-        txt_buscar_horarios.setColorSecundario(new java.awt.Color(3, 102, 183));
-        txt_buscar_horarios.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
-        txt_buscar_horarios.setFocusPainted(false);
-        txt_buscar_horarios.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 16)); // NOI18N
-        txt_buscar_horarios.addActionListener(new java.awt.event.ActionListener() {
+        btn_horario_disponible.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES/icons8-horas-extras-30.png"))); // NOI18N
+        btn_horario_disponible.setText("Ver Horario Disponible");
+        btn_horario_disponible.setBorderPainted(false);
+        btn_horario_disponible.setColorPrimario(new java.awt.Color(42, 170, 232));
+        btn_horario_disponible.setColorPrimarioHover(new java.awt.Color(101, 208, 250));
+        btn_horario_disponible.setColorSecundario(new java.awt.Color(3, 102, 183));
+        btn_horario_disponible.setColorSecundarioHover(new java.awt.Color(3, 102, 183));
+        btn_horario_disponible.setFocusPainted(false);
+        btn_horario_disponible.setFont(new java.awt.Font("ITC Avant Garde Std Bk", 1, 16)); // NOI18N
+        btn_horario_disponible.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_buscar_horariosActionPerformed(evt);
+                btn_horario_disponibleActionPerformed(evt);
             }
         });
-        jPanel4.add(txt_buscar_horarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 250, 40));
+        jPanel4.add(btn_horario_disponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 250, 40));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -645,9 +645,9 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
         jLabel6.setText("SERVICIO:");
         jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, 30));
 
-        lbl_patient1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        lbl_patient1.setText("Teléfono");
-        jPanel6.add(lbl_patient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 90, 30));
+        lbl_hora_cita.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lbl_hora_cita.setText("Teléfono");
+        jPanel6.add(lbl_hora_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 90, 30));
 
         lbl_servicio.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lbl_servicio.setText("Servicio");
@@ -657,9 +657,9 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
         jLabel7.setText("PACIENTE: ");
         jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, 30));
 
-        lbl_patient2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        lbl_patient2.setText("Nombres y apellidos");
-        jPanel6.add(lbl_patient2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 450, 30));
+        lbl_patient.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lbl_patient.setText("Nombres y apellidos");
+        jPanel6.add(lbl_patient, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 450, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
         jLabel8.setText("TELÉFONO:");
@@ -669,13 +669,13 @@ public class frm_07_gestionar_cita extends javax.swing.JPanel {
         jLabel9.setText("FECHA CITA:");
         jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, 30));
 
-        lbl_patient3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        lbl_patient3.setText("Teléfono");
-        jPanel6.add(lbl_patient3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 160, 30));
+        lbl_phone.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lbl_phone.setText("Teléfono");
+        jPanel6.add(lbl_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 160, 30));
 
-        lbl_patient4.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        lbl_patient4.setText("10/25/200");
-        jPanel6.add(lbl_patient4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 130, 30));
+        lbl_fecha_cita.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lbl_fecha_cita.setText("10/25/200");
+        jPanel6.add(lbl_fecha_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 130, 30));
         jPanel6.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 720, 10));
 
         add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 780, 170));
@@ -719,10 +719,10 @@ public void deshabilitar_rbx_Gestionar_cita(boolean b) {
                         lblnro_cita.setText("");
                         lbl_servicio.setText("");
                         lbl_especialista.setText("");
-                        lbl_patient2.setText("");
-                        lbl_patient3.setText("");
-                        lbl_patient4.setText("");
-                        lbl_patient1.setText("");
+                        lbl_patient.setText("");
+                        lbl_phone.setText("");
+                        lbl_fecha_cita.setText("");
+                        lbl_hora_cita.setText("");
                         buttonGroup1.clearSelection();
                         checkbox_horario(false);
                     }
@@ -740,7 +740,7 @@ public void deshabilitar_rbx_Gestionar_cita(boolean b) {
 //else {
     }//GEN-LAST:event_btn_reprogramar_citaActionPerformed
 
-    private void txt_buscar_horariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_buscar_horariosActionPerformed
+    private void btn_horario_disponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_horario_disponibleActionPerformed
         if (rSDateChooser2.getDatoFecha() == null) {
             JOptionPane.showMessageDialog(null, "Elija la fecha de la cita primero");
         } else {
@@ -753,7 +753,7 @@ public void deshabilitar_rbx_Gestionar_cita(boolean b) {
             }
         }
 
-    }//GEN-LAST:event_txt_buscar_horariosActionPerformed
+    }//GEN-LAST:event_btn_horario_disponibleActionPerformed
     private void validarFechaCita() {
         java.util.Date capturar_fecha_sistema = new java.util.Date();
 
@@ -1072,6 +1072,7 @@ public void deshabilitar_rbx_Gestionar_cita(boolean b) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_anular_cita;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_eliminar_cita;
+    private RSMaterialComponent.RSButtonMaterialGradientOne btn_horario_disponible;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_reprogramar_cita;
     private javax.swing.ButtonGroup buttonGroup1;
     private LIB.FSGradientPanel fSGradientPanel1;
@@ -1096,10 +1097,10 @@ public void deshabilitar_rbx_Gestionar_cita(boolean b) {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lbl_especialista;
-    private javax.swing.JLabel lbl_patient1;
-    private javax.swing.JLabel lbl_patient2;
-    private javax.swing.JLabel lbl_patient3;
-    private javax.swing.JLabel lbl_patient4;
+    private javax.swing.JLabel lbl_fecha_cita;
+    private javax.swing.JLabel lbl_hora_cita;
+    private javax.swing.JLabel lbl_patient;
+    private javax.swing.JLabel lbl_phone;
     private javax.swing.JLabel lbl_servicio;
     private javax.swing.JLabel lblnro_cita;
     private rojeru_san.componentes.RSDateChooser rSDateChooser2;
@@ -1120,6 +1121,5 @@ public void deshabilitar_rbx_Gestionar_cita(boolean b) {
     private rojerusan.RSTableMetro tabla_citas_reprogramadas;
     private rojerusan.RSTableMetro tabla_citas_vencidas;
     private rojerusan.RSTableMetro tabla_citas_vigentes;
-    private RSMaterialComponent.RSButtonMaterialGradientOne txt_buscar_horarios;
     // End of variables declaration//GEN-END:variables
 }

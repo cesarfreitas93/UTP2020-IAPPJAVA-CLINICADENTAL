@@ -15,16 +15,17 @@ import java.util.logging.Logger;
 
 public class frm_UI_Reportes_Citas extends javax.swing.JPanel {
    
-    private int total_registros_bd;
+ private int total_registros_bd;
     private int paginas_page;
     private boolean reload_page;
+    private int paginanumber = 1;
 
     public frm_UI_Reportes_Citas() {
         initComponents();
         setBackground(new Color (255,255,255,0));
         Load();
     }
-public int getTotal_registros_bd() {
+  public int getTotal_registros_bd() {
         return total_registros_bd;
     }
 
@@ -39,6 +40,8 @@ public int getTotal_registros_bd() {
     public void setPaginas_page(int paginas_page) {
         this.paginas_page = paginas_page;
     }
+
+    
 
 
     @SuppressWarnings("unchecked")
@@ -55,7 +58,6 @@ public int getTotal_registros_bd() {
         btn_principio = new newscomponents.RSButtonFlat_new();
         btn_siguiente = new newscomponents.RSButtonFlat_new();
         btn_final = new newscomponents.RSButtonFlat_new();
-        cbx_paginas = new RSMaterialComponent.RSComboBoxMaterial();
         menu_salir4 = new RSMaterialComponent.RSPanelMaterial();
         jLabel5 = new javax.swing.JLabel();
         txt_filtro = new rscomponentshade.RSFormatFieldShade();
@@ -123,7 +125,7 @@ public int getTotal_registros_bd() {
         jLabel3.setText("Filas:");
 
         cbx_filas.setForeground(new java.awt.Color(51, 51, 51));
-        cbx_filas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "25", "50", "100" }));
+        cbx_filas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3", "10", "25", "50", "100" }));
         cbx_filas.setColorMaterial(new java.awt.Color(10, 117, 167));
         cbx_filas.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
 
@@ -189,7 +191,7 @@ public int getTotal_registros_bd() {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cbx_filas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_principio, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                .addComponent(btn_principio, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_anterior, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -206,19 +208,14 @@ public int getTotal_registros_bd() {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(9, 9, 9))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_principio, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_anterior, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_final, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btn_anterior, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_siguiente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_final, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_principio, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cbx_filas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
-
-        cbx_paginas.setForeground(new java.awt.Color(51, 51, 51));
-        cbx_paginas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10", "25", "50", "100" }));
-        cbx_paginas.setColorMaterial(new java.awt.Color(10, 117, 167));
-        cbx_paginas.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
 
         menu_salir4.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir4.setBgShade(new java.awt.Color(204, 204, 204));
@@ -317,9 +314,7 @@ public int getTotal_registros_bd() {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(cbx_paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addContainerGap(115, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menu_salir3, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
                     .addComponent(menu_salir2, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
@@ -333,56 +328,52 @@ public int getTotal_registros_bd() {
                 .addGap(23, 23, 23)
                 .addComponent(menu_salir2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(menu_salir3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cbx_paginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63))))
+                .addComponent(menu_salir3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anteriorActionPerformed
-        // TODO add your handling code here:
+     int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
+        this.paginanumber --;
+        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);        // TODO add your handling code here:
     }//GEN-LAST:event_btn_anteriorActionPerformed
 
     private void btn_principioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_principioActionPerformed
-        // TODO add your handling code here:
+   
+        int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
+        this.paginanumber = 1;
+        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);      
     }//GEN-LAST:event_btn_principioActionPerformed
 
     private void btn_siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siguienteActionPerformed
-       int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
+      int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
+        this.paginanumber ++;
+        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
     private void btn_finalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalActionPerformed
-        // TODO add your handling code here:
+ int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
+        this.paginanumber = this.getPaginas_page();
+        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);      
     }//GEN-LAST:event_btn_finalActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        try {
             CTR_05_Citas ctr = new CTR_05_Citas();
             int total_filas;
             total_filas = Integer.parseInt(cbx_filas.getSelectedItem().toString());
-            this.table_citas.setModel(ctr.ExploradorCitas(txt_filtro.getText(), total_filas, 1));
-            btn_principio.setEnabled(false);
-            btn_anterior.setEnabled(false);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(frm_exploradorCitas.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DaoException ex) {
-            Logger.getLogger(frm_exploradorCitas.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            getCitas(txt_filtro.getText(), total_filas , this.paginanumber  , false);
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_printActionPerformed
-        try {
+      try {
             // TODO add your handling code here:
-
+            
             // imprimir reporte
-
+            
             Rpt_Citas citas = new Rpt_Citas();
-            citas.CallExplorerRPT(txt_filtro.getText(), 10, 1);
+            String filtro = txt_filtro.getText();
+            citas.CallExplorerRPT(filtro, 1000, 1);
         } catch (IOException ex) {
             Logger.getLogger(frm_exploradorCitas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -397,7 +388,6 @@ public int getTotal_registros_bd() {
     private newscomponents.RSButtonFlat_new btn_print;
     private newscomponents.RSButtonFlat_new btn_siguiente;
     private RSMaterialComponent.RSComboBoxMaterial cbx_filas;
-    private RSMaterialComponent.RSComboBoxMaterial cbx_paginas;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -412,41 +402,22 @@ public int getTotal_registros_bd() {
 
  private void Load() {
         
-        getCitas("",10,1, true);
-        
-        ActionListener actionListener_paginas = new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                System.out.println("Selected: " + cbx_paginas.getSelectedItem());
-               System.out.print(", Position: " + cbx_paginas.getSelectedIndex());
-                int rows = Integer.parseInt(cbx_filas.getSelectedItem().toString());
-               int page = Integer.parseInt(cbx_paginas.getSelectedItem().toString());
-                if(reload_page)
-                    getCitas(txt_filtro.getText(), rows, page, false);
-            }
-        };
-        // add event al cbs_Service
-
-       cbx_paginas.addActionListener(actionListener_paginas);
-        
+        getCitas("",3,1, true);
         
         ActionListener actionListener_filas = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 System.out.println("Selected: " + cbx_filas.getSelectedItem());
                 System.out.print(", Position: " + cbx_filas.getSelectedIndex());
                 int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
-                getCitas(txt_filtro.getText(), rows, 1, false);
+                paginanumber = 1;
+                getCitas(txt_filtro.getText(), rows, paginanumber, false);
             }
         };
-        
-        // add event al cbs_Service
-
         cbx_filas.addActionListener(actionListener_filas);
     }
 
     private void getCitas(String Filtro, int showrows, int page, boolean no_reload_page) {
         try {
-            
-            
             
             CTR_05_Citas ctr = new CTR_05_Citas();
             this.table_citas.setModel(ctr.ExploradorCitas(Filtro, showrows, page));
@@ -454,19 +425,36 @@ public int getTotal_registros_bd() {
             this.setTotal_registros_bd(ctr.getTotal_registros_bd());
             
             lbl_total.setText(total_registros_bd+ "");
+            int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());    
             
-            reload_page = no_reload_page;
-            if(no_reload_page){
-              cbx_paginas.removeAllItems();
-                for(int a = 1; a <= this.paginas_page; a++){
-                 cbx_paginas.addItem(a+"");
-                }
-              cbx_paginas.setSelectedIndex(0);
-                reload_page = true;
+            
+            if(this.paginanumber == this.paginas_page)
+            {
+                btn_siguiente.setEnabled(false); 
+                btn_final.setEnabled(false);
+                btn_principio.setEnabled(true);
+                btn_anterior.setEnabled(true);
             }
-            
-            btn_principio.setEnabled(false);
-            btn_anterior.setEnabled(false);
+            if(this.paginanumber == 1)
+            {
+                btn_siguiente.setEnabled(true); 
+                btn_final.setEnabled(true);
+                btn_principio.setEnabled(false);
+                btn_anterior.setEnabled(false);
+            }
+            if(total_registros_bd <= rows ){
+                btn_siguiente.setEnabled(false); 
+                btn_final.setEnabled(false);
+                btn_principio.setEnabled(false);
+                btn_anterior.setEnabled(false);
+            }
+            if(paginanumber > 1 && paginanumber < this.paginas_page){
+               btn_siguiente.setEnabled(true); 
+               btn_final.setEnabled(true);
+               btn_principio.setEnabled(true);
+               btn_anterior.setEnabled(true);
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(frm_exploradorCitas.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DaoException ex) {
