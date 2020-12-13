@@ -19,10 +19,19 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import rojerusan.RSNotifyFade;
 
@@ -789,7 +798,69 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
         }
 
     }
+public void enviar_confirmacion(Citas citas, Date fechacita, String horacita)
 
+    {
+    Properties propiedad = new Properties();
+        propiedad.setProperty("mail.smtp.host", "smtp.gmail.com");
+        propiedad.setProperty("mail.smtp.starttls.enable", "true");
+        propiedad.setProperty("mail.smtp.port", "587");
+        propiedad.setProperty("mail.smtp.auth", "true");
+        
+        Session sesion = Session.getDefaultInstance(propiedad);
+        
+        
+       
+        
+        String correoEnvia = "dentalpro.clinica.notificacion@gmail.com";
+        String contrasena = "Redes2015";
+        String destinatario = citas.getPatient().getEmail();
+        String asunto_cita = "Dental`s pro: Cita Revervada con Exito" ;
+        //String mensaje = txtMensaje.getText();
+        String mensaje_cita = "DETALLE DE LA CITA:  \n"+
+                              "===================  \n"+
+                               "\n"+
+                               "Nombre del Paciente= " +citas.getPatient().getName()+" "+citas.getPatient().getLastname()+" "+citas.getPatient().getSurename()
+                                +"\n Nombre del Especialista= "+citas.getSpecialist().getName()+ " "+citas.getSpecialist().getLastname()+" "+citas.getSpecialist().getSurename()
+                                +"\n Servicio odontologico= "+citas.getService().getName()
+                                +"\n Fecha de la cita= "+ fechacita.toString()
+                                +"\n Hora de la cita= "+horacita
+                                +"\n" 
+                                +"\n -- LLege 30 minutos antes de la hora de su cita. "
+                                +"\n" 
+                                +"\n Dental`s pro le agradece su preferencia."
+
+                ;
+                
+              
+        MimeMessage mail = new MimeMessage(sesion);
+        
+        try {
+            mail.setFrom(new InternetAddress (correoEnvia));
+            mail.addRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));
+            mail.setSubject(asunto_cita);
+            mail.setText(mensaje_cita);
+            
+            
+            Transport transporte = sesion.getTransport("smtp");
+            transporte.connect(correoEnvia,contrasena);
+            transporte.sendMessage(mail, mail.getRecipients(Message.RecipientType.TO));
+            transporte.close();
+            
+            JOptionPane.showMessageDialog(null, "DentalSys: Se envio la confirmacion de la cita al Email del paciente");
+            
+            
+            
+            
+            
+        } catch (AddressException ex) {
+            Logger.getLogger(frm_UI_02_reservar_cita.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MessagingException ex) {
+            Logger.getLogger(frm_UI_02_reservar_cita.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    
+    }         
     private void btn_guardar_cita1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_cita1ActionPerformed
 //    
 //        //El paciente 
@@ -868,7 +939,15 @@ public class frm_03_reservar_cita extends javax.swing.JPanel {
                     citas_e.setEspecialista_id(e_especialista.getId());
                     citas_e.setId_horario(getSelectedButtonIndex(buttonGroup1));
 
+                    String hora = Validators.getSelectedButtonText(buttonGroup1);
+
+                    enviar_confirmacion(citas_e,date1,hora);
+                    
+                 
+                    
                     cTR_05_Citas.insert(citas_e);
+                    
+                    
                     new rojerusan.RSNotifyFade("DentalSys", "Se guardaron los cambios correctamente.", 7,
                             RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.SUCCESS).setVisible(true);
                     btn_cancelar_cambios1.setEnabled(false);

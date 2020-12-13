@@ -77,9 +77,11 @@ public class CitasTableModel extends AbstractTableModel {
             case 2:
                 return dto.getService().getName();
             case 3:
-                return dto.getSpecialist().getName();
+                return dto.getSpecialist().getName()+ " "+dto.getSpecialist().getLastname()+" "+dto.getSpecialist().getSurename();
             default:
                 return "";
+                
+                
         }
 
     }

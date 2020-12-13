@@ -47,18 +47,13 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
         txt_name.setEnabled(false);
         txt_phone.setEnabled(false);
         btn_buscar_reniec.setEnabled(false);
+              p1.setColorPrimario(new Color (255,255,255,200));
+     p1.setColorSecundario(new Color (255,255,255,200));
         
         
         LoadData();
     }
-    public void ocultar_form_especialista(boolean b)
-    {
-    menu_salir1.setVisible(b);
-    menu_salir2.setVisible(b);
-     menu_salir3.setVisible(b);
-      rSPanelBorderGradient1.setVisible(b);
-            
-    }
+
     
     private long id;
     
@@ -182,7 +177,7 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
         menu_salir3 = new RSMaterialComponent.RSPanelMaterial();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_especialista = new rojerusan.RSTableMetro();
-        rSPanelBorderGradient1 = new RSMaterialComponent.RSPanelBorderGradient();
+        p1 = new RSMaterialComponent.RSPanelBorderGradient();
         jLabel12 = new javax.swing.JLabel();
         btn_nuevo_especialista = new newscomponents.RSButtonFlat_new();
         btn_guardar_especialista = new newscomponents.RSButtonFlat_new();
@@ -192,6 +187,7 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
 
         menu_salir1.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir1.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir1.setPixels(0);
         menu_salir1.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir1.setRound(40);
 
@@ -346,6 +342,7 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
 
         menu_salir2.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir2.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir2.setPixels(0);
         menu_salir2.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir2.setRound(40);
 
@@ -393,7 +390,7 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
         menu_salir2Layout.setVerticalGroup(
             menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu_salir2Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cbx_servicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -405,6 +402,7 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
 
         menu_salir3.setBackground(new java.awt.Color(255, 255, 255));
         menu_salir3.setBgShade(new java.awt.Color(204, 204, 204));
+        menu_salir3.setPixels(0);
         menu_salir3.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir3.setRound(40);
 
@@ -427,9 +425,10 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
         table_especialista.setFuenteFilas(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
         table_especialista.setFuenteFilasSelect(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
         table_especialista.setFuenteHead(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
-        table_especialista.setGridColor(new java.awt.Color(153, 153, 153));
-        table_especialista.setGrosorBordeFilas(0);
-        table_especialista.setGrosorBordeHead(0);
+        table_especialista.setGridColor(new java.awt.Color(204, 204, 204));
+        table_especialista.setGrosorBordeFilas(-1);
+        table_especialista.setGrosorBordeHead(-1);
+        table_especialista.setOpaque(false);
         table_especialista.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(table_especialista);
 
@@ -450,13 +449,13 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        rSPanelBorderGradient1.setBackground(new java.awt.Color(204, 204, 204));
-        rSPanelBorderGradient1.setBgShade(new java.awt.Color(255, 255, 255));
-        rSPanelBorderGradient1.setColorPrimario(new java.awt.Color(200, 232, 250));
-        rSPanelBorderGradient1.setColorSecundario(new java.awt.Color(200, 232, 250));
-        rSPanelBorderGradient1.setGradiente(RSMaterialComponent.RSPanelBorderGradient.Gradiente.HORIZONTAL);
-        rSPanelBorderGradient1.setRound(40);
-        rSPanelBorderGradient1.setWidthBorder(0);
+        p1.setBackground(new java.awt.Color(204, 204, 204));
+        p1.setBgShade(new java.awt.Color(255, 255, 255));
+        p1.setColorPrimario(new java.awt.Color(200, 232, 250));
+        p1.setColorSecundario(new java.awt.Color(200, 232, 250));
+        p1.setGradiente(RSMaterialComponent.RSPanelBorderGradient.Gradiente.HORIZONTAL);
+        p1.setRound(40);
+        p1.setWidthBorder(0);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-100.png"))); // NOI18N
 
@@ -520,30 +519,30 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Especialista");
 
-        javax.swing.GroupLayout rSPanelBorderGradient1Layout = new javax.swing.GroupLayout(rSPanelBorderGradient1);
-        rSPanelBorderGradient1.setLayout(rSPanelBorderGradient1Layout);
-        rSPanelBorderGradient1Layout.setHorizontalGroup(
-            rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelBorderGradient1Layout.createSequentialGroup()
+        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
+        p1.setLayout(p1Layout);
+        p1Layout.setHorizontalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(81, 81, 81))
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+            .addGroup(p1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_cancelar_cambios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_nuevo_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_modificar_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_guardar_especialista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+            .addGroup(p1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        rSPanelBorderGradient1Layout.setVerticalGroup(
-            rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
+        p1Layout.setVerticalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -564,7 +563,7 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menu_salir2, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
@@ -573,11 +572,11 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rSPanelBorderGradient1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(menu_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(menu_salir2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menu_salir2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menu_salir3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -747,7 +746,7 @@ public class frm_UI_06_especialista extends javax.swing.JPanel {
     private RSMaterialComponent.RSPanelMaterial menu_salir1;
     private RSMaterialComponent.RSPanelMaterial menu_salir2;
     private RSMaterialComponent.RSPanelMaterial menu_salir3;
-    private RSMaterialComponent.RSPanelBorderGradient rSPanelBorderGradient1;
+    private RSMaterialComponent.RSPanelBorderGradient p1;
     private rojerusan.RSTableMetro table_especialista;
     private rscomponentshade.RSFormatFieldShade txt_apellidoMAT;
     private rscomponentshade.RSFormatFieldShade txt_apellidoPAT;
