@@ -102,6 +102,7 @@ int xx,xy;
         panel_gestion_cita = new javax.swing.JPanel();
         frm_UI_03_gestionar_citas1 = new WIN33CLC_VIEW.frm_UI_03_gestionar_citas();
         panel_comprobante = new javax.swing.JPanel();
+        frm_UI_04_comprobantes1 = new WIN33CLC_VIEW.frm_UI_04_comprobantes();
         panel_servicios = new javax.swing.JPanel();
         panel_especialista = new javax.swing.JPanel();
         panel_usuarios = new javax.swing.JPanel();
@@ -515,6 +516,8 @@ int xx,xy;
         panel_comprobante.setBackground(new java.awt.Color(255, 255, 255));
         panel_comprobante.setName("panel_comprobante"); // NOI18N
         panel_comprobante.setLayout(new java.awt.CardLayout());
+        panel_comprobante.add(frm_UI_04_comprobantes1, "card2");
+
         rSPanelMaterial4.add(panel_comprobante, "card3");
 
         panel_servicios.setBackground(new java.awt.Color(255, 255, 255));
@@ -3528,6 +3531,7 @@ this.setState(Frame.ICONIFIED);
     private newscomponents.RSButtonFlat_new btn_usuarios_02;
     private WIN33CLC_VIEW.frm_UI_02_reservar_cita frm_UI_02_reservar_cita11;
     private WIN33CLC_VIEW.frm_UI_03_gestionar_citas frm_UI_03_gestionar_citas1;
+    private WIN33CLC_VIEW.frm_UI_04_comprobantes frm_UI_04_comprobantes1;
     private WIN33CLC_VIEW.frm_UI_inicio1 frm_UI_inicio11;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

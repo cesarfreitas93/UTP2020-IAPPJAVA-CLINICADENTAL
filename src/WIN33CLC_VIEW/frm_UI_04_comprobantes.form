@@ -106,7 +106,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="rojerusan.RSTableMetro" name="tablePatients">
+            <Component class="rojerusan.RSTableMetro" name="tablecitas">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="4a" green="4a" red="4a" type="rgb"/>
@@ -145,6 +145,7 @@
                 </Property>
                 <Property name="grosorBordeFilas" type="int" value="0"/>
                 <Property name="grosorBordeHead" type="int" value="0"/>
+                <Property name="rowHeight" type="int" value="32"/>
                 <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
@@ -364,9 +365,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace pref="15" max="32767" attributes="0"/>
-                  <Component id="rSCheckBoxMaterial1" pref="105" max="32767" attributes="0"/>
+                  <Component id="chk_boleta" pref="105" max="32767" attributes="0"/>
                   <EmptySpace type="separate" pref="27" max="32767" attributes="0"/>
-                  <Component id="rSCheckBoxMaterial2" pref="115" max="32767" attributes="0"/>
+                  <Component id="chk_factura" pref="115" max="32767" attributes="0"/>
                   <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -376,8 +377,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="rSCheckBoxMaterial1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rSCheckBoxMaterial2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chk_boleta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chk_factura" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
@@ -385,7 +386,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="rSCheckBoxMaterial1">
+        <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="chk_boleta">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -406,7 +407,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="rSCheckBoxMaterial2">
+        <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="chk_factura">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -570,17 +571,20 @@
                   </Group>
                   <EmptySpace pref="79" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="txt_ruc" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel14" max="32767" attributes="0"/>
                               <Component id="jLabel17" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel15" min="-2" pref="96" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lbl_fechaemision" min="-2" pref="211" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Component id="txt_dni1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="125" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -592,7 +596,7 @@
                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_fechaemision" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -603,7 +607,7 @@
                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbl_patient" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_dni1" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="txt_ruc" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
@@ -666,7 +670,7 @@
             <Property name="text" type="java.lang.String" value="Fecha emisi&#xf3;n:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel15">
+        <Component class="javax.swing.JLabel" name="lbl_fechaemision">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Poppins" size="14" style="0"/>
@@ -688,7 +692,7 @@
             <Property name="text" type="java.lang.String" value="Ruc Nro:"/>
           </Properties>
         </Component>
-        <Component class="rscomponentshade.RSFormatFieldShade" name="txt_dni1">
+        <Component class="rscomponentshade.RSFormatFieldShade" name="txt_ruc">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fb" green="f7" red="f6" type="rgb"/>

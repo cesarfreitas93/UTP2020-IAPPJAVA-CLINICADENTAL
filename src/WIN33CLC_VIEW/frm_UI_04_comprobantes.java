@@ -1,20 +1,48 @@
-
 package WIN33CLC_VIEW;
 
+import WIN30CLC_DAO.DaoException;
+import WIN31CLC_DTO.CitasPatient;
+import WIN31CLC_DTO.Comprobante;
+import WIN31CLC_DTO.Patient;
+import WIN32CLC_CTR.CTR_02_Patient;
+import WIN32CLC_CTR.CTR_08_Comprobante;
 import java.awt.Color;
-
+import java.awt.Component;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableModel;
+import rojerusan.RSNotifyFade;
+import rojerusan.RSTableMetro;
 
 public class frm_UI_04_comprobantes extends javax.swing.JPanel {
 
+    CTR_08_Comprobante cTR_08_Comprobante;
+    public List<CitasPatient> lista_citas = new ArrayList();
+    public Patient  patient;
     public frm_UI_04_comprobantes() {
         initComponents();
-     
-        setBackground(new Color (255,255,255,1));
-      p1.setColorPrimario(new Color (255,255,255,200));
-     p1.setColorSecundario(new Color (255,255,255,200));
-       
-    }
 
+        setBackground(new Color(255, 255, 255, 1));
+        p1.setColorPrimario(new Color(255, 255, 255, 200));
+        p1.setColorSecundario(new Color(255, 255, 255, 200));
+
+        Load();
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -23,7 +51,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         buttonGroup1 = new javax.swing.ButtonGroup();
         menu_salir3 = new RSMaterialComponent.RSPanelMaterial();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablePatients = new rojerusan.RSTableMetro();
+        tablecitas = new rojerusan.RSTableMetro();
         jLabel18 = new javax.swing.JLabel();
         p1 = new RSMaterialComponent.RSPanelBorderGradient();
         jLabel12 = new javax.swing.JLabel();
@@ -33,8 +61,8 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         btn_cancelar_cambios = new newscomponents.RSButtonFlat_new();
         jLabel3 = new javax.swing.JLabel();
         menu_salir2 = new RSMaterialComponent.RSPanelMaterial();
-        rSCheckBoxMaterial1 = new RSMaterialComponent.RSCheckBoxMaterial();
-        rSCheckBoxMaterial2 = new RSMaterialComponent.RSCheckBoxMaterial();
+        chk_boleta = new RSMaterialComponent.RSCheckBoxMaterial();
+        chk_factura = new RSMaterialComponent.RSCheckBoxMaterial();
         menu_salir4 = new RSMaterialComponent.RSPanelMaterial();
         txt_dni = new rscomponentshade.RSFormatFieldShade();
         btn_buscar_reniec = new newscomponents.RSButtonFlat_new();
@@ -44,9 +72,9 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         jLabel13 = new javax.swing.JLabel();
         lbl_patient = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lbl_fechaemision = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        txt_dni1 = new rscomponentshade.RSFormatFieldShade();
+        txt_ruc = new rscomponentshade.RSFormatFieldShade();
         jLabel2 = new javax.swing.JLabel();
         menu_salir6 = new RSMaterialComponent.RSPanelMaterial();
         jLabel19 = new javax.swing.JLabel();
@@ -58,8 +86,8 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         menu_salir3.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir3.setRound(40);
 
-        tablePatients.setForeground(new java.awt.Color(74, 74, 74));
-        tablePatients.setModel(new javax.swing.table.DefaultTableModel(
+        tablecitas.setForeground(new java.awt.Color(74, 74, 74));
+        tablecitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -70,18 +98,19 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tablePatients.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
-        tablePatients.setColorFilasForeground1(new java.awt.Color(51, 51, 51));
-        tablePatients.setColorFilasForeground2(new java.awt.Color(74, 74, 74));
-        tablePatients.setFont(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
-        tablePatients.setFuenteFilas(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
-        tablePatients.setFuenteFilasSelect(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
-        tablePatients.setFuenteHead(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
-        tablePatients.setGridColor(new java.awt.Color(153, 153, 153));
-        tablePatients.setGrosorBordeFilas(0);
-        tablePatients.setGrosorBordeHead(0);
-        tablePatients.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(tablePatients);
+        tablecitas.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tablecitas.setColorFilasForeground1(new java.awt.Color(51, 51, 51));
+        tablecitas.setColorFilasForeground2(new java.awt.Color(74, 74, 74));
+        tablecitas.setFont(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        tablecitas.setFuenteFilas(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        tablecitas.setFuenteFilasSelect(new java.awt.Font("Poppins Light", 0, 15)); // NOI18N
+        tablecitas.setFuenteHead(new java.awt.Font("Poppins SemiBold", 0, 15)); // NOI18N
+        tablecitas.setGridColor(new java.awt.Color(153, 153, 153));
+        tablecitas.setGrosorBordeFilas(0);
+        tablecitas.setGrosorBordeHead(0);
+        tablecitas.setRowHeight(32);
+        tablecitas.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(tablecitas);
 
         jLabel18.setFont(new java.awt.Font("Poppins ExtraBold", 0, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(51, 51, 51));
@@ -225,21 +254,21 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         menu_salir2.setPreferredSize(new java.awt.Dimension(90, 62));
         menu_salir2.setRound(40);
 
-        buttonGroup1.add(rSCheckBoxMaterial1);
-        rSCheckBoxMaterial1.setForeground(new java.awt.Color(51, 51, 51));
-        rSCheckBoxMaterial1.setText("Boleta");
-        rSCheckBoxMaterial1.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSCheckBoxMaterial1.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSCheckBoxMaterial1.setFocusPainted(false);
-        rSCheckBoxMaterial1.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        buttonGroup1.add(chk_boleta);
+        chk_boleta.setForeground(new java.awt.Color(51, 51, 51));
+        chk_boleta.setText("Boleta");
+        chk_boleta.setColorCheck(new java.awt.Color(0, 112, 192));
+        chk_boleta.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        chk_boleta.setFocusPainted(false);
+        chk_boleta.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
 
-        buttonGroup1.add(rSCheckBoxMaterial2);
-        rSCheckBoxMaterial2.setForeground(new java.awt.Color(51, 51, 51));
-        rSCheckBoxMaterial2.setText("Factura");
-        rSCheckBoxMaterial2.setColorCheck(new java.awt.Color(0, 112, 192));
-        rSCheckBoxMaterial2.setColorUnCheck(new java.awt.Color(0, 112, 192));
-        rSCheckBoxMaterial2.setFocusPainted(false);
-        rSCheckBoxMaterial2.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        buttonGroup1.add(chk_factura);
+        chk_factura.setForeground(new java.awt.Color(51, 51, 51));
+        chk_factura.setText("Factura");
+        chk_factura.setColorCheck(new java.awt.Color(0, 112, 192));
+        chk_factura.setColorUnCheck(new java.awt.Color(0, 112, 192));
+        chk_factura.setFocusPainted(false);
+        chk_factura.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout menu_salir2Layout = new javax.swing.GroupLayout(menu_salir2);
         menu_salir2.setLayout(menu_salir2Layout);
@@ -247,9 +276,9 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
             menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu_salir2Layout.createSequentialGroup()
                 .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(rSCheckBoxMaterial1, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                .addComponent(chk_boleta, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                 .addGap(18, 27, Short.MAX_VALUE)
-                .addComponent(rSCheckBoxMaterial2, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                .addComponent(chk_factura, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         menu_salir2Layout.setVerticalGroup(
@@ -257,8 +286,8 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
             .addGroup(menu_salir2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(menu_salir2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSCheckBoxMaterial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSCheckBoxMaterial2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chk_boleta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chk_factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -348,26 +377,26 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         jLabel14.setForeground(new java.awt.Color(51, 51, 51));
         jLabel14.setText("Fecha emisión:");
 
-        jLabel15.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel15.setText("DD/MM/AA");
+        lbl_fechaemision.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lbl_fechaemision.setForeground(new java.awt.Color(51, 51, 51));
+        lbl_fechaemision.setText("DD/MM/AA");
 
         jLabel17.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(51, 51, 51));
         jLabel17.setText("Ruc Nro:");
 
-        txt_dni1.setBackground(new java.awt.Color(246, 247, 251));
-        txt_dni1.setBgShade(new java.awt.Color(255, 255, 255));
-        txt_dni1.setBgShadeHover(new java.awt.Color(204, 204, 204));
-        txt_dni1.setCaretColor(new java.awt.Color(255, 255, 255));
-        txt_dni1.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        txt_dni1.setDoubleBuffered(true);
-        txt_dni1.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
-        txt_dni1.setIntensity(0);
-        txt_dni1.setPhColor(new java.awt.Color(255, 255, 255));
-        txt_dni1.setPixels(0);
-        txt_dni1.setPlaceholder("");
-        txt_dni1.setRound(40);
+        txt_ruc.setBackground(new java.awt.Color(246, 247, 251));
+        txt_ruc.setBgShade(new java.awt.Color(255, 255, 255));
+        txt_ruc.setBgShadeHover(new java.awt.Color(204, 204, 204));
+        txt_ruc.setCaretColor(new java.awt.Color(255, 255, 255));
+        txt_ruc.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txt_ruc.setDoubleBuffered(true);
+        txt_ruc.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
+        txt_ruc.setIntensity(0);
+        txt_ruc.setPhColor(new java.awt.Color(255, 255, 255));
+        txt_ruc.setPixels(0);
+        txt_ruc.setPlaceholder("");
+        txt_ruc.setRound(40);
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("dwadawdwad");
@@ -391,13 +420,15 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(menu_salir5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menu_salir5Layout.createSequentialGroup()
+                        .addComponent(txt_ruc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(menu_salir5Layout.createSequentialGroup()
                         .addGroup(menu_salir5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txt_dni1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(125, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_fechaemision, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         menu_salir5Layout.setVerticalGroup(
             menu_salir5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -407,7 +438,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
                     .addComponent(jLabel14)
-                    .addComponent(jLabel15))
+                    .addComponent(lbl_fechaemision))
                 .addGap(27, 27, 27)
                 .addGroup(menu_salir5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -416,7 +447,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                 .addGap(2, 2, 2)
                 .addGroup(menu_salir5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_patient)
-                    .addComponent(txt_dni1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_ruc, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -489,12 +520,52 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_nuevo_comprobanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_comprobanteActionPerformed
-
+        btn_nuevo_comprobante.setEnabled(false);
+        btn_pagar_comprobante.setEnabled(true);
+        btn_imprimir_comprobante.setEnabled(true);
+        btn_cancelar_cambios.setEnabled(true);
+        
+        txt_dni.setEnabled(true);
+        txt_ruc.setEnabled(true);
+        btn_buscar_reniec.setEnabled(true);
+        
+        chk_boleta.setEnabled(true);
+        chk_factura.setEnabled(true);
+        chk_boleta.setSelected(true);
+        
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_nuevo_comprobanteActionPerformed
 
     private void btn_pagar_comprobanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagar_comprobanteActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            Comprobante entity = new Comprobante();
+            entity.setNumero("N0001");
+            entity.setSerie("001");
+            entity.setFechaEmision(lbl_fechaemision.getText());
+            entity = cTR_08_Comprobante.Insertar(entity);
+            
+            if(entity.getId()> 0)
+            {
+                System.out.println("exito al guardar !");
+                
+                
+                // GUARDAMOS LAS CITAS EN EL DETALLE
+                
+                // HACIENDO UN BUCLE
+                
+                new rojerusan.RSNotifyFade("DentalSys", "Comprobante registrado", 7,
+                RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.SUCCESS).setVisible(true);
+            }
+            
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+            new rojerusan.RSNotifyFade("DentalSys", ex.toString(), 7,
+                    RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_pagar_comprobanteActionPerformed
 
     private void btn_imprimir_comprobanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimir_comprobanteActionPerformed
@@ -502,11 +573,72 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_imprimir_comprobanteActionPerformed
 
     private void btn_cancelar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambiosActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            btn_nuevo_comprobante.setEnabled(true);
+            btn_pagar_comprobante.setEnabled(false);
+            btn_imprimir_comprobante.setEnabled(false);
+            btn_cancelar_cambios.setEnabled(false);
+            List<CitasPatient> lista_citas = new ArrayList();
+            this.tablecitas .setModel(cTR_08_Comprobante.List(lista_citas));
+            
+            txt_dni.setEnabled(false);
+            txt_ruc.setEnabled(false);
+            
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_cancelar_cambiosActionPerformed
 
     private void btn_buscar_reniecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reniecActionPerformed
-       // TODO add your handling code here:
+        boolean error = false;
+        try {
+            // buscar paciente por dni
+            
+            CTR_02_Patient cTR_02_Patient = new CTR_02_Patient();
+            String DNI = txt_dni.getText();
+            patient = cTR_02_Patient.CheckDNI(DNI);
+            
+            if(patient.getId() > 0){                
+                String name =  patient.getName()+", " + patient.getLastname()+ " " + patient.getSurename();
+                String pattern = "dd/MM/yyyy HH:mm:ss";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+                String date = simpleDateFormat.format(new Date());
+                lbl_fechaemision.setText(date);
+                lbl_patient.setText(name.toString());
+                
+                getCitas(patient.getId());
+            }
+            else{
+                System.out.println("El DNI ingresado no existe");
+                error = true;
+            }
+        } catch (SQLException ex) {
+            error = true;
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            // salta la excepcion de dao
+            error = true;
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(error){
+            try {
+                patient = new Patient();
+                lbl_fechaemision.setText("");
+                lbl_patient.setText("");
+                List<CitasPatient> lista_citas = new ArrayList();
+                this.tablecitas .setModel(cTR_08_Comprobante.List(lista_citas));
+                new rojerusan.RSNotifyFade("DentalSys", "El DNI ingresado no existe en la base de datos.", 7,
+                        RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.ERROR).setVisible(true);
+            } catch (DaoException ex) {
+                Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btn_buscar_reniecActionPerformed
 
 
@@ -517,18 +649,20 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     private newscomponents.RSButtonFlat_new btn_nuevo_comprobante;
     private newscomponents.RSButtonFlat_new btn_pagar_comprobante;
     private javax.swing.ButtonGroup buttonGroup1;
+    private RSMaterialComponent.RSCheckBoxMaterial chk_boleta;
+    private RSMaterialComponent.RSCheckBoxMaterial chk_factura;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_fechaemision;
     private javax.swing.JLabel lbl_patient;
     private javax.swing.JLabel lbl_total_pago;
     private RSMaterialComponent.RSPanelMaterial menu_salir2;
@@ -537,10 +671,120 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     private RSMaterialComponent.RSPanelMaterial menu_salir5;
     private RSMaterialComponent.RSPanelMaterial menu_salir6;
     private RSMaterialComponent.RSPanelBorderGradient p1;
-    private RSMaterialComponent.RSCheckBoxMaterial rSCheckBoxMaterial1;
-    private RSMaterialComponent.RSCheckBoxMaterial rSCheckBoxMaterial2;
-    private rojerusan.RSTableMetro tablePatients;
+    private rojerusan.RSTableMetro tablecitas;
     private rscomponentshade.RSFormatFieldShade txt_dni;
-    private rscomponentshade.RSFormatFieldShade txt_dni1;
+    private rscomponentshade.RSFormatFieldShade txt_ruc;
     // End of variables declaration//GEN-END:variables
+
+    private void Load() {
+        try {
+            patient = new Patient();
+            getCitas(0);
+            
+            chk_boleta.addItemListener(new ItemListener() {
+                
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    //System.out.println(e.getStateChange() == ItemEvent.SELECTED ? "boleta" : "DESELECTED");
+                    if(e.getStateChange() == ItemEvent.SELECTED){
+                        txt_ruc.setEnabled(false);
+                    }
+                }
+                
+            });
+            
+            chk_factura.addItemListener(new ItemListener() {
+                
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    //System.out.println(e.getStateChange() == ItemEvent.SELECTED ? "factura" : "DESELECTED");
+                    if(e.getStateChange() == ItemEvent.SELECTED){
+                        txt_ruc.setEnabled(true);
+                    }
+                }
+                
+            });
+            
+            btn_nuevo_comprobante.setEnabled(true);
+            btn_pagar_comprobante.setEnabled(false);
+            btn_imprimir_comprobante.setEnabled(false);
+            btn_cancelar_cambios.setEnabled(false);
+            
+            txt_ruc.setEnabled(false);
+            txt_dni.setEnabled(false);
+            btn_buscar_reniec.setEnabled(false);
+            
+            chk_boleta.setEnabled(false);
+            chk_factura.setEnabled(false);
+            List<CitasPatient> lista_citas = new ArrayList();
+            this.tablecitas .setModel(cTR_08_Comprobante.List(lista_citas));
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void getCitas(long i) {
+        try {
+            cTR_08_Comprobante = new CTR_08_Comprobante();
+            this.tablecitas .setModel(cTR_08_Comprobante.List(i));
+            this.tablecitas.getSelectionModel().addListSelectionListener(e -> {
+                boolean seleccionValid = (tablecitas.getSelectedRow() != -1);
+                //btnEdit.setEnabled(seleccionValid);
+                //btnDelete.setEnabled(seleccionValid);
+            });
+            this.lista_citas =cTR_08_Comprobante.getLista();
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        this.tablecitas.setDefaultRenderer(JButton.class, new TableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable jtable, Object objeto, boolean estaSeleccionado, boolean tieneElFoco, int fila, int columna) {
+                return (Component) objeto;
+            }
+        });
+        
+        this.tablecitas.addMouseListener(new MouseAdapter() {
+            
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila = tablecitas.rowAtPoint(e.getPoint());
+                int columna = tablecitas.columnAtPoint(e.getPoint());
+                
+                if (tablecitas.getModel().getColumnClass(0).equals(Boolean.class)) {
+     
+                    try {
+                        ChangeValueListAndUpdateModel(fila);
+                    } catch (DaoException ex) {
+                        Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }   
+            }            
+        });
+    }
+
+    public void ChangeValueListAndUpdateModel(int fila) throws DaoException, SQLException {
+        if(lista_citas.get(fila).isSelected())
+            lista_citas.get(fila).setSelected(false);
+        else
+            lista_citas.get(fila).setSelected(true);
+        
+        cTR_08_Comprobante = new CTR_08_Comprobante();
+        this.tablecitas .setModel(cTR_08_Comprobante.List(lista_citas));
+        this.lista_citas =cTR_08_Comprobante.getLista();
+        double suma = 0;
+        for(int a = 0; a<lista_citas.size(); a++)
+            if(lista_citas.get(a).isSelected())
+                suma += lista_citas.get(a).getPrecio();
+        lbl_total_pago.setText("S/ "+suma);
+    }
+  
 }

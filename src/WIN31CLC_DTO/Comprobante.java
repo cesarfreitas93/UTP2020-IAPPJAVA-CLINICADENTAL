@@ -11,8 +11,19 @@ public class Comprobante {
     private String fechaEmision;
     private long citas_id;
 
+    private long patienid;
+
     public Comprobante() {
     }
+
+    public long getPatienid() {
+        return patienid;
+    }
+
+    public void setPatienid(long patienid) {
+        this.patienid = patienid;
+    }
+
 
     public Comprobante(long id, String numero, String serie, String fechaEmision, 
             long citas_id) {
