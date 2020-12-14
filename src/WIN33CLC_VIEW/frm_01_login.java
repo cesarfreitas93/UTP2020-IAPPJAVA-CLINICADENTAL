@@ -20,40 +20,43 @@ import javax.swing.JOptionPane;
  * @author Cesar
  */
 public class frm_01_login extends javax.swing.JFrame {
-    
+
     public frm_01_login() {
-        
+
         initComponents();
-        
+
         setBackground(new Color(255, 255, 255, 245));
         jPanel2.setOpaque(false);
         txt_username.setBackground(new Color(0, 0, 0, 1));
         txt_password.setBackground(new Color(0, 0, 0, 1));
-        
-        setLocationRelativeTo(null);        
+
+        setLocationRelativeTo(null);
         Shape forma = new RoundRectangle2D.Double(0, 0, getBounds().width, getBounds().height, 20, 20);
         AWTUtilities.setWindowShape(this, forma);
-        
+
     }
-    
+
     int xx, xy;
-    
+
     public void login() {
         try {
-            
+
             CTR_01_Auth ctr = new CTR_01_Auth();
             char clave[] = txt_password.getPassword();
             String clavedef = new String(clave);
-            
+
             if (ctr.CheckAuth(txt_username.getText(), clavedef)) {
-                frm_Main frm_m = new frm_Main();
-                frm_m.setVisible(true);
+                UI_V5_main1 frm_m = new UI_V5_main1();
+                frm_m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
                 frm_m.pack();
-                frm_m.setLocationRelativeTo(null);
+  //frm_m.setLocationRelativeTo(null);  // *** this will center your app ***
+                frm_m.setVisible(true);
+
                 this.dispose();
-                
-            }else{
-                 JOptionPane.showMessageDialog(null, "Usuario o contraseña Incorrecto");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña Incorrecto");
 
             }
         } catch (SQLException ex) {
@@ -64,7 +67,7 @@ public class frm_01_login extends javax.swing.JFrame {
             Logger.getLogger(frm_01_login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -227,17 +230,17 @@ public class frm_01_login extends javax.swing.JFrame {
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        
+
         this.setLocation(x - xx, y - xy);          // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void btn_loguinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loguinActionPerformed
         login();
-        
+
     }//GEN-LAST:event_btn_loguinActionPerformed
-    
+
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -254,7 +257,7 @@ public class frm_01_login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frm_01_login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frm_01_login().setVisible(true);

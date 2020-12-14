@@ -1,21 +1,109 @@
-
 package WIN33CLC_VIEW;
 
+import WIN30CLC_DAO.DaoException;
+import WIN31CLC_DTO.User;
+import WIN32CLC_CTR.CTR_01_Auth;
+import static WIN_2020_UTILS.Validators.inputStringIngresado;
 import java.awt.Color;
-
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
+import rojerusan.RSNotifyFade;
 
 public class frm_UI_07_usuarios extends javax.swing.JPanel {
 
+    private CTR_01_Auth CTR_01_Auth_ctr;
+
     public frm_UI_07_usuarios() {
         initComponents();
-     
-        setBackground(new Color (255,255,255,1));
 
-             p1.setColorPrimario(new Color (255,255,255,200));
-     p1.setColorSecundario(new Color (255,255,255,200));
+        setBackground(new Color(255, 255, 255, 1));
+
+        p1.setColorPrimario(new Color(255, 255, 255, 200));
+        p1.setColorSecundario(new Color(255, 255, 255, 200));
+        LoadData();
+        Limpiar();
+        btn_cancelar_cambios.setEnabled(false);
+        btn_modificar_especialista.setEnabled(false);
+        btn_guardar_especialista.setEnabled(false);
+        CTR_01_Auth_ctr = new CTR_01_Auth();
     }
 
+    public void LoadData() {
+        try {
+            CTR_01_Auth ctr = new CTR_01_Auth();
+            this.tablePatients.setModel(ctr.ListUser());
+            this.tablePatients.getSelectionModel().addListSelectionListener(e -> {
+                boolean seleccionValid = (tablePatients.getSelectedRow() != -1);
+                //btnEdit.setEnabled(seleccionValid);
+                //btnDelete.setEnabled(seleccionValid);
+            });
+        } catch (DaoException ex) {
+            // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            //   Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+        this.tablePatients.setDefaultRenderer(JButton.class, new TableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable jtable, Object objeto, boolean estaSeleccionado, boolean tieneElFoco, int fila, int columna) {
+                return (Component) objeto;
+            }
+
+        });
+
+        this.tablePatients.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila = tablePatients.rowAtPoint(e.getPoint());
+                int columna = tablePatients.columnAtPoint(e.getPoint());
+
+                System.out.println("click");
+                setEditable(true);
+
+                if (tablePatients.getModel().getColumnClass(columna).equals(JButton.class)) {
+                    try {
+                        System.out.println(tablePatients.getModel().getValueAt(fila, 0));
+                        long id = (long) tablePatients.getModel().getValueAt(fila, 0);
+                        CTR_01_Auth_ctr.DeleteUser(id);
+                        System.out.println("eliminado por el botton");
+                        tablePatients.setModel(CTR_01_Auth_ctr.ListUser());
+                        //      setEditable(false);
+                    } catch (SQLException ex) {
+                        // Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (DaoException ex) {
+                        //Logger.getLogger(frm_02_Patient.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+
+                if (!tablePatients.getModel().getColumnClass(0).equals(JButton.class)) {
+                    //System.out.println(tablePatients.getModel().getValueAt(fila, 0)); 
+                    setId((long) tablePatients.getModel().getValueAt(fila, 0));
+
+                }
+
+            }
+
+        });
+
+    }
+
+    private User getUserSelected() throws SQLException, DaoException {
+        CTR_01_Auth ctr = new CTR_01_Auth();
+        int id = (int) tablePatients.getValueAt(tablePatients.getSelectedRow(), 0);
+        return ctr.SelectUser(id);
+    }
+    public void mensaje() throws DaoException, SQLException {
+        tablePatients.setModel(CTR_01_Auth_ctr.ListUser());
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -312,20 +400,179 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_chk_recepcionistaActionPerformed
 
     private void btn_nuevo_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_especialistaActionPerformed
-       
+        //    Limpiar();
+        txt_user.setEnabled(true);
+        txt_pass.setEnabled(true);
+        chk_admin.setEnabled(true);
+        chk_recepcionista.setEnabled(true);
+        chk_admin.setSelected(false);
+        chk_recepcionista.setSelected(false);
+        btn_cancelar_cambios.setEnabled(true);
+        btn_guardar_especialista.setEnabled(true);
     }//GEN-LAST:event_btn_nuevo_especialistaActionPerformed
 
     private void btn_guardar_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_especialistaActionPerformed
-       
-    }//GEN-LAST:event_btn_guardar_especialistaActionPerformed
+        String msg = "";
+        int focus = 0;
+        if (!inputStringIngresado(txt_user.getText())) {
+            msg = msg + "Ingrese Un Usuario \n";
+            focus = 0;
+        } else if (!inputStringIngresado(txt_pass.getText())) {
+            msg = msg + "Ingrese Una Contraseña\n";
+            focus = 1;
+        }
 
+        try {
+            if (msg.length() > 0) {
+                JOptionPane.showMessageDialog(null, msg,
+                        "Dental SyS", JOptionPane.ERROR_MESSAGE);
+                switch (focus) {
+                    case 0:
+                        txt_user.requestFocus();
+                        break;
+                    case 1:
+                        txt_pass.requestFocus();
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                String admin = "";
+
+                User User_e = new User();
+                User_e.setUsername(txt_user.getText());
+                User_e.setPassword(txt_pass.getText());
+                if (chk_admin.isSelected() == true) {
+                    admin = "1";
+                } else if (chk_recepcionista.isSelected() == true) {
+                    admin = "2";
+                }
+                User_e.setRole(admin);
+                User_e.setStatus(true);
+                CTR_01_Auth ctrp = new CTR_01_Auth();
+
+                if (id > 0) {
+                    //modificar
+                    User_e.setId(id);
+                    ctrp.UpdateUser(User_e);
+                    btn_cancelar_cambios.setEnabled(false);
+                    btn_guardar_especialista.setEnabled(false);
+                    btn_nuevo_especialista.setEnabled(true);
+                    Limpiar();
+                    dto = new User();
+                    id = 0;
+                    //frm_02_Patient frame = (frm_02_Patient) this.getTopLevelAncestor();
+                    //frame.mensaje();
+                    mensaje();
+                } else {
+                    // insertar
+                    if (User_e.getId() == 0) {
+                        User_e = ctrp.InsertUser(User_e);
+                        btn_cancelar_cambios.setEnabled(false);
+                        btn_guardar_especialista.setEnabled(false);
+                        Limpiar();
+                        // frm_02_Patient frame = (frm_02_Patient) this.getTopLevelAncestor();
+                        // frame.mensaje();
+                        mensaje();
+                        new rojerusan.RSNotifyFade("DentalSys", "Se registro correctamente al Usuario en el sistema.", 7,
+                                RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.SUCCESS).setVisible(true);
+                    } else {
+
+                        new rojerusan.RSNotifyFade("DentalSys", "No se guardaron los datos! \n Intente nuevamente", 7,
+                                RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.WARNING).setVisible(true);
+                    }
+                }
+
+            }
+        } catch (SQLException ex) {
+            // Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            //Logger.getLogger(frm_02_register_patient.class.getName()).log(Level.SEVERE, null, ex);
+        }          // TODO add your handling code here:
+    }//GEN-LAST:event_btn_guardar_especialistaActionPerformed
+    public void Limpiar() {
+        txt_pass.setText("");
+        txt_user.setText("");
+
+        txt_user.requestFocus();
+
+        txt_user.setEnabled(false);
+        txt_pass.setEnabled(false);
+        chk_admin.setEnabled(false);
+        chk_recepcionista.setEnabled(false);
+        chk_admin.setSelected(false);
+        chk_recepcionista.setSelected(false);
+       buttonGroup1.clearSelection();
+    }
     private void btn_modificar_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificar_especialistaActionPerformed
-  
+        try {
+            User dto = new User();
+
+            dto = CTR_01_Auth_ctr.SelectUser(this.id);
+
+            btn_modificar_especialista.setEnabled(false);
+            btn_nuevo_especialista.setEnabled(false);
+            btn_cancelar_cambios.setEnabled(true);
+            btn_guardar_especialista.setEnabled(true);
+            txt_user.setText(dto.getUsername());
+            txt_pass.setText(dto.getUsername());
+            txt_user.setEnabled(true);
+            txt_pass.setEnabled(true);
+
+            if (dto.getRole().equals("1")) {
+                chk_admin.setSelected(true);
+
+            } else if (dto.getRole().equals("2")) {
+                chk_recepcionista.setSelected(true);
+            }
+
+            chk_admin.setEnabled(true);
+            chk_recepcionista.setEnabled(true);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_02_Patient_Detail.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            Logger.getLogger(frm_02_Patient_Detail.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_modificar_especialistaActionPerformed
 
     private void btn_cancelar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambiosActionPerformed
-    
+        Limpiar();
+        // dto = new Patient();
+
+        id = 0;
+        btn_cancelar_cambios.setEnabled(false);
+        btn_modificar_especialista.setEnabled(false);
+        btn_guardar_especialista.setEnabled(false);
     }//GEN-LAST:event_btn_cancelar_cambiosActionPerformed
+    private boolean editable;
+    private User dto;
+
+    public User getDto() {
+        return dto;
+    }
+
+    public void setDto(User dto) {
+        this.dto = dto;
+    }
+
+    private long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public boolean isEditable() {
+        return editable;
+    }
+
+    public void setEditable(boolean editable) {
+        btn_modificar_especialista.setEnabled(editable);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -349,8 +596,4 @@ public class frm_UI_07_usuarios extends javax.swing.JPanel {
     private rscomponentshade.RSFormatFieldShade txt_user;
     // End of variables declaration//GEN-END:variables
 
-    private void LoadData() {
-        
-    }
-    
 }
