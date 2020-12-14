@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="500" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="37ea27e4-f74f-47ae-b93a-3d9ab2a583aa">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_comp" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[18]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id_pat" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\UTP2020-IAPPJAVA-CLINICADENTAL\\src\\WIN35CLC_REPORTS\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 
+comp.precio
+    ,(comp.total -comp.precio) as Igv
+    ,comp.total
+	,srv.name as Servicio
+    ,concat(esp.name, ", ", esp.lastname," ",esp.surename) as Especialista 
+,DATE_FORMAT(ci.fechadecita, "%d/%m/%Y")  as FechaCita
+    ,hc.cita_horario_inicio as HoraCita
+from comprobantedetalle as comp
+inner join citas as ci on comp.id_cita = ci.id
+inner join services as srv on ci.service_id = srv.id
+inner join especialista as esp on ci.especialista_id = esp.id
+inner join horario_citas as hc on ci.id_horario = hc.id_horario
+where comp.comprantes_id = $P{id_comp}]]>
+	</queryString>
+	<field name="precio" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Igv" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Servicio" class="java.lang.String"/>
+	<field name="Especialista" class="java.lang.String"/>
+	<field name="FechaCita" class="java.lang.String"/>
+	<field name="HoraCita" class="java.lang.String"/>
+	<variable name="total_1" class="java.lang.Double" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="total_2" class="java.lang.Double" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<variable name="Igv_1" class="java.lang.Double" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{Igv}]]></variableExpression>
+	</variable>
+	<variable name="precio_1" class="java.lang.Double" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{precio}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="301" height="93" uuid="a67cb926-1f53-4a8a-8a28-e1454d6380f1"/>
+				<imageExpression><![CDATA["C:\\UTP2020-IAPPJAVA-CLINICADENTAL\\src\\WIN34CLC_RESOURCES\\oie_transparent.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="219" y="0" width="336" height="80" forecolor="#3399FF" uuid="16e51156-1cbb-4e2f-9ca4-20bc28649c3a"/>
+				<textElement textAlignment="Right">
+					<font fontName="Poppins ExtraBold" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Odonto Center
+RUC: 20603087624
+Av Las Begonias 254
+Cercado de Lima, Lima - Perú]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="234" y="0" width="100" height="70" uuid="d21630e0-5a37-42d8-997f-644e5395c272"/>
+				<textElement textAlignment="Center">
+					<font fontName="Poppins Black" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="101" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="1" width="555" height="100" uuid="ee3d9bb2-4fec-4a8b-b146-555d059fae16"/>
+				<subreportParameter name="id_comprobante">
+					<subreportParameterExpression><![CDATA[$P{id_comp}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="id_pat">
+					<subreportParameterExpression><![CDATA[$P{id_pat}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subReporteDatosPaciente.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="22" width="177" height="20" uuid="cf85e19f-f234-4930-a800-29f3aa3f82bb"/>
+				<textElement>
+					<font fontName="Poppins Light" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Servicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="22" width="157" height="20" uuid="91b4cb1c-f9ae-4bf7-892e-295ae3102a8f"/>
+				<textElement>
+					<font fontName="Poppins Light" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Especialista]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="22" width="58" height="20" uuid="793d11ba-5d02-4b58-a46d-b8abe5e497c8"/>
+				<textElement>
+					<font fontName="Poppins Light" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FechaCita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="22" width="42" height="20" uuid="24fe32f3-00de-45fb-968b-56e6ed21d3fc"/>
+				<textElement>
+					<font fontName="Poppins Light" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HoraCita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="22" width="44" height="20" uuid="341fff6a-3ec5-4869-b5cc-face3bf43e04"/>
+				<textElement textAlignment="Right">
+					<font fontName="Poppins Light" isBold="true"/>
+				</textElement>
+				<text><![CDATA[precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="478" y="22" width="33" height="20" uuid="46c0ee74-4aa0-44eb-bcaf-b67785a4c189"/>
+				<textElement textAlignment="Right">
+					<font fontName="Poppins Light" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Igv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="511" y="22" width="44" height="20" uuid="a4c15a56-5ab6-4c3c-895c-dabae4e720f7"/>
+				<textElement textAlignment="Right">
+					<font fontName="Poppins Light" isBold="true"/>
+				</textElement>
+				<text><![CDATA[total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="11" width="555" height="1" uuid="a025cc19-283f-4042-aa4f-92b97bbe3958"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="177" height="20" uuid="ed613acb-ecec-4a51-b87c-04161d1ea93e"/>
+				<textElement>
+					<font fontName="Poppins Light"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Servicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="0" width="157" height="20" uuid="74f47fe1-f169-419e-b9e0-e09488f79974"/>
+				<textElement>
+					<font fontName="Poppins Light"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Especialista}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="0" width="58" height="20" uuid="bd336fa6-0ea4-4db6-ae92-1dc8c734257b"/>
+				<textElement>
+					<font fontName="Poppins Light"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FechaCita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="392" y="0" width="42" height="20" uuid="09fcdd57-7088-498a-9c50-146e583be892"/>
+				<textElement>
+					<font fontName="Poppins Light"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HoraCita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="0" width="44" height="20" uuid="76fa40f6-7198-48d3-bbb9-6c6fa2ce5912"/>
+				<textElement textAlignment="Right">
+					<font fontName="Poppins Light"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="478" y="0" width="33" height="20" uuid="15042ac4-e0c6-40a0-a000-e9960ae956e5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Poppins Light"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Igv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="511" y="0" width="44" height="20" uuid="a1f4300f-e402-4873-8a42-8163b2eee911"/>
+				<textElement textAlignment="Right">
+					<font fontName="Poppins Light"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="110" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="82" width="100" height="20" uuid="7a10476a-ea77-4478-ad2c-aac5f49e4800"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Poppins" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="56" width="100" height="20" uuid="3513d5d9-58d6-42de-84f7-6bf31ee8cad8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Poppins" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Igv_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="31" width="100" height="20" uuid="74b03f7c-4d79-42a7-af96-471f8aea4cf3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Poppins" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{precio_1}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="389" y="78" width="166" height="1" uuid="a8df18b2-d645-4a26-930a-97e9c4fd3a03"/>
+			</line>
+			<staticText>
+				<reportElement x="345" y="31" width="100" height="20" uuid="050ce30f-2c49-4de6-82b0-e6e9baa31ef2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Sub Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="56" width="100" height="20" uuid="858436d8-8fa6-43ea-aa2d-e40c1c4700fb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[IGV:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="82" width="100" height="20" uuid="42c411e5-92a0-4bca-bd85-d561d1f777d3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Total Soles:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="555" height="1" uuid="6b8dc223-67d9-4df5-ae8d-68ffccd6c451"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="25" uuid="1664f667-1241-4d75-9689-939e4a896ec6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Dental SYS ©]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="13" splitType="Stretch"/>
+	</summary>
+</jasperReport>

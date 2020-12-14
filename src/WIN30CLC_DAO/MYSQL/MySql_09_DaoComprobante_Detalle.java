@@ -16,8 +16,7 @@ import java.util.List;
 public class MySql_09_DaoComprobante_Detalle implements Dao_09_Comprobante_Detalle{
 
       private Connection conn;
-      final String INSERT = "INSERT INTO comprobantedetalle (descripcion, precio, igv, total, comprantes_id)\n" +
-"values (?,?,?,?,?);";
+      final String INSERT = "CALL SP_INSERTDETALLE_COMPROBANTE(?,?,?,?,?,?);";
     public MySql_09_DaoComprobante_Detalle(Connection conn) {
         this.conn = conn;
     }
@@ -31,11 +30,13 @@ public class MySql_09_DaoComprobante_Detalle implements Dao_09_Comprobante_Detal
                     ResultSet rs = null;
                     try {
                         pst = (PreparedStatement) conn.prepareStatement(INSERT);
-                        pst.setString(1, "");
-                        pst.setDouble(2, CitasPatient.get(i).getPrecio());
-                        pst.setDouble(3, 18);
-                        pst.setDouble(4, (CitasPatient.get(i).getPrecio() * 0.18)+ CitasPatient.get(i).getPrecio() );
-                        pst.setLong(5, id_cabecera);
+                        pst.setLong(1, CitasPatient.get(i).getId());
+                        pst.setString(2, "Servicio Dental");
+                        pst.setDouble(3, (CitasPatient.get(i).getPrecio() - CitasPatient.get(i).getPrecio() * 0.18));
+                        pst.setDouble(4, 0.18);
+                        pst.setDouble(5, CitasPatient.get(i).getPrecio());
+                        pst.setLong(6, id_cabecera);
+                        
 
                         if (pst.executeUpdate() == 0) {
                             throw new DaoException("Puede que no se haya guardado.");

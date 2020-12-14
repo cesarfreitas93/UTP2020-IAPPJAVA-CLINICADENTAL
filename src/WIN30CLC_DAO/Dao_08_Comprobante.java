@@ -7,6 +7,7 @@ package WIN30CLC_DAO;
 
 import WIN31CLC_DTO.CitasPatient;
 import WIN31CLC_DTO.Comprobante;
+import WIN31CLC_DTO.ComprobanteReporte;
 import java.util.List;
 
 /**
@@ -16,4 +17,5 @@ import java.util.List;
 public interface Dao_08_Comprobante{
     public List<CitasPatient> getCitasByPatient(long id) throws DaoException;
     public Comprobante Insertar(Comprobante entity) throws DaoException;
+    public List<ComprobanteReporte> Explorador(String filtro, int rowShow, int pagenumber) throws DaoException;
 }

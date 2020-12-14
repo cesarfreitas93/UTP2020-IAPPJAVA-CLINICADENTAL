@@ -10,7 +10,7 @@ public class Comprobante {
     private String serie;
     private String fechaEmision;
     private long citas_id;
-
+    private String Ruc;
     private long patienid;
 
     public Comprobante() {
@@ -22,6 +22,14 @@ public class Comprobante {
 
     public void setPatienid(long patienid) {
         this.patienid = patienid;
+    }
+
+    public String getRuc() {
+        return Ruc;
+    }
+
+    public void setRuc(String Ruc) {
+        this.Ruc = Ruc;
     }
 
 

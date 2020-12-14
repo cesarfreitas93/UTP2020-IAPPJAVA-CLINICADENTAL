@@ -73,15 +73,15 @@ public class CitasPatientTableModel  extends AbstractTableModel {
 
         }
     }
-    @Override
-    public boolean isCellEditable(int rowIndex, int columnIndex) {
-        if(columnIndex == 0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+//    @Override
+//    public boolean isCellEditable(int rowIndex, int columnIndex) {
+////        if(columnIndex == 0){
+////            return true;
+////        }
+////        else{
+//            return false;
+////        }
+//    }
 
     @Override
     public Class getColumnClass(int columnIndex) {

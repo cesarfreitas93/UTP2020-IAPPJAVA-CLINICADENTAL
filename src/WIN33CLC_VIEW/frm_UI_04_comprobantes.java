@@ -6,13 +6,16 @@ import WIN31CLC_DTO.Comprobante;
 import WIN31CLC_DTO.Patient;
 import WIN32CLC_CTR.CTR_02_Patient;
 import WIN32CLC_CTR.CTR_08_Comprobante;
+import WIN35CLC_REPORTS.CLASS.Rpt_Comprobante;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,6 +37,8 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     CTR_08_Comprobante cTR_08_Comprobante;
     public List<CitasPatient> lista_citas = new ArrayList();
     public Patient  patient;
+    public Comprobante comprobante;
+    public String tipocomprobante;
     public frm_UI_04_comprobantes() {
         initComponents();
 
@@ -42,6 +47,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         p1.setColorSecundario(new Color(255, 255, 255, 200));
 
         Load();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -463,7 +469,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
 
         lbl_total_pago.setFont(new java.awt.Font("Poppins", 0, 15)); // NOI18N
         lbl_total_pago.setForeground(new java.awt.Color(51, 51, 51));
-        lbl_total_pago.setText("S/.000000");
+        lbl_total_pago.setText("S/ 0.00");
 
         javax.swing.GroupLayout menu_salir6Layout = new javax.swing.GroupLayout(menu_salir6);
         menu_salir6.setLayout(menu_salir6Layout);
@@ -522,7 +528,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     private void btn_nuevo_comprobanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevo_comprobanteActionPerformed
         btn_nuevo_comprobante.setEnabled(false);
         btn_pagar_comprobante.setEnabled(true);
-        btn_imprimir_comprobante.setEnabled(true);
+        btn_imprimir_comprobante.setEnabled(false);
         btn_cancelar_cambios.setEnabled(true);
         
         txt_dni.setEnabled(true);
@@ -540,21 +546,26 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     private void btn_pagar_comprobanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagar_comprobanteActionPerformed
         try {
             // TODO add your handling code here:
-            Comprobante entity = new Comprobante();
-            entity.setNumero("N0001");
-            entity.setSerie("001");
-            entity.setFechaEmision(lbl_fechaemision.getText());
-            entity = cTR_08_Comprobante.Insertar(entity);
+            comprobante = new Comprobante();
+            comprobante.setNumero("N0001");
+            comprobante.setSerie("001");
+            comprobante.setFechaEmision(lbl_fechaemision.getText());
+            comprobante.setPatienid(patient.getId());
+            comprobante.setRuc("");
+            if(tipocomprobante.equals("FACTURA"))
+                comprobante.setRuc(txt_ruc.getText().toString());
             
-            if(entity.getId()> 0)
+            comprobante = cTR_08_Comprobante.Insertar(comprobante);
+            
+            if(comprobante.getId()> 0)
             {
                 System.out.println("exito al guardar !");
                 
-                
                 // GUARDAMOS LAS CITAS EN EL DETALLE
-                
+                cTR_08_Comprobante.InsertarDetalle(lista_citas, comprobante.getId());
                 // HACIENDO UN BUCLE
                 
+                btn_imprimir_comprobante.setEnabled(true);
                 new rojerusan.RSNotifyFade("DentalSys", "Comprobante registrado", 7,
                 RSNotifyFade.PositionNotify.BottomRight, RSNotifyFade.TypeNotify.SUCCESS).setVisible(true);
             }
@@ -569,7 +580,15 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_pagar_comprobanteActionPerformed
 
     private void btn_imprimir_comprobanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimir_comprobanteActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            Rpt_Comprobante rpt = new Rpt_Comprobante();
+            rpt.CallExplorerRPT(comprobante.getId(), patient.getId(), tipocomprobante );
+        } catch (IOException ex) {
+            Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_btn_imprimir_comprobanteActionPerformed
 
     private void btn_cancelar_cambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_cambiosActionPerformed
@@ -584,6 +603,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
             
             txt_dni.setEnabled(false);
             txt_ruc.setEnabled(false);
+            lbl_total_pago.setText("S/ 0.00");
             
         } catch (DaoException ex) {
             Logger.getLogger(frm_UI_04_comprobantes.class.getName()).log(Level.SEVERE, null, ex);
@@ -688,6 +708,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                     //System.out.println(e.getStateChange() == ItemEvent.SELECTED ? "boleta" : "DESELECTED");
                     if(e.getStateChange() == ItemEvent.SELECTED){
                         txt_ruc.setEnabled(false);
+                        tipocomprobante = "BOLETA";
                     }
                 }
                 
@@ -700,6 +721,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                     //System.out.println(e.getStateChange() == ItemEvent.SELECTED ? "factura" : "DESELECTED");
                     if(e.getStateChange() == ItemEvent.SELECTED){
                         txt_ruc.setEnabled(true);
+                        tipocomprobante = "FACTURA";
                     }
                 }
                 
@@ -725,6 +747,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
         }
     }
 
+    private boolean click_row = false;
     private void getCitas(long i) {
         try {
             cTR_08_Comprobante = new CTR_08_Comprobante();
@@ -755,7 +778,7 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
             public void mouseClicked(MouseEvent e) {
                 int fila = tablecitas.rowAtPoint(e.getPoint());
                 int columna = tablecitas.columnAtPoint(e.getPoint());
-                
+             
                 if (tablecitas.getModel().getColumnClass(0).equals(Boolean.class)) {
      
                     try {
@@ -767,24 +790,33 @@ public class frm_UI_04_comprobantes extends javax.swing.JPanel {
                     }
 
                 }   
-            }            
+            }    
+            
         });
     }
 
+    int paso = 0;
     public void ChangeValueListAndUpdateModel(int fila) throws DaoException, SQLException {
-        if(lista_citas.get(fila).isSelected())
-            lista_citas.get(fila).setSelected(false);
-        else
-            lista_citas.get(fila).setSelected(true);
-        
-        cTR_08_Comprobante = new CTR_08_Comprobante();
-        this.tablecitas .setModel(cTR_08_Comprobante.List(lista_citas));
-        this.lista_citas =cTR_08_Comprobante.getLista();
-        double suma = 0;
-        for(int a = 0; a<lista_citas.size(); a++)
-            if(lista_citas.get(a).isSelected())
-                suma += lista_citas.get(a).getPrecio();
-        lbl_total_pago.setText("S/ "+suma);
+        paso++;
+        int res = paso%2;
+        if (res == 0) {
+            if(lista_citas.get(fila).isSelected())
+                lista_citas.get(fila).setSelected(false);
+            else
+                lista_citas.get(fila).setSelected(true);
+
+            cTR_08_Comprobante = new CTR_08_Comprobante();
+            this.tablecitas .setModel(cTR_08_Comprobante.List(lista_citas));
+            this.lista_citas =cTR_08_Comprobante.getLista();
+            DecimalFormat df = new DecimalFormat("#.##");
+            double suma = 0;
+            for(int a = 0; a<lista_citas.size(); a++)
+                if(lista_citas.get(a).isSelected())
+                    suma += lista_citas.get(a).getPrecio();
+                        
+
+            lbl_total_pago.setText("S/ "+df.format(suma));
+        }
     }
   
 }
