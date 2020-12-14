@@ -1,8 +1,8 @@
-
 package WIN33CLC_VIEW;
 
 import RSMaterialComponent.RSButtonMaterialGradientOne;
 import RSMaterialComponent.RSPanelMaterial;
+import WIN31CLC_DTO.User;
 import WIN32CLC_CTR.CTR_11_DataBaseConfiguration;
 import static WIN33CLC_VIEW.frm_Main.maximized;
 import WIN_2020_UTILS.ConfigReader;
@@ -33,47 +33,43 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-
 public class UI_V5_main1 extends javax.swing.JFrame {
- static boolean maximized = true;
 
-boolean a=true;
+    static boolean maximized = true;
 
+    boolean a = true;
 
     public UI_V5_main1() {
-  
-        initComponents();
-        rSPanelMaterial4.setBackground(new Color (255,255,255,0));
-        rSPanelMaterial4.setOpaque(false);
-        
-        btn_cita_02.setBackground(new Color (255,255,255,0));
-        btn_inicio_02.setBackground(new Color (255,255,255,0));
-        btn_paciente_02.setBackground(new Color (255,255,255,0));
-        btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-        btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-        
-        btn_servicios_02.setBackground(new Color (255,255,255,0));
-        btn_especialista_02.setBackground(new Color (255,255,255,0));
-        btn_usuarios_02.setBackground(new Color (255,255,255,0));
 
-      
-        setBackground(new Color (255,255,255,0));
+        initComponents();
+        rSPanelMaterial4.setBackground(new Color(255, 255, 255, 0));
+        rSPanelMaterial4.setOpaque(false);
+
+        btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+        btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+        btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+        btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+        btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+
+        btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+        btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+        btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+
+        setBackground(new Color(255, 255, 255, 0));
         setLocationRelativeTo(null);
-       
+
         boton_inicio();
-         //------------------
-       labels_iniciales();
-    
+        //------------------
+        labels_iniciales();
+
         colores_menus_despegables();
-        
-        
-        
-        
-          
-        
+
+        estado_usuario();
+
     }
 
-int xx,xy;
+    int xx, xy;
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -106,6 +102,7 @@ int xx,xy;
         panel_servicios = new javax.swing.JPanel();
         panel_especialista = new javax.swing.JPanel();
         panel_usuarios = new javax.swing.JPanel();
+        frm_UI_07_usuarios1 = new WIN33CLC_VIEW.frm_UI_07_usuarios();
         panel_reportes_citas = new javax.swing.JPanel();
         panel_cita = new javax.swing.JPanel();
         frm_UI_02_reservar_cita11 = new WIN33CLC_VIEW.frm_UI_02_reservar_cita();
@@ -183,7 +180,7 @@ int xx,xy;
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_menu_1)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panel_menu2.setBackground(new java.awt.Color(255, 255, 255));
@@ -213,7 +210,7 @@ int xx,xy;
             .addGroup(panel_menu2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_menu_2)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panel_despegable_1.setBackground(new java.awt.Color(255, 255, 255));
@@ -362,7 +359,7 @@ int xx,xy;
                 .addComponent(btn_gestionar_cita_02, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_comprobantes_02, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         menu_02.setBackground(new java.awt.Color(255, 255, 255));
@@ -533,6 +530,8 @@ int xx,xy;
         panel_usuarios.setBackground(new java.awt.Color(255, 255, 255));
         panel_usuarios.setName("panel_usuarios"); // NOI18N
         panel_usuarios.setLayout(new java.awt.CardLayout());
+        panel_usuarios.add(frm_UI_07_usuarios1, "card2");
+
         rSPanelMaterial4.add(panel_usuarios, "card3");
 
         panel_reportes_citas.setBackground(new java.awt.Color(255, 255, 255));
@@ -611,7 +610,7 @@ int xx,xy;
                 .addGroup(menu_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_max, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_min, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         menu_ventanaLayout.setVerticalGroup(
             menu_ventanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -873,7 +872,7 @@ int xx,xy;
             menu_salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu_salirLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_salir, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                .addComponent(btn_salir, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
         );
 
@@ -1279,7 +1278,7 @@ int xx,xy;
         panel_despegable_salir_1Layout.setVerticalGroup(
             panel_despegable_salir_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_despegable_salir_1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_salir_02, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1428,9 +1427,9 @@ int xx,xy;
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(menu_01, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu_salir1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                    .addComponent(menu_salir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                    .addComponent(panel_menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
+                    .addComponent(menu_salir1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                    .addComponent(menu_salir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                    .addComponent(panel_menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
@@ -1479,7 +1478,7 @@ int xx,xy;
                             .addComponent(menu_bd, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(panel_despegable_ventana, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(panel_despegable_ventana, javax.swing.GroupLayout.PREFERRED_SIZE, 110, Short.MAX_VALUE)
                             .addComponent(menu_ventana, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(rSPanelMaterial4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1509,75 +1508,97 @@ int xx,xy;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-       public void labels_iniciales ()
-    {
-        lblinicio.setBackground(new Color(101,208,250));
-        lblpacientes.setBackground(new Color(255,255,255));
-        lblcita.setBackground(new Color(255,255,255));
-        lblgestionar_cita.setBackground(new Color(255,255,255));
-        lblfactura.setBackground(new Color(255,255,255));
-        lblreporte.setBackground(new Color(255,255,255));
-        lblservicios.setBackground(new Color(255,255,255));
-        lblespecialista.setBackground(new Color(255,255,255));
-        lblbasedatos.setBackground(new Color(255,255,255));
-        lblusuarios.setBackground(new Color(255,255,255));
-        
-            btn_inicio_02.setBackground(new Color (139,198,255,255));
-            btn_inicio_02.setForeground(new Color (255,255,255));
-            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
-    } 
-    public void colores_menus_despegables ()
-    {
-        panel_despegable_1.setBackground(new Color (255,255,255,150));
-        panel_despegable_titulo_1.setBackground(new Color (255,255,255,220));
-      panel_despegable_salir_1.setBackground(new Color (255,255,255,220));
-        panel_despegable_reportes.setBackground(new Color (255,255,255,150));
-        
-        panel_despegable_2.setBackground(new Color (255,255,255,150));
-       panel_despegable_titulo_2.setBackground(new Color (255,255,255,220));
-       panel_despegable_ventana.setBackground(new Color (255,255,255,220));
-        panel_despegable_base_datos.setBackground(new Color (255,255,255,150));
+        public void estado_usuario() {
+
+        User global_User = new User();
+        global_User = WIN31CLC_DTO.declaraciones.getGlobal_User();
+        if (global_User.getUsername() != null) {
+            if (global_User.getRole().equals("1")) {
+                btn_usuario.setEnabled(true);
+                btn_usuarios_02.setEnabled(true);
+                btn_base_datos.setEnabled(true);
+                btn_createbackup.setEnabled(true);
+                btn_restoredatabase.setEnabled(true);
+                btn_resetdatabase.setEnabled(true);
+            } else if (global_User.getRole().equals("2")) {
+                btn_usuario.setEnabled(false);
+                btn_usuarios_02.setEnabled(false);
+                btn_base_datos.setEnabled(false);
+                btn_createbackup.setEnabled(false);
+                btn_restoredatabase.setEnabled(false);
+                btn_resetdatabase.setEnabled(false);
+
+            }
+        }
+
+    }
+
+    public void labels_iniciales() {
+        lblinicio.setBackground(new Color(101, 208, 250));
+        lblpacientes.setBackground(new Color(255, 255, 255));
+        lblcita.setBackground(new Color(255, 255, 255));
+        lblgestionar_cita.setBackground(new Color(255, 255, 255));
+        lblfactura.setBackground(new Color(255, 255, 255));
+        lblreporte.setBackground(new Color(255, 255, 255));
+        lblservicios.setBackground(new Color(255, 255, 255));
+        lblespecialista.setBackground(new Color(255, 255, 255));
+        lblbasedatos.setBackground(new Color(255, 255, 255));
+        lblusuarios.setBackground(new Color(255, 255, 255));
+
+        btn_inicio_02.setBackground(new Color(139, 198, 255, 255));
+        btn_inicio_02.setForeground(new Color(255, 255, 255));
+        changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
+    }
+
+    public void colores_menus_despegables() {
+        panel_despegable_1.setBackground(new Color(255, 255, 255, 150));
+        panel_despegable_titulo_1.setBackground(new Color(255, 255, 255, 220));
+        panel_despegable_salir_1.setBackground(new Color(255, 255, 255, 220));
+        panel_despegable_reportes.setBackground(new Color(255, 255, 255, 150));
+
+        panel_despegable_2.setBackground(new Color(255, 255, 255, 150));
+        panel_despegable_titulo_2.setBackground(new Color(255, 255, 255, 220));
+        panel_despegable_ventana.setBackground(new Color(255, 255, 255, 220));
+        panel_despegable_base_datos.setBackground(new Color(255, 255, 255, 150));
         //-------
-        
-       
-        btn_reporte_citas.setBackground(new Color (255,255,255,0));
-        btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-        btn_salir_02.setBackground(new Color (255,255,255,0));
-        
-         //-------
-        btn_reporte_citas.setBackground(new Color (255,255,255,0));
-        btn_reportes_facturas.setBackground(new Color (255,255,255,0));
+
+        btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+        btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+        btn_salir_02.setBackground(new Color(255, 255, 255, 0));
+
+        //-------
+        btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+        btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
         //btn_paciente_5.setBackground(new Color (255,255,255,0));
-        
-        btn_createbackup.setBackground(new Color (255,255,255,0));
-        btn_restoredatabase.setBackground(new Color (255,255,255,0));
-        btn_resetdatabase.setBackground(new Color (255,255,255,0));
-        
-        btn_max_02.setBackground(new Color (255,255,255,0));
-        btn_min_02.setBackground(new Color (255,255,255,0));
+
+        btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+        btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+        btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+
+        btn_max_02.setBackground(new Color(255, 255, 255, 0));
+        btn_min_02.setBackground(new Color(255, 255, 255, 0));
     }
-    
-    public void changeimage(JLabel button, String resourcheimg){
+
+    public void changeimage(JLabel button, String resourcheimg) {
         ImageIcon aimg = new ImageIcon(getClass().getResource(resourcheimg));
         button.setIcon(aimg);
     }
-    
-    public void changeimage_button(RSButtonMaterialGradientOne button, String resourcheimg){
+
+    public void changeimage_button(RSButtonMaterialGradientOne button, String resourcheimg) {
         ImageIcon aimg = new ImageIcon(getClass().getResource(resourcheimg));
         button.setIcon(aimg);
     }
-     public void boton_inicio()
-    {
-        
-        if(!this.btn_inicio.isSelected()){
+
+    public void boton_inicio() {
+
+        if (!this.btn_inicio.isSelected()) {
             this.btn_inicio.setSelected(true);
             this.btn_paciente.setSelected(false);
             this.btn_cita.setSelected(false);
             this.btn_gestionar_cita.setSelected(false);
             this.btn_factura.setSelected(false);
             this.btn_servicios.setSelected(false);
-            this.btn_especialista.setSelected(false);            
+            this.btn_especialista.setSelected(false);
             this.btn_reportes.setSelected(false);
             this.btn_usuario.setSelected(false);
             this.btn_reporte_citas.setSelected(false);
@@ -1586,36 +1607,34 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
-            
-            btn_inicio_02.setBackground(new Color (139,198,255,255));
-            btn_inicio_02.setForeground(new Color (255,255,255,255));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
-            
-            
+
+            btn_inicio_02.setBackground(new Color(139, 198, 255, 255));
+            btn_inicio_02.setForeground(new Color(255, 255, 255, 255));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
             panel_inicio.setVisible(true);
             panel_paciente.setVisible(false);
             panel_cita.setVisible(false);
@@ -1626,39 +1645,34 @@ int xx,xy;
             panel_usuarios.setVisible(false);
             panel_reportes_citas.setVisible(false);
 
-          
-          changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
-          changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-          changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-          changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
-          changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
+            changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
 
-    
-                   
         }
-        
-        lblinicio.setBackground(new Color(101,208,250));
-        lblpacientes.setBackground(new Color(255,255,255));
-        lblcita.setBackground(new Color(255,255,255));
-        lblgestionar_cita.setBackground(new Color(255,255,255));
-        lblfactura.setBackground(new Color(255,255,255));
-        lblreporte.setBackground(new Color(255,255,255));
-        lblservicios.setBackground(new Color(255,255,255));
-        lblespecialista.setBackground(new Color(255,255,255));
-        lblbasedatos.setBackground(new Color(255,255,255));
-        lblusuarios.setBackground(new Color(255,255,255));
+
+        lblinicio.setBackground(new Color(101, 208, 250));
+        lblpacientes.setBackground(new Color(255, 255, 255));
+        lblcita.setBackground(new Color(255, 255, 255));
+        lblgestionar_cita.setBackground(new Color(255, 255, 255));
+        lblfactura.setBackground(new Color(255, 255, 255));
+        lblreporte.setBackground(new Color(255, 255, 255));
+        lblservicios.setBackground(new Color(255, 255, 255));
+        lblespecialista.setBackground(new Color(255, 255, 255));
+        lblbasedatos.setBackground(new Color(255, 255, 255));
+        lblusuarios.setBackground(new Color(255, 255, 255));
     }
-     
-     
-    public void boton_paciente()
-    {
-        
-        if(!this.btn_paciente.isSelected()){
+
+    public void boton_paciente() {
+
+        if (!this.btn_paciente.isSelected()) {
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(true);
             this.btn_cita.setSelected(false);
@@ -1674,34 +1688,34 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (139,198,255,255));
-            btn_paciente_02.setForeground(new Color (255,255,255,255));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(139, 198, 255, 255));
+            btn_paciente_02.setForeground(new Color(255, 255, 255, 255));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
             panel_inicio.setVisible(false);
             panel_paciente.setVisible(true);
             panel_cita.setVisible(false);
@@ -1710,41 +1724,38 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
-             panel_reportes_citas.setVisible(false);
-            
-   changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/2.png");
-            
-          changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-         
-          changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-          changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
-          changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
-   
-        }
-        
+            panel_reportes_citas.setVisible(false);
 
-        
-        lblinicio.setBackground(new Color(255,255,255));
-        lblpacientes.setBackground(new Color(101,208,250));
-        lblcita.setBackground(new Color(255,255,255));
-        lblgestionar_cita.setBackground(new Color(255,255,255));
-        lblfactura.setBackground(new Color(255,255,255));
-        lblreporte.setBackground(new Color(255,255,255));
-        lblservicios.setBackground(new Color(255,255,255));
-        lblespecialista.setBackground(new Color(255,255,255));
-        lblbasedatos.setBackground(new Color(255,255,255));
-        lblusuarios.setBackground(new Color(255,255,255));
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/2.png");
+
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
+
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
+            changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
+
+        }
+
+        lblinicio.setBackground(new Color(255, 255, 255));
+        lblpacientes.setBackground(new Color(101, 208, 250));
+        lblcita.setBackground(new Color(255, 255, 255));
+        lblgestionar_cita.setBackground(new Color(255, 255, 255));
+        lblfactura.setBackground(new Color(255, 255, 255));
+        lblreporte.setBackground(new Color(255, 255, 255));
+        lblservicios.setBackground(new Color(255, 255, 255));
+        lblespecialista.setBackground(new Color(255, 255, 255));
+        lblbasedatos.setBackground(new Color(255, 255, 255));
+        lblusuarios.setBackground(new Color(255, 255, 255));
     }
-    
-     public void boton_cita()
-    {
-        
-        if(!this.btn_cita.isSelected()){
+
+    public void boton_cita() {
+
+        if (!this.btn_cita.isSelected()) {
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
             this.btn_cita.setSelected(true);
@@ -1760,35 +1771,35 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (139,198,255,255));
-            btn_cita_02.setForeground(new Color (255,255,255,255));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(139, 198, 255, 255));
+            btn_cita_02.setForeground(new Color(255, 255, 255, 255));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
             panel_inicio.setVisible(false);
             panel_paciente.setVisible(false);
             panel_cita.setVisible(true);
@@ -1797,40 +1808,35 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
-             panel_reportes_citas.setVisible(false);
-            
-         changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-          changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-          changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/3.png");
-          changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
-          changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
-     
-             
+            panel_reportes_citas.setVisible(false);
+
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/3.png");
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
+            changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
+
         }
-        
-       
-        
-        
-        lblinicio.setBackground(new Color(255,255,255));
-        lblpacientes.setBackground(new Color(255,255,255));
-        lblcita.setBackground(new Color(101,208,250));
-        lblgestionar_cita.setBackground(new Color(255,255,255));
-        lblfactura.setBackground(new Color(255,255,255));
-        lblreporte.setBackground(new Color(255,255,255));
-        lblservicios.setBackground(new Color(255,255,255));
-        lblespecialista.setBackground(new Color(255,255,255));
-        lblbasedatos.setBackground(new Color(255,255,255));
-        lblusuarios.setBackground(new Color(255,255,255));
+
+        lblinicio.setBackground(new Color(255, 255, 255));
+        lblpacientes.setBackground(new Color(255, 255, 255));
+        lblcita.setBackground(new Color(101, 208, 250));
+        lblgestionar_cita.setBackground(new Color(255, 255, 255));
+        lblfactura.setBackground(new Color(255, 255, 255));
+        lblreporte.setBackground(new Color(255, 255, 255));
+        lblservicios.setBackground(new Color(255, 255, 255));
+        lblespecialista.setBackground(new Color(255, 255, 255));
+        lblbasedatos.setBackground(new Color(255, 255, 255));
+        lblusuarios.setBackground(new Color(255, 255, 255));
     }
-     
-    public void boton_gestionarCita()
-    {
-        if(!this.btn_gestionar_cita.isSelected()){
+
+    public void boton_gestionarCita() {
+        if (!this.btn_gestionar_cita.isSelected()) {
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
             this.btn_cita.setSelected(false);
@@ -1846,39 +1852,35 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
-            
 
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (139,198,255,255));
-            btn_gestionar_cita_02.setForeground(new Color (255,255,255,255));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
-            
-            
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(139, 198, 255, 255));
+            btn_gestionar_cita_02.setForeground(new Color(255, 255, 255, 255));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
             panel_inicio.setVisible(false);
             panel_paciente.setVisible(false);
             panel_cita.setVisible(false);
@@ -1887,42 +1889,37 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
-             panel_reportes_citas.setVisible(false);
-            
-            
-           changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-          changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-          changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-          changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/4.png");
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
-          changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
+            panel_reportes_citas.setVisible(false);
 
-        
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/4.png");
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
+            changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
+
         }
-        
-          
-        
-        lblinicio.setBackground(new Color(255,255,255));
-        lblpacientes.setBackground(new Color(255,255,255));
-        lblcita.setBackground(new Color(255,255,255));
-        lblgestionar_cita.setBackground(new Color(101,208,250));
-        lblfactura.setBackground(new Color(255,255,255));
-        lblreporte.setBackground(new Color(255,255,255));
-        lblservicios.setBackground(new Color(255,255,255));
-        lblespecialista.setBackground(new Color(255,255,255));
-        lblbasedatos.setBackground(new Color(255,255,255));
-        lblusuarios.setBackground(new Color(255,255,255));
-       
+
+        lblinicio.setBackground(new Color(255, 255, 255));
+        lblpacientes.setBackground(new Color(255, 255, 255));
+        lblcita.setBackground(new Color(255, 255, 255));
+        lblgestionar_cita.setBackground(new Color(101, 208, 250));
+        lblfactura.setBackground(new Color(255, 255, 255));
+        lblreporte.setBackground(new Color(255, 255, 255));
+        lblservicios.setBackground(new Color(255, 255, 255));
+        lblespecialista.setBackground(new Color(255, 255, 255));
+        lblbasedatos.setBackground(new Color(255, 255, 255));
+        lblusuarios.setBackground(new Color(255, 255, 255));
+
     }
-    
-    public void boton_comprobante()
-    {
-        
-         if(!this.btn_factura.isSelected()){
+
+    public void boton_comprobante() {
+
+        if (!this.btn_factura.isSelected()) {
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
             this.btn_cita.setSelected(false);
@@ -1938,39 +1935,36 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
-           
-            
 
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (139,198,255,255));
-            btn_comprobantes_02.setForeground(new Color (255,255,255,255));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
-             panel_inicio.setVisible(false);
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(139, 198, 255, 255));
+            btn_comprobantes_02.setForeground(new Color(255, 255, 255, 255));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
+            panel_inicio.setVisible(false);
             panel_paciente.setVisible(false);
             panel_cita.setVisible(false);
             panel_gestion_cita.setVisible(false);
@@ -1978,41 +1972,36 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
-             panel_reportes_citas.setVisible(false);
-            
-          changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-          changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-          changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-          changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/5.png");
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
-          changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
+            panel_reportes_citas.setVisible(false);
 
-           
-            
-         }
-         
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/5.png");
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
+            changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
 
-         
-        lblinicio.setBackground(new Color(255,255,255));
-        lblpacientes.setBackground(new Color(255,255,255));
-        lblcita.setBackground(new Color(255,255,255));
-        lblgestionar_cita.setBackground(new Color(255,255,255));
-        lblfactura.setBackground(new Color(101,208,250));
-        lblreporte.setBackground(new Color(255,255,255));
-        lblservicios.setBackground(new Color(255,255,255));
-        lblespecialista.setBackground(new Color(255,255,255));
-        lblbasedatos.setBackground(new Color(255,255,255));
-        lblusuarios.setBackground(new Color(255,255,255));
+        }
+
+        lblinicio.setBackground(new Color(255, 255, 255));
+        lblpacientes.setBackground(new Color(255, 255, 255));
+        lblcita.setBackground(new Color(255, 255, 255));
+        lblgestionar_cita.setBackground(new Color(255, 255, 255));
+        lblfactura.setBackground(new Color(101, 208, 250));
+        lblreporte.setBackground(new Color(255, 255, 255));
+        lblservicios.setBackground(new Color(255, 255, 255));
+        lblespecialista.setBackground(new Color(255, 255, 255));
+        lblbasedatos.setBackground(new Color(255, 255, 255));
+        lblusuarios.setBackground(new Color(255, 255, 255));
     }
-    
-    public void boton_reportes ()
-    {
-         if(!this.btn_reportes.isSelected()){
-             this.btn_reportes.setSelected(true);
+
+    public void boton_reportes() {
+        if (!this.btn_reportes.isSelected()) {
+            this.btn_reportes.setSelected(true);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
             this.btn_cita.setSelected(false);
@@ -2022,92 +2011,83 @@ int xx,xy;
             this.btn_especialista.setSelected(false);
             this.btn_usuario.setSelected(false);
             this.btn_base_datos.setSelected(false);
-            
-          changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-          changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-          changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-          changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/6.png");
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
-          changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
-          
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            
-         }
-         
-         
-         if(a==true){
-       
-          hideshow(panel_despegable_1, a);
-          hideshow(panel_despegable_titulo_1, a);
-          hideshow(panel_despegable_salir_1, a);
-          hideshow(panel_despegable_reportes, a);
-            
-           hideshow(panel_despegable_2, a);
-           hideshow(panel_despegable_titulo_2, a);
-           hideshow(panel_despegable_base_datos, a);
-           hideshow(panel_despegable_ventana, a);
-            
-          SwingUtilities.updateComponentTreeUI(this);
-                    
-          a=false;
-          
-          
-            changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
-            changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
+
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/6.png");
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
+            changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+
         }
-        else{
-         
+
+        if (a == true) {
+
             hideshow(panel_despegable_1, a);
             hideshow(panel_despegable_titulo_1, a);
             hideshow(panel_despegable_salir_1, a);
             hideshow(panel_despegable_reportes, a);
-            
-         
-   
-            SwingUtilities.updateComponentTreeUI(this);
-            a=true;
-            changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-atrás-30.png");
-            
-            
-          
-   }
 
-        lblinicio.setBackground(new Color(255,255,255));
-        lblpacientes.setBackground(new Color(255,255,255));
-        lblcita.setBackground(new Color(255,255,255));
-        lblgestionar_cita.setBackground(new Color(255,255,255));
-        lblfactura.setBackground(new Color(255,255,255));
-        lblreporte.setBackground(new Color(101,208,250));
-        lblservicios.setBackground(new Color(255,255,255));
-        lblespecialista.setBackground(new Color(255,255,255));
-        lblbasedatos.setBackground(new Color(255,255,255));
-        lblusuarios.setBackground(new Color(255,255,255));
+            hideshow(panel_despegable_2, a);
+            hideshow(panel_despegable_titulo_2, a);
+            hideshow(panel_despegable_base_datos, a);
+            hideshow(panel_despegable_ventana, a);
+
+            SwingUtilities.updateComponentTreeUI(this);
+
+            a = false;
+
+            changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
+            changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
+        } else {
+
+            hideshow(panel_despegable_1, a);
+            hideshow(panel_despegable_titulo_1, a);
+            hideshow(panel_despegable_salir_1, a);
+            hideshow(panel_despegable_reportes, a);
+
+            SwingUtilities.updateComponentTreeUI(this);
+            a = true;
+            changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-atrás-30.png");
+
+        }
+
+        lblinicio.setBackground(new Color(255, 255, 255));
+        lblpacientes.setBackground(new Color(255, 255, 255));
+        lblcita.setBackground(new Color(255, 255, 255));
+        lblgestionar_cita.setBackground(new Color(255, 255, 255));
+        lblfactura.setBackground(new Color(255, 255, 255));
+        lblreporte.setBackground(new Color(101, 208, 250));
+        lblservicios.setBackground(new Color(255, 255, 255));
+        lblespecialista.setBackground(new Color(255, 255, 255));
+        lblbasedatos.setBackground(new Color(255, 255, 255));
+        lblusuarios.setBackground(new Color(255, 255, 255));
     }
-    
-    
-    public void boton_servicios()
-    {
-        
-        if(!this.btn_servicios.isSelected()){
+
+    public void boton_servicios() {
+
+        if (!this.btn_servicios.isSelected()) {
             this.btn_servicios.setSelected(true);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2123,7 +2103,7 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
-            
+
             panel_inicio.setVisible(false);
             panel_paciente.setVisible(false);
             panel_cita.setVisible(false);
@@ -2132,64 +2112,63 @@ int xx,xy;
             panel_servicios.setVisible(true);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
-             panel_reportes_citas.setVisible(false);
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (139,198,255,255));
-            btn_servicios_02.setForeground(new Color (255,255,255,255));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
-          changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-          changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-          changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-          changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/7.png");
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
-          changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
-            
+            panel_reportes_citas.setVisible(false);
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(139, 198, 255, 255));
+            btn_servicios_02.setForeground(new Color(255, 255, 255, 255));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/7.png");
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
+            changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
+
         }
-        lblinicio.setBackground(new Color(255,255,255));
-        lblpacientes.setBackground(new Color(255,255,255));
-        lblcita.setBackground(new Color(255,255,255));
-        lblgestionar_cita.setBackground(new Color(255,255,255));
-        lblfactura.setBackground(new Color(255,255,255));
-        lblreporte.setBackground(new Color(255,255,255));
-        lblservicios.setBackground(new Color(101,208,250));
-        lblespecialista.setBackground(new Color(255,255,255));
-        lblbasedatos.setBackground(new Color(255,255,255));
-        lblusuarios.setBackground(new Color(255,255,255));
+        lblinicio.setBackground(new Color(255, 255, 255));
+        lblpacientes.setBackground(new Color(255, 255, 255));
+        lblcita.setBackground(new Color(255, 255, 255));
+        lblgestionar_cita.setBackground(new Color(255, 255, 255));
+        lblfactura.setBackground(new Color(255, 255, 255));
+        lblreporte.setBackground(new Color(255, 255, 255));
+        lblservicios.setBackground(new Color(101, 208, 250));
+        lblespecialista.setBackground(new Color(255, 255, 255));
+        lblbasedatos.setBackground(new Color(255, 255, 255));
+        lblusuarios.setBackground(new Color(255, 255, 255));
     }
-    
-     public void boton_especialistas()
-    {
-        
-        if(!this.btn_especialista.isSelected()){
+
+    public void boton_especialistas() {
+
+        if (!this.btn_especialista.isSelected()) {
             this.btn_especialista.setSelected(true);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2205,7 +2184,7 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
-            
+
             panel_inicio.setVisible(false);
             panel_paciente.setVisible(false);
             panel_cita.setVisible(false);
@@ -2214,64 +2193,63 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(true);
             panel_usuarios.setVisible(false);
-             panel_reportes_citas.setVisible(false);
+            panel_reportes_citas.setVisible(false);
 
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (139,198,255,255));
-            btn_especialista_02.setForeground(new Color (255,255,255,255));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
-          changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-          changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-          changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-          changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/8.png");
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
-          changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
-           
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(139, 198, 255, 255));
+            btn_especialista_02.setForeground(new Color(255, 255, 255, 255));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/8.png");
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
+            changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
+
         }
-        lblinicio.setBackground(new Color(255,255,255));
-        lblpacientes.setBackground(new Color(255,255,255));
-        lblcita.setBackground(new Color(255,255,255));
-        lblgestionar_cita.setBackground(new Color(255,255,255));
-        lblfactura.setBackground(new Color(255,255,255));
-        lblreporte.setBackground(new Color(255,255,255));
-        lblservicios.setBackground(new Color(255,255,255));
-        lblespecialista.setBackground(new Color(101,208,250));
-        lblbasedatos.setBackground(new Color(255,255,255));
-        lblusuarios.setBackground(new Color(255,255,255));
+        lblinicio.setBackground(new Color(255, 255, 255));
+        lblpacientes.setBackground(new Color(255, 255, 255));
+        lblcita.setBackground(new Color(255, 255, 255));
+        lblgestionar_cita.setBackground(new Color(255, 255, 255));
+        lblfactura.setBackground(new Color(255, 255, 255));
+        lblreporte.setBackground(new Color(255, 255, 255));
+        lblservicios.setBackground(new Color(255, 255, 255));
+        lblespecialista.setBackground(new Color(101, 208, 250));
+        lblbasedatos.setBackground(new Color(255, 255, 255));
+        lblusuarios.setBackground(new Color(255, 255, 255));
     }
-     
-     public void boton_base_datos()
-    {
-        
-        if(!this.btn_base_datos.isSelected()){
+
+    public void boton_base_datos() {
+
+        if (!this.btn_base_datos.isSelected()) {
             this.btn_especialista.setSelected(false);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2285,84 +2263,80 @@ int xx,xy;
             this.btn_reporte_citas.setSelected(false);
             this.btn_reportes_facturas.setSelected(false);
 
-            
-          changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-          changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-          changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-          changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
-          changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/10.png");
-          
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            
-            
-      //       
-       } 
-        
-          if(a==true){
-         hideshow(panel_despegable_titulo_2, a);
-          hideshow(panel_despegable_2, a);
-          hideshow(panel_despegable_base_datos, a);
-         hideshow(panel_despegable_ventana, a);
-         
-          hideshow(panel_despegable_1, a);
-           hideshow(panel_despegable_titulo_1, a);
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
+            changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/10.png");
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+
+            //       
+        }
+
+        if (a == true) {
+            hideshow(panel_despegable_titulo_2, a);
+            hideshow(panel_despegable_2, a);
+            hideshow(panel_despegable_base_datos, a);
+            hideshow(panel_despegable_ventana, a);
+
+            hideshow(panel_despegable_1, a);
+            hideshow(panel_despegable_titulo_1, a);
             hideshow(panel_despegable_salir_1, a);
             hideshow(panel_despegable_reportes, a);
-         
-          SwingUtilities.updateComponentTreeUI(this);
-                    
-          a=false;
-          
+
+            SwingUtilities.updateComponentTreeUI(this);
+
+            a = false;
+
             changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
             changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
-        }
-        else{
-       hideshow(panel_despegable_2, a);
-       hideshow(panel_despegable_titulo_2, a);
-       hideshow(panel_despegable_base_datos, a);
-       hideshow(panel_despegable_ventana, a);
+        } else {
+            hideshow(panel_despegable_2, a);
+            hideshow(panel_despegable_titulo_2, a);
+            hideshow(panel_despegable_base_datos, a);
+            hideshow(panel_despegable_ventana, a);
             SwingUtilities.updateComponentTreeUI(this);
-            a=true;
-            
-              changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-adelante-30.png");
-   }
-        
-        lblinicio.setBackground(new Color(255,255,255));
-        lblpacientes.setBackground(new Color(255,255,255));
-        lblcita.setBackground(new Color(255,255,255));
-        lblgestionar_cita.setBackground(new Color(255,255,255));
-        lblfactura.setBackground(new Color(255,255,255));
-        lblreporte.setBackground(new Color(255,255,255));
-        lblservicios.setBackground(new Color(255,255,255));
-        lblespecialista.setBackground(new Color(255,255,255));
-        lblbasedatos.setBackground(new Color(101,208,250));
-        lblusuarios.setBackground(new Color(255,255,255));
+            a = true;
+
+            changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-adelante-30.png");
+        }
+
+        lblinicio.setBackground(new Color(255, 255, 255));
+        lblpacientes.setBackground(new Color(255, 255, 255));
+        lblcita.setBackground(new Color(255, 255, 255));
+        lblgestionar_cita.setBackground(new Color(255, 255, 255));
+        lblfactura.setBackground(new Color(255, 255, 255));
+        lblreporte.setBackground(new Color(255, 255, 255));
+        lblservicios.setBackground(new Color(255, 255, 255));
+        lblespecialista.setBackground(new Color(255, 255, 255));
+        lblbasedatos.setBackground(new Color(101, 208, 250));
+        lblusuarios.setBackground(new Color(255, 255, 255));
     }
-     
-     public void boton_usuarios()
-    {
-        
-        if(!this.btn_usuario.isSelected()){
+
+    public void boton_usuarios() {
+
+        if (!this.btn_usuario.isSelected()) {
             this.btn_especialista.setSelected(false);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2378,7 +2352,7 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
-            
+
             panel_inicio.setVisible(false);
             panel_paciente.setVisible(false);
             panel_cita.setVisible(false);
@@ -2387,67 +2361,64 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(true);
-             panel_reportes_citas.setVisible(false);
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (139,198,255,255));
-            btn_usuarios_02.setForeground(new Color (255,255,255,255));
-            
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
-          changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-          changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-          changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-          changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/9.png");
-          changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
-            
-         
+            panel_reportes_citas.setVisible(false);
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(139, 198, 255, 255));
+            btn_usuarios_02.setForeground(new Color(255, 255, 255, 255));
+
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/9.png");
+            changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
+
         }
-        lblinicio.setBackground(new Color(255,255,255));
-        lblpacientes.setBackground(new Color(255,255,255));
-        lblcita.setBackground(new Color(255,255,255));
-        lblgestionar_cita.setBackground(new Color(255,255,255));
-        lblfactura.setBackground(new Color(255,255,255));
-        lblreporte.setBackground(new Color(255,255,255));
-        lblservicios.setBackground(new Color(255,255,255));
-        lblespecialista.setBackground(new Color(255,255,255));
-        lblbasedatos.setBackground(new Color(255,255,255));
-        lblusuarios.setBackground(new Color(101,208,250));
+        lblinicio.setBackground(new Color(255, 255, 255));
+        lblpacientes.setBackground(new Color(255, 255, 255));
+        lblcita.setBackground(new Color(255, 255, 255));
+        lblgestionar_cita.setBackground(new Color(255, 255, 255));
+        lblfactura.setBackground(new Color(255, 255, 255));
+        lblreporte.setBackground(new Color(255, 255, 255));
+        lblservicios.setBackground(new Color(255, 255, 255));
+        lblespecialista.setBackground(new Color(255, 255, 255));
+        lblbasedatos.setBackground(new Color(255, 255, 255));
+        lblusuarios.setBackground(new Color(101, 208, 250));
     }
-     
+
     /// METODOS PARA DISE:O DE LOS SUB-MENUS
-     ///**************************************
-     
-    public void subboton_reporte_cita()
-    {
-        if(!this.btn_reporte_citas.isSelected()){
+    ///**************************************
+    public void subboton_reporte_cita() {
+        if (!this.btn_reporte_citas.isSelected()) {
             this.btn_especialista.setSelected(false);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2463,8 +2434,8 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
-            
-             panel_inicio.setVisible(false);
+
+            panel_inicio.setVisible(false);
             panel_paciente.setVisible(false);
             panel_cita.setVisible(false);
             panel_gestion_cita.setVisible(false);
@@ -2473,41 +2444,39 @@ int xx,xy;
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
             panel_reportes_citas.setVisible(true);
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            btn_reporte_citas.setBackground(new Color (139,198,255,255));
-            btn_reporte_citas.setForeground(new Color (255,255,255,255));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
-             }
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+            btn_reporte_citas.setBackground(new Color(139, 198, 255, 255));
+            btn_reporte_citas.setForeground(new Color(255, 255, 255, 255));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
+        }
     }
-    
-    
-    public void subboton_reporte_facturas()
-    {
-            if(!this.btn_reportes_facturas.isSelected()){
+
+    public void subboton_reporte_facturas() {
+        if (!this.btn_reportes_facturas.isSelected()) {
             this.btn_especialista.setSelected(false);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2523,40 +2492,39 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (139,198,255,255));
-            btn_reportes_facturas.setForeground(new Color (255,255,255,255));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
-             }
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(139, 198, 255, 255));
+            btn_reportes_facturas.setForeground(new Color(255, 255, 255, 255));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
+        }
     }
-    
-    public void subboton_copia_bd()
-    {
-            if(!this.btn_createbackup.isSelected()){
+
+    public void subboton_copia_bd() {
+        if (!this.btn_createbackup.isSelected()) {
             this.btn_especialista.setSelected(false);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2571,40 +2539,39 @@ int xx,xy;
             this.btn_createbackup.setSelected(true);
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (139,198,255,255));
-            btn_createbackup.setForeground(new Color (255,255,255,255));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-            
-             }
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(139, 198, 255, 255));
+            btn_createbackup.setForeground(new Color(255, 255, 255, 255));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+
+        }
     }
-    
-    public void subboton_restuarar_bd()
-    {
-            if(!this.btn_restoredatabase.isSelected()){
+
+    public void subboton_restuarar_bd() {
+        if (!this.btn_restoredatabase.isSelected()) {
             this.btn_especialista.setSelected(false);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2619,38 +2586,38 @@ int xx,xy;
             this.btn_createbackup.setSelected(false);
             this.btn_restoredatabase.setSelected(true);
             this.btn_resetdatabase.setSelected(false);
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (139,198,255,255));
-            btn_restoredatabase.setForeground(new Color (255,255,255,255));
-            btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));
-             }
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(139, 198, 255, 255));
+            btn_restoredatabase.setForeground(new Color(255, 255, 255, 255));
+            btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_resetdatabase.setForeground(new Color(131, 137, 152));
+        }
     }
-    public void subboton_vaciar_bd()
-    {
-            if(!this.btn_resetdatabase.isSelected()){
+
+    public void subboton_vaciar_bd() {
+        if (!this.btn_resetdatabase.isSelected()) {
             this.btn_especialista.setSelected(false);
             this.btn_inicio.setSelected(false);
             this.btn_paciente.setSelected(false);
@@ -2665,359 +2632,346 @@ int xx,xy;
             this.btn_createbackup.setSelected(false);
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(true);
-            
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-            btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));
-            btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-            btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
-            btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));
-            btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));
-            btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));
-            btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));
-            btn_resetdatabase.setBackground(new Color (139,198,255,255));
-            btn_resetdatabase.setForeground(new Color (255,255,255,255));
-            
-             }
-    }
-    
-        
-     
-    
-    public void hideshow (JPanel menushowhide, boolean dashboard)
-    {
-        if (dashboard == true)
-        {
-            menushowhide.setPreferredSize(new Dimension(10, menushowhide.getHeight()));
+
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+            btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+            btn_reporte_citas.setForeground(new Color(131, 137, 152));
+            btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+            btn_reportes_facturas.setForeground(new Color(131, 137, 152));
+            btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+            btn_createbackup.setForeground(new Color(131, 137, 152));
+            btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+            btn_restoredatabase.setForeground(new Color(131, 137, 152));
+            btn_resetdatabase.setBackground(new Color(139, 198, 255, 255));
+            btn_resetdatabase.setForeground(new Color(255, 255, 255, 255));
+
         }
-        else
-        {
+    }
+
+    public void hideshow(JPanel menushowhide, boolean dashboard) {
+        if (dashboard == true) {
+            menushowhide.setPreferredSize(new Dimension(10, menushowhide.getHeight()));
+        } else {
             menushowhide.setPreferredSize(new Dimension(220, menushowhide.getHeight()));
         }
     }
-    
+
     private void btn_minMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_minMouseEntered
- changeimage_button(btn_min, "/WIN34CLC_RESOURCES_UI/min.png");  
-  btn_min_02.setBackground(new Color (200,232,250,150));
-            btn_min_02.setForeground(new Color (131,137,152));
+        changeimage_button(btn_min, "/WIN34CLC_RESOURCES_UI/min.png");
+        btn_min_02.setBackground(new Color(200, 232, 250, 150));
+        btn_min_02.setForeground(new Color(131, 137, 152));
     }//GEN-LAST:event_btn_minMouseEntered
 
     private void btn_minMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_minMouseExited
-    changeimage_button(btn_min, "/WIN34CLC_RESOURCES_UI/icons8-menos-30 (1).png");   
-    
-        btn_min_02.setBackground(new Color (255,255,255,0));
-            btn_min_02.setForeground(new Color (131,137,152));  
+        changeimage_button(btn_min, "/WIN34CLC_RESOURCES_UI/icons8-menos-30 (1).png");
+
+        btn_min_02.setBackground(new Color(255, 255, 255, 0));
+        btn_min_02.setForeground(new Color(131, 137, 152));
 
     }//GEN-LAST:event_btn_minMouseExited
 
     private void btn_minActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_minActionPerformed
-this.setState(Frame.ICONIFIED);         // TODO add your handling code here:
+        this.setState(Frame.ICONIFIED);         // TODO add your handling code here:
     }//GEN-LAST:event_btn_minActionPerformed
 
     private void btn_maxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_maxMouseEntered
-changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/max.png");   
- btn_max_02.setBackground(new Color (200,232,250,150));
- btn_max_02.setForeground(new Color (131,137,152));// TODO add your handling code here:
+        changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/max.png");
+        btn_max_02.setBackground(new Color(200, 232, 250, 150));
+        btn_max_02.setForeground(new Color(131, 137, 152));// TODO add your handling code here:
     }//GEN-LAST:event_btn_maxMouseEntered
 
     private void btn_maxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_maxMouseExited
-   changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/icons8-rectángulo-redondeado-30.png"); 
-           btn_max_02.setBackground(new Color (255,255,255,0));
-            btn_max_02.setForeground(new Color (131,137,152));  
+        changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/icons8-rectángulo-redondeado-30.png");
+        btn_max_02.setBackground(new Color(255, 255, 255, 0));
+        btn_max_02.setForeground(new Color(131, 137, 152));
     }//GEN-LAST:event_btn_maxMouseExited
 
     private void btn_maxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_maxActionPerformed
- if(maximized){
-          
+        if (maximized) {
+
             UI_V5_main1.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
             GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
             UI_V5_main1.this.setMaximizedBounds(env.getMaximumWindowBounds());
             maximized = false;
-        }else{
+        } else {
             setExtendedState(JFrame.NORMAL);
             maximized = true;
-        }     
+        }
     }//GEN-LAST:event_btn_maxActionPerformed
 
     private void lbl_menu_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_menu_1MouseClicked
- if(a==true){
-          hideshow(panel_despegable_1, a);
-           hideshow(panel_despegable_titulo_1, a);
+        if (a == true) {
+            hideshow(panel_despegable_1, a);
+            hideshow(panel_despegable_titulo_1, a);
             hideshow(panel_despegable_salir_1, a);
             hideshow(panel_despegable_reportes, a);
-            
-                hideshow(panel_despegable_2, a);
-           hideshow(panel_despegable_titulo_2, a);
-           hideshow(panel_despegable_base_datos, a);
+
+            hideshow(panel_despegable_2, a);
+            hideshow(panel_despegable_titulo_2, a);
+            hideshow(panel_despegable_base_datos, a);
             hideshow(panel_despegable_ventana, a);
-            
-          SwingUtilities.updateComponentTreeUI(this);
-                    
-          a=false;
-          
+
+            SwingUtilities.updateComponentTreeUI(this);
+
+            a = false;
+
             changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
             changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
-        }
-        else{
+        } else {
             hideshow(panel_despegable_1, a);
-              hideshow(panel_despegable_titulo_1, a);
+            hideshow(panel_despegable_titulo_1, a);
             hideshow(panel_despegable_salir_1, a);
             hideshow(panel_despegable_reportes, a);
             //-------------
-            
-         
-            
+
             SwingUtilities.updateComponentTreeUI(this);
-            a=true;
+            a = true;
             changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-atrás-30.png");
-            
-            
-          
-   }//        // TODO add your handling code here:
+
+        }//        // TODO add your handling code here:
     }//GEN-LAST:event_lbl_menu_1MouseClicked
 
     private void btn_inicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicioMouseEntered
-         if(!this.btn_inicio.isSelected()){
-             
-             changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
+        if (!this.btn_inicio.isSelected()) {
 
-            btn_inicio_02.setBackground(new Color (247, 248, 251));
-            btn_inicio_02.setForeground(new Color (131,137,152));
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
 
-        }    
-        lblinicio.setBackground(new Color(101,208,250));  
+            btn_inicio_02.setBackground(new Color(247, 248, 251));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+
+        }
+        lblinicio.setBackground(new Color(101, 208, 250));
 
     }//GEN-LAST:event_btn_inicioMouseEntered
 
     private void btn_inicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicioMouseExited
-  if(!this.btn_inicio .isSelected()){
-      
-      changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-            lblinicio.setBackground(new Color(255,255,255));
-            btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));
-        }   
+        if (!this.btn_inicio.isSelected()) {
+
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
+            lblinicio.setBackground(new Color(255, 255, 255));
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
+        }
     }//GEN-LAST:event_btn_inicioMouseExited
 
     private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
-boton_inicio();       // TODO add your handling code here:
+        boton_inicio();       // TODO add your handling code here:
     }//GEN-LAST:event_btn_inicioActionPerformed
 
     private void btn_salirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salirMouseEntered
-changeimage_button(btn_salir, "/WIN34CLC_RESOURCES_UI/apagar.png");  
- btn_salir_02.setBackground(new Color (200,232,250,150));
-            btn_salir_02.setForeground(new Color (131,137,152));// TODO add your handling code here:
+        changeimage_button(btn_salir, "/WIN34CLC_RESOURCES_UI/apagar.png");
+        btn_salir_02.setBackground(new Color(200, 232, 250, 150));
+        btn_salir_02.setForeground(new Color(131, 137, 152));// TODO add your handling code here:
     }//GEN-LAST:event_btn_salirMouseEntered
 
     private void btn_salirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salirMouseExited
-if(!this.btn_salir.isSelected()){
-            changeimage_button(btn_salir, "/WIN34CLC_RESOURCES_UI/apagar 2.png");  
-                    btn_salir_02.setBackground(new Color (255,255,255,0));
-            btn_salir_02.setForeground(new Color (131,137,152));  
-            } 
+        if (!this.btn_salir.isSelected()) {
+            changeimage_button(btn_salir, "/WIN34CLC_RESOURCES_UI/apagar 2.png");
+            btn_salir_02.setBackground(new Color(255, 255, 255, 0));
+            btn_salir_02.setForeground(new Color(131, 137, 152));
+        }
     }//GEN-LAST:event_btn_salirMouseExited
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-System.exit(0);        // TODO add your handling code here:
+        System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_pacienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_pacienteMouseEntered
-         if(!this.btn_paciente.isSelected()){
-changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/2.png");
- btn_paciente_02.setBackground(new Color (247, 248, 251));
-          btn_paciente_02.setForeground(new Color (131,137,152));
+        if (!this.btn_paciente.isSelected()) {
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/2.png");
+            btn_paciente_02.setBackground(new Color(247, 248, 251));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
 
-        }    
-        
-        lblpacientes.setBackground(new Color(101,208,250));   
+        }
+
+        lblpacientes.setBackground(new Color(101, 208, 250));
 
     }//GEN-LAST:event_btn_pacienteMouseEntered
 
     private void btn_pacienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_pacienteMouseExited
-     if(!this.btn_paciente .isSelected()){
-         changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-            lblpacientes.setBackground(new Color(255,255,255));
-                        btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));
-        }   
+        if (!this.btn_paciente.isSelected()) {
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
+            lblpacientes.setBackground(new Color(255, 255, 255));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
+        }
     }//GEN-LAST:event_btn_pacienteMouseExited
 
     private void btn_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pacienteActionPerformed
-boton_paciente();     
+        boton_paciente();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_btn_pacienteActionPerformed
 
     private void btn_citaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_citaMouseEntered
-              if(!this.btn_cita.isSelected()){
+        if (!this.btn_cita.isSelected()) {
 
-              btn_cita_02.setBackground(new Color (247, 248, 251));
-          btn_cita_02.setForeground(new Color (131,137,152));
-changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/3.png");
-        }    
-        
-        
-        lblcita.setBackground(new Color(101,208,250)); 
-  
+            btn_cita_02.setBackground(new Color(247, 248, 251));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/3.png");
+        }
+
+        lblcita.setBackground(new Color(101, 208, 250));
+
 
     }//GEN-LAST:event_btn_citaMouseEntered
 
     private void btn_citaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_citaMouseExited
-         if(!this.btn_cita .isSelected()){
-            lblcita.setBackground(new Color(255,255,255));
-                        btn_cita_02.setBackground(new Color (255,255,255,0));
-                        changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-            btn_cita_02.setForeground(new Color (131,137,152));
-        }   
+        if (!this.btn_cita.isSelected()) {
+            lblcita.setBackground(new Color(255, 255, 255));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
+            btn_cita_02.setForeground(new Color(131, 137, 152));
+        }
     }//GEN-LAST:event_btn_citaMouseExited
 
     private void btn_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_citaActionPerformed
-boton_cita();        // TODO add your handling code here:
+        boton_cita();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_citaActionPerformed
 
     private void btn_gestionar_citaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_gestionar_citaMouseEntered
 
-                 if(!this.btn_gestionar_cita.isSelected()){
-changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/4.png");
-   btn_gestionar_cita_02.setBackground(new Color (247, 248, 251));
-          btn_gestionar_cita_02.setForeground(new Color (131,137,152));
+        if (!this.btn_gestionar_cita.isSelected()) {
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/4.png");
+            btn_gestionar_cita_02.setBackground(new Color(247, 248, 251));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
 
-        }    
-        lblgestionar_cita.setBackground(new Color(101,208,250));  
-         // TODO add your handling code here:
+        }
+        lblgestionar_cita.setBackground(new Color(101, 208, 250));
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_gestionar_citaMouseEntered
 
     private void btn_gestionar_citaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_gestionar_citaMouseExited
-       if(!this.btn_gestionar_cita.isSelected()){
-            lblgestionar_cita.setBackground(new Color(255,255,255));
-                        btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));
-            
+        if (!this.btn_gestionar_cita.isSelected()) {
+            lblgestionar_cita.setBackground(new Color(255, 255, 255));
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+
             changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-        }   
+        }
     }//GEN-LAST:event_btn_gestionar_citaMouseExited
 
     private void btn_gestionar_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gestionar_citaActionPerformed
-boton_gestionarCita();        // TODO add your handling code here:
+        boton_gestionarCita();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_gestionar_citaActionPerformed
 
     private void btn_serviciosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_serviciosMouseEntered
 
-                 if(!this.btn_servicios.isSelected()){
-changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/7.png");
-    btn_servicios_02.setBackground(new Color (247, 248, 251));
-          btn_servicios_02.setForeground(new Color (131,137,152));
+        if (!this.btn_servicios.isSelected()) {
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/7.png");
+            btn_servicios_02.setBackground(new Color(247, 248, 251));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
 
-        }    
-        lblservicios.setBackground(new Color(101,208,250));    
-        
+        }
+        lblservicios.setBackground(new Color(101, 208, 250));
+
     }//GEN-LAST:event_btn_serviciosMouseEntered
 
     private void btn_serviciosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_serviciosMouseExited
-       if(!this.btn_servicios .isSelected()){
-            lblservicios.setBackground(new Color(255,255,255));
-                        btn_servicios_02.setBackground(new Color (255,255,255,0));
-                        changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-            btn_servicios_02.setForeground(new Color (131,137,152));
-        }   
+        if (!this.btn_servicios.isSelected()) {
+            lblservicios.setBackground(new Color(255, 255, 255));
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+        }
     }//GEN-LAST:event_btn_serviciosMouseExited
 
     private void btn_serviciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_serviciosActionPerformed
-boton_servicios();        // TODO add your handling code here:
+        boton_servicios();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_serviciosActionPerformed
 
     private void btn_usuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usuarioMouseEntered
 
-                 if(!this.btn_usuario.isSelected()){
+        if (!this.btn_usuario.isSelected()) {
 
-          btn_usuarios_02.setBackground(new Color (247, 248, 251));
-          btn_usuarios_02.setForeground(new Color (131,137,152));
-changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/9.png");
-        }    
-        lblusuarios.setBackground(new Color(101,208,250));   
+            btn_usuarios_02.setBackground(new Color(247, 248, 251));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/9.png");
+        }
+        lblusuarios.setBackground(new Color(101, 208, 250));
 
     }//GEN-LAST:event_btn_usuarioMouseEntered
 
     private void btn_usuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usuarioMouseExited
-       if(!this.btn_usuario .isSelected()){
-            lblusuarios.setBackground(new Color(255,255,255));
-            btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));
+        if (!this.btn_usuario.isSelected()) {
+            lblusuarios.setBackground(new Color(255, 255, 255));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
             changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
-        }   
+        }
     }//GEN-LAST:event_btn_usuarioMouseExited
 
     private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuarioActionPerformed
-boton_usuarios();        // TODO add your handling code here:
+        boton_usuarios();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_usuarioActionPerformed
 
     private void btn_especialistaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_especialistaMouseEntered
-         if(!this.btn_especialista.isSelected()){
-changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/8.png");
- btn_especialista_02.setBackground(new Color (247, 248, 251));
-          btn_especialista_02.setForeground(new Color (131,137,152));
+        if (!this.btn_especialista.isSelected()) {
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/8.png");
+            btn_especialista_02.setBackground(new Color(247, 248, 251));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
 
-        }    
-        lblespecialista.setBackground(new Color(101,208,250));    
-         // TODO add your handling code here:
+        }
+        lblespecialista.setBackground(new Color(101, 208, 250));
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_especialistaMouseEntered
 
     private void btn_especialistaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_especialistaMouseExited
-      if(!this.btn_especialista .isSelected()){
-            lblespecialista.setBackground(new Color(255,255,255));
-            btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));
+        if (!this.btn_especialista.isSelected()) {
+            lblespecialista.setBackground(new Color(255, 255, 255));
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
             changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
-        }   
+        }
     }//GEN-LAST:event_btn_especialistaMouseExited
 
     private void btn_especialistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_especialistaActionPerformed
-boton_especialistas();        // TODO add your handling code here:
+        boton_especialistas();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_especialistaActionPerformed
 
     private void btn_base_datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_base_datosActionPerformed
-boton_base_datos();        // TODO add your handling code here:
+        boton_base_datos();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_base_datosActionPerformed
 
     private void btn_base_datosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_base_datosMouseExited
-     if(!this.btn_base_datos.isSelected()){
-            lblbasedatos.setBackground(new Color(255,255,255));
+        if (!this.btn_base_datos.isSelected()) {
+            lblbasedatos.setBackground(new Color(255, 255, 255));
             changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/icons8-base-de-datos.png");
-        }   
+        }
     }//GEN-LAST:event_btn_base_datosMouseExited
 
     private void btn_base_datosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_base_datosMouseEntered
-lblbasedatos.setBackground(new Color(101,208,250));  
-changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/10.png");// TODO add your handling code here:
+        lblbasedatos.setBackground(new Color(101, 208, 250));
+        changeimage_button(btn_base_datos, "/WIN34CLC_RESOURCES_UI/10.png");// TODO add your handling code here:
     }//GEN-LAST:event_btn_base_datosMouseEntered
 
     private void btn_reportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_reportesMouseEntered
-lblreporte.setBackground(new Color(101,208,250)); 
-          changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/6.png");
-         //   btn_reporte_citas.setBackground(new Color (139,198,255,255));
-           // btn_reporte_citas.setForeground(new Color (255,255,255,255));
+        lblreporte.setBackground(new Color(101, 208, 250));
+        changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/6.png");
+        //   btn_reporte_citas.setBackground(new Color (139,198,255,255));
+        // btn_reporte_citas.setForeground(new Color (255,255,255,255));
 
     }//GEN-LAST:event_btn_reportesMouseEntered
 
     private void btn_reportesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_reportesMouseExited
-          if(!this.btn_reportes.isSelected()){
-            lblreporte.setBackground(new Color(255,255,255));
-                      changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
+        if (!this.btn_reportes.isSelected()) {
+            lblreporte.setBackground(new Color(255, 255, 255));
+            changeimage_button(btn_reportes, "/WIN34CLC_RESOURCES_UI/icons8-presentación-30.png");
         }   // TODO add your handling code here:
     }//GEN-LAST:event_btn_reportesMouseExited
 
@@ -3026,47 +2980,46 @@ lblreporte.setBackground(new Color(101,208,250));
     }//GEN-LAST:event_btn_reportesActionPerformed
 
     private void lbl_menu_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_menu_2MouseClicked
-if(a==true){
-         hideshow(panel_despegable_titulo_2, a);
-          hideshow(panel_despegable_2, a);
-          hideshow(panel_despegable_base_datos, a);
-         hideshow(panel_despegable_ventana, a);
-         
-          hideshow(panel_despegable_1, a);
-           hideshow(panel_despegable_titulo_1, a);
+        if (a == true) {
+            hideshow(panel_despegable_titulo_2, a);
+            hideshow(panel_despegable_2, a);
+            hideshow(panel_despegable_base_datos, a);
+            hideshow(panel_despegable_ventana, a);
+
+            hideshow(panel_despegable_1, a);
+            hideshow(panel_despegable_titulo_1, a);
             hideshow(panel_despegable_salir_1, a);
             hideshow(panel_despegable_reportes, a);
-         
-          SwingUtilities.updateComponentTreeUI(this);
-                    
-          a=false;
-          
+
+            SwingUtilities.updateComponentTreeUI(this);
+
+            a = false;
+
             changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
             changeimage(lbl_menu_1, "/WIN34CLC_RESOURCES_UI/icons8-menú-30.png");
-        }
-        else{
+        } else {
             hideshow(panel_despegable_2, a);
             hideshow(panel_despegable_titulo_2, a);
-        
-        hideshow(panel_despegable_base_datos, a);
-         hideshow(panel_despegable_ventana, a);
+
+            hideshow(panel_despegable_base_datos, a);
+            hideshow(panel_despegable_ventana, a);
             SwingUtilities.updateComponentTreeUI(this);
-            a=true;
-            
-              changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-adelante-30.png");
-   }//              // TODO add your handling code here:
+            a = true;
+
+            changeimage(lbl_menu_2, "/WIN34CLC_RESOURCES_UI/icons8-adelante-30.png");
+        }//              // TODO add your handling code here:
     }//GEN-LAST:event_lbl_menu_2MouseClicked
 
     private void btn_inicio_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicio_02ActionPerformed
-boton_inicio();
+        boton_inicio();
     }//GEN-LAST:event_btn_inicio_02ActionPerformed
 
     private void btn_paciente_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_paciente_02ActionPerformed
-boton_paciente();        // TODO add your handling code here:
+        boton_paciente();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_paciente_02ActionPerformed
 
     private void btn_cita_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cita_02ActionPerformed
-      boton_cita();  // TODO add your handling code here:
+        boton_cita();  // TODO add your handling code here:
     }//GEN-LAST:event_btn_cita_02ActionPerformed
 
     private void btn_gestionar_cita_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gestionar_cita_02ActionPerformed
@@ -3074,47 +3027,47 @@ boton_paciente();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_gestionar_cita_02ActionPerformed
 
     private void btn_comprobantes_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comprobantes_02ActionPerformed
-      boton_comprobante();  // TODO add your handling code here:
+        boton_comprobante();  // TODO add your handling code here:
     }//GEN-LAST:event_btn_comprobantes_02ActionPerformed
 
     private void btn_inicio_02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicio_02MouseClicked
-boton_inicio();
-       // btn_inicio_02.setBackground(new Color (139,198,255,255));           // TODO add your handling code here:
+        boton_inicio();
+        // btn_inicio_02.setBackground(new Color (139,198,255,255));           // TODO add your handling code here:
     }//GEN-LAST:event_btn_inicio_02MouseClicked
 
     private void btn_inicio_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicio_02MouseExited
-if(!this.btn_inicio .isSelected()){
-            lblinicio.setBackground(new Color(255,255,255));
-                     btn_inicio_02.setBackground(new Color (255,255,255,0));
-            btn_inicio_02.setForeground(new Color (131,137,152));   
+        if (!this.btn_inicio.isSelected()) {
+            lblinicio.setBackground(new Color(255, 255, 255));
+            btn_inicio_02.setBackground(new Color(255, 255, 255, 0));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));
             changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
-          
-        }           
+
+        }
     }//GEN-LAST:event_btn_inicio_02MouseExited
 
     private void btn_inicio_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inicio_02MouseEntered
-         if(!this.btn_inicio.isSelected()){
-changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
-          btn_inicio_02.setBackground(new Color (247, 248, 251));
-          btn_inicio_02.setForeground(new Color (131,137,152));;
+        if (!this.btn_inicio.isSelected()) {
+            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
+            btn_inicio_02.setBackground(new Color(247, 248, 251));
+            btn_inicio_02.setForeground(new Color(131, 137, 152));;
 
-        }       
-        
-        lblinicio.setBackground(new Color(101,208,250));               // TODO add your handling code here:
+        }
+
+        lblinicio.setBackground(new Color(101, 208, 250));               // TODO add your handling code here:
     }//GEN-LAST:event_btn_inicio_02MouseEntered
 
     private void btn_reporte_citasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporte_citasActionPerformed
         subboton_reporte_cita();
-       // frm_exploradorCitas citas = new frm_exploradorCitas();
+        // frm_exploradorCitas citas = new frm_exploradorCitas();
         //citas.setVisible(true);
     }//GEN-LAST:event_btn_reporte_citasActionPerformed
 
     private void btn_reportes_facturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reportes_facturasActionPerformed
-   subboton_reporte_facturas();
+        subboton_reporte_facturas();
     }//GEN-LAST:event_btn_reportes_facturasActionPerformed
 
     private void btn_usuarios_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuarios_02ActionPerformed
-boton_usuarios();      
+        boton_usuarios();
     }//GEN-LAST:event_btn_usuarios_02ActionPerformed
 
     private void btn_servicios_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_servicios_02ActionPerformed
@@ -3122,372 +3075,363 @@ boton_usuarios();
     }//GEN-LAST:event_btn_servicios_02ActionPerformed
 
     private void btn_especialista_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_especialista_02ActionPerformed
-      boton_especialistas(); 
+        boton_especialistas();
     }//GEN-LAST:event_btn_especialista_02ActionPerformed
 
     private void btn_facturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_facturaActionPerformed
-        boton_comprobante();        
+        boton_comprobante();
     }//GEN-LAST:event_btn_facturaActionPerformed
 
     private void btn_facturaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_facturaMouseExited
-        if(!this.btn_factura.isSelected()){
-            lblfactura.setBackground(new Color(255,255,255));
-            btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
-        }     
-        
+        if (!this.btn_factura.isSelected()) {
+            lblfactura.setBackground(new Color(255, 255, 255));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+        }
+
 
     }//GEN-LAST:event_btn_facturaMouseExited
 
     private void btn_facturaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_facturaMouseEntered
-         lblfactura.setBackground(new Color(101,208,250));
-        
-         if(!this.btn_factura.isSelected()){
-changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/5.png");
-          btn_comprobantes_02.setBackground(new Color (247, 248, 251));
-          btn_comprobantes_02.setForeground(new Color (131,137,152));;
+        lblfactura.setBackground(new Color(101, 208, 250));
 
-        }        
+        if (!this.btn_factura.isSelected()) {
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/5.png");
+            btn_comprobantes_02.setBackground(new Color(247, 248, 251));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));;
+
+        }
     }//GEN-LAST:event_btn_facturaMouseEntered
 
     private void menu_01MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_01MousePressed
-  xx=evt.getX();
- xy=evt.getY();        
+        xx = evt.getX();
+        xy = evt.getY();
     }//GEN-LAST:event_menu_01MousePressed
 
     private void menu_01MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_01MouseDragged
-     int x=evt.getXOnScreen();
-       int y=evt.getYOnScreen();
-       
-        this.setLocation(x-xx, y-xy);     
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+
+        this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_menu_01MouseDragged
 
     private void btn_paciente_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_paciente_02MouseEntered
-lblpacientes.setBackground(new Color(101,208,250)); 
-         if(!this.btn_paciente.isSelected()){
-changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/2.png");
-          btn_paciente_02.setBackground(new Color (247, 248, 251));
-          btn_paciente_02.setForeground(new Color (131,137,152));;
+        lblpacientes.setBackground(new Color(101, 208, 250));
+        if (!this.btn_paciente.isSelected()) {
+            changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/2.png");
+            btn_paciente_02.setBackground(new Color(247, 248, 251));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));;
 
         }       // TODO add your handling code here:
     }//GEN-LAST:event_btn_paciente_02MouseEntered
 
     private void btn_paciente_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_paciente_02MouseExited
-if(!this.btn_paciente .isSelected()){
-            lblpacientes.setBackground(new Color(255,255,255));
-            btn_paciente_02.setBackground(new Color (255,255,255,0));
-            btn_paciente_02.setForeground(new Color (131,137,152));   
+        if (!this.btn_paciente.isSelected()) {
+            lblpacientes.setBackground(new Color(255, 255, 255));
+            btn_paciente_02.setBackground(new Color(255, 255, 255, 0));
+            btn_paciente_02.setForeground(new Color(131, 137, 152));
             changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
-        }           
-                // TODO add your handling code here:
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_paciente_02MouseExited
 
     private void btn_cita_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cita_02MouseEntered
-lblcita.setBackground(new Color(101,208,250));  
+        lblcita.setBackground(new Color(101, 208, 250));
 
-         if(!this.btn_cita.isSelected()){
-changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/3.png");
-          btn_cita_02.setBackground(new Color (247, 248, 251));
-          btn_cita_02.setForeground(new Color (131,137,152));;
+        if (!this.btn_cita.isSelected()) {
+            changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/3.png");
+            btn_cita_02.setBackground(new Color(247, 248, 251));
+            btn_cita_02.setForeground(new Color(131, 137, 152));;
 
         }       // TODO add your handling code here:
     }//GEN-LAST:event_btn_cita_02MouseEntered
 
     private void btn_cita_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cita_02MouseExited
-if(!this.btn_cita .isSelected()){
-            lblcita.setBackground(new Color(255,255,255));
-                     btn_cita_02.setBackground(new Color (255,255,255,0));
-            btn_cita_02.setForeground(new Color (131,137,152));   
+        if (!this.btn_cita.isSelected()) {
+            lblcita.setBackground(new Color(255, 255, 255));
+            btn_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_cita_02.setForeground(new Color(131, 137, 152));
             changeimage_button(btn_cita, "/WIN34CLC_RESOURCES_UI/icons8-calendario-30.png");
-          
-        }           
-                  // TODO add your handling code here:
+
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_cita_02MouseExited
 
     private void btn_gestionar_cita_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_gestionar_cita_02MouseEntered
-lblgestionar_cita.setBackground(new Color(101,208,250));  
-         if(!this.btn_gestionar_cita.isSelected()){
-changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/4.png");
-          btn_gestionar_cita_02.setBackground(new Color (247, 248, 251));
-          btn_gestionar_cita_02.setForeground(new Color (131,137,152));;
+        lblgestionar_cita.setBackground(new Color(101, 208, 250));
+        if (!this.btn_gestionar_cita.isSelected()) {
+            changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/4.png");
+            btn_gestionar_cita_02.setBackground(new Color(247, 248, 251));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));;
 
         }       // TODO add your handling code here:
     }//GEN-LAST:event_btn_gestionar_cita_02MouseEntered
 
     private void btn_gestionar_cita_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_gestionar_cita_02MouseExited
-if(!this.btn_gestionar_cita .isSelected()){
-            lblgestionar_cita.setBackground(new Color(255,255,255));
+        if (!this.btn_gestionar_cita.isSelected()) {
+            lblgestionar_cita.setBackground(new Color(255, 255, 255));
             changeimage_button(btn_gestionar_cita, "/WIN34CLC_RESOURCES_UI/icons8-horas-extras-30.png");
-          
-                     btn_gestionar_cita_02.setBackground(new Color (255,255,255,0));
-            btn_gestionar_cita_02.setForeground(new Color (131,137,152));   
-        }           
-                  // TODO add your handling code here:
+
+            btn_gestionar_cita_02.setBackground(new Color(255, 255, 255, 0));
+            btn_gestionar_cita_02.setForeground(new Color(131, 137, 152));
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_gestionar_cita_02MouseExited
 
     private void btn_comprobantes_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_comprobantes_02MouseEntered
-lblfactura.setBackground(new Color(101,208,250));
-         if(!this.btn_factura.isSelected()){
-          changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/5.png");
+        lblfactura.setBackground(new Color(101, 208, 250));
+        if (!this.btn_factura.isSelected()) {
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/5.png");
 
-          btn_comprobantes_02.setBackground(new Color (247, 248, 251));
-          btn_comprobantes_02.setForeground(new Color (131,137,152));;
+            btn_comprobantes_02.setBackground(new Color(247, 248, 251));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));;
 
-        }       
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_comprobantes_02MouseEntered
 
     private void btn_comprobantes_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_comprobantes_02MouseExited
 
-        if(!this.btn_factura .isSelected()){
-            lblfactura.setBackground(new Color(255,255,255));
-           btn_comprobantes_02.setBackground(new Color (255,255,255,0));
-            btn_comprobantes_02.setForeground(new Color (131,137,152));
-                      changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
+        if (!this.btn_factura.isSelected()) {
+            lblfactura.setBackground(new Color(255, 255, 255));
+            btn_comprobantes_02.setBackground(new Color(255, 255, 255, 0));
+            btn_comprobantes_02.setForeground(new Color(131, 137, 152));
+            changeimage_button(btn_factura, "/WIN34CLC_RESOURCES_UI/icons8-factura-30.png");
 
-
-          
-          
         }                   // TODO add your handling code here:
     }//GEN-LAST:event_btn_comprobantes_02MouseExited
 
     private void btn_usuarios_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usuarios_02MouseEntered
-lblusuarios.setBackground(new Color(101,208,250));       
-         if(!this.btn_usuario.isSelected()){
-          changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/9.png");
+        lblusuarios.setBackground(new Color(101, 208, 250));
+        if (!this.btn_usuario.isSelected()) {
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/9.png");
 
-          btn_usuarios_02.setBackground(new Color (247, 248, 251));
-          btn_usuarios_02.setForeground(new Color (131,137,152));;
+            btn_usuarios_02.setBackground(new Color(247, 248, 251));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));;
 
         }       // TODO add your handling code here:
     }//GEN-LAST:event_btn_usuarios_02MouseEntered
 
     private void btn_usuarios_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usuarios_02MouseExited
-if(!this.btn_usuario .isSelected()){
-            lblusuarios.setBackground(new Color(255,255,255));
-                     btn_usuarios_02.setBackground(new Color (255,255,255,0));
-            btn_usuarios_02.setForeground(new Color (131,137,152));  
-                      changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
+        if (!this.btn_usuario.isSelected()) {
+            lblusuarios.setBackground(new Color(255, 255, 255));
+            btn_usuarios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_usuarios_02.setForeground(new Color(131, 137, 152));
+            changeimage_button(btn_usuario, "/WIN34CLC_RESOURCES_UI/icons8-usuario-masculino-en-círculo-30.png");
 
-          
-        }           
-                  // TODO add your handling code here:
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_usuarios_02MouseExited
 
     private void btn_servicios_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_servicios_02MouseEntered
-lblservicios.setBackground(new Color(101,208,250)); 
+        lblservicios.setBackground(new Color(101, 208, 250));
 
-         if(!this.btn_servicios.isSelected()){
-changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/7.png");
-          btn_servicios_02.setBackground(new Color (247, 248, 251));
-          btn_servicios_02.setForeground(new Color (131,137,152));;
+        if (!this.btn_servicios.isSelected()) {
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/7.png");
+            btn_servicios_02.setBackground(new Color(247, 248, 251));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));;
 
         }       // TODO add your handling code here:
     }//GEN-LAST:event_btn_servicios_02MouseEntered
 
     private void btn_servicios_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_servicios_02MouseExited
-if(!this.btn_servicios .isSelected()){
-            lblservicios.setBackground(new Color(255,255,255));
-          
-          changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
-           btn_servicios_02.setBackground(new Color (255,255,255,0));
-            btn_servicios_02.setForeground(new Color (131,137,152));   
-        }           
-                  // TODO add your handling code here:
+        if (!this.btn_servicios.isSelected()) {
+            lblservicios.setBackground(new Color(255, 255, 255));
+
+            changeimage_button(btn_servicios, "/WIN34CLC_RESOURCES_UI/icons8-maletín-médico-30.png");
+            btn_servicios_02.setBackground(new Color(255, 255, 255, 0));
+            btn_servicios_02.setForeground(new Color(131, 137, 152));
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_servicios_02MouseExited
 
     private void btn_especialista_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_especialista_02MouseEntered
-lblespecialista.setBackground(new Color(101,208,250)); 
+        lblespecialista.setBackground(new Color(101, 208, 250));
 
-         if(!this.btn_especialista.isSelected()){
-          changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/8.png");
+        if (!this.btn_especialista.isSelected()) {
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/8.png");
 
-          btn_especialista_02.setBackground(new Color (247, 248, 251));
-          btn_especialista_02.setForeground(new Color (131,137,152));;
+            btn_especialista_02.setBackground(new Color(247, 248, 251));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));;
 
         }       // TODO add your handling code here:
     }//GEN-LAST:event_btn_especialista_02MouseEntered
 
     private void btn_especialista_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_especialista_02MouseExited
-if(!this.btn_especialista .isSelected()){
-            lblespecialista.setBackground(new Color(255,255,255));
-                    changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
+        if (!this.btn_especialista.isSelected()) {
+            lblespecialista.setBackground(new Color(255, 255, 255));
+            changeimage_button(btn_especialista, "/WIN34CLC_RESOURCES_UI/icons8-doctor-en-medicina-30.png");
 
-           btn_especialista_02.setBackground(new Color (255,255,255,0));
-            btn_especialista_02.setForeground(new Color (131,137,152));   
-          
-        }           
-                  // TODO add your handling code here:
+            btn_especialista_02.setBackground(new Color(255, 255, 255, 0));
+            btn_especialista_02.setForeground(new Color(131, 137, 152));
+
+        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_especialista_02MouseExited
 
     private void btn_salir_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salir_02MouseEntered
-       changeimage_button(btn_salir, "/WIN34CLC_RESOURCES_UI/apagar.png");     
-        btn_salir_02.setBackground(new Color (200,232,250,150));
-            btn_salir_02.setForeground(new Color (131,137,152));        // TODO add your handling code here:
+        changeimage_button(btn_salir, "/WIN34CLC_RESOURCES_UI/apagar.png");
+        btn_salir_02.setBackground(new Color(200, 232, 250, 150));
+        btn_salir_02.setForeground(new Color(131, 137, 152));        // TODO add your handling code here:
     }//GEN-LAST:event_btn_salir_02MouseEntered
 
     private void btn_salir_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salir_02MouseExited
-        changeimage_button(btn_salir, "/WIN34CLC_RESOURCES_UI/apagar 2.png");              
-        btn_salir_02.setBackground(new Color (255,255,255,0));
-            btn_salir_02.setForeground(new Color (131,137,152));    
+        changeimage_button(btn_salir, "/WIN34CLC_RESOURCES_UI/apagar 2.png");
+        btn_salir_02.setBackground(new Color(255, 255, 255, 0));
+        btn_salir_02.setForeground(new Color(131, 137, 152));
     }//GEN-LAST:event_btn_salir_02MouseExited
 
     private void btn_salir_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salir_02ActionPerformed
-System.exit(0);           // TODO add your handling code here:
+        System.exit(0);           // TODO add your handling code here:
     }//GEN-LAST:event_btn_salir_02ActionPerformed
 
     private void btn_reporte_citasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_reporte_citasMouseEntered
-	   btn_reporte_citas.setBackground(new Color (247, 248, 251));
-          btn_reporte_citas.setForeground(new Color (131,137,152));;        // TODO add your handling code here:
+        btn_reporte_citas.setBackground(new Color(247, 248, 251));
+        btn_reporte_citas.setForeground(new Color(131, 137, 152));;        // TODO add your handling code here:
     }//GEN-LAST:event_btn_reporte_citasMouseEntered
 
     private void btn_max_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_max_02MouseEntered
- btn_max_02.setBackground(new Color (200,232,250,150));
-            btn_max_02.setForeground(new Color (131,137,152));
-        changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/max.png");   
-       // TODO add your handling code here:
+        btn_max_02.setBackground(new Color(200, 232, 250, 150));
+        btn_max_02.setForeground(new Color(131, 137, 152));
+        changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/max.png");
+        // TODO add your handling code here:
     }//GEN-LAST:event_btn_max_02MouseEntered
 
     private void btn_max_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_max_02MouseExited
-    
-           
- changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/icons8-rectángulo-redondeado-30.png");  
- 
-    btn_max_02.setBackground(new Color (255,255,255,0));
-            btn_max_02.setForeground(new Color (131,137,152));
-       
+
+        changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/icons8-rectángulo-redondeado-30.png");
+
+        btn_max_02.setBackground(new Color(255, 255, 255, 0));
+        btn_max_02.setForeground(new Color(131, 137, 152));
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_max_02MouseExited
 
     private void btn_max_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_max_02ActionPerformed
-if(maximized){
-          
+        if (maximized) {
+
             UI_V5_main1.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
             GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
             UI_V5_main1.this.setMaximizedBounds(env.getMaximumWindowBounds());
             maximized = false;
-        }else{
+        } else {
             setExtendedState(JFrame.NORMAL);
             maximized = true;
-        }            
+        }
     }//GEN-LAST:event_btn_max_02ActionPerformed
 
     private void btn_min_02MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_min_02MouseEntered
- btn_min_02.setBackground(new Color (200,232,250,150));
-            btn_min_02.setForeground(new Color (131,137,152));
-            changeimage_button(btn_min, "/WIN34CLC_RESOURCES_UI/min.png");         // TODO add your handling code here:
+        btn_min_02.setBackground(new Color(200, 232, 250, 150));
+        btn_min_02.setForeground(new Color(131, 137, 152));
+        changeimage_button(btn_min, "/WIN34CLC_RESOURCES_UI/min.png");         // TODO add your handling code here:
     }//GEN-LAST:event_btn_min_02MouseEntered
 
     private void btn_min_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_min_02MouseExited
-    changeimage_button(btn_min, "/WIN34CLC_RESOURCES_UI/icons8-menos-30 (1).png"); 
-        btn_min_02.setBackground(new Color (255,255,255,0));
-            btn_min_02.setForeground(new Color (131,137,152));// TODO add your handling code here:
+        changeimage_button(btn_min, "/WIN34CLC_RESOURCES_UI/icons8-menos-30 (1).png");
+        btn_min_02.setBackground(new Color(255, 255, 255, 0));
+        btn_min_02.setForeground(new Color(131, 137, 152));// TODO add your handling code here:
     }//GEN-LAST:event_btn_min_02MouseExited
 
     private void btn_min_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_min_02ActionPerformed
-this.setState(Frame.ICONIFIED);          
+        this.setState(Frame.ICONIFIED);
     }//GEN-LAST:event_btn_min_02ActionPerformed
 
     private void btn_createbackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_createbackupActionPerformed
-     try {
-         generateBackUpMysql();
-     } catch (IOException ex) {
-         Logger.getLogger(UI_V5_main1.class.getName()).log(Level.SEVERE, null, ex);
-     }
-   
-   subboton_copia_bd();        // TODO add your handling code here:
+        try {
+            generateBackUpMysql();
+        } catch (IOException ex) {
+            Logger.getLogger(UI_V5_main1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        subboton_copia_bd();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_createbackupActionPerformed
 
     private void btn_restoredatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_restoredatabaseActionPerformed
-     try {
-         restoreBackUpMysql();
-     } catch (IOException ex) {
-         Logger.getLogger(UI_V5_main1.class.getName()).log(Level.SEVERE, null, ex);
-     }
+        try {
+            restoreBackUpMysql();
+        } catch (IOException ex) {
+            Logger.getLogger(UI_V5_main1.class.getName()).log(Level.SEVERE, null, ex);
+        }
         subboton_restuarar_bd();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_restoredatabaseActionPerformed
 
     private void btn_resetdatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetdatabaseActionPerformed
-  try {
+        try {
             // preguntar si se resetea o no
-            
+
             int dialogButton = JOptionPane.YES_NO_OPTION;
-            int dialogResult = JOptionPane.showConfirmDialog(this, "¿Esta seguro de limpiar por completo la base de datos?\n"+"Asegurese de tener una copia de seguridad.", "DentalSys", dialogButton);
-            if(dialogResult == 0) {
+            int dialogResult = JOptionPane.showConfirmDialog(this, "¿Esta seguro de limpiar por completo la base de datos?\n" + "Asegurese de tener una copia de seguridad.", "DentalSys", dialogButton);
+            if (dialogResult == 0) {
 
                 CTR_11_DataBaseConfiguration baseConfiguration = new CTR_11_DataBaseConfiguration();
-                if(baseConfiguration.RESETDATABASE())
-                {
-                    JOptionPane optionPane = new JOptionPane("Success!", JOptionPane.INFORMATION_MESSAGE);    
+                if (baseConfiguration.RESETDATABASE()) {
+                    JOptionPane optionPane = new JOptionPane("Success!", JOptionPane.INFORMATION_MESSAGE);
                     JDialog dialog = optionPane.createDialog("DentalSys");
                     dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);  
-                }
-                else
-                {    
-                    JOptionPane optionPane = new JOptionPane("Puede que no se haya borrado limpiado la base de datos", JOptionPane.ERROR_MESSAGE);    
+                    dialog.setVisible(true);
+                } else {
+                    JOptionPane optionPane = new JOptionPane("Puede que no se haya borrado limpiado la base de datos", JOptionPane.ERROR_MESSAGE);
                     JDialog dialog = optionPane.createDialog("DentalSys");
                     dialog.setAlwaysOnTop(true);
-                    dialog.setVisible(true);         
+                    dialog.setVisible(true);
                 }
-                
+
             } else {
-              System.out.println("No Option");
-            } 
+                System.out.println("No Option");
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(test_para_lanzar_metodos.class.getName()).log(Level.SEVERE, null, ex);
         }
-  
-  
-  subboton_vaciar_bd();       
-  
+
+        subboton_vaciar_bd();
+
     }//GEN-LAST:event_btn_resetdatabaseActionPerformed
 
     private void btn_reporte_citasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_reporte_citasMouseExited
-	  btn_reporte_citas.setBackground(new Color (255,255,255,0));
-            btn_reporte_citas.setForeground(new Color (131,137,152));          // TODO add your handling code here:
+        btn_reporte_citas.setBackground(new Color(255, 255, 255, 0));
+        btn_reporte_citas.setForeground(new Color(131, 137, 152));          // TODO add your handling code here:
     }//GEN-LAST:event_btn_reporte_citasMouseExited
 
     private void btn_reportes_facturasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_reportes_facturasMouseEntered
-		   btn_reportes_facturas.setBackground(new Color (247, 248, 251));
-          btn_reportes_facturas.setForeground(new Color (131,137,152));        // TODO add your handling code here:
+        btn_reportes_facturas.setBackground(new Color(247, 248, 251));
+        btn_reportes_facturas.setForeground(new Color(131, 137, 152));        // TODO add your handling code here:
     }//GEN-LAST:event_btn_reportes_facturasMouseEntered
 
     private void btn_reportes_facturasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_reportes_facturasMouseExited
-		  btn_reportes_facturas.setBackground(new Color (255,255,255,0));
-            btn_reportes_facturas.setForeground(new Color (131,137,152));         // TODO add your handling code here:
+        btn_reportes_facturas.setBackground(new Color(255, 255, 255, 0));
+        btn_reportes_facturas.setForeground(new Color(131, 137, 152));         // TODO add your handling code here:
     }//GEN-LAST:event_btn_reportes_facturasMouseExited
 
     private void btn_createbackupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_createbackupMouseEntered
-		   btn_createbackup.setBackground(new Color (247, 248, 251));
-          btn_createbackup.setForeground(new Color (131,137,152));        // TODO add your handling code here:
+        btn_createbackup.setBackground(new Color(247, 248, 251));
+        btn_createbackup.setForeground(new Color(131, 137, 152));        // TODO add your handling code here:
     }//GEN-LAST:event_btn_createbackupMouseEntered
 
     private void btn_createbackupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_createbackupMouseExited
-		  btn_createbackup.setBackground(new Color (255,255,255,0));
-            btn_createbackup.setForeground(new Color (131,137,152));          // TODO add your handling code here:
+        btn_createbackup.setBackground(new Color(255, 255, 255, 0));
+        btn_createbackup.setForeground(new Color(131, 137, 152));          // TODO add your handling code here:
     }//GEN-LAST:event_btn_createbackupMouseExited
 
     private void btn_restoredatabaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_restoredatabaseMouseEntered
-		   btn_restoredatabase.setBackground(new Color (247, 248, 251));
-          btn_restoredatabase.setForeground(new Color (131,137,152));        // TODO add your handling code here:
+        btn_restoredatabase.setBackground(new Color(247, 248, 251));
+        btn_restoredatabase.setForeground(new Color(131, 137, 152));        // TODO add your handling code here:
     }//GEN-LAST:event_btn_restoredatabaseMouseEntered
 
     private void btn_restoredatabaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_restoredatabaseMouseExited
-		  btn_restoredatabase.setBackground(new Color (255,255,255,0));
-            btn_restoredatabase.setForeground(new Color (131,137,152));          // TODO add your handling code here:
+        btn_restoredatabase.setBackground(new Color(255, 255, 255, 0));
+        btn_restoredatabase.setForeground(new Color(131, 137, 152));          // TODO add your handling code here:
     }//GEN-LAST:event_btn_restoredatabaseMouseExited
 
     private void btn_resetdatabaseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_resetdatabaseMouseEntered
-		   btn_resetdatabase.setBackground(new Color (247, 248, 251));
-          btn_resetdatabase.setForeground(new Color (131,137,152));        // TODO add your handling code here:
+        btn_resetdatabase.setBackground(new Color(247, 248, 251));
+        btn_resetdatabase.setForeground(new Color(131, 137, 152));        // TODO add your handling code here:
     }//GEN-LAST:event_btn_resetdatabaseMouseEntered
 
     private void btn_resetdatabaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_resetdatabaseMouseExited
-		  btn_resetdatabase.setBackground(new Color (255,255,255,0));
-            btn_resetdatabase.setForeground(new Color (131,137,152));        // TODO add your handling code here:
+        btn_resetdatabase.setBackground(new Color(255, 255, 255, 0));
+        btn_resetdatabase.setForeground(new Color(131, 137, 152));        // TODO add your handling code here:
     }//GEN-LAST:event_btn_resetdatabaseMouseExited
 
     public static void main(String args[]) {
@@ -3532,6 +3476,7 @@ this.setState(Frame.ICONIFIED);
     private WIN33CLC_VIEW.frm_UI_02_reservar_cita frm_UI_02_reservar_cita11;
     private WIN33CLC_VIEW.frm_UI_03_gestionar_citas frm_UI_03_gestionar_citas1;
     private WIN33CLC_VIEW.frm_UI_04_comprobantes frm_UI_04_comprobantes1;
+    private WIN33CLC_VIEW.frm_UI_07_usuarios frm_UI_07_usuarios1;
     private WIN33CLC_VIEW.frm_UI_inicio1 frm_UI_inicio11;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -3577,69 +3522,67 @@ this.setState(Frame.ICONIFIED);
     // End of variables declaration//GEN-END:variables
 private void generateBackUpMysql() throws IOException {
         properties = new ConfigReader();
-        
-        String dbName= properties.getPropValues().getMySqlDAOMANAGER_db_name();
-        String dbUserName= properties.getPropValues().getMySqlDAOMANAGER_db_user();
-        String dbPassword= properties.getPropValues().getMySqlDAOMANAGER_db_pass();
-        
-         Calendar c = Calendar.getInstance();//creamos una instancia de la clase calendar de java
+
+        String dbName = properties.getPropValues().getMySqlDAOMANAGER_db_name();
+        String dbUserName = properties.getPropValues().getMySqlDAOMANAGER_db_user();
+        String dbPassword = properties.getPropValues().getMySqlDAOMANAGER_db_pass();
+
+        Calendar c = Calendar.getInstance();//creamos una instancia de la clase calendar de java
         //java.util.Date fecha = new Date();
         String DiaHoy = Integer.toString(c.get(Calendar.DATE));
-        String MesHoy = Integer.toString(c.get(Calendar.MONTH)+1);
-        String AnioHoy = Integer.toString(c.get(Calendar.YEAR));        
-                
-        
+        String MesHoy = Integer.toString(c.get(Calendar.MONTH) + 1);
+        String AnioHoy = Integer.toString(c.get(Calendar.YEAR));
+
         JFileChooser RealizarBackupMySQL = new JFileChooser();
         int resp;
-        resp=RealizarBackupMySQL.showSaveDialog(this);//JFileChooser de nombre RealizarBackupMySQL
-        if (resp==JFileChooser.APPROVE_OPTION) {//Si el usuario presiona aceptar; se genera el Backup
-            try{
+        resp = RealizarBackupMySQL.showSaveDialog(this);//JFileChooser de nombre RealizarBackupMySQL
+        if (resp == JFileChooser.APPROVE_OPTION) {//Si el usuario presiona aceptar; se genera el Backup
+            try {
                 Runtime runtime = Runtime.getRuntime();
-                File backupFile = new File(String.valueOf(RealizarBackupMySQL.getSelectedFile().toString())+" "+DiaHoy +"-"+MesHoy+"-"+AnioHoy+".sql");
+                File backupFile = new File(String.valueOf(RealizarBackupMySQL.getSelectedFile().toString()) + " " + DiaHoy + "-" + MesHoy + "-" + AnioHoy + ".sql");
                 FileWriter fw = new FileWriter(backupFile);
-                Process child = runtime.exec( properties.getPropValues().getPathMysqlDump()+ " --routines --opt --password="+dbPassword+" --user="+dbUserName+" --databases "+ dbName); 
+                Process child = runtime.exec(properties.getPropValues().getPathMysqlDump() + " --routines --opt --password=" + dbPassword + " --user=" + dbUserName + " --databases " + dbName);
                 InputStreamReader irs = new InputStreamReader(child.getInputStream());
                 BufferedReader br = new BufferedReader(irs);
                 String line;
-                while( (line=br.readLine()) != null ) {
+                while ((line = br.readLine()) != null) {
                     fw.write(line + "\n");
                 }
                 fw.close();
                 irs.close();
                 br.close();
-                JOptionPane.showMessageDialog(null, "Archivo generado","Verificar",JOptionPane. INFORMATION_MESSAGE);
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Error no se genero el archivo por el siguiente motivo:"+e.getMessage(), "Verificar",JOptionPane.ERROR_MESSAGE);
-            }            
-        } else if (resp==JFileChooser.CANCEL_OPTION) {
-            JOptionPane.showMessageDialog(null,"Ha sido cancelada la generacion del Backup");
+                JOptionPane.showMessageDialog(null, "Archivo generado", "Verificar", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error no se genero el archivo por el siguiente motivo:" + e.getMessage(), "Verificar", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (resp == JFileChooser.CANCEL_OPTION) {
+            JOptionPane.showMessageDialog(null, "Ha sido cancelada la generacion del Backup");
         }
     }
-protected ConfigReader properties = null;
-   private void restoreBackUpMysql() throws IOException{
-        
+    protected ConfigReader properties = null;
+
+    private void restoreBackUpMysql() throws IOException {
+
         properties = new ConfigReader();
-        
-        String dbName= properties.getPropValues().getMySqlDAOMANAGER_db_name();
-        String dbUserName= properties.getPropValues().getMySqlDAOMANAGER_db_user();
-        String dbPassword= properties.getPropValues().getMySqlDAOMANAGER_db_pass();
-        
+
+        String dbName = properties.getPropValues().getMySqlDAOMANAGER_db_name();
+        String dbUserName = properties.getPropValues().getMySqlDAOMANAGER_db_user();
+        String dbPassword = properties.getPropValues().getMySqlDAOMANAGER_db_pass();
+
         int resp;
         JFileChooser RealizarBackupMySQL = new JFileChooser();
-        resp=RealizarBackupMySQL.showOpenDialog(this);//Muestra el cuadro con la opcion abrir
-        if (resp==JFileChooser.APPROVE_OPTION) 
-        {//Si el usuario presiona aceptar(Abrir); Backup
-            try
-            {
-                String ubicacion= String.valueOf(RealizarBackupMySQL.getSelectedFile().toString().trim());                
-        
+        resp = RealizarBackupMySQL.showOpenDialog(this);//Muestra el cuadro con la opcion abrir
+        if (resp == JFileChooser.APPROVE_OPTION) {//Si el usuario presiona aceptar(Abrir); Backup
+            try {
+                String ubicacion = String.valueOf(RealizarBackupMySQL.getSelectedFile().toString().trim());
+
                 //en nombre almacenamos la ruta del fichero con extension sql que se desea restaurar...
-                String nombre = ubicacion.toString().substring(ubicacion.lastIndexOf('/')+1);
-                File fichero=new File(nombre);
+                String nombre = ubicacion.toString().substring(ubicacion.lastIndexOf('/') + 1);
+                File fichero = new File(nombre);
 //                System.out.println("Path: " + ubicacion + " -- File: " + nombre);
-                String dd=fichero.getName();//aqui obtenermos el nombre del fichero con extension sql.
-                
-                String[] executeCmd = new String[]{properties.getPropValues().getPathMysql(), "--password=" + dbPassword, "--user=" + dbUserName,  dbName,"-e", "source "+nombre};
+                String dd = fichero.getName();//aqui obtenermos el nombre del fichero con extension sql.
+
+                String[] executeCmd = new String[]{properties.getPropValues().getPathMysql(), "--password=" + dbPassword, "--user=" + dbUserName, dbName, "-e", "source " + nombre};
                 Process runtimeProcess;
 
                 try {
@@ -3648,29 +3591,21 @@ protected ConfigReader properties = null;
 
                     int processComplete = runtimeProcess.waitFor();
 
-                    if (processComplete == 0) 
-                    {
-                        JOptionPane.showMessageDialog(null,"Backup realizado satisfactoriamente");
-                        JOptionPane.showMessageDialog(null,dd);
-                    } 
-                    else
-                    {
-                        JOptionPane.showMessageDialog(null,"No se pudo realizar el Backup");
-                        JOptionPane.showMessageDialog(null,dd);
+                    if (processComplete == 0) {
+                        JOptionPane.showMessageDialog(null, "Backup realizado satisfactoriamente");
+                        JOptionPane.showMessageDialog(null, dd);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se pudo realizar el Backup");
+                        JOptionPane.showMessageDialog(null, dd);
                     }
                 } catch (Exception ex) {
                 }
+            } catch (Exception ex) {
             }
-            catch (Exception ex) 
-            {
-            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ha sido cancelada la actualizacion del Backup");
         }
-        else
-        {
-            JOptionPane.showMessageDialog(null,"Ha sido cancelada la actualizacion del Backup");            
-        }
-        
-    
+
     }
 
 }
