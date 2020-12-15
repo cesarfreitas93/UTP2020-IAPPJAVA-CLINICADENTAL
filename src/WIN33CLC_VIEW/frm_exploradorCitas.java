@@ -3,7 +3,9 @@ package WIN33CLC_VIEW;
 
 import WIN30CLC_DAO.DaoException;
 import WIN32CLC_CTR.CTR_05_Citas;
+import WIN32CLC_CTR.CTR_08_Comprobante;
 import WIN35CLC_REPORTS.CLASS.Rpt_Citas;
+import WIN35CLC_REPORTS.CLASS.Rpt_Comprobante;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -226,10 +228,10 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-            CTR_05_Citas ctr = new CTR_05_Citas();
+            CTR_08_Comprobante ctr = new CTR_08_Comprobante();
             int total_filas;
             total_filas = Integer.parseInt(cbx_filas.getSelectedItem().toString());
-            getCitas(txt_filtro.getText(), total_filas , this.paginanumber  , false);
+            getComprobantes(txt_filtro.getText(), total_filas , this.paginanumber  , false);
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_printActionPerformed
@@ -250,7 +252,7 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
         // TODO add your handling code here:
         int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
         this.paginanumber ++;
-        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);
+        getComprobantes(txt_filtro.getText(), rows , this.paginanumber  , false);
         
     }//GEN-LAST:event_btn_siguienteActionPerformed
 
@@ -258,21 +260,21 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
         // TODO add your handling code here:
         int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
         this.paginanumber --;
-        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);
+        getComprobantes(txt_filtro.getText(), rows , this.paginanumber  , false);
     }//GEN-LAST:event_btn_anteriorActionPerformed
 
     private void btn_principioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_principioActionPerformed
         // TODO add your handling code here:
         int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
         this.paginanumber = 1;
-        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);
+        getComprobantes(txt_filtro.getText(), rows , this.paginanumber  , false);
     }//GEN-LAST:event_btn_principioActionPerformed
 
     private void btn_finalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalActionPerformed
         // TODO add your handling code here:
         int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
         this.paginanumber = this.getPaginas_page();
-        getCitas(txt_filtro.getText(), rows , this.paginanumber  , false);
+        getComprobantes(txt_filtro.getText(), rows , this.paginanumber  , false);
     }//GEN-LAST:event_btn_finalActionPerformed
 
     /**
@@ -332,7 +334,7 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
 
     private void Load() {
         
-        getCitas("",3,1, true);
+        getComprobantes("",3,1, true);
         
         ActionListener actionListener_filas = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
@@ -340,16 +342,16 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
                 System.out.print(", Position: " + cbx_filas.getSelectedIndex());
                 int rows = Integer.parseInt(""+cbx_filas.getSelectedItem());
                 paginanumber = 1;
-                getCitas(txt_filtro.getText(), rows, paginanumber, false);
+                getComprobantes(txt_filtro.getText(), rows, paginanumber, false);
             }
         };
         cbx_filas.addActionListener(actionListener_filas);
     }
 
-    private void getCitas(String Filtro, int showrows, int page, boolean no_reload_page) {
+    private void getComprobantes(String Filtro, int showrows, int page, boolean no_reload_page) {
         try {
             
-            CTR_05_Citas ctr = new CTR_05_Citas();
+            CTR_08_Comprobante ctr = new CTR_08_Comprobante();
             this.table_citas.setModel(ctr.ExploradorCitas(Filtro, showrows, page));
             this.setPaginas_page(ctr.getPaginas_page());
             this.setTotal_registros_bd(ctr.getTotal_registros_bd());

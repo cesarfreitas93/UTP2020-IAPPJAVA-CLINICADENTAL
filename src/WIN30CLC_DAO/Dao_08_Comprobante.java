@@ -5,12 +5,17 @@
  */
 package WIN30CLC_DAO;
 
+import WIN31CLC_DTO.CitasPatient;
 import WIN31CLC_DTO.Comprobante;
+import WIN31CLC_DTO.ComprobanteReporte;
+import java.util.List;
 
 /**
  *
  * @author Carlos Jimenez Gomez
  */
-public interface Dao_08_Comprobante extends Dao<Comprobante, Long>{
-    
+public interface Dao_08_Comprobante{
+    public List<CitasPatient> getCitasByPatient(long id) throws DaoException;
+    public Comprobante Insertar(Comprobante entity) throws DaoException;
+    public List<ComprobanteReporte> Explorador(String filtro, int rowShow, int pagenumber) throws DaoException;
 }
