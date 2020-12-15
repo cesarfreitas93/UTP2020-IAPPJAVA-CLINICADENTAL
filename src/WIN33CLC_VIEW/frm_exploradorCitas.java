@@ -6,6 +6,7 @@ import WIN32CLC_CTR.CTR_05_Citas;
 import WIN32CLC_CTR.CTR_08_Comprobante;
 import WIN35CLC_REPORTS.CLASS.Rpt_Citas;
 import WIN35CLC_REPORTS.CLASS.Rpt_Comprobante;
+import WIN35CLC_REPORTS.CLASS.Rpt_Facturas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -240,7 +241,7 @@ public class frm_exploradorCitas extends javax.swing.JFrame {
             
             // imprimir reporte
             
-            Rpt_Citas citas = new Rpt_Citas();
+            Rpt_Facturas citas = new Rpt_Facturas();
             String filtro = txt_filtro.getText();
             citas.CallExplorerRPT(filtro, 1000, 1);
         } catch (IOException ex) {
