@@ -601,9 +601,8 @@ private void validarFechaCita() {
         txt_dni.setDoubleBuffered(true);
         txt_dni.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         txt_dni.setIntensity(0);
-        txt_dni.setPhColor(new java.awt.Color(255, 255, 255));
         txt_dni.setPixels(0);
-        txt_dni.setPlaceholder("");
+        txt_dni.setPlaceholder("Ingrese DNI");
         txt_dni.setRound(40);
 
         javax.swing.GroupLayout p2Layout = new javax.swing.GroupLayout(p2);

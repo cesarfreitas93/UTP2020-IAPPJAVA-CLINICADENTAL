@@ -34,13 +34,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 
-public class UI_V5_main1 extends javax.swing.JFrame {
+public class UI_V5_mainWindow extends javax.swing.JFrame {
  static boolean maximized = true;
 
 boolean a=true;
 
 
-    public UI_V5_main1() {
+    public UI_V5_mainWindow() {
   
         initComponents();
         rSPanelMaterial4.setBackground(new Color (255,255,255,0));
@@ -102,10 +102,12 @@ int xx,xy;
         panel_gestion_cita = new javax.swing.JPanel();
         frm_UI_03_gestionar_citas1 = new WIN33CLC_VIEW.frm_UI_03_gestionar_citas();
         panel_comprobante = new javax.swing.JPanel();
+        frm_UI_04_comprobantes1 = new WIN33CLC_VIEW.frm_UI_04_comprobantes();
         panel_servicios = new javax.swing.JPanel();
         panel_especialista = new javax.swing.JPanel();
         panel_usuarios = new javax.swing.JPanel();
         panel_reportes_citas = new javax.swing.JPanel();
+        frm_UI_Reportes_Citas1 = new WIN33CLC_VIEW.frm_UI_Reportes_Citas();
         panel_cita = new javax.swing.JPanel();
         frm_UI_02_reservar_cita11 = new WIN33CLC_VIEW.frm_UI_02_reservar_cita();
         menu_ventana = new RSMaterialComponent.RSPanelMaterial();
@@ -182,7 +184,7 @@ int xx,xy;
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_menu_1)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         panel_menu2.setBackground(new java.awt.Color(255, 255, 255));
@@ -212,7 +214,7 @@ int xx,xy;
             .addGroup(panel_menu2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_menu_2)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         panel_despegable_1.setBackground(new java.awt.Color(255, 255, 255));
@@ -515,6 +517,8 @@ int xx,xy;
         panel_comprobante.setBackground(new java.awt.Color(255, 255, 255));
         panel_comprobante.setName("panel_comprobante"); // NOI18N
         panel_comprobante.setLayout(new java.awt.CardLayout());
+        panel_comprobante.add(frm_UI_04_comprobantes1, "card2");
+
         rSPanelMaterial4.add(panel_comprobante, "card3");
 
         panel_servicios.setBackground(new java.awt.Color(255, 255, 255));
@@ -535,6 +539,8 @@ int xx,xy;
         panel_reportes_citas.setBackground(new java.awt.Color(255, 255, 255));
         panel_reportes_citas.setName("panel_inicio"); // NOI18N
         panel_reportes_citas.setLayout(new java.awt.CardLayout());
+        panel_reportes_citas.add(frm_UI_Reportes_Citas1, "card2");
+
         rSPanelMaterial4.add(panel_reportes_citas, "card3");
 
         panel_cita.setBackground(new java.awt.Color(255, 255, 255));
@@ -1276,7 +1282,7 @@ int xx,xy;
         panel_despegable_salir_1Layout.setVerticalGroup(
             panel_despegable_salir_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_despegable_salir_1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_salir_02, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1340,6 +1346,11 @@ int xx,xy;
         panel_despegable_reportes.setPixels(0);
         panel_despegable_reportes.setPreferredSize(new java.awt.Dimension(10, 74));
         panel_despegable_reportes.setRound(40);
+        panel_despegable_reportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panel_despegable_reportesMouseEntered(evt);
+            }
+        });
 
         btn_reporte_citas.setBackground(new java.awt.Color(246, 247, 251));
         btn_reporte_citas.setForeground(new java.awt.Color(131, 137, 152));
@@ -1467,7 +1478,7 @@ int xx,xy;
                             .addComponent(panel_despegable_titulo_2, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
                             .addComponent(panel_menu2, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
                         .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(panel_despegable_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(menu_02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1478,25 +1489,24 @@ int xx,xy;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panel_despegable_ventana, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                             .addComponent(menu_ventana, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(rSPanelMaterial4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panel_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                                .addComponent(panel_despegable_titulo_1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(panel_despegable_1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
-                                .addComponent(menu_01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(menu_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                                .addComponent(panel_despegable_reportes, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(menu_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(panel_despegable_salir_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(rSPanelMaterial4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel_menu, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                            .addComponent(panel_despegable_titulo_1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel_despegable_1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                            .addComponent(menu_01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(menu_salir1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                            .addComponent(panel_despegable_reportes, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(menu_salir, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panel_despegable_salir_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -2741,9 +2751,9 @@ changeimage_button(btn_max, "/WIN34CLC_RESOURCES_UI/max.png");
     private void btn_maxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_maxActionPerformed
  if(maximized){
           
-            UI_V5_main1.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            UI_V5_mainWindow.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
             GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            UI_V5_main1.this.setMaximizedBounds(env.getMaximumWindowBounds());
+            UI_V5_mainWindow.this.setMaximizedBounds(env.getMaximumWindowBounds());
             maximized = false;
         }else{
             setExtendedState(JFrame.NORMAL);
@@ -3335,7 +3345,11 @@ System.exit(0);           // TODO add your handling code here:
     }//GEN-LAST:event_btn_salir_02ActionPerformed
 
     private void btn_reporte_citasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_reporte_citasMouseEntered
-	   btn_reporte_citas.setBackground(new Color (247, 248, 251));
+	   
+        
+        
+        
+        btn_reporte_citas.setBackground(new Color (247, 248, 251));
           btn_reporte_citas.setForeground(new Color (131,137,152));;        // TODO add your handling code here:
     }//GEN-LAST:event_btn_reporte_citasMouseEntered
 
@@ -3360,9 +3374,9 @@ System.exit(0);           // TODO add your handling code here:
     private void btn_max_02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_max_02ActionPerformed
 if(maximized){
           
-            UI_V5_main1.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            UI_V5_mainWindow.this.setExtendedState(JFrame.MAXIMIZED_BOTH);
             GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            UI_V5_main1.this.setMaximizedBounds(env.getMaximumWindowBounds());
+            UI_V5_mainWindow.this.setMaximizedBounds(env.getMaximumWindowBounds());
             maximized = false;
         }else{
             setExtendedState(JFrame.NORMAL);
@@ -3390,7 +3404,7 @@ this.setState(Frame.ICONIFIED);
      try {
          generateBackUpMysql();
      } catch (IOException ex) {
-         Logger.getLogger(UI_V5_main1.class.getName()).log(Level.SEVERE, null, ex);
+         Logger.getLogger(UI_V5_mainWindow.class.getName()).log(Level.SEVERE, null, ex);
      }
    
    subboton_copia_bd();        // TODO add your handling code here:
@@ -3400,7 +3414,7 @@ this.setState(Frame.ICONIFIED);
      try {
          restoreBackUpMysql();
      } catch (IOException ex) {
-         Logger.getLogger(UI_V5_main1.class.getName()).log(Level.SEVERE, null, ex);
+         Logger.getLogger(UI_V5_mainWindow.class.getName()).log(Level.SEVERE, null, ex);
      }
         subboton_restuarar_bd();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_restoredatabaseActionPerformed
@@ -3487,11 +3501,16 @@ this.setState(Frame.ICONIFIED);
             btn_resetdatabase.setForeground(new Color (131,137,152));        // TODO add your handling code here:
     }//GEN-LAST:event_btn_resetdatabaseMouseExited
 
+    private void panel_despegable_reportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel_despegable_reportesMouseEntered
+   
+                // TODO add your handling code here:
+    }//GEN-LAST:event_panel_despegable_reportesMouseEntered
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI_V5_main1().setVisible(true);
+                new UI_V5_mainWindow().setVisible(true);
             }
         });
     }
@@ -3528,6 +3547,8 @@ this.setState(Frame.ICONIFIED);
     private newscomponents.RSButtonFlat_new btn_usuarios_02;
     private WIN33CLC_VIEW.frm_UI_02_reservar_cita frm_UI_02_reservar_cita11;
     private WIN33CLC_VIEW.frm_UI_03_gestionar_citas frm_UI_03_gestionar_citas1;
+    private WIN33CLC_VIEW.frm_UI_04_comprobantes frm_UI_04_comprobantes1;
+    private WIN33CLC_VIEW.frm_UI_Reportes_Citas frm_UI_Reportes_Citas1;
     private WIN33CLC_VIEW.frm_UI_inicio1 frm_UI_inicio11;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

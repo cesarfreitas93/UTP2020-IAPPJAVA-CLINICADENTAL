@@ -350,9 +350,8 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         txt_dni.setDoubleBuffered(true);
         txt_dni.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         txt_dni.setIntensity(0);
-        txt_dni.setPhColor(new java.awt.Color(255, 255, 255));
         txt_dni.setPixels(0);
-        txt_dni.setPlaceholder("");
+        txt_dni.setPlaceholder("Ingrese DNI");
         txt_dni.setRound(40);
 
         txt_name.setBackground(new java.awt.Color(247, 248, 251));
@@ -361,7 +360,6 @@ ArrayList<Ubigeo> ubigeo_lista_dep = null;
         txt_name.setBgShadeHover(new java.awt.Color(204, 204, 204));
         txt_name.setFont(new java.awt.Font("Poppins Light", 0, 14)); // NOI18N
         txt_name.setIntensity(0);
-        txt_name.setPhColor(new java.awt.Color(255, 255, 255));
         txt_name.setPixels(0);
         txt_name.setPlaceholder("");
         txt_name.setRound(40);

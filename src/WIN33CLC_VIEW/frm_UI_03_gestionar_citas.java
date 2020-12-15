@@ -57,7 +57,8 @@ public class frm_UI_03_gestionar_citas extends javax.swing.JPanel {
         initComponents();
         setBackground(new Color (255,255,255,0));
         
-        
+        p1.setColorPrimario(new Color (255,255,255,200));
+        p1.setColorSecundario(new Color (255,255,255,200));
         LoadData();
         limpiar_menu();
         btn_eliminar_cita.setEnabled(false);
@@ -223,6 +224,7 @@ public void LoadData() {
                         lbl_especialista.setText(dtos.getSpecialist().getName()+ " "+dtos.getSpecialist().getLastname()+" "+dtos.getSpecialist().getSurename());
                         lbl_patient.setText(dtos.getPatient().getName() + " " + dtos.getPatient().getLastname() + " " + dtos.getPatient().getSurename());
                         lbl_phone.setText(dtos.getPatient().getPhone());
+                        lbl_correo.setText(dtos.getPatient().getEmail());
                         lbl_fecha_cita.setText(String.valueOf(dtos.getFechadecita()));
                         lbl_hora_cita.setText(String.valueOf(dtos.getHorario_citas().getCita_horario_inicio()) + " - " + String.valueOf(dtos.getHorario_citas().getCita_horario_fin()));
                         btn_eliminar_cita.setEnabled(false);
@@ -466,10 +468,10 @@ public void LoadData() {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
+            .addGroup(p1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
-                .addGap(81, 81, 81))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         p1Layout.setVerticalGroup(
             p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
