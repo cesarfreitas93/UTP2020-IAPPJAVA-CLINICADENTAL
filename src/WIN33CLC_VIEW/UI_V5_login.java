@@ -1,10 +1,17 @@
 
 package WIN33CLC_VIEW;
 
+import WIN30CLC_DAO.DaoException;
+import WIN32CLC_CTR.CTR_01_Auth;
 import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class UI_V5_login extends javax.swing.JFrame {
 
@@ -53,6 +60,7 @@ int xx,xy;
 
         txt_user.setBackground(new java.awt.Color(247, 248, 251));
         txt_user.setForeground(new java.awt.Color(51, 51, 51));
+        txt_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_user.setBgShade(new java.awt.Color(255, 255, 255));
         txt_user.setBgShadeHover(new java.awt.Color(255, 255, 255));
         txt_user.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -66,6 +74,7 @@ int xx,xy;
 
         txt_pass.setBackground(new java.awt.Color(247, 248, 251));
         txt_pass.setForeground(new java.awt.Color(51, 51, 51));
+        txt_pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_pass.setBgShade(new java.awt.Color(255, 255, 255));
         txt_pass.setBgShadeHover(new java.awt.Color(255, 255, 255));
         txt_pass.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -177,9 +186,37 @@ int xx,xy;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void login() {
+        try {
 
+            CTR_01_Auth ctr = new CTR_01_Auth();
+            char clave[] = txt_pass.getPassword();
+            String clavedef = new String(clave);
+
+            if (ctr.CheckAuth(txt_user.getText(), clavedef)) {
+                UI_V5_mainWindow frm_m = new UI_V5_mainWindow();
+                frm_m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+                frm_m.pack();
+  //frm_m.setLocationRelativeTo(null);  // *** this will center your app ***
+                frm_m.setVisible(true);
+
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña Incorrecto");
+
+            }
+        } catch (SQLException ex) {
+           // Logger.getLogger(frm_01_login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DaoException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "Dental SyS", JOptionPane.ERROR_MESSAGE);
+         //   Logger.getLogger(frm_01_login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
-          // TODO add your handling code here:
+  login();          // TODO add your handling code here:
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
     private void rSPanelImage1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSPanelImage1MousePressed

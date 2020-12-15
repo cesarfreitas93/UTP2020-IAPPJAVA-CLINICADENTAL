@@ -3,6 +3,7 @@ package WIN33CLC_VIEW;
 
 import RSMaterialComponent.RSButtonMaterialGradientOne;
 import RSMaterialComponent.RSPanelMaterial;
+import WIN31CLC_DTO.User;
 import WIN32CLC_CTR.CTR_11_DataBaseConfiguration;
 import static WIN33CLC_VIEW.frm_Main.maximized;
 import WIN_2020_UTILS.ConfigReader;
@@ -66,13 +67,36 @@ boolean a=true;
     
         colores_menus_despegables();
         
-        
+        estado_usuario();
         
         
           
         
     }
+public void estado_usuario() {
 
+        User global_User = new User();
+        global_User = WIN31CLC_DTO.declaraciones.getGlobal_User();
+        if (global_User.getUsername() != null) {
+            if (global_User.getRole().equals("1")) {
+                btn_usuario.setEnabled(true);
+                btn_usuarios_02.setEnabled(true);
+                btn_base_datos.setEnabled(true);
+                btn_createbackup.setEnabled(true);
+                btn_restoredatabase.setEnabled(true);
+                btn_resetdatabase.setEnabled(true);
+            } else if (global_User.getRole().equals("2")) {
+                btn_usuario.setEnabled(false);
+                btn_usuarios_02.setEnabled(false);
+                btn_base_datos.setEnabled(false);
+                btn_createbackup.setEnabled(false);
+                btn_restoredatabase.setEnabled(false);
+                btn_resetdatabase.setEnabled(false);
+
+            }
+        }
+
+    }
 int xx,xy;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -99,17 +123,23 @@ int xx,xy;
         panel_inicio = new javax.swing.JPanel();
         frm_UI_inicio11 = new WIN33CLC_VIEW.frm_UI_inicio1();
         panel_paciente = new javax.swing.JPanel();
+        frm_UI_01_Patien1 = new WIN33CLC_VIEW.frm_UI_01_Patien();
         panel_gestion_cita = new javax.swing.JPanel();
         frm_UI_03_gestionar_citas1 = new WIN33CLC_VIEW.frm_UI_03_gestionar_citas();
         panel_comprobante = new javax.swing.JPanel();
         frm_UI_04_comprobantes1 = new WIN33CLC_VIEW.frm_UI_04_comprobantes();
         panel_servicios = new javax.swing.JPanel();
+        frm_UI_05_servicios1 = new WIN33CLC_VIEW.frm_UI_05_servicios();
         panel_especialista = new javax.swing.JPanel();
+        frm_UI_06_especialista1 = new WIN33CLC_VIEW.frm_UI_06_especialista();
         panel_usuarios = new javax.swing.JPanel();
+        frm_UI_07_usuarios1 = new WIN33CLC_VIEW.frm_UI_07_usuarios();
         panel_reportes_citas = new javax.swing.JPanel();
         frm_UI_Reportes_Citas1 = new WIN33CLC_VIEW.frm_UI_Reportes_Citas();
         panel_cita = new javax.swing.JPanel();
-        frm_UI_02_reservar_cita11 = new WIN33CLC_VIEW.frm_UI_02_reservar_cita();
+        frm_UI_02_reservar_cita1 = new WIN33CLC_VIEW.frm_UI_02_reservar_cita();
+        panel_reportes_facturas = new javax.swing.JPanel();
+        frm_UI_Reportes_facturas1 = new WIN33CLC_VIEW.frm_UI_Reportes_facturas();
         menu_ventana = new RSMaterialComponent.RSPanelMaterial();
         btn_min = new RSMaterialComponent.RSButtonMaterialGradientOne();
         btn_max = new RSMaterialComponent.RSButtonMaterialGradientOne();
@@ -507,6 +537,8 @@ int xx,xy;
         panel_paciente.setBackground(new java.awt.Color(255, 255, 255));
         panel_paciente.setName("panel_paciente"); // NOI18N
         panel_paciente.setLayout(new java.awt.CardLayout());
+        panel_paciente.add(frm_UI_01_Patien1, "card2");
+
         rSPanelMaterial4.add(panel_paciente, "card3");
 
         panel_gestion_cita.setLayout(new java.awt.CardLayout());
@@ -524,16 +556,22 @@ int xx,xy;
         panel_servicios.setBackground(new java.awt.Color(255, 255, 255));
         panel_servicios.setName("panel_servicios"); // NOI18N
         panel_servicios.setLayout(new java.awt.CardLayout());
+        panel_servicios.add(frm_UI_05_servicios1, "card2");
+
         rSPanelMaterial4.add(panel_servicios, "card3");
 
         panel_especialista.setBackground(new java.awt.Color(255, 255, 255));
         panel_especialista.setName("panel_especialista"); // NOI18N
         panel_especialista.setLayout(new java.awt.CardLayout());
+        panel_especialista.add(frm_UI_06_especialista1, "card2");
+
         rSPanelMaterial4.add(panel_especialista, "card3");
 
         panel_usuarios.setBackground(new java.awt.Color(255, 255, 255));
         panel_usuarios.setName("panel_usuarios"); // NOI18N
         panel_usuarios.setLayout(new java.awt.CardLayout());
+        panel_usuarios.add(frm_UI_07_usuarios1, "card2");
+
         rSPanelMaterial4.add(panel_usuarios, "card3");
 
         panel_reportes_citas.setBackground(new java.awt.Color(255, 255, 255));
@@ -545,9 +583,16 @@ int xx,xy;
 
         panel_cita.setBackground(new java.awt.Color(255, 255, 255));
         panel_cita.setLayout(new java.awt.CardLayout());
-        panel_cita.add(frm_UI_02_reservar_cita11, "card2");
+        panel_cita.add(frm_UI_02_reservar_cita1, "card2");
 
         rSPanelMaterial4.add(panel_cita, "card2");
+
+        panel_reportes_facturas.setBackground(new java.awt.Color(255, 255, 255));
+        panel_reportes_facturas.setName("panel_inicio"); // NOI18N
+        panel_reportes_facturas.setLayout(new java.awt.CardLayout());
+        panel_reportes_facturas.add(frm_UI_Reportes_facturas1, "card2");
+
+        rSPanelMaterial4.add(panel_reportes_facturas, "card3");
 
         menu_ventana.setBackground(new java.awt.Color(255, 255, 255));
         menu_ventana.setBgShade(new java.awt.Color(204, 204, 204));
@@ -1631,7 +1676,9 @@ int xx,xy;
             panel_servicios.setVisible(false);
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
-            panel_reportes_citas.setVisible(false);
+            
+                                    panel_reportes_citas.setVisible(false);
+            panel_reportes_facturas.setVisible(false);
 
           
           changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/1.png");
@@ -1718,6 +1765,7 @@ int xx,xy;
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
              panel_reportes_citas.setVisible(false);
+             panel_reportes_facturas.setVisible(false);
             
    changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/2.png");
             
@@ -1805,6 +1853,7 @@ int xx,xy;
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
              panel_reportes_citas.setVisible(false);
+             panel_reportes_facturas.setVisible(false);
             
          changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
           changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
@@ -1895,6 +1944,7 @@ int xx,xy;
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
              panel_reportes_citas.setVisible(false);
+             panel_reportes_facturas.setVisible(false);
             
             
            changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
@@ -1986,6 +2036,7 @@ int xx,xy;
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
              panel_reportes_citas.setVisible(false);
+             panel_reportes_facturas.setVisible(false);
             
           changeimage_button(btn_inicio, "/WIN34CLC_RESOURCES_UI/icons8-casa-30.png");
           changeimage_button(btn_paciente, "/WIN34CLC_RESOURCES_UI/icons8-usuario-30.png");
@@ -2140,6 +2191,7 @@ int xx,xy;
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
              panel_reportes_citas.setVisible(false);
+             panel_reportes_facturas.setVisible(false);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -2222,6 +2274,7 @@ int xx,xy;
             panel_especialista.setVisible(true);
             panel_usuarios.setVisible(false);
              panel_reportes_citas.setVisible(false);
+             panel_reportes_facturas.setVisible(false);
 
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -2395,6 +2448,7 @@ int xx,xy;
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(true);
              panel_reportes_citas.setVisible(false);
+             panel_reportes_facturas.setVisible(false);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -2480,6 +2534,7 @@ int xx,xy;
             panel_especialista.setVisible(false);
             panel_usuarios.setVisible(false);
             panel_reportes_citas.setVisible(true);
+            panel_reportes_facturas.setVisible(false);
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -2530,6 +2585,21 @@ int xx,xy;
             this.btn_restoredatabase.setSelected(false);
             this.btn_resetdatabase.setSelected(false);
             this.btn_base_datos.setSelected(false);
+            
+            
+            panel_inicio.setVisible(false);
+            panel_paciente.setVisible(false);
+            panel_cita.setVisible(false);
+            panel_gestion_cita.setVisible(false);
+            panel_comprobante.setVisible(false);
+            panel_servicios.setVisible(false);
+            panel_especialista.setVisible(false);
+            panel_usuarios.setVisible(false);
+            panel_reportes_citas.setVisible(false);
+            panel_reportes_facturas.setVisible(true);
+            
+            
+
             
             btn_inicio_02.setBackground(new Color (255,255,255,0));
             btn_inicio_02.setForeground(new Color (131,137,152));
@@ -3545,10 +3615,15 @@ this.setState(Frame.ICONIFIED);
     private newscomponents.RSButtonFlat_new btn_servicios_02;
     private RSMaterialComponent.RSButtonMaterialGradientOne btn_usuario;
     private newscomponents.RSButtonFlat_new btn_usuarios_02;
-    private WIN33CLC_VIEW.frm_UI_02_reservar_cita frm_UI_02_reservar_cita11;
+    private WIN33CLC_VIEW.frm_UI_01_Patien frm_UI_01_Patien1;
+    private WIN33CLC_VIEW.frm_UI_02_reservar_cita frm_UI_02_reservar_cita1;
     private WIN33CLC_VIEW.frm_UI_03_gestionar_citas frm_UI_03_gestionar_citas1;
     private WIN33CLC_VIEW.frm_UI_04_comprobantes frm_UI_04_comprobantes1;
+    private WIN33CLC_VIEW.frm_UI_05_servicios frm_UI_05_servicios1;
+    private WIN33CLC_VIEW.frm_UI_06_especialista frm_UI_06_especialista1;
+    private WIN33CLC_VIEW.frm_UI_07_usuarios frm_UI_07_usuarios1;
     private WIN33CLC_VIEW.frm_UI_Reportes_Citas frm_UI_Reportes_Citas1;
+    private WIN33CLC_VIEW.frm_UI_Reportes_facturas frm_UI_Reportes_facturas1;
     private WIN33CLC_VIEW.frm_UI_inicio1 frm_UI_inicio11;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -3587,6 +3662,7 @@ this.setState(Frame.ICONIFIED);
     private RSMaterialComponent.RSPanelMaterial panel_menu2;
     private javax.swing.JPanel panel_paciente;
     private javax.swing.JPanel panel_reportes_citas;
+    private javax.swing.JPanel panel_reportes_facturas;
     private javax.swing.JPanel panel_servicios;
     private javax.swing.JPanel panel_usuarios;
     private rojerusan.RSPanelImage rSPanelImage1;

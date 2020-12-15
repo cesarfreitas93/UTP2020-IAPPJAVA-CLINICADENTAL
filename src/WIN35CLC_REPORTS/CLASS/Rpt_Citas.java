@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package WIN35CLC_REPORTS.CLASS;
 
 import WIN_2020_UTILS.ConfigReader;
@@ -20,10 +16,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author Cesar
- */
+
 public class Rpt_Citas {
     protected ConfigReader properties = null;
     protected String db_name, db_url , db_user, db_pass;
